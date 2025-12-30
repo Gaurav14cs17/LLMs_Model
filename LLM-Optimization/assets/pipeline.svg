@@ -1,0 +1,43 @@
+<svg width="700" height="120" viewBox="0 0 700 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Step 1: Quantization -->
+  <rect x="10" y="35" width="110" height="50" rx="10" fill="#4361ee"/>
+  <text x="65" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="white" font-weight="bold">Quantization</text>
+  <text x="65" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="white" opacity="0.8">8× smaller</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M125 60 L145 60" stroke="#333" stroke-width="2"/>
+  <polygon points="145,55 155,60 145,65" fill="#333"/>
+  
+  <!-- Step 2: Pruning -->
+  <rect x="160" y="35" width="110" height="50" rx="10" fill="#7209b7"/>
+  <text x="215" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="white" font-weight="bold">Pruning</text>
+  <text x="215" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="white" opacity="0.8">10× smaller</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M275 60 L295 60" stroke="#333" stroke-width="2"/>
+  <polygon points="295,55 305,60 295,65" fill="#333"/>
+  
+  <!-- Step 3: Distillation -->
+  <rect x="310" y="35" width="110" height="50" rx="10" fill="#f72585"/>
+  <text x="365" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="white" font-weight="bold">Distillation</text>
+  <text x="365" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="white" opacity="0.8">7× faster</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M425 60 L445 60" stroke="#333" stroke-width="2"/>
+  <polygon points="445,55 455,60 445,65" fill="#333"/>
+  
+  <!-- Step 4: Fine-tune -->
+  <rect x="460" y="35" width="110" height="50" rx="10" fill="#00b4d8"/>
+  <text x="515" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="white" font-weight="bold">LoRA</text>
+  <text x="515" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="white" opacity="0.8">99% quality</text>
+  
+  <!-- Arrow 4 -->
+  <path d="M575 60 L595 60" stroke="#333" stroke-width="2"/>
+  <polygon points="595,55 605,60 595,65" fill="#333"/>
+  
+  <!-- Step 5: Deploy -->
+  <rect x="610" y="35" width="80" height="50" rx="10" fill="#06d6a0"/>
+  <text x="650" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="white" font-weight="bold">Deploy</text>
+  <text x="650" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="white" opacity="0.8">🚀</text>
+</svg>
+

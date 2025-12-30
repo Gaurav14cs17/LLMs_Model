@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380">
+  <defs>
+    <linearGradient id="loraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#118ab2"/>
+      <stop offset="100%" style="stop-color:#06d6a0"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="380" fill="#0d1117"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">LoRA: Low-Rank Adaptation Mathematics</text>
+  
+  <!-- LoRA Decomposition -->
+  <rect x="30" y="70" width="380" height="130" rx="12" fill="#161b22" stroke="url(#loraGrad)" stroke-width="3"/>
+  <text x="220" y="100" text-anchor="middle" fill="url(#loraGrad)" font-size="18" font-weight="bold" font-family="Arial">LoRA Update</text>
+  <text x="220" y="135" text-anchor="middle" fill="#c9d1d9" font-size="16" font-family="monospace">W = W₀ + ΔW = W₀ + BA</text>
+  <text x="220" y="165" text-anchor="middle" fill="#8b949e" font-size="12" font-family="Arial">B ∈ ℝ^(d×r), A ∈ ℝ^(r×k), r ≪ min(d,k)</text>
+  <text x="220" y="190" text-anchor="middle" fill="#7ee787" font-size="11" font-family="Arial">Only 0.1-1% trainable parameters!</text>
+  
+  <!-- Parameter Count -->
+  <rect x="440" y="70" width="380" height="130" rx="12" fill="#161b22" stroke="#ffa657" stroke-width="2"/>
+  <text x="630" y="100" text-anchor="middle" fill="#ffa657" font-size="18" font-weight="bold" font-family="Arial">Parameter Efficiency</text>
+  <text x="630" y="135" text-anchor="middle" fill="#c9d1d9" font-size="14" font-family="monospace">Full: d × k</text>
+  <text x="630" y="160" text-anchor="middle" fill="#c9d1d9" font-size="14" font-family="monospace">LoRA: r × (d + k)</text>
+  <text x="630" y="190" text-anchor="middle" fill="#7ee787" font-size="12" font-family="Arial">d=k=4096, r=16 → 0.78% params</text>
+  
+  <!-- Math Details -->
+  <rect x="30" y="220" width="790" height="140" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="425" y="250" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">📐 Key Theorems</text>
+  
+  <text x="60" y="285" fill="#7ee787" font-size="12" font-weight="bold" font-family="Arial">Eckart-Young:</text>
+  <text x="165" y="285" fill="#c9d1d9" font-size="11" font-family="monospace">‖ΔW - BA‖_F ≤ σ_(r+1)(ΔW)</text>
+  
+  <text x="450" y="285" fill="#f778ba" font-size="12" font-weight="bold" font-family="Arial">Forward:</text>
+  <text x="530" y="285" fill="#c9d1d9" font-size="11" font-family="monospace">h = W₀x + (α/r)BAx</text>
+  
+  <text x="60" y="320" fill="#79c0ff" font-size="12" font-weight="bold" font-family="Arial">Intrinsic Dim:</text>
+  <text x="175" y="320" fill="#c9d1d9" font-size="11" font-family="Arial">d* ≪ n (typically 100-1000 for BERT)</text>
+  
+  <text x="450" y="320" fill="#ffa657" font-size="12" font-weight="bold" font-family="Arial">Generalization:</text>
+  <text x="580" y="320" fill="#c9d1d9" font-size="11" font-family="monospace">O(√(m×log(n/m)/n))</text>
+  
+  <text x="60" y="350" fill="#8b949e" font-size="11" font-family="Arial">💡 Zero init (B=0): Start from pre-trained exactly • α=r or 2r for stable training</text>
+</svg>
+
