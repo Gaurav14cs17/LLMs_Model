@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <!-- Background -->
+  <rect width="700" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Understanding Key Metrics</text>
+  
+  <!-- Perplexity Explanation -->
+  <g transform="translate(30, 55)">
+    <rect width="300" height="110" fill="white" stroke="#06b6d4" stroke-width="2" rx="10"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0891b2" text-anchor="middle">Perplexity</text>
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">PPL = exp(cross-entropy loss)</text>
+    <text x="150" y="80" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Lower = model is more confident</text>
+    <text x="150" y="100" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle" font-weight="bold">Good: PPL &lt; 10 | Bad: PPL &gt; 100</text>
+  </g>
+  
+  <!-- Cross-Entropy -->
+  <g transform="translate(370, 55)">
+    <rect width="300" height="110" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2563eb" text-anchor="middle">Cross-Entropy Loss</text>
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">CE = -Σ y·log(p)</text>
+    <text x="150" y="80" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Standard training objective</text>
+    <text x="150" y="100" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="bold">Lower = Better predictions</text>
+  </g>
+  
+  <!-- BLEU Explanation -->
+  <g transform="translate(30, 180)">
+    <rect width="300" height="100" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#7c3aed" text-anchor="middle">BLEU Score</text>
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">N-gram precision between output</text>
+    <text x="150" y="70" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">and reference text</text>
+    <text x="150" y="90" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle" font-weight="bold">Translation: BLEU &gt; 30 is good</text>
+  </g>
+  
+  <!-- ROUGE Explanation -->
+  <g transform="translate(370, 180)">
+    <rect width="300" height="100" fill="white" stroke="#10b981" stroke-width="2" rx="10"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#059669" text-anchor="middle">ROUGE Score</text>
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Recall-Oriented Understudy</text>
+    <text x="150" y="70" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">for Gisting Evaluation</text>
+    <text x="150" y="90" font-family="Arial, sans-serif" font-size="10" fill="#059669" text-anchor="middle" font-weight="bold">Summarization: ROUGE-L &gt; 0.3</text>
+  </g>
+</svg>
+

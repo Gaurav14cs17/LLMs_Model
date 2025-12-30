@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">How LLMs Process Text</text>
+  
+  <!-- Step 1: Input -->
+  <g transform="translate(30, 70)">
+    <rect width="140" height="120" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="140" height="35" fill="url(#inputGrad)" rx="10"/>
+    <rect y="28" width="140" height="7" fill="url(#inputGrad)"/>
+    <text x="70" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">1. Input Text</text>
+    <text x="70" y="65" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📝</text>
+    <text x="70" y="90" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">"What is the</text>
+    <text x="70" y="105" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">capital of France?"</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <path d="M175 130 L200 130" stroke="#64748b" stroke-width="2"/>
+  <polygon points="198,125 210,130 198,135" fill="#64748b"/>
+  
+  <!-- Step 2: Tokenization -->
+  <g transform="translate(215, 70)">
+    <rect width="130" height="120" fill="white" stroke="#6366f1" stroke-width="2" rx="10"/>
+    <rect width="130" height="35" fill="#6366f1" rx="10"/>
+    <rect y="28" width="130" height="7" fill="#6366f1"/>
+    <text x="65" y="23" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">2. Tokenization</text>
+    <text x="65" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🔤</text>
+    <rect x="10" y="75" width="35" height="18" fill="#e0e7ff" rx="3"/>
+    <text x="27" y="88" font-family="Arial, sans-serif" font-size="7" fill="#4f46e5" text-anchor="middle">What</text>
+    <rect x="48" y="75" width="25" height="18" fill="#e0e7ff" rx="3"/>
+    <text x="60" y="88" font-family="Arial, sans-serif" font-size="7" fill="#4f46e5" text-anchor="middle">is</text>
+    <rect x="76" y="75" width="25" height="18" fill="#e0e7ff" rx="3"/>
+    <text x="88" y="88" font-family="Arial, sans-serif" font-size="7" fill="#4f46e5" text-anchor="middle">the</text>
+    <rect x="104" y="75" width="20" height="18" fill="#e0e7ff" rx="3"/>
+    <text x="114" y="88" font-family="Arial, sans-serif" font-size="7" fill="#4f46e5" text-anchor="middle">...</text>
+    <text x="65" y="110" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Split into tokens</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <path d="M350 130 L375 130" stroke="#64748b" stroke-width="2"/>
+  <polygon points="373,125 385,130 373,135" fill="#64748b"/>
+  
+  <!-- Step 3: Embedding -->
+  <g transform="translate(390, 70)">
+    <rect width="130" height="120" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="130" height="35" fill="url(#processGrad)" rx="10"/>
+    <rect y="28" width="130" height="7" fill="url(#processGrad)"/>
+    <text x="65" y="23" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">3. Embedding</text>
+    <text x="65" y="58" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">📊</text>
+    <text x="65" y="80" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">[0.2, -0.5, 0.8, ...]</text>
+    <text x="65" y="95" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">[0.1, 0.3, -0.2, ...]</text>
+    <text x="65" y="110" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Vector space</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <path d="M525 130 L550 130" stroke="#64748b" stroke-width="2"/>
+  <polygon points="548,125 560,130 548,135" fill="#64748b"/>
+  
+  <!-- Step 4: Transformer -->
+  <g transform="translate(565, 70)">
+    <rect width="130" height="120" fill="white" stroke="#f59e0b" stroke-width="2" rx="10"/>
+    <rect width="130" height="35" fill="#f59e0b" rx="10"/>
+    <rect y="28" width="130" height="7" fill="#f59e0b"/>
+    <text x="65" y="23" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">4. Transformer</text>
+    <text x="65" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">⚡</text>
+    <text x="65" y="80" font-family="Arial, sans-serif" font-size="8" fill="#d97706" text-anchor="middle">Self-Attention</text>
+    <text x="65" y="95" font-family="Arial, sans-serif" font-size="8" fill="#d97706" text-anchor="middle">Feed Forward</text>
+    <text x="65" y="110" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">N Layers</text>
+  </g>
+  
+  <!-- Arrow 4 to output -->
+  <path d="M700 130 L700 210 L650 210" stroke="#64748b" stroke-width="2"/>
+  <polygon points="655,205 645,210 655,215" fill="#64748b"/>
+  
+  <!-- Step 5: Output -->
+  <g transform="translate(480, 200)">
+    <rect width="160" height="100" fill="white" stroke="#10b981" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="url(#outputGrad)" rx="10"/>
+    <rect y="28" width="160" height="7" fill="url(#outputGrad)"/>
+    <text x="80" y="23" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">5. Generate Output</text>
+    <text x="80" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">💬</text>
+    <text x="80" y="82" font-family="Arial, sans-serif" font-size="10" fill="#059669" text-anchor="middle">"The capital of</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="10" fill="#059669" text-anchor="middle">France is Paris"</text>
+  </g>
+  
+  <!-- Next Token Prediction Box -->
+  <rect x="50" y="220" width="380" height="110" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="240" y="250" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Next Token Prediction (Autoregressive)</text>
+  
+  <text x="80" y="280" font-family="Arial, sans-serif" font-size="10" fill="#64748b">The → capital</text>
+  <text x="180" y="280" font-family="Arial, sans-serif" font-size="10" fill="#64748b">capital → of</text>
+  <text x="280" y="280" font-family="Arial, sans-serif" font-size="10" fill="#64748b">of → France</text>
+  <text x="380" y="280" font-family="Arial, sans-serif" font-size="10" fill="#64748b">France → is</text>
+  
+  <path d="M100 295 L380 295" stroke="#3b82f6" stroke-width="2"/>
+  <polygon points="378,290 390,295 378,300" fill="#3b82f6"/>
+  <text x="240" y="315" font-family="Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle">Generate one token at a time</text>
+</svg>
+

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="ppoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dpoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">PPO vs DPO: Alignment Techniques</text>
+  
+  <!-- PPO Section -->
+  <rect x="30" y="55" width="360" height="370" fill="white" stroke="#fde68a" stroke-width="2" rx="12"/>
+  <rect x="30" y="55" width="360" height="50" fill="url(#ppoGrad)" rx="12"/>
+  <rect x="30" y="93" width="360" height="12" fill="url(#ppoGrad)"/>
+  <text x="210" y="88" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">PPO (Proximal Policy Optimization)</text>
+  
+  <!-- PPO Pipeline -->
+  <g transform="translate(55, 120)">
+    <rect width="80" height="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="40" y="22" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🤖</text>
+    <text x="40" y="40" font-family="Arial, sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Policy</text>
+    
+    <path d="M85 145 L115 145" stroke="#d97706" stroke-width="2"/>
+    <polygon points="113,140 125,145 113,150" fill="#d97706"/>
+    
+    <rect x="130" y="120" width="80" height="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="170" y="142" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">📊</text>
+    <text x="170" y="160" font-family="Arial, sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Reward</text>
+    
+    <path d="M215 145 L245 145" stroke="#d97706" stroke-width="2"/>
+    <polygon points="243,140 255,145 243,150" fill="#d97706"/>
+    
+    <rect x="260" y="120" width="80" height="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="300" y="142" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🎯</text>
+    <text x="300" y="160" font-family="Arial, sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Update</text>
+  </g>
+  
+  <!-- PPO Characteristics -->
+  <g transform="translate(55, 260)">
+    <rect x="0" y="0" width="130" height="40" fill="#fef3c7" rx="5"/>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">🔴 Reward Model</text>
+    
+    <rect x="145" y="0" width="130" height="40" fill="#fef3c7" rx="5"/>
+    <text x="210" y="25" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">🔴 High Memory</text>
+    
+    <rect x="0" y="50" width="130" height="40" fill="#fef3c7" rx="5"/>
+    <text x="65" y="75" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">🔴 Complex</text>
+    
+    <rect x="145" y="50" width="130" height="40" fill="#dcfce7" rx="5"/>
+    <text x="210" y="75" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">🟢 Flexible</text>
+    
+    <rect x="0" y="100" width="275" height="40" fill="#fef3c7" rx="5"/>
+    <text x="137" y="125" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">4 Models: Policy + Reference + Reward + Critic</text>
+  </g>
+  
+  <!-- DPO Section -->
+  <rect x="410" y="55" width="360" height="370" fill="white" stroke="#bfdbfe" stroke-width="2" rx="12"/>
+  <rect x="410" y="55" width="360" height="50" fill="url(#dpoGrad)" rx="12"/>
+  <rect x="410" y="93" width="360" height="12" fill="url(#dpoGrad)"/>
+  <text x="590" y="88" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">DPO (Direct Preference Optimization)</text>
+  
+  <!-- DPO Pipeline -->
+  <g transform="translate(435, 120)">
+    <rect width="120" height="50" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="60" y="22" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">📝</text>
+    <text x="60" y="40" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Preference Data</text>
+    
+    <path d="M125 145 L165 145" stroke="#2563eb" stroke-width="2"/>
+    <polygon points="163,140 175,145 163,150" fill="#2563eb"/>
+    
+    <rect x="180" y="120" width="120" height="50" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="240" y="142" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🎯</text>
+    <text x="240" y="160" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Direct Optimization</text>
+  </g>
+  
+  <!-- DPO Characteristics -->
+  <g transform="translate(435, 260)">
+    <rect x="0" y="0" width="130" height="40" fill="#dcfce7" rx="5"/>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">🟢 No Reward</text>
+    
+    <rect x="145" y="0" width="130" height="40" fill="#dcfce7" rx="5"/>
+    <text x="210" y="25" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">🟢 Low Memory</text>
+    
+    <rect x="0" y="50" width="130" height="40" fill="#dcfce7" rx="5"/>
+    <text x="65" y="75" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">🟢 Simple</text>
+    
+    <rect x="145" y="50" width="130" height="40" fill="#dcfce7" rx="5"/>
+    <text x="210" y="75" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">🟢 Stable</text>
+    
+    <rect x="0" y="100" width="275" height="40" fill="#dcfce7" rx="5"/>
+    <text x="137" y="125" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">2 Models: Policy + Reference Only</text>
+  </g>
+</svg>
+

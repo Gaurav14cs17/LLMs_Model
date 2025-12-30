@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <defs>
+    <linearGradient id="deployStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#deployStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#deployStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 6: Deployment</text>
+  
+  <!-- Model Optimization -->
+  <g transform="translate(30, 80)">
+    <rect width="200" height="100" fill="white" stroke="#bfdbfe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">⚙️ Optimization</text>
+    
+    <rect x="15" y="50" width="80" height="35" fill="#dbeafe" rx="5"/>
+    <text x="55" y="72" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Quantization</text>
+    
+    <rect x="105" y="50" width="80" height="35" fill="#dbeafe" rx="5"/>
+    <text x="145" y="72" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Pruning</text>
+  </g>
+  
+  <!-- Serving Frameworks -->
+  <g transform="translate(250, 80)">
+    <rect width="200" height="100" fill="white" stroke="#bfdbfe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">🚀 Serving</text>
+    
+    <rect x="15" y="50" width="80" height="35" fill="#dcfce7" rx="5"/>
+    <text x="55" y="72" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">vLLM</text>
+    
+    <rect x="105" y="50" width="80" height="35" fill="#fef3c7" rx="5"/>
+    <text x="145" y="72" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">TGI</text>
+  </g>
+  
+  <!-- API Gateway -->
+  <g transform="translate(470, 80)">
+    <rect width="200" height="100" fill="white" stroke="#bfdbfe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">🌐 API</text>
+    
+    <rect x="15" y="50" width="80" height="35" fill="#ede9fe" rx="5"/>
+    <text x="55" y="72" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">FastAPI</text>
+    
+    <rect x="105" y="50" width="80" height="35" fill="#ffe4e6" rx="5"/>
+    <text x="145" y="72" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">Gradio</text>
+  </g>
+  
+  <!-- Architecture -->
+  <rect x="30" y="195" width="640" height="90" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="350" y="220" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Production Architecture</text>
+  
+  <!-- Flow -->
+  <rect x="60" y="240" width="80" height="30" fill="#dbeafe" rx="5"/>
+  <text x="100" y="260" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Client</text>
+  
+  <path d="M145 255 L175 255" stroke="#64748b" stroke-width="2"/>
+  <polygon points="173,250 185,255 173,260" fill="#64748b"/>
+  
+  <rect x="190" y="240" width="90" height="30" fill="#fef3c7" rx="5"/>
+  <text x="235" y="260" font-family="Arial, sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Load Balancer</text>
+  
+  <path d="M285 255 L315 255" stroke="#64748b" stroke-width="2"/>
+  <polygon points="313,250 325,255 313,260" fill="#64748b"/>
+  
+  <rect x="330" y="240" width="80" height="30" fill="#dcfce7" rx="5"/>
+  <text x="370" y="260" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle">API Server</text>
+  
+  <path d="M415 255 L445 255" stroke="#64748b" stroke-width="2"/>
+  <polygon points="443,250 455,255 443,260" fill="#64748b"/>
+  
+  <rect x="460" y="240" width="80" height="30" fill="#ede9fe" rx="5"/>
+  <text x="500" y="260" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">vLLM/TGI</text>
+  
+  <path d="M545 255 L575 255" stroke="#64748b" stroke-width="2"/>
+  <polygon points="573,250 585,255 573,260" fill="#64748b"/>
+  
+  <rect x="590" y="240" width="60" height="30" fill="#3b82f6" rx="5"/>
+  <text x="620" y="260" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">GPU</text>
+</svg>
+

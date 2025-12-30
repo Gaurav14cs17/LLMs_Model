@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420">
+  <defs>
+    <linearGradient id="augGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="420" fill="#0d1117"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Data Augmentation Techniques</text>
+  <text x="425" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">Expand and diversify training data for better generalization</text>
+  
+  <!-- Original Data -->
+  <rect x="30" y="80" width="180" height="100" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="120" y="110" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold" font-family="Arial">📊 Original Data</text>
+  <text x="120" y="140" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">"The quick brown</text>
+  <text x="120" y="160" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">fox jumps over"</text>
+  
+  <!-- Arrows to techniques -->
+  <path d="M210 130 L270 90" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M210 130 L270 160" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M210 130 L270 230" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M210 130 L270 300" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Technique 1: Paraphrasing -->
+  <rect x="270" y="70" width="250" height="70" rx="8" fill="#161b22" stroke="#7ee787" stroke-width="2"/>
+  <text x="395" y="95" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="bold" font-family="Arial">🔄 Paraphrasing</text>
+  <text x="395" y="115" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">"A swift brown fox leaps over"</text>
+  <text x="395" y="130" text-anchor="middle" fill="#8b949e" font-size="9" font-family="Arial">Use synonyms, restructure</text>
+  
+  <!-- Technique 2: Back Translation -->
+  <rect x="270" y="150" width="250" height="70" rx="8" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+  <text x="395" y="175" text-anchor="middle" fill="#f778ba" font-size="13" font-weight="bold" font-family="Arial">🌐 Back Translation</text>
+  <text x="395" y="195" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">EN → FR → EN: varied phrasing</text>
+  <text x="395" y="210" text-anchor="middle" fill="#8b949e" font-size="9" font-family="Arial">Multiple language pairs</text>
+  
+  <!-- Technique 3: Word Replacement -->
+  <rect x="270" y="230" width="250" height="70" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="2"/>
+  <text x="395" y="255" text-anchor="middle" fill="#79c0ff" font-size="13" font-weight="bold" font-family="Arial">📝 Word Operations</text>
+  <text x="395" y="275" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">Insertion, Deletion, Swap</text>
+  <text x="395" y="290" text-anchor="middle" fill="#8b949e" font-size="9" font-family="Arial">Maintain semantics</text>
+  
+  <!-- Technique 4: Synthetic Generation -->
+  <rect x="270" y="310" width="250" height="70" rx="8" fill="#161b22" stroke="#ffa657" stroke-width="2"/>
+  <text x="395" y="335" text-anchor="middle" fill="#ffa657" font-size="13" font-weight="bold" font-family="Arial">🤖 LLM Generation</text>
+  <text x="395" y="355" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">Generate variations with GPT/Claude</text>
+  <text x="395" y="370" text-anchor="middle" fill="#8b949e" font-size="9" font-family="Arial">Self-Instruct, Evol-Instruct</text>
+  
+  <!-- Result -->
+  <path d="M520 130 L580 190" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M520 185 L580 190" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M520 265 L580 220" stroke="#58a6ff" stroke-width="2"/>
+  <path d="M520 345 L580 250" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="580" y="140" width="240" height="150" rx="12" fill="url(#augGrad)" stroke="#667eea" stroke-width="2"/>
+  <text x="700" y="175" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="Arial">📈 Augmented Dataset</text>
+  <text x="700" y="205" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">5-10x more samples</text>
+  <text x="700" y="230" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">Greater diversity</text>
+  <text x="700" y="255" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">Reduced overfitting</text>
+  <text x="700" y="280" text-anchor="middle" fill="#7ee787" font-size="11" font-family="Arial">Better generalization</text>
+  
+  <!-- Tips -->
+  <rect x="30" y="390" width="790" height="22" rx="5" fill="#161b22"/>
+  <text x="50" y="406" fill="#ffa657" font-size="11" font-family="Arial">💡 Best Practice: Verify augmented data quality • Filter low-quality samples • Maintain label accuracy</text>
+</svg>
+

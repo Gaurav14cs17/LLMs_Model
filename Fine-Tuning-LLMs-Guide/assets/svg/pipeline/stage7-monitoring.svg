@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280">
+  <defs>
+    <linearGradient id="monitorStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#monitorStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#monitorStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 7: Monitoring &amp; Maintenance</text>
+  
+  <!-- Metrics Monitoring -->
+  <g transform="translate(30, 80)">
+    <rect width="200" height="170" fill="white" stroke="#ddd6fe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">📊 Monitor Metrics</text>
+    
+    <rect x="15" y="50" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="67" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">Latency (p50, p99)</text>
+    
+    <rect x="15" y="85" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="102" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">Throughput (req/s)</text>
+    
+    <rect x="15" y="120" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="137" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">Error Rate</text>
+    
+    <rect x="15" y="155" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="172" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">GPU Utilization</text>
+  </g>
+  
+  <!-- Logging -->
+  <g transform="translate(250, 80)">
+    <rect width="200" height="170" fill="white" stroke="#ddd6fe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">📝 Logging</text>
+    
+    <rect x="15" y="50" width="80" height="50" fill="#dcfce7" rx="5"/>
+    <text x="55" y="80" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Requests</text>
+    
+    <rect x="105" y="50" width="80" height="50" fill="#dbeafe" rx="5"/>
+    <text x="145" y="80" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">Responses</text>
+    
+    <rect x="15" y="110" width="80" height="50" fill="#fef3c7" rx="5"/>
+    <text x="55" y="140" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">Errors</text>
+    
+    <rect x="105" y="110" width="80" height="50" fill="#ffe4e6" rx="5"/>
+    <text x="145" y="140" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">Feedback</text>
+  </g>
+  
+  <!-- Continuous Improvement -->
+  <g transform="translate(470, 80)">
+    <rect width="200" height="170" fill="white" stroke="#ddd6fe" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">🔄 Improvement</text>
+    
+    <text x="100" y="80" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">♻️</text>
+    
+    <rect x="15" y="105" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="122" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">A/B Testing</text>
+    
+    <rect x="15" y="140" width="170" height="25" fill="#ede9fe" rx="5"/>
+    <text x="100" y="157" font-family="Arial, sans-serif" font-size="10" fill="#6d28d9" text-anchor="middle">Retraining Pipeline</text>
+  </g>
+</svg>
+

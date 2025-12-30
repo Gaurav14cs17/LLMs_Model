@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 280">
+  <!-- Background -->
+  <rect width="750" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Optimizer Comparison</text>
+  
+  <!-- SGD -->
+  <g transform="translate(30, 55)">
+    <rect width="160" height="200" fill="white" stroke="#94a3b8" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#94a3b8" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#94a3b8"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">SGD</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🐢</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Simple, classic</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Needs momentum</text>
+    <text x="80" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Manual tuning</text>
+    <rect x="20" y="155" width="120" height="30" fill="#f1f5f9" rx="5"/>
+    <text x="80" y="175" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Rarely used for LLMs</text>
+  </g>
+  
+  <!-- Adam -->
+  <g transform="translate(210, 55)">
+    <rect width="160" height="200" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#3b82f6" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#3b82f6"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Adam</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🏃</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Adaptive learning rates</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Fast convergence</text>
+    <text x="80" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Popular choice</text>
+    <rect x="20" y="155" width="120" height="30" fill="#dbeafe" rx="5"/>
+    <text x="80" y="175" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">Good baseline</text>
+  </g>
+  
+  <!-- AdamW -->
+  <g transform="translate(390, 55)">
+    <rect width="160" height="200" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#22c55e" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#22c55e"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">AdamW</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🚀</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Better weight decay</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">State of the art</text>
+    <text x="80" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Recommended</text>
+    <rect x="20" y="155" width="120" height="30" fill="#dcfce7" rx="5"/>
+    <text x="80" y="175" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">Best Choice ✅</text>
+  </g>
+  
+  <!-- Paged AdamW -->
+  <g transform="translate(570, 55)">
+    <rect width="160" height="200" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#8b5cf6" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#8b5cf6"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Paged AdamW</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">💾</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">CPU offloading</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Memory efficient</text>
+    <text x="80" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">For QLoRA</text>
+    <rect x="20" y="155" width="120" height="30" fill="#ede9fe" rx="5"/>
+    <text x="80" y="175" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle" font-weight="bold">Low Memory ✅</text>
+  </g>
+</svg>
+

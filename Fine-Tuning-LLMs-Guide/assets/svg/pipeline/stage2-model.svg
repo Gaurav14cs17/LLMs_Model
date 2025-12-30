@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <defs>
+    <linearGradient id="modelStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#modelStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#modelStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 2: Model Initialization</text>
+  
+  <!-- Model Selection -->
+  <g transform="translate(30, 80)">
+    <rect width="200" height="190" fill="white" stroke="#fed7aa" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ea580c" text-anchor="middle">🤖 Select Base Model</text>
+    
+    <rect x="20" y="50" width="160" height="30" fill="#fff7ed" rx="5"/>
+    <text x="100" y="70" font-family="Arial, sans-serif" font-size="11" fill="#c2410c" text-anchor="middle">LLaMA 2/3</text>
+    
+    <rect x="20" y="90" width="160" height="30" fill="#fff7ed" rx="5"/>
+    <text x="100" y="110" font-family="Arial, sans-serif" font-size="11" fill="#c2410c" text-anchor="middle">Mistral 7B</text>
+    
+    <rect x="20" y="130" width="160" height="30" fill="#fff7ed" rx="5"/>
+    <text x="100" y="150" font-family="Arial, sans-serif" font-size="11" fill="#c2410c" text-anchor="middle">Falcon</text>
+    
+    <rect x="20" y="170" width="160" height="30" fill="#fff7ed" rx="5"/>
+    <text x="100" y="190" font-family="Arial, sans-serif" font-size="11" fill="#c2410c" text-anchor="middle">Phi-2/3</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M235 175 L265 175" stroke="#ea580c" stroke-width="2"/>
+  <polygon points="263,170 275,175 263,180" fill="#ea580c"/>
+  
+  <!-- Tokenizer -->
+  <g transform="translate(280, 80)">
+    <rect width="180" height="90" fill="white" stroke="#fed7aa" stroke-width="2" rx="10"/>
+    <text x="90" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ea580c" text-anchor="middle">🔤 Load Tokenizer</text>
+    <text x="90" y="55" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• AutoTokenizer</text>
+    <text x="90" y="73" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Set pad_token</text>
+    <text x="90" y="91" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Configure max_length</text>
+  </g>
+  
+  <!-- Model Config -->
+  <g transform="translate(280, 180)">
+    <rect width="180" height="90" fill="white" stroke="#fed7aa" stroke-width="2" rx="10"/>
+    <text x="90" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ea580c" text-anchor="middle">⚙️ Model Config</text>
+    <text x="90" y="55" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• BitsAndBytes (4/8-bit)</text>
+    <text x="90" y="73" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• LoRA Config</text>
+    <text x="90" y="91" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Flash Attention</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M465 175 L495 175" stroke="#ea580c" stroke-width="2"/>
+  <polygon points="493,170 505,175 493,180" fill="#ea580c"/>
+  
+  <!-- Initialized Model -->
+  <g transform="translate(500, 100)">
+    <rect width="170" height="130" fill="url(#modelStageGrad)" rx="10"/>
+    <text x="85" y="40" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">✅</text>
+    <text x="85" y="70" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Model Ready</text>
+    <text x="85" y="95" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">• Loaded to GPU</text>
+    <text x="85" y="113" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">• Config applied</text>
+    <text x="85" y="131" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">• Ready to train</text>
+  </g>
+</svg>
+

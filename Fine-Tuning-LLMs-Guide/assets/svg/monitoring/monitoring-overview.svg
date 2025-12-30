@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420">
+  <defs>
+    <linearGradient id="monGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998e"/>
+      <stop offset="100%" style="stop-color:#38ef7d"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="420" fill="#0d1117"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Stage 7: Monitoring &amp; Maintenance</text>
+  <text x="425" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">Ensuring long-term model performance and reliability</text>
+  
+  <!-- Monitoring Pillars -->
+  <rect x="30" y="80" width="190" height="150" rx="12" fill="#161b22" stroke="#7ee787" stroke-width="2"/>
+  <text x="125" y="110" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="bold" font-family="Arial">📊 Performance</text>
+  <text x="50" y="140" fill="#c9d1d9" font-size="11" font-family="Arial">• Latency tracking</text>
+  <text x="50" y="160" fill="#c9d1d9" font-size="11" font-family="Arial">• Throughput (req/s)</text>
+  <text x="50" y="180" fill="#c9d1d9" font-size="11" font-family="Arial">• Error rates</text>
+  <text x="50" y="200" fill="#c9d1d9" font-size="11" font-family="Arial">• Response quality</text>
+  <text x="50" y="220" fill="#8b949e" font-size="9" font-family="Arial">Tools: Prometheus, Grafana</text>
+  
+  <rect x="235" y="80" width="190" height="150" rx="12" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+  <text x="330" y="110" text-anchor="middle" fill="#f778ba" font-size="15" font-weight="bold" font-family="Arial">🔍 Quality</text>
+  <text x="255" y="140" fill="#c9d1d9" font-size="11" font-family="Arial">• Output relevance</text>
+  <text x="255" y="160" fill="#c9d1d9" font-size="11" font-family="Arial">• Hallucination rate</text>
+  <text x="255" y="180" fill="#c9d1d9" font-size="11" font-family="Arial">• User feedback</text>
+  <text x="255" y="200" fill="#c9d1d9" font-size="11" font-family="Arial">• A/B testing</text>
+  <text x="255" y="220" fill="#8b949e" font-size="9" font-family="Arial">Tools: LangSmith, Weights&amp;Biases</text>
+  
+  <rect x="440" y="80" width="190" height="150" rx="12" fill="#161b22" stroke="#79c0ff" stroke-width="2"/>
+  <text x="535" y="110" text-anchor="middle" fill="#79c0ff" font-size="15" font-weight="bold" font-family="Arial">🛡️ Safety</text>
+  <text x="460" y="140" fill="#c9d1d9" font-size="11" font-family="Arial">• Toxicity detection</text>
+  <text x="460" y="160" fill="#c9d1d9" font-size="11" font-family="Arial">• Bias monitoring</text>
+  <text x="460" y="180" fill="#c9d1d9" font-size="11" font-family="Arial">• PII detection</text>
+  <text x="460" y="200" fill="#c9d1d9" font-size="11" font-family="Arial">• Prompt injection</text>
+  <text x="460" y="220" fill="#8b949e" font-size="9" font-family="Arial">Tools: Guardrails, NeMo</text>
+  
+  <rect x="645" y="80" width="180" height="150" rx="12" fill="#161b22" stroke="#ffa657" stroke-width="2"/>
+  <text x="735" y="110" text-anchor="middle" fill="#ffa657" font-size="15" font-weight="bold" font-family="Arial">💰 Cost</text>
+  <text x="665" y="140" fill="#c9d1d9" font-size="11" font-family="Arial">• GPU utilization</text>
+  <text x="665" y="160" fill="#c9d1d9" font-size="11" font-family="Arial">• Token usage</text>
+  <text x="665" y="180" fill="#c9d1d9" font-size="11" font-family="Arial">• Infrastructure cost</text>
+  <text x="665" y="200" fill="#c9d1d9" font-size="11" font-family="Arial">• Cost per query</text>
+  <text x="665" y="220" fill="#8b949e" font-size="9" font-family="Arial">Track &amp; optimize</text>
+  
+  <!-- Maintenance Cycle -->
+  <text x="425" y="265" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">Maintenance Lifecycle</text>
+  
+  <rect x="80" y="290" width="130" height="50" rx="8" fill="#238636"/>
+  <text x="145" y="320" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Monitor</text>
+  
+  <path d="M210 315 L250 315" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <rect x="250" y="290" width="130" height="50" rx="8" fill="#1f6feb"/>
+  <text x="315" y="320" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Detect Drift</text>
+  
+  <path d="M380 315 L420 315" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="420" y="290" width="130" height="50" rx="8" fill="#8957e5"/>
+  <text x="485" y="320" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Collect Data</text>
+  
+  <path d="M550 315 L590 315" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="590" y="290" width="130" height="50" rx="8" fill="#da3633"/>
+  <text x="655" y="320" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Retrain</text>
+  
+  <!-- Loop arrow -->
+  <path d="M720 315 L760 315 L760 375 L145 375 L145 340" stroke="#58a6ff" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Key Metrics -->
+  <rect x="80" y="390" width="690" height="22" rx="5" fill="#161b22"/>
+  <text x="100" y="406" fill="#7ee787" font-size="11" font-family="Arial">📈 Key Metrics: P95 Latency &lt; 500ms • Error Rate &lt; 1% • User Satisfaction &gt; 4/5 • Cost per 1K tokens tracking</text>
+</svg>
+

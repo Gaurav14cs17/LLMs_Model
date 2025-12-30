@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="ragGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="400" fill="#0d1117"/>
+  
+  <text x="450" y="40" text-anchor="middle" fill="url(#ragGrad)" font-size="28" font-weight="bold" font-family="Arial">RAG Pipeline - Retrieval Augmented Generation</text>
+  
+  <!-- Step 1: Query -->
+  <rect x="30" y="80" width="140" height="80" rx="10" fill="#238636"/>
+  <text x="100" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">1. Query</text>
+  <text x="100" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">User Input</text>
+  <text x="100" y="150" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Question</text>
+  
+  <!-- Arrow -->
+  <path d="M170 120 L200 120" stroke="#58a6ff" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 2: Embedding -->
+  <rect x="200" y="80" width="140" height="80" rx="10" fill="#1f6feb"/>
+  <text x="270" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">2. Embed</text>
+  <text x="270" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Convert to</text>
+  <text x="270" y="150" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Vector</text>
+  
+  <!-- Arrow -->
+  <path d="M340 120 L370 120" stroke="#58a6ff" stroke-width="3" fill="none"/>
+  
+  <!-- Step 3: Vector DB Search -->
+  <rect x="370" y="80" width="160" height="80" rx="10" fill="url(#docGrad)"/>
+  <text x="450" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">3. Vector Search</text>
+  <text x="450" y="135" text-anchor="middle" fill="white" font-size="11" font-family="Arial">Similarity Search</text>
+  <text x="450" y="150" text-anchor="middle" fill="white" font-size="11" font-family="Arial">in Vector DB</text>
+  
+  <!-- Arrow -->
+  <path d="M530 120 L560 120" stroke="#58a6ff" stroke-width="3" fill="none"/>
+  
+  <!-- Step 4: Retrieve Docs -->
+  <rect x="560" y="80" width="140" height="80" rx="10" fill="#8957e5"/>
+  <text x="630" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">4. Retrieve</text>
+  <text x="630" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Top-K Relevant</text>
+  <text x="630" y="150" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Documents</text>
+  
+  <!-- Arrow -->
+  <path d="M700 120 L730 120" stroke="#58a6ff" stroke-width="3" fill="none"/>
+  
+  <!-- Step 5: Augment -->
+  <rect x="730" y="80" width="140" height="80" rx="10" fill="#da3633"/>
+  <text x="800" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">5. Augment</text>
+  <text x="800" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Add Context</text>
+  <text x="800" y="150" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">to Prompt</text>
+  
+  <!-- Arrow down -->
+  <path d="M800 160 L800 200" stroke="#58a6ff" stroke-width="3" fill="none"/>
+  
+  <!-- Step 6: LLM Generate -->
+  <rect x="650" y="200" width="220" height="90" rx="15" fill="url(#ragGrad)" stroke="#58a6ff" stroke-width="2"/>
+  <text x="760" y="235" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="Arial">6. LLM Generation</text>
+  <text x="760" y="260" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">Context + Query → Response</text>
+  <text x="760" y="280" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Grounded in Retrieved Docs</text>
+  
+  <!-- Arrow -->
+  <path d="M650 245 L600 245" stroke="#58a6ff" stroke-width="3" fill="none"/>
+  
+  <!-- Output -->
+  <rect x="420" y="210" width="180" height="70" rx="10" fill="#238636" stroke="#3fb950" stroke-width="2"/>
+  <text x="510" y="240" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">7. Response</text>
+  <text x="510" y="260" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Accurate, Grounded Answer</text>
+  
+  <!-- Bottom section: Key Components -->
+  <text x="450" y="320" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">Key Components</text>
+  
+  <rect x="80" y="340" width="150" height="40" rx="5" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="155" y="365" text-anchor="middle" fill="#7ee787" font-size="12" font-family="Arial">🗄️ Vector Database</text>
+  
+  <rect x="260" y="340" width="150" height="40" rx="5" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="335" y="365" text-anchor="middle" fill="#f778ba" font-size="12" font-family="Arial">🔢 Embeddings</text>
+  
+  <rect x="440" y="340" width="150" height="40" rx="5" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="515" y="365" text-anchor="middle" fill="#79c0ff" font-size="12" font-family="Arial">🔍 Retriever</text>
+  
+  <rect x="620" y="340" width="150" height="40" rx="5" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="695" y="365" text-anchor="middle" fill="#ffa657" font-size="12" font-family="Arial">🤖 LLM Generator</text>
+</svg>
+

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <!-- Background -->
+  <rect width="700" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Data Quality Checklist</text>
+  
+  <!-- Checklist Items -->
+  <g transform="translate(50, 60)">
+    <rect width="180" height="100" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">✅</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Accuracy</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Factually correct</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">No hallucinations</text>
+  </g>
+  
+  <g transform="translate(260, 60)">
+    <rect width="180" height="100" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🎯</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Relevance</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Task-aligned</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Domain-specific</text>
+  </g>
+  
+  <g transform="translate(470, 60)">
+    <rect width="180" height="100" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">📊</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Diversity</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Varied examples</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Edge cases</text>
+  </g>
+  
+  <g transform="translate(50, 180)">
+    <rect width="180" height="100" fill="white" stroke="#f97316" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🧹</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Clean</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">No duplicates</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Formatted properly</text>
+  </g>
+  
+  <g transform="translate(260, 180)">
+    <rect width="180" height="100" fill="white" stroke="#ef4444" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">⚖️</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Balanced</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Class distribution</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">No bias</text>
+  </g>
+  
+  <g transform="translate(470, 180)">
+    <rect width="180" height="100" fill="white" stroke="#10b981" stroke-width="2" rx="10"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">📏</text>
+    <text x="90" y="60" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Appropriate Size</text>
+    <text x="90" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Min: 1K samples</text>
+    <text x="90" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">More for complex</text>
+  </g>
+</svg>
+

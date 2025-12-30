@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <!-- Background -->
+  <rect width="800" height="380" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Key Hyperparameters</text>
+  
+  <!-- Learning Rate -->
+  <g transform="translate(30, 55)">
+    <rect width="230" height="150" fill="white" stroke="#eab308" stroke-width="2" rx="10"/>
+    <rect width="230" height="40" fill="#eab308" rx="10"/>
+    <rect y="33" width="230" height="7" fill="#eab308"/>
+    <text x="115" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">📈 Learning Rate</text>
+    <text x="115" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">How fast model learns</text>
+    <rect x="20" y="90" width="90" height="25" fill="#fef9c3" rx="4"/>
+    <text x="65" y="107" font-family="Arial, sans-serif" font-size="10" fill="#a16207" text-anchor="middle">SFT: 2e-5</text>
+    <rect x="120" y="90" width="90" height="25" fill="#fef9c3" rx="4"/>
+    <text x="165" y="107" font-family="Arial, sans-serif" font-size="10" fill="#a16207" text-anchor="middle">LoRA: 2e-4</text>
+    <text x="115" y="140" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Too high → unstable</text>
+    <text x="115" y="155" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Too low → slow learning</text>
+  </g>
+  
+  <!-- Batch Size -->
+  <g transform="translate(280, 55)">
+    <rect width="230" height="150" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="230" height="40" fill="#3b82f6" rx="10"/>
+    <rect y="33" width="230" height="7" fill="#3b82f6"/>
+    <text x="115" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">📦 Batch Size</text>
+    <text x="115" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Samples per step</text>
+    <rect x="20" y="90" width="90" height="25" fill="#dbeafe" rx="4"/>
+    <text x="65" y="107" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">4-8 typical</text>
+    <rect x="120" y="90" width="90" height="25" fill="#dbeafe" rx="4"/>
+    <text x="165" y="107" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">+ Grad Accum</text>
+    <text x="115" y="140" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Larger = more stable</text>
+    <text x="115" y="155" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">but more memory</text>
+  </g>
+  
+  <!-- Epochs -->
+  <g transform="translate(530, 55)">
+    <rect width="240" height="150" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="240" height="40" fill="#22c55e" rx="10"/>
+    <rect y="33" width="240" height="7" fill="#22c55e"/>
+    <text x="120" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">🔄 Epochs / Steps</text>
+    <text x="120" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Dataset passes</text>
+    <rect x="20" y="90" width="90" height="25" fill="#dcfce7" rx="4"/>
+    <text x="65" y="107" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">1-3 epochs</text>
+    <rect x="125" y="90" width="100" height="25" fill="#dcfce7" rx="4"/>
+    <text x="175" y="107" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">or 500-2000 steps</text>
+    <text x="120" y="140" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Too many → overfitting</text>
+    <text x="120" y="155" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Monitor val loss!</text>
+  </g>
+  
+  <!-- Second Row -->
+  <!-- Warmup -->
+  <g transform="translate(30, 220)">
+    <rect width="230" height="140" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="230" height="40" fill="#8b5cf6" rx="10"/>
+    <rect y="33" width="230" height="7" fill="#8b5cf6"/>
+    <text x="115" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">🔥 Warmup</text>
+    <text x="115" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Gradual LR increase</text>
+    <rect x="55" y="90" width="120" height="25" fill="#ede9fe" rx="4"/>
+    <text x="115" y="107" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">3-10% of steps</text>
+    <text x="115" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Prevents early instability</text>
+  </g>
+  
+  <!-- Weight Decay -->
+  <g transform="translate(280, 220)">
+    <rect width="230" height="140" fill="white" stroke="#f43f5e" stroke-width="2" rx="10"/>
+    <rect width="230" height="40" fill="#f43f5e" rx="10"/>
+    <rect y="33" width="230" height="7" fill="#f43f5e"/>
+    <text x="115" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">⚖️ Weight Decay</text>
+    <text x="115" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Regularization</text>
+    <rect x="55" y="90" width="120" height="25" fill="#ffe4e6" rx="4"/>
+    <text x="115" y="107" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">0.01 ~ 0.1</text>
+    <text x="115" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Prevents overfitting</text>
+  </g>
+  
+  <!-- Gradient Accumulation -->
+  <g transform="translate(530, 220)">
+    <rect width="240" height="140" fill="white" stroke="#06b6d4" stroke-width="2" rx="10"/>
+    <rect width="240" height="40" fill="#06b6d4" rx="10"/>
+    <rect y="33" width="240" height="7" fill="#06b6d4"/>
+    <text x="120" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">📊 Gradient Accumulation</text>
+    <text x="120" y="75" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Simulate larger batch</text>
+    <rect x="50" y="90" width="140" height="25" fill="#ecfeff" rx="4"/>
+    <text x="120" y="107" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle">Effective = BS × GA</text>
+    <text x="120" y="135" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">BS=4, GA=4 → Effective 16</text>
+  </g>
+</svg>
+

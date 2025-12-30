@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="pretrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="finetuneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Pre-Training vs Fine-Tuning</text>
+  
+  <!-- Pre-training Section -->
+  <rect x="40" y="60" width="350" height="370" fill="white" stroke="#bfdbfe" stroke-width="2" rx="12"/>
+  <rect x="40" y="60" width="350" height="50" fill="url(#pretrainGrad)" rx="12"/>
+  <rect x="40" y="95" width="350" height="15" fill="url(#pretrainGrad)"/>
+  <text x="215" y="92" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Pre-Training</text>
+  
+  <!-- Pre-training content -->
+  <g transform="translate(60, 130)">
+    <!-- Data icon -->
+    <rect x="0" y="0" width="50" height="50" fill="#dbeafe" rx="8"/>
+    <text x="25" y="35" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📚</text>
+    <text x="75" y="20" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Massive Dataset</text>
+    <text x="75" y="38" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Trillions of tokens from internet</text>
+    
+    <!-- Time icon -->
+    <rect x="0" y="70" width="50" height="50" fill="#dbeafe" rx="8"/>
+    <text x="25" y="105" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">⏱️</text>
+    <text x="75" y="90" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Training Time</text>
+    <text x="75" y="108" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Weeks to months</text>
+    
+    <!-- Cost icon -->
+    <rect x="0" y="140" width="50" height="50" fill="#dbeafe" rx="8"/>
+    <text x="25" y="175" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">💰</text>
+    <text x="75" y="160" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Cost</text>
+    <text x="75" y="178" font-family="Arial, sans-serif" font-size="11" fill="#64748b">$1M - $100M+</text>
+    
+    <!-- Hardware icon -->
+    <rect x="0" y="210" width="50" height="50" fill="#dbeafe" rx="8"/>
+    <text x="25" y="245" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🖥️</text>
+    <text x="75" y="230" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Hardware</text>
+    <text x="75" y="248" font-family="Arial, sans-serif" font-size="11" fill="#64748b">1000s of GPUs/TPUs</text>
+    
+    <!-- Goal icon -->
+    <rect x="0" y="280" width="50" height="50" fill="#dbeafe" rx="8"/>
+    <text x="25" y="315" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🎯</text>
+    <text x="75" y="300" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Goal</text>
+    <text x="75" y="318" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Learn general language</text>
+  </g>
+  
+  <!-- VS Circle -->
+  <circle cx="400" cy="245" r="30" fill="#1e293b"/>
+  <text x="400" y="252" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">VS</text>
+  
+  <!-- Fine-tuning Section -->
+  <rect x="410" y="60" width="350" height="370" fill="white" stroke="#bbf7d0" stroke-width="2" rx="12"/>
+  <rect x="410" y="60" width="350" height="50" fill="url(#finetuneGrad)" rx="12"/>
+  <rect x="410" y="95" width="350" height="15" fill="url(#finetuneGrad)"/>
+  <text x="585" y="92" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Fine-Tuning</text>
+  
+  <!-- Fine-tuning content -->
+  <g transform="translate(430, 130)">
+    <!-- Data icon -->
+    <rect x="0" y="0" width="50" height="50" fill="#dcfce7" rx="8"/>
+    <text x="25" y="35" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📋</text>
+    <text x="75" y="20" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Small Dataset</text>
+    <text x="75" y="38" font-family="Arial, sans-serif" font-size="11" fill="#64748b">1K - 100K examples</text>
+    
+    <!-- Time icon -->
+    <rect x="0" y="70" width="50" height="50" fill="#dcfce7" rx="8"/>
+    <text x="25" y="105" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">⚡</text>
+    <text x="75" y="90" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Training Time</text>
+    <text x="75" y="108" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Hours to days</text>
+    
+    <!-- Cost icon -->
+    <rect x="0" y="140" width="50" height="50" fill="#dcfce7" rx="8"/>
+    <text x="25" y="175" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">💵</text>
+    <text x="75" y="160" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Cost</text>
+    <text x="75" y="178" font-family="Arial, sans-serif" font-size="11" fill="#64748b">$10 - $10K</text>
+    
+    <!-- Hardware icon -->
+    <rect x="0" y="210" width="50" height="50" fill="#dcfce7" rx="8"/>
+    <text x="25" y="245" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🎮</text>
+    <text x="75" y="230" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Hardware</text>
+    <text x="75" y="248" font-family="Arial, sans-serif" font-size="11" fill="#64748b">1-8 GPUs</text>
+    
+    <!-- Goal icon -->
+    <rect x="0" y="280" width="50" height="50" fill="#dcfce7" rx="8"/>
+    <text x="25" y="315" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🎯</text>
+    <text x="75" y="300" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" font-weight="bold">Goal</text>
+    <text x="75" y="318" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Specialize for task</text>
+  </g>
+</svg>
+

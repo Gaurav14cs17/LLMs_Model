@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="unsupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="supGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998e"/>
+      <stop offset="100%" style="stop-color:#38ef7d"/>
+    </linearGradient>
+    <linearGradient id="instGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="400" fill="#0d1117"/>
+  
+  <text x="450" y="40" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Types of LLM Fine-Tuning</text>
+  
+  <!-- Unsupervised -->
+  <rect x="30" y="70" width="270" height="310" rx="15" fill="#161b22" stroke="url(#unsupGrad)" stroke-width="3"/>
+  <rect x="30" y="70" width="270" height="50" rx="15" fill="url(#unsupGrad)"/>
+  <rect x="30" y="95" width="270" height="25" fill="url(#unsupGrad)"/>
+  <text x="165" y="102" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial">🔄 Unsupervised</text>
+  
+  <text x="50" y="150" fill="#58a6ff" font-size="13" font-weight="bold" font-family="Arial">How it Works:</text>
+  <text x="50" y="175" fill="#c9d1d9" font-size="11" font-family="Arial">• No labeled data needed</text>
+  <text x="50" y="195" fill="#c9d1d9" font-size="11" font-family="Arial">• Self-supervised learning</text>
+  <text x="50" y="215" fill="#c9d1d9" font-size="11" font-family="Arial">• Predict next token</text>
+  
+  <text x="50" y="250" fill="#7ee787" font-size="13" font-weight="bold" font-family="Arial">Use Cases:</text>
+  <text x="50" y="275" fill="#c9d1d9" font-size="11" font-family="Arial">• Domain adaptation</text>
+  <text x="50" y="295" fill="#c9d1d9" font-size="11" font-family="Arial">• Language modeling</text>
+  <text x="50" y="315" fill="#c9d1d9" font-size="11" font-family="Arial">• Pre-training continuation</text>
+  
+  <text x="50" y="350" fill="#ffa657" font-size="13" font-weight="bold" font-family="Arial">Example:</text>
+  <text x="50" y="370" fill="#8b949e" font-size="10" font-family="Arial">Train on medical textbooks</text>
+
+  <!-- Supervised -->
+  <rect x="315" y="70" width="270" height="310" rx="15" fill="#161b22" stroke="url(#supGrad)" stroke-width="3"/>
+  <rect x="315" y="70" width="270" height="50" rx="15" fill="url(#supGrad)"/>
+  <rect x="315" y="95" width="270" height="25" fill="url(#supGrad)"/>
+  <text x="450" y="102" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial">📊 Supervised (SFT)</text>
+  
+  <text x="335" y="150" fill="#58a6ff" font-size="13" font-weight="bold" font-family="Arial">How it Works:</text>
+  <text x="335" y="175" fill="#c9d1d9" font-size="11" font-family="Arial">• Input-output pairs</text>
+  <text x="335" y="195" fill="#c9d1d9" font-size="11" font-family="Arial">• Labeled examples</text>
+  <text x="335" y="215" fill="#c9d1d9" font-size="11" font-family="Arial">• Learn to match outputs</text>
+  
+  <text x="335" y="250" fill="#7ee787" font-size="13" font-weight="bold" font-family="Arial">Use Cases:</text>
+  <text x="335" y="275" fill="#c9d1d9" font-size="11" font-family="Arial">• Classification tasks</text>
+  <text x="335" y="295" fill="#c9d1d9" font-size="11" font-family="Arial">• Summarization</text>
+  <text x="335" y="315" fill="#c9d1d9" font-size="11" font-family="Arial">• Translation</text>
+  
+  <text x="335" y="350" fill="#ffa657" font-size="13" font-weight="bold" font-family="Arial">Example:</text>
+  <text x="335" y="370" fill="#8b949e" font-size="10" font-family="Arial">Q&amp;A with ground truth</text>
+
+  <!-- Instruction Fine-Tuning -->
+  <rect x="600" y="70" width="270" height="310" rx="15" fill="#161b22" stroke="url(#instGrad)" stroke-width="3"/>
+  <rect x="600" y="70" width="270" height="50" rx="15" fill="url(#instGrad)"/>
+  <rect x="600" y="95" width="270" height="25" fill="url(#instGrad)"/>
+  <text x="735" y="102" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial">📝 Instruction Tuning</text>
+  
+  <text x="620" y="150" fill="#58a6ff" font-size="13" font-weight="bold" font-family="Arial">How it Works:</text>
+  <text x="620" y="175" fill="#c9d1d9" font-size="11" font-family="Arial">• Instruction + Response</text>
+  <text x="620" y="195" fill="#c9d1d9" font-size="11" font-family="Arial">• Multi-task training</text>
+  <text x="620" y="215" fill="#c9d1d9" font-size="11" font-family="Arial">• Follow human intent</text>
+  
+  <text x="620" y="250" fill="#7ee787" font-size="13" font-weight="bold" font-family="Arial">Use Cases:</text>
+  <text x="620" y="275" fill="#c9d1d9" font-size="11" font-family="Arial">• Chat assistants</text>
+  <text x="620" y="295" fill="#c9d1d9" font-size="11" font-family="Arial">• Following commands</text>
+  <text x="620" y="315" fill="#c9d1d9" font-size="11" font-family="Arial">• General purpose AI</text>
+  
+  <text x="620" y="350" fill="#ffa657" font-size="13" font-weight="bold" font-family="Arial">Example:</text>
+  <text x="620" y="370" fill="#8b949e" font-size="10" font-family="Arial">Alpaca, Dolly datasets</text>
+</svg>
+

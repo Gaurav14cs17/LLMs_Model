@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="stage1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eab308;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ca8a04;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stage7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e293b" text-anchor="middle">7-Stage Fine-Tuning Pipeline</text>
+  
+  <!-- Stage 1 -->
+  <g filter="url(#dropShadow)">
+    <rect x="30" y="80" width="110" height="100" fill="url(#stage1)" rx="10"/>
+    <text x="85" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">📊</text>
+    <text x="85" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 1</text>
+    <text x="85" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Data</text>
+    <text x="85" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Preparation</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M145 130 L165 130" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 2 -->
+  <g filter="url(#dropShadow)">
+    <rect x="155" y="80" width="110" height="100" fill="url(#stage2)" rx="10"/>
+    <text x="210" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">🏗️</text>
+    <text x="210" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 2</text>
+    <text x="210" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Model</text>
+    <text x="210" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Initialization</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M270 130 L290 130" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 3 -->
+  <g filter="url(#dropShadow)">
+    <rect x="280" y="80" width="110" height="100" fill="url(#stage3)" rx="10"/>
+    <text x="335" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">⚙️</text>
+    <text x="335" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 3</text>
+    <text x="335" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Training</text>
+    <text x="335" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Setup</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M395 130 L415 130" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 4 -->
+  <g filter="url(#dropShadow)">
+    <rect x="405" y="80" width="110" height="100" fill="url(#stage4)" rx="10"/>
+    <text x="460" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">🎛️</text>
+    <text x="460" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 4</text>
+    <text x="460" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Fine-Tuning</text>
+    <text x="460" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Techniques</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M520 130 L540 130" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 5 -->
+  <g filter="url(#dropShadow)">
+    <rect x="530" y="80" width="110" height="100" fill="url(#stage5)" rx="10"/>
+    <text x="585" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">📈</text>
+    <text x="585" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 5</text>
+    <text x="585" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Evaluation</text>
+    <text x="585" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">&amp; Validation</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M645 130 L665 130" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 6 -->
+  <g filter="url(#dropShadow)">
+    <rect x="655" y="80" width="110" height="100" fill="url(#stage6)" rx="10"/>
+    <text x="710" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">🚀</text>
+    <text x="710" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 6</text>
+    <text x="710" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Deployment</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M770 130 L790 130" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 7 -->
+  <g filter="url(#dropShadow)">
+    <rect x="780" y="80" width="110" height="100" fill="url(#stage7)" rx="10"/>
+    <text x="835" y="105" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">📡</text>
+    <text x="835" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stage 7</text>
+    <text x="835" y="148" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Monitoring</text>
+    <text x="835" y="163" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">&amp; Maintenance</text>
+  </g>
+  
+  <!-- Detail boxes below -->
+  <!-- Stage 1 Details -->
+  <rect x="30" y="210" width="110" height="130" fill="white" stroke="#fecaca" stroke-width="2" rx="8"/>
+  <text x="85" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Collection</text>
+  <text x="85" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Preprocessing</text>
+  <text x="85" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Formatting</text>
+  <text x="85" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Splitting</text>
+  <text x="85" y="315" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Augmentation</text>
+  
+  <!-- Stage 2 Details -->
+  <rect x="155" y="210" width="110" height="130" fill="white" stroke="#fed7aa" stroke-width="2" rx="8"/>
+  <text x="210" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Load Model</text>
+  <text x="210" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Tokenizer</text>
+  <text x="210" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Config Setup</text>
+  <text x="210" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Weight Init</text>
+  
+  <!-- Stage 3 Details -->
+  <rect x="280" y="210" width="110" height="130" fill="white" stroke="#fef08a" stroke-width="2" rx="8"/>
+  <text x="335" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Learning Rate</text>
+  <text x="335" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Batch Size</text>
+  <text x="335" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Optimizer</text>
+  <text x="335" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Scheduler</text>
+  <text x="335" y="315" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• GPU Setup</text>
+  
+  <!-- Stage 4 Details -->
+  <rect x="405" y="210" width="110" height="130" fill="white" stroke="#bbf7d0" stroke-width="2" rx="8"/>
+  <text x="460" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Full Fine-tune</text>
+  <text x="460" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• LoRA/QLoRA</text>
+  <text x="460" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Adapters</text>
+  <text x="460" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• PPO/DPO</text>
+  <text x="460" y="315" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• DoRA</text>
+  
+  <!-- Stage 5 Details -->
+  <rect x="530" y="210" width="110" height="130" fill="white" stroke="#a5f3fc" stroke-width="2" rx="8"/>
+  <text x="585" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Perplexity</text>
+  <text x="585" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• BLEU/ROUGE</text>
+  <text x="585" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Human Eval</text>
+  <text x="585" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Benchmarks</text>
+  
+  <!-- Stage 6 Details -->
+  <rect x="655" y="210" width="110" height="130" fill="white" stroke="#bfdbfe" stroke-width="2" rx="8"/>
+  <text x="710" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• vLLM</text>
+  <text x="710" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• TGI</text>
+  <text x="710" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Quantization</text>
+  <text x="710" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• API Serving</text>
+  
+  <!-- Stage 7 Details -->
+  <rect x="780" y="210" width="110" height="130" fill="white" stroke="#ddd6fe" stroke-width="2" rx="8"/>
+  <text x="835" y="235" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Logging</text>
+  <text x="835" y="255" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Metrics</text>
+  <text x="835" y="275" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• A/B Testing</text>
+  <text x="835" y="295" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">• Retraining</text>
+  
+  <!-- Feedback Loop Arrow -->
+  <path d="M835 350 L835 420 L85 420 L85 350" stroke="#8b5cf6" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <text x="450" y="440" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle">Continuous Improvement Loop</text>
+  <polygon points="85,355 80,365 90,365" fill="#8b5cf6"/>
+</svg>
+

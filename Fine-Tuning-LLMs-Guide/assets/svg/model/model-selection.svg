@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <!-- Background -->
+  <rect width="800" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Choosing a Base Model</text>
+  
+  <!-- Small Models -->
+  <g transform="translate(30, 55)">
+    <rect width="170" height="130" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="170" height="35" fill="#22c55e" rx="10"/>
+    <rect y="28" width="170" height="7" fill="#22c55e"/>
+    <text x="85" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Small (1-3B)</text>
+    <text x="85" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🚀</text>
+    <text x="85" y="85" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Phi-2, Phi-3 Mini</text>
+    <text x="85" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Gemma 2B</text>
+    <rect x="25" y="115" width="120" height="20" fill="#dcfce7" rx="4"/>
+    <text x="85" y="129" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle">~4GB VRAM</text>
+  </g>
+  
+  <!-- Medium Models -->
+  <g transform="translate(220, 55)">
+    <rect width="170" height="130" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="170" height="35" fill="#3b82f6" rx="10"/>
+    <rect y="28" width="170" height="7" fill="#3b82f6"/>
+    <text x="85" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Medium (7-8B)</text>
+    <text x="85" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">⚖️</text>
+    <text x="85" y="85" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">LLaMA 2/3 7B</text>
+    <text x="85" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Mistral 7B</text>
+    <rect x="25" y="115" width="120" height="20" fill="#dbeafe" rx="4"/>
+    <text x="85" y="129" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">~16GB VRAM</text>
+  </g>
+  
+  <!-- Large Models -->
+  <g transform="translate(410, 55)">
+    <rect width="170" height="130" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="170" height="35" fill="#8b5cf6" rx="10"/>
+    <rect y="28" width="170" height="7" fill="#8b5cf6"/>
+    <text x="85" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Large (13-34B)</text>
+    <text x="85" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">💪</text>
+    <text x="85" y="85" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">LLaMA 2 13B</text>
+    <text x="85" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Code LLaMA 34B</text>
+    <rect x="25" y="115" width="120" height="20" fill="#ede9fe" rx="4"/>
+    <text x="85" y="129" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">~32-70GB VRAM</text>
+  </g>
+  
+  <!-- XL Models -->
+  <g transform="translate(600, 55)">
+    <rect width="170" height="130" fill="white" stroke="#ef4444" stroke-width="2" rx="10"/>
+    <rect width="170" height="35" fill="#ef4444" rx="10"/>
+    <rect y="28" width="170" height="7" fill="#ef4444"/>
+    <text x="85" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">XL (70B+)</text>
+    <text x="85" y="60" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🏆</text>
+    <text x="85" y="85" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">LLaMA 2/3 70B</text>
+    <text x="85" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Mixtral 8x22B</text>
+    <rect x="25" y="115" width="120" height="20" fill="#fee2e2" rx="4"/>
+    <text x="85" y="129" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">~140GB+ VRAM</text>
+  </g>
+  
+  <!-- Decision Guide -->
+  <rect x="30" y="205" width="740" height="130" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="400" y="230" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Quick Decision Guide</text>
+  
+  <rect x="60" y="250" width="160" height="65" fill="#dcfce7" rx="8"/>
+  <text x="140" y="275" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="bold">Learning / Prototyping</text>
+  <text x="140" y="295" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">→ Phi-2, Gemma 2B</text>
+  
+  <rect x="240" y="250" width="160" height="65" fill="#dbeafe" rx="8"/>
+  <text x="320" y="275" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="bold">Production / General</text>
+  <text x="320" y="295" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">→ Mistral 7B, LLaMA 7B</text>
+  
+  <rect x="420" y="250" width="160" height="65" fill="#ede9fe" rx="8"/>
+  <text x="500" y="275" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle" font-weight="bold">High Quality</text>
+  <text x="500" y="295" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">→ LLaMA 13B+</text>
+  
+  <rect x="600" y="250" width="150" height="65" fill="#fef3c7" rx="8"/>
+  <text x="675" y="275" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle" font-weight="bold">Code Generation</text>
+  <text x="675" y="295" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">→ Code LLaMA</text>
+</svg>
+

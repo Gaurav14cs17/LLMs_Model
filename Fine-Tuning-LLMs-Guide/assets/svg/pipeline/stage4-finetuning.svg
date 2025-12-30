@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+  <defs>
+    <linearGradient id="ftStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#ftStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#ftStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 4: Fine-Tuning Techniques</text>
+  
+  <!-- Full Fine-Tuning -->
+  <g transform="translate(30, 80)">
+    <rect width="150" height="130" fill="white" stroke="#bbf7d0" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">Full Fine-Tune</text>
+    <text x="75" y="55" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">🔄</text>
+    <text x="75" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">All parameters</text>
+    <text x="75" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">High VRAM</text>
+    <text x="75" y="110" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Best quality</text>
+    <rect x="40" y="115" width="70" height="18" fill="#ef4444" rx="4"/>
+    <text x="75" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">100% Params</text>
+  </g>
+  
+  <!-- LoRA -->
+  <g transform="translate(200, 80)">
+    <rect width="150" height="130" fill="white" stroke="#bbf7d0" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">LoRA</text>
+    <text x="75" y="55" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">🎯</text>
+    <text x="75" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Low-rank adapters</text>
+    <text x="75" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Efficient training</text>
+    <text x="75" y="110" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">16-bit precision</text>
+    <rect x="40" y="115" width="70" height="18" fill="#22c55e" rx="4"/>
+    <text x="75" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">0.1% Params</text>
+  </g>
+  
+  <!-- QLoRA -->
+  <g transform="translate(370, 80)">
+    <rect width="150" height="130" fill="white" stroke="#bbf7d0" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">QLoRA</text>
+    <text x="75" y="55" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">⚡</text>
+    <text x="75" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">4-bit quantization</text>
+    <text x="75" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Minimal VRAM</text>
+    <text x="75" y="110" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Consumer GPUs</text>
+    <rect x="40" y="115" width="70" height="18" fill="#3b82f6" rx="4"/>
+    <text x="75" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">~6GB VRAM</text>
+  </g>
+  
+  <!-- DoRA -->
+  <g transform="translate(540, 80)">
+    <rect width="130" height="130" fill="white" stroke="#bbf7d0" stroke-width="2" rx="10"/>
+    <text x="65" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">DoRA</text>
+    <text x="65" y="55" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">🎭</text>
+    <text x="65" y="80" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Weight decompose</text>
+    <text x="65" y="95" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Better than LoRA</text>
+    <text x="65" y="110" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Same efficiency</text>
+    <rect x="25" y="115" width="80" height="18" fill="#8b5cf6" rx="4"/>
+    <text x="65" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">SOTA Quality</text>
+  </g>
+  
+  <!-- RLHF Section -->
+  <rect x="30" y="225" width="640" height="110" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="350" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Alignment Techniques</text>
+  
+  <!-- PPO -->
+  <g transform="translate(80, 270)">
+    <rect width="160" height="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="8"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d97706" text-anchor="middle">PPO</text>
+    <text x="80" y="42" font-family="Arial, sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Reward Model Required</text>
+  </g>
+  
+  <!-- DPO -->
+  <g transform="translate(270, 270)">
+    <rect width="160" height="50" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="8"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">DPO</text>
+    <text x="80" y="42" font-family="Arial, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Direct Preference</text>
+  </g>
+  
+  <!-- ORPO -->
+  <g transform="translate(460, 270)">
+    <rect width="160" height="50" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">ORPO</text>
+    <text x="80" y="42" font-family="Arial, sans-serif" font-size="9" fill="#5b21b6" text-anchor="middle">Odds Ratio Preference</text>
+  </g>
+</svg>
+

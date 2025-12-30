@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 280">
+  <!-- Background -->
+  <rect width="750" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Model Loading Methods</text>
+  
+  <!-- Full Precision -->
+  <g transform="translate(30, 55)">
+    <rect width="160" height="200" fill="white" stroke="#ef4444" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#ef4444" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#ef4444"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">FP32 (Full)</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📊</text>
+    <text x="80" y="105" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">32 bits per param</text>
+    <rect x="20" y="120" width="120" height="20" fill="#fee2e2" rx="4"/>
+    <text x="80" y="134" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">7B = ~28GB</text>
+    <text x="80" y="165" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Best precision</text>
+    <text x="80" y="180" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Highest memory</text>
+    <rect x="20" y="195" width="120" height="25" fill="#fee2e2" rx="4"/>
+    <text x="80" y="212" font-family="Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">Rarely used</text>
+  </g>
+  
+  <!-- FP16 -->
+  <g transform="translate(210, 55)">
+    <rect width="160" height="200" fill="white" stroke="#f59e0b" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#f59e0b" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#f59e0b"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">FP16 / BF16</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">⚡</text>
+    <text x="80" y="105" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">16 bits per param</text>
+    <rect x="20" y="120" width="120" height="20" fill="#fef3c7" rx="4"/>
+    <text x="80" y="134" font-family="Arial, sans-serif" font-size="9" fill="#d97706" text-anchor="middle">7B = ~14GB</text>
+    <text x="80" y="165" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Good balance</text>
+    <text x="80" y="180" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Standard choice</text>
+    <rect x="20" y="195" width="120" height="25" fill="#dcfce7" rx="4"/>
+    <text x="80" y="212" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">Recommended</text>
+  </g>
+  
+  <!-- INT8 -->
+  <g transform="translate(390, 55)">
+    <rect width="160" height="200" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#3b82f6" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#3b82f6"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">INT8</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📉</text>
+    <text x="80" y="105" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">8 bits per param</text>
+    <rect x="20" y="120" width="120" height="20" fill="#dbeafe" rx="4"/>
+    <text x="80" y="134" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">7B = ~7GB</text>
+    <text x="80" y="165" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Good for inference</text>
+    <text x="80" y="180" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Minor quality loss</text>
+    <rect x="20" y="195" width="120" height="25" fill="#dbeafe" rx="4"/>
+    <text x="80" y="212" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">load_in_8bit</text>
+  </g>
+  
+  <!-- INT4 -->
+  <g transform="translate(570, 55)">
+    <rect width="160" height="200" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#22c55e" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#22c55e"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">INT4 (QLoRA)</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🚀</text>
+    <text x="80" y="105" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">4 bits per param</text>
+    <rect x="20" y="120" width="120" height="20" fill="#dcfce7" rx="4"/>
+    <text x="80" y="134" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle">7B = ~4GB</text>
+    <text x="80" y="165" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Consumer GPUs</text>
+    <text x="80" y="180" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">NF4 quantization</text>
+    <rect x="20" y="195" width="120" height="25" fill="#dcfce7" rx="4"/>
+    <text x="80" y="212" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">load_in_4bit ✅</text>
+  </g>
+</svg>
+

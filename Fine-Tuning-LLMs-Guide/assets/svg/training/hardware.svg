@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 280">
+  <!-- Background -->
+  <rect width="750" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Hardware Requirements</text>
+  
+  <!-- Consumer -->
+  <g transform="translate(30, 55)">
+    <rect width="210" height="200" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="210" height="40" fill="#22c55e" rx="10"/>
+    <rect y="33" width="210" height="7" fill="#22c55e"/>
+    <text x="105" y="27" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Consumer GPUs</text>
+    <text x="105" y="70" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🎮</text>
+    <rect x="20" y="90" width="170" height="25" fill="#dcfce7" rx="4"/>
+    <text x="105" y="107" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">RTX 3090/4090 (24GB)</text>
+    <rect x="20" y="125" width="170" height="25" fill="#dcfce7" rx="4"/>
+    <text x="105" y="142" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">RTX 4080 (16GB)</text>
+    <text x="105" y="175" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle" font-weight="bold">Best for: QLoRA</text>
+    <text x="105" y="195" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">7B models with 4-bit</text>
+  </g>
+  
+  <!-- Pro -->
+  <g transform="translate(270, 55)">
+    <rect width="210" height="200" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="210" height="40" fill="#3b82f6" rx="10"/>
+    <rect y="33" width="210" height="7" fill="#3b82f6"/>
+    <text x="105" y="27" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Professional GPUs</text>
+    <text x="105" y="70" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">💼</text>
+    <rect x="20" y="90" width="170" height="25" fill="#dbeafe" rx="4"/>
+    <text x="105" y="107" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">A100 (40/80GB)</text>
+    <rect x="20" y="125" width="170" height="25" fill="#dbeafe" rx="4"/>
+    <text x="105" y="142" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">H100 (80GB)</text>
+    <text x="105" y="175" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle" font-weight="bold">Best for: LoRA/Full FT</text>
+    <text x="105" y="195" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">7B-70B models</text>
+  </g>
+  
+  <!-- Cloud -->
+  <g transform="translate(510, 55)">
+    <rect width="210" height="200" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="210" height="40" fill="#8b5cf6" rx="10"/>
+    <rect y="33" width="210" height="7" fill="#8b5cf6"/>
+    <text x="105" y="27" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Cloud Options</text>
+    <text x="105" y="70" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">☁️</text>
+    <rect x="20" y="90" width="170" height="25" fill="#ede9fe" rx="4"/>
+    <text x="105" y="107" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">Google Colab (T4/A100)</text>
+    <rect x="20" y="125" width="170" height="25" fill="#ede9fe" rx="4"/>
+    <text x="105" y="142" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">AWS/GCP/Azure</text>
+    <text x="105" y="175" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle" font-weight="bold">Best for: Flexibility</text>
+    <text x="105" y="195" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Pay-as-you-go</text>
+  </g>
+</svg>
+

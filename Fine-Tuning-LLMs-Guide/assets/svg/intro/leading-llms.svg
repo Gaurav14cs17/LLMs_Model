@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400">
+  <defs>
+    <linearGradient id="gptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="llamaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mistralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="850" height="400" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="425" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Current Leading LLMs (2024)</text>
+  
+  <!-- GPT-4 -->
+  <g transform="translate(30, 60)">
+    <rect width="150" height="180" fill="white" stroke="#d1fae5" stroke-width="2" rx="12"/>
+    <rect width="150" height="50" fill="url(#gptGrad)" rx="12"/>
+    <rect y="38" width="150" height="12" fill="url(#gptGrad)"/>
+    <text x="75" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">GPT-4</text>
+    <text x="75" y="75" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🤖</text>
+    <text x="75" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">OpenAI</text>
+    <rect x="15" y="115" width="120" height="22" fill="#dcfce7" rx="4"/>
+    <text x="75" y="130" font-family="Arial, sans-serif" font-size="9" fill="#059669" text-anchor="middle">~1.8T Parameters</text>
+    <rect x="15" y="142" width="120" height="22" fill="#dcfce7" rx="4"/>
+    <text x="75" y="157" font-family="Arial, sans-serif" font-size="9" fill="#059669" text-anchor="middle">128K Context</text>
+  </g>
+  
+  <!-- LLaMA 3 -->
+  <g transform="translate(200, 60)">
+    <rect width="150" height="180" fill="white" stroke="#bfdbfe" stroke-width="2" rx="12"/>
+    <rect width="150" height="50" fill="url(#llamaGrad)" rx="12"/>
+    <rect y="38" width="150" height="12" fill="url(#llamaGrad)"/>
+    <text x="75" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LLaMA 3</text>
+    <text x="75" y="75" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🦙</text>
+    <text x="75" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Meta AI</text>
+    <rect x="15" y="115" width="120" height="22" fill="#dbeafe" rx="4"/>
+    <text x="75" y="130" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">70B Parameters</text>
+    <rect x="15" y="142" width="120" height="22" fill="#dbeafe" rx="4"/>
+    <text x="75" y="157" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">Open Source</text>
+  </g>
+  
+  <!-- Claude 3 -->
+  <g transform="translate(370, 60)">
+    <rect width="150" height="180" fill="white" stroke="#fed7aa" stroke-width="2" rx="12"/>
+    <rect width="150" height="50" fill="url(#claudeGrad)" rx="12"/>
+    <rect y="38" width="150" height="12" fill="url(#claudeGrad)"/>
+    <text x="75" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Claude 3</text>
+    <text x="75" y="75" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🎭</text>
+    <text x="75" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Anthropic</text>
+    <rect x="15" y="115" width="120" height="22" fill="#ffedd5" rx="4"/>
+    <text x="75" y="130" font-family="Arial, sans-serif" font-size="9" fill="#ea580c" text-anchor="middle">200K Context</text>
+    <rect x="15" y="142" width="120" height="22" fill="#ffedd5" rx="4"/>
+    <text x="75" y="157" font-family="Arial, sans-serif" font-size="9" fill="#ea580c" text-anchor="middle">Safety Focused</text>
+  </g>
+  
+  <!-- Gemini -->
+  <g transform="translate(540, 60)">
+    <rect width="150" height="180" fill="white" stroke="#ddd6fe" stroke-width="2" rx="12"/>
+    <rect width="150" height="50" fill="url(#geminiGrad)" rx="12"/>
+    <rect y="38" width="150" height="12" fill="url(#geminiGrad)"/>
+    <text x="75" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Gemini</text>
+    <text x="75" y="75" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">✨</text>
+    <text x="75" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Google</text>
+    <rect x="15" y="115" width="120" height="22" fill="#ede9fe" rx="4"/>
+    <text x="75" y="130" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">1M Context</text>
+    <rect x="15" y="142" width="120" height="22" fill="#ede9fe" rx="4"/>
+    <text x="75" y="157" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">Multimodal</text>
+  </g>
+  
+  <!-- Mistral -->
+  <g transform="translate(710, 60)">
+    <rect width="120" height="180" fill="white" stroke="#fecdd3" stroke-width="2" rx="12"/>
+    <rect width="120" height="50" fill="url(#mistralGrad)" rx="12"/>
+    <rect y="38" width="120" height="12" fill="url(#mistralGrad)"/>
+    <text x="60" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Mistral</text>
+    <text x="60" y="75" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🌀</text>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Mistral AI</text>
+    <rect x="10" y="115" width="100" height="22" fill="#ffe4e6" rx="4"/>
+    <text x="60" y="130" font-family="Arial, sans-serif" font-size="9" fill="#e11d48" text-anchor="middle">7B - 8x22B</text>
+    <rect x="10" y="142" width="100" height="22" fill="#ffe4e6" rx="4"/>
+    <text x="60" y="157" font-family="Arial, sans-serif" font-size="9" fill="#e11d48" text-anchor="middle">MoE</text>
+  </g>
+  
+  <!-- Open Source Section -->
+  <rect x="30" y="260" width="790" height="120" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="425" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">🔓 Open Source Models for Fine-Tuning</text>
+  
+  <!-- Open source model cards -->
+  <rect x="60" y="305" width="120" height="55" fill="#dbeafe" rx="8"/>
+  <text x="120" y="328" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2563eb" text-anchor="middle">LLaMA 2/3</text>
+  <text x="120" y="345" font-family="Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle">7B - 70B</text>
+  
+  <rect x="200" y="305" width="120" height="55" fill="#ffe4e6" rx="8"/>
+  <text x="260" y="328" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e11d48" text-anchor="middle">Mistral</text>
+  <text x="260" y="345" font-family="Arial, sans-serif" font-size="9" fill="#f43f5e" text-anchor="middle">7B - 8x22B</text>
+  
+  <rect x="340" y="305" width="120" height="55" fill="#fef3c7" rx="8"/>
+  <text x="400" y="328" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#d97706" text-anchor="middle">Falcon</text>
+  <text x="400" y="345" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">7B - 180B</text>
+  
+  <rect x="480" y="305" width="120" height="55" fill="#dcfce7" rx="8"/>
+  <text x="540" y="328" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#059669" text-anchor="middle">Phi-2/3</text>
+  <text x="540" y="345" font-family="Arial, sans-serif" font-size="9" fill="#10b981" text-anchor="middle">2.7B - 14B</text>
+  
+  <rect x="620" y="305" width="120" height="55" fill="#ede9fe" rx="8"/>
+  <text x="680" y="328" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#7c3aed" text-anchor="middle">Gemma</text>
+  <text x="680" y="345" font-family="Arial, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">2B - 7B</text>
+</svg>
+

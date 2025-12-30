@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300">
+  <!-- Background -->
+  <rect width="750" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Production Deployment Architecture</text>
+  
+  <!-- Client -->
+  <rect x="30" y="120" width="100" height="60" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <text x="80" y="145" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">👤</text>
+  <text x="80" y="165" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="bold">Client</text>
+  
+  <!-- Arrow -->
+  <path d="M135 150 L175 150" stroke="#64748b" stroke-width="2"/>
+  <polygon points="173,145 185,150 173,155" fill="#64748b"/>
+  
+  <!-- Load Balancer -->
+  <rect x="190" y="120" width="100" height="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="8"/>
+  <text x="240" y="145" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">⚖️</text>
+  <text x="240" y="165" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle" font-weight="bold">Load Balancer</text>
+  
+  <!-- Arrow -->
+  <path d="M295 150 L335 150" stroke="#64748b" stroke-width="2"/>
+  <polygon points="333,145 345,150 333,155" fill="#64748b"/>
+  
+  <!-- API Gateway -->
+  <rect x="350" y="120" width="100" height="60" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="8"/>
+  <text x="400" y="145" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🌐</text>
+  <text x="400" y="165" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="bold">API Gateway</text>
+  
+  <!-- Arrow -->
+  <path d="M455 150 L495 150" stroke="#64748b" stroke-width="2"/>
+  <polygon points="493,145 505,150 493,155" fill="#64748b"/>
+  
+  <!-- Inference Server -->
+  <rect x="510" y="100" width="120" height="100" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+  <text x="570" y="135" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">⚡</text>
+  <text x="570" y="155" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle" font-weight="bold">vLLM / TGI</text>
+  <text x="570" y="175" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">Inference Server</text>
+  
+  <!-- Arrow -->
+  <path d="M635 150 L675 150" stroke="#64748b" stroke-width="2"/>
+  <polygon points="673,145 685,150 673,155" fill="#64748b"/>
+  
+  <!-- GPU -->
+  <rect x="690" y="120" width="50" height="60" fill="#3b82f6" rx="8"/>
+  <text x="715" y="145" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🎮</text>
+  <text x="715" y="165" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">GPU</text>
+  
+  <!-- Bottom Components -->
+  <rect x="190" y="220" width="140" height="50" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="260" y="250" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">📊 Prometheus + Grafana</text>
+  
+  <rect x="350" y="220" width="140" height="50" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="420" y="250" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">📝 Logging (ELK)</text>
+  
+  <rect x="510" y="220" width="140" height="50" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="580" y="250" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">💾 Model Registry</text>
+  
+  <!-- Connections to bottom -->
+  <path d="M400 185 L400 215" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <path d="M260 185 L260 215" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <path d="M570 205 L570 215" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>
+

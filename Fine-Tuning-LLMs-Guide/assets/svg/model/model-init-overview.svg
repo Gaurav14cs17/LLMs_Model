@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="200" fill="url(#modelGrad)" rx="15"/>
+  <circle cx="80" cy="40" r="60" fill="white" opacity="0.05"/>
+  <circle cx="720" cy="160" r="80" fill="white" opacity="0.05"/>
+  
+  <rect x="30" y="25" width="740" height="150" fill="white" rx="10"/>
+  
+  <circle cx="100" cy="100" r="40" fill="#ffedd5"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="35" text-anchor="middle">🏗️</text>
+  
+  <text x="440" y="65" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#1e293b" text-anchor="middle">Model Initialization</text>
+  <text x="440" y="95" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Select, Load, and Configure Your Base Model</text>
+  
+  <rect x="230" y="115" width="100" height="30" fill="#f97316" rx="15"/>
+  <text x="280" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Select</text>
+  
+  <rect x="340" y="115" width="100" height="30" fill="#ea580c" rx="15"/>
+  <text x="390" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Load</text>
+  
+  <rect x="450" y="115" width="100" height="30" fill="#c2410c" rx="15"/>
+  <text x="500" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Configure</text>
+  
+  <rect x="560" y="115" width="100" height="30" fill="#9a3412" rx="15"/>
+  <text x="610" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Ready</text>
+</svg>
+

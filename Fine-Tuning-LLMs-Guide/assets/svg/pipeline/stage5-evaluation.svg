@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <defs>
+    <linearGradient id="evalStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="300" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#evalStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#evalStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 5: Evaluation &amp; Validation</text>
+  
+  <!-- Metrics Section -->
+  <g transform="translate(30, 80)">
+    <rect width="200" height="195" fill="white" stroke="#a5f3fc" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0891b2" text-anchor="middle">📊 Metrics</text>
+    
+    <rect x="15" y="45" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="62" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">Perplexity ↓</text>
+    
+    <rect x="15" y="78" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="95" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">BLEU Score ↑</text>
+    
+    <rect x="15" y="111" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="128" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">ROUGE Score ↑</text>
+    
+    <rect x="15" y="144" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="161" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">F1 Score ↑</text>
+    
+    <rect x="15" y="177" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="194" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">Accuracy ↑</text>
+  </g>
+  
+  <!-- Benchmarks -->
+  <g transform="translate(250, 80)">
+    <rect width="200" height="195" fill="white" stroke="#a5f3fc" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0891b2" text-anchor="middle">🏆 Benchmarks</text>
+    
+    <rect x="15" y="50" width="80" height="35" fill="#dcfce7" rx="5"/>
+    <text x="55" y="72" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">MMLU</text>
+    
+    <rect x="105" y="50" width="80" height="35" fill="#dbeafe" rx="5"/>
+    <text x="145" y="72" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">HellaSwag</text>
+    
+    <rect x="15" y="95" width="80" height="35" fill="#fef3c7" rx="5"/>
+    <text x="55" y="117" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">ARC</text>
+    
+    <rect x="105" y="95" width="80" height="35" fill="#ede9fe" rx="5"/>
+    <text x="145" y="117" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">TruthfulQA</text>
+    
+    <rect x="15" y="140" width="80" height="35" fill="#ffe4e6" rx="5"/>
+    <text x="55" y="162" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">WinoGrande</text>
+    
+    <rect x="105" y="140" width="80" height="35" fill="#ccfbf1" rx="5"/>
+    <text x="145" y="162" font-family="Arial, sans-serif" font-size="10" fill="#0d9488" text-anchor="middle">GSM8K</text>
+  </g>
+  
+  <!-- Human Eval -->
+  <g transform="translate(470, 80)">
+    <rect width="200" height="195" fill="white" stroke="#a5f3fc" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0891b2" text-anchor="middle">👥 Human Evaluation</text>
+    
+    <text x="100" y="70" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">👨‍⚖️</text>
+    
+    <rect x="15" y="95" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="112" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">Helpfulness Rating</text>
+    
+    <rect x="15" y="128" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="145" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">Harmlessness Check</text>
+    
+    <rect x="15" y="161" width="170" height="25" fill="#ecfeff" rx="5"/>
+    <text x="100" y="178" font-family="Arial, sans-serif" font-size="10" fill="#0e7490" text-anchor="middle">Coherence Score</text>
+  </g>
+</svg>
+
