@@ -170,7 +170,7 @@ atten/
 <p align="center">
   <b>👉 <a href="./00-important-concepts/">Start Chapter 0: Important Concepts →</a></b>
   <br/>
-  <a href="./00-important-concepts/">Then Chapter 0: 00-important-concepts →</a>
+  <a href="./01-self-attention/">Then Chapter 1: Self-Attention →</a>
 </p>
 
 ---
