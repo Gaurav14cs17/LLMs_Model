@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="qGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="kvGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="compShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Multi-Head Attention Variants: MHA vs GQA vs MQA</text>
+  
+  <!-- MHA -->
+  <rect x="30" y="60" width="270" height="380" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="165" y="90" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">MHA (Standard)</text>
+  <text x="165" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Multi-Head Attention</text>
+  
+  <!-- MHA heads -->
+  <rect x="50" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="75" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₁</text>
+  <rect x="50" y="165" width="50" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="75" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₁V₁</text>
+  
+  <rect x="110" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="135" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₂</text>
+  <rect x="110" y="165" width="50" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="135" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₂V₂</text>
+  
+  <rect x="170" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="195" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₃</text>
+  <rect x="170" y="165" width="50" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="195" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₃V₃</text>
+  
+  <rect x="230" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="255" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₄</text>
+  <rect x="230" y="165" width="50" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="255" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₄V₄</text>
+  
+  <!-- MHA arrows -->
+  <line x1="75" y1="160" x2="75" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="135" y1="160" x2="135" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="195" y1="160" x2="195" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="255" y1="160" x2="255" y2="165" stroke="#888" stroke-width="1"/>
+  
+  <!-- MHA info -->
+  <rect x="50" y="220" width="230" height="100" rx="6" fill="#21262d"/>
+  <text x="165" y="245" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Characteristics:</text>
+  <text x="60" y="270" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Each head has own K, V</text>
+  <text x="60" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• h Query heads, h KV heads</text>
+  <text x="60" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Highest quality</text>
+  
+  <rect x="50" y="330" width="230" height="50" rx="6" fill="#21262d" stroke="#e17055" stroke-width="1"/>
+  <text x="165" y="352" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">KV Cache: h × seq_len × d_k</text>
+  <text x="165" y="370" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Memory: HIGH</text>
+  
+  <rect x="50" y="390" width="230" height="40" rx="6" fill="#58a6ff" opacity="0.2"/>
+  <text x="165" y="415" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Quality: ★★★★★</text>
+  
+  <!-- GQA -->
+  <rect x="315" y="60" width="270" height="380" rx="12" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="450" y="90" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GQA (Grouped)</text>
+  <text x="450" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Grouped Query Attention</text>
+  
+  <!-- GQA heads - group 1 -->
+  <rect x="335" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="360" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₁</text>
+  <rect x="395" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="420" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₂</text>
+  
+  <rect x="355" y="165" width="90" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="400" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₁V₁ (shared)</text>
+  
+  <!-- GQA heads - group 2 -->
+  <rect x="455" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="480" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₃</text>
+  <rect x="515" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="540" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₄</text>
+  
+  <rect x="475" y="165" width="90" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="520" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K₂V₂ (shared)</text>
+  
+  <!-- GQA arrows -->
+  <line x1="360" y1="160" x2="390" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="420" y1="160" x2="410" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="480" y1="160" x2="510" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="540" y1="160" x2="530" y2="165" stroke="#888" stroke-width="1"/>
+  
+  <!-- GQA info -->
+  <rect x="335" y="220" width="230" height="100" rx="6" fill="#21262d"/>
+  <text x="450" y="245" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Characteristics:</text>
+  <text x="345" y="270" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Groups share K, V</text>
+  <text x="345" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• h Query heads, g KV groups</text>
+  <text x="345" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Good balance</text>
+  
+  <rect x="335" y="330" width="230" height="50" rx="6" fill="#21262d" stroke="#fdcb6e" stroke-width="1"/>
+  <text x="450" y="352" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10">KV Cache: g × seq_len × d_k</text>
+  <text x="450" y="370" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Memory: MEDIUM</text>
+  
+  <rect x="335" y="390" width="230" height="40" rx="6" fill="#55efc4" opacity="0.2"/>
+  <text x="450" y="415" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Quality: ★★★★☆</text>
+  
+  <!-- MQA -->
+  <rect x="600" y="60" width="270" height="380" rx="12" fill="#161b22" stroke="#a29bfe" stroke-width="2"/>
+  <text x="735" y="90" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">MQA (Multi-Query)</text>
+  <text x="735" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Multi-Query Attention</text>
+  
+  <!-- MQA heads -->
+  <rect x="620" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="645" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₁</text>
+  <rect x="680" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="705" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₂</text>
+  <rect x="740" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="765" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₃</text>
+  <rect x="800" y="130" width="50" height="30" rx="4" fill="url(#qGrad2)"/>
+  <text x="825" y="150" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q₄</text>
+  
+  <!-- Single shared KV -->
+  <rect x="660" y="165" width="150" height="30" rx="4" fill="url(#kvGrad2)"/>
+  <text x="735" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K V (single, shared by ALL)</text>
+  
+  <!-- MQA arrows -->
+  <line x1="645" y1="160" x2="700" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="705" y1="160" x2="720" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="765" y1="160" x2="750" y2="165" stroke="#888" stroke-width="1"/>
+  <line x1="825" y1="160" x2="770" y2="165" stroke="#888" stroke-width="1"/>
+  
+  <!-- MQA info -->
+  <rect x="620" y="220" width="230" height="100" rx="6" fill="#21262d"/>
+  <text x="735" y="245" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Characteristics:</text>
+  <text x="630" y="270" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• All heads share single K, V</text>
+  <text x="630" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• h Query heads, 1 KV</text>
+  <text x="630" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Fastest inference</text>
+  
+  <rect x="620" y="330" width="230" height="50" rx="6" fill="#21262d" stroke="#00b894" stroke-width="1"/>
+  <text x="735" y="352" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10">KV Cache: 1 × seq_len × d_k</text>
+  <text x="735" y="370" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Memory: LOWEST</text>
+  
+  <rect x="620" y="390" width="230" height="40" rx="6" fill="#a29bfe" opacity="0.2"/>
+  <text x="735" y="415" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Quality: ★★★☆☆</text>
+  
+  <!-- Comparison table -->
+  <rect x="100" y="460" width="700" height="75" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="450" y="485" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Usage in Modern Models</text>
+  <text x="200" y="515" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="11">MHA: BERT, GPT-2</text>
+  <text x="450" y="515" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">GQA: Llama 2, Mistral</text>
+  <text x="700" y="515" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11">MQA: PaLM, Falcon</text>
+</svg>
+

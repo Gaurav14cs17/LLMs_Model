@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="inputGradSA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qGradSA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="kGradSA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vGradSA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="outputGradSA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowSA" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="400" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Self-Attention: Complete Overview</text>
+  <text x="450" y="52" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">Query, Key, Value all come from the SAME input sequence</text>
+  
+  <!-- Input -->
+  <rect x="50" y="100" width="120" height="180" rx="10" fill="#161b22" stroke="url(#inputGradSA)" stroke-width="2"/>
+  <text x="110" y="130" text-anchor="middle" fill="#667eea" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Input X</text>
+  <text x="110" y="150" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">(n × d_model)</text>
+  
+  <!-- Input tokens -->
+  <rect x="65" y="165" width="90" height="25" rx="4" fill="url(#inputGradSA)" opacity="0.8"/>
+  <text x="110" y="182" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"The"</text>
+  <rect x="65" y="195" width="90" height="25" rx="4" fill="url(#inputGradSA)" opacity="0.8"/>
+  <text x="110" y="212" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"cat"</text>
+  <rect x="65" y="225" width="90" height="25" rx="4" fill="url(#inputGradSA)" opacity="0.8"/>
+  <text x="110" y="242" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"sat"</text>
+  
+  <!-- Arrows to Q, K, V -->
+  <path d="M 170 160 L 220 120" stroke="#f093fb" stroke-width="2" fill="none"/>
+  <path d="M 170 190 L 220 190" stroke="#4facfe" stroke-width="2" fill="none"/>
+  <path d="M 170 220 L 220 260" stroke="#43e97b" stroke-width="2" fill="none"/>
+  
+  <!-- Q, K, V boxes -->
+  <rect x="230" y="80" width="100" height="70" rx="8" fill="url(#qGradSA)" filter="url(#shadowSA)"/>
+  <text x="280" y="110" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Query (Q)</text>
+  <text x="280" y="130" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">X × W_Q</text>
+  <text x="280" y="145" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="9">"What I look for"</text>
+  
+  <rect x="230" y="160" width="100" height="70" rx="8" fill="url(#kGradSA)" filter="url(#shadowSA)"/>
+  <text x="280" y="190" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Key (K)</text>
+  <text x="280" y="210" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">X × W_K</text>
+  <text x="280" y="225" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="9">"What I contain"</text>
+  
+  <rect x="230" y="240" width="100" height="70" rx="8" fill="url(#vGradSA)" filter="url(#shadowSA)"/>
+  <text x="280" y="270" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Value (V)</text>
+  <text x="280" y="290" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">X × W_V</text>
+  <text x="280" y="305" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="9">"What I give"</text>
+  
+  <!-- Arrow to attention -->
+  <path d="M 330 115 L 400 170" stroke="#f093fb" stroke-width="2" fill="none"/>
+  <path d="M 330 195 L 400 190" stroke="#4facfe" stroke-width="2" fill="none"/>
+  <path d="M 330 275 L 400 250" stroke="#43e97b" stroke-width="2" fill="none"/>
+  
+  <!-- Attention computation box -->
+  <rect x="410" y="130" width="200" height="140" rx="10" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="510" y="155" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Attention Computation</text>
+  
+  <text x="510" y="180" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">1. Scores = QK^T / √d_k</text>
+  <text x="510" y="205" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">2. Weights = softmax(Scores)</text>
+  <text x="510" y="230" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">3. Output = Weights × V</text>
+  
+  <rect x="440" y="245" width="140" height="20" rx="4" fill="#fdcb6e" opacity="0.3"/>
+  <text x="510" y="259" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="9">Context-aware output</text>
+  
+  <!-- Arrow to output -->
+  <path d="M 610 200 L 680 200" stroke="#fdcb6e" stroke-width="2"/>
+  <polygon points="690,200 680,195 680,205" fill="#fdcb6e"/>
+  
+  <!-- Output -->
+  <rect x="700" y="100" width="150" height="200" rx="10" fill="#161b22" stroke="url(#outputGradSA)" stroke-width="2"/>
+  <text x="775" y="130" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Output</text>
+  <text x="775" y="150" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">(n × d_model)</text>
+  
+  <!-- Output tokens -->
+  <rect x="715" y="165" width="120" height="25" rx="4" fill="url(#outputGradSA)" opacity="0.8"/>
+  <text x="775" y="182" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"The" + context</text>
+  <rect x="715" y="195" width="120" height="25" rx="4" fill="url(#outputGradSA)" opacity="0.8"/>
+  <text x="775" y="212" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"cat" + context</text>
+  <rect x="715" y="225" width="120" height="25" rx="4" fill="url(#outputGradSA)" opacity="0.8"/>
+  <text x="775" y="242" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">"sat" + context</text>
+  
+  <text x="775" y="280" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Each token now has</text>
+  <text x="775" y="293" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">information from</text>
+  <text x="775" y="306" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="9" font-weight="bold">ALL other tokens!</text>
+  
+  <!-- Key insight box -->
+  <rect x="200" y="340" width="500" height="45" rx="8" fill="#21262d" stroke="#58a6ff" stroke-width="1"/>
+  <text x="450" y="362" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🔑 Key Insight: Same input X produces Q, K, V → sequence attends to itself</text>
+  <text x="450" y="378" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Every position can directly access information from every other position</text>
+</svg>
+

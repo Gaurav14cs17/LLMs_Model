@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="coldG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="normalG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hotG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7675;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="400" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="18" font-weight="bold">Softmax Temperature: Controlling Attention Sharpness</text>
+  
+  <!-- Formula -->
+  <rect x="250" y="45" width="400" height="35" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+  <text x="450" y="68" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="12">softmax((QK^T / √d_k) / τ) — τ is temperature</text>
+  
+  <!-- Low Temperature -->
+  <rect x="50" y="95" width="260" height="280" rx="12" fill="#161b22" stroke="url(#coldG)" stroke-width="2"/>
+  <text x="180" y="125" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🧊 τ &lt; 1 (Cold)</text>
+  
+  <!-- Visualization - Sharp peaks -->
+  <rect x="70" y="145" width="220" height="80" rx="6" fill="#21262d"/>
+  <text x="180" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Attention distribution:</text>
+  <rect x="90" y="180" width="10" height="35" rx="2" fill="url(#coldG)" opacity="0.2"/>
+  <rect x="120" y="175" width="10" height="40" rx="2" fill="url(#coldG)" opacity="0.3"/>
+  <rect x="150" y="135" width="10" height="80" rx="2" fill="url(#coldG)"/>
+  <rect x="180" y="180" width="10" height="35" rx="2" fill="url(#coldG)" opacity="0.2"/>
+  <rect x="210" y="190" width="10" height="25" rx="2" fill="url(#coldG)" opacity="0.15"/>
+  <rect x="240" y="195" width="10" height="20" rx="2" fill="url(#coldG)" opacity="0.1"/>
+  
+  <rect x="70" y="240" width="220" height="120" rx="6" fill="#21262d"/>
+  <text x="180" y="265" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Properties:</text>
+  <text x="90" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Sharper peaks</text>
+  <text x="90" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• More focused attention</text>
+  <text x="90" y="330" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Nearly one-hot at τ→0</text>
+  <text x="90" y="350" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Use: Precise retrieval</text>
+  
+  <!-- Normal Temperature -->
+  <rect x="320" y="95" width="260" height="280" rx="12" fill="#161b22" stroke="url(#normalG)" stroke-width="2"/>
+  <text x="450" y="125" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✓ τ = 1 (Normal)</text>
+  
+  <!-- Visualization - Balanced -->
+  <rect x="340" y="145" width="220" height="80" rx="6" fill="#21262d"/>
+  <text x="450" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Attention distribution:</text>
+  <rect x="360" y="170" width="10" height="45" rx="2" fill="url(#normalG)" opacity="0.5"/>
+  <rect x="390" y="165" width="10" height="50" rx="2" fill="url(#normalG)" opacity="0.6"/>
+  <rect x="420" y="150" width="10" height="65" rx="2" fill="url(#normalG)"/>
+  <rect x="450" y="160" width="10" height="55" rx="2" fill="url(#normalG)" opacity="0.7"/>
+  <rect x="480" y="175" width="10" height="40" rx="2" fill="url(#normalG)" opacity="0.45"/>
+  <rect x="510" y="185" width="10" height="30" rx="2" fill="url(#normalG)" opacity="0.3"/>
+  
+  <rect x="340" y="240" width="220" height="120" rx="6" fill="#21262d"/>
+  <text x="450" y="265" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Properties:</text>
+  <text x="360" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Balanced distribution</text>
+  <text x="360" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Standard behavior</text>
+  <text x="360" y="330" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• √d_k scaling alone</text>
+  <text x="360" y="350" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Use: Standard training</text>
+  
+  <!-- High Temperature -->
+  <rect x="590" y="95" width="260" height="280" rx="12" fill="#161b22" stroke="url(#hotG)" stroke-width="2"/>
+  <text x="720" y="125" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔥 τ &gt; 1 (Hot)</text>
+  
+  <!-- Visualization - Flat -->
+  <rect x="610" y="145" width="220" height="80" rx="6" fill="#21262d"/>
+  <text x="720" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Attention distribution:</text>
+  <rect x="630" y="175" width="10" height="40" rx="2" fill="url(#hotG)" opacity="0.5"/>
+  <rect x="660" y="172" width="10" height="43" rx="2" fill="url(#hotG)" opacity="0.55"/>
+  <rect x="690" y="168" width="10" height="47" rx="2" fill="url(#hotG)" opacity="0.6"/>
+  <rect x="720" y="170" width="10" height="45" rx="2" fill="url(#hotG)" opacity="0.58"/>
+  <rect x="750" y="174" width="10" height="41" rx="2" fill="url(#hotG)" opacity="0.52"/>
+  <rect x="780" y="178" width="10" height="37" rx="2" fill="url(#hotG)" opacity="0.48"/>
+  
+  <rect x="610" y="240" width="220" height="120" rx="6" fill="#21262d"/>
+  <text x="720" y="265" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Properties:</text>
+  <text x="630" y="290" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Flatter distribution</text>
+  <text x="630" y="310" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• More uniform attention</text>
+  <text x="630" y="330" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Uniform at τ→∞</text>
+  <text x="630" y="350" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Use: Distillation, diversity</text>
+</svg>
+

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="head1Grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="head2Grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="concatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="650" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Multi-Head: Each Head Has Its Own 3×3 Attention Matrix</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">"The cat sat" with 2 heads (simplified example)</text>
+  
+  <!-- Input -->
+  <rect x="30" y="80" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="100" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">INPUT</text>
+  <text x="165" y="100" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Same input goes to both heads</text>
+  
+  <rect x="300" y="100" width="300" height="50" rx="8" fill="#161b22" stroke="#667eea" stroke-width="2"/>
+  <text x="350" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">The</text>
+  <text x="450" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">cat</text>
+  <text x="550" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">sat</text>
+  
+  <!-- Split arrows -->
+  <path d="M 350 150 L 200 200" stroke="#ff6b6b" stroke-width="2"/>
+  <path d="M 550 150 L 700 200" stroke="#a29bfe" stroke-width="2"/>
+  
+  <!-- HEAD 1 -->
+  <rect x="50" y="200" width="340" height="250" rx="12" fill="#161b22" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="220" y="230" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">HEAD 1: Syntactic Pattern</text>
+  <text x="220" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Learns subject-verb relationships</text>
+  
+  <!-- Head 1 Attention Matrix 3x3 -->
+  <rect x="80" y="270" width="200" height="150" rx="8" fill="#21262d"/>
+  <text x="180" y="295" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Attention Matrix (3×3)</text>
+  
+  <!-- Column headers -->
+  <text x="130" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">The</text>
+  <text x="180" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">cat</text>
+  <text x="230" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">sat</text>
+  
+  <!-- Row headers -->
+  <text x="100" y="340" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">The</text>
+  <text x="100" y="370" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">cat</text>
+  <text x="100" y="400" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">sat</text>
+  
+  <!-- Head 1 values - syntactic focus -->
+  <rect x="115" y="325" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.3"/>
+  <text x="130" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.2</text>
+  <rect x="165" y="325" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.3"/>
+  <text x="180" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.4</text>
+  <rect x="215" y="325" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.3"/>
+  <text x="230" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.4</text>
+  
+  <rect x="115" y="355" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.4"/>
+  <text x="130" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.2</text>
+  <rect x="165" y="355" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.6"/>
+  <text x="180" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.3</text>
+  <rect x="215" y="355" width="30" height="20" rx="3" fill="#ff6b6b"/>
+  <text x="230" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">0.5</text>
+  
+  <rect x="115" y="385" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.3"/>
+  <text x="130" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.1</text>
+  <rect x="165" y="385" width="30" height="20" rx="3" fill="#ff6b6b"/>
+  <text x="180" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">0.6</text>
+  <rect x="215" y="385" width="30" height="20" rx="3" fill="#ff6b6b" opacity="0.5"/>
+  <text x="230" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.3</text>
+  
+  <!-- Head 1 interpretation -->
+  <text x="300" y="340" text-anchor="start" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="9">cat → sat: 0.5</text>
+  <text x="300" y="360" text-anchor="start" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="9">sat → cat: 0.6</text>
+  <text x="300" y="380" text-anchor="start" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">Subject-verb!</text>
+  
+  <!-- HEAD 2 -->
+  <rect x="510" y="200" width="340" height="250" rx="12" fill="#161b22" stroke="#a29bfe" stroke-width="2"/>
+  <text x="680" y="230" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">HEAD 2: Positional Pattern</text>
+  <text x="680" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Learns adjacent token relationships</text>
+  
+  <!-- Head 2 Attention Matrix 3x3 -->
+  <rect x="540" y="270" width="200" height="150" rx="8" fill="#21262d"/>
+  <text x="640" y="295" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Attention Matrix (3×3)</text>
+  
+  <!-- Column headers -->
+  <text x="590" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">The</text>
+  <text x="640" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">cat</text>
+  <text x="690" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">sat</text>
+  
+  <!-- Row headers -->
+  <text x="560" y="340" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">The</text>
+  <text x="560" y="370" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">cat</text>
+  <text x="560" y="400" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">sat</text>
+  
+  <!-- Head 2 values - positional focus -->
+  <rect x="575" y="325" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.5"/>
+  <text x="590" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.4</text>
+  <rect x="625" y="325" width="30" height="20" rx="3" fill="#a29bfe"/>
+  <text x="640" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">0.5</text>
+  <rect x="675" y="325" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.2"/>
+  <text x="690" y="340" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.1</text>
+  
+  <rect x="575" y="355" width="30" height="20" rx="3" fill="#a29bfe"/>
+  <text x="590" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">0.5</text>
+  <rect x="625" y="355" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.4"/>
+  <text x="640" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.3</text>
+  <rect x="675" y="355" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.3"/>
+  <text x="690" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.2</text>
+  
+  <rect x="575" y="385" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.2"/>
+  <text x="590" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.1</text>
+  <rect x="625" y="385" width="30" height="20" rx="3" fill="#a29bfe"/>
+  <text x="640" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">0.5</text>
+  <rect x="675" y="385" width="30" height="20" rx="3" fill="#a29bfe" opacity="0.5"/>
+  <text x="690" y="400" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">0.4</text>
+  
+  <!-- Head 2 interpretation -->
+  <text x="760" y="340" text-anchor="start" fill="#a29bfe" font-family="Arial, sans-serif" font-size="9">The → cat: 0.5</text>
+  <text x="760" y="360" text-anchor="start" fill="#a29bfe" font-family="Arial, sans-serif" font-size="9">cat → The: 0.5</text>
+  <text x="760" y="380" text-anchor="start" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">Adjacent!</text>
+  
+  <!-- Concat arrows -->
+  <path d="M 220 450 L 220 490 L 380 510" stroke="#ff6b6b" stroke-width="2"/>
+  <path d="M 680 450 L 680 490 L 520 510" stroke="#a29bfe" stroke-width="2"/>
+  
+  <!-- Concatenate -->
+  <rect x="300" y="500" width="300" height="60" rx="10" fill="url(#concatGrad2)" filter="url(#shadow4)"/>
+  <text x="450" y="525" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">CONCATENATE</text>
+  <text x="450" y="545" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">[Head 1 output | Head 2 output]</text>
+  
+  <!-- Final projection -->
+  <path d="M 450 560 L 450 590" stroke="#55efc4" stroke-width="2"/>
+  <polygon points="450,600 445,590 455,590" fill="#55efc4"/>
+  
+  <rect x="300" y="600" width="300" height="40" rx="8" fill="#21262d" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="450" y="625" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Final Output = Concat × W_O</text>
+  
+  <!-- Key insight -->
+  <text x="450" y="670" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">💡 Each head learns different patterns → Combined gives rich representation</text>
+</svg>
+

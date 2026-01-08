@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="syntaxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="posGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="corefGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="semGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">What Different Attention Heads Learn</text>
+  <text x="450" y="52" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">Research shows different heads specialize in different patterns</text>
+  
+  <!-- Sentence -->
+  <rect x="100" y="70" width="700" height="40" rx="6" fill="#21262d" stroke="#58a6ff" stroke-width="1"/>
+  <text x="450" y="95" text-anchor="middle" fill="#c9d1d9" font-family="Georgia, serif" font-size="14">"The cat sat on the mat because it was soft"</text>
+  
+  <!-- Head 1: Syntactic -->
+  <rect x="30" y="130" width="200" height="180" rx="10" fill="#161b22" stroke="url(#syntaxGrad)" stroke-width="2"/>
+  <text x="130" y="160" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Head 1: Syntactic</text>
+  <text x="130" y="180" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Subject-Verb relationships</text>
+  
+  <!-- Syntactic pattern visualization -->
+  <rect x="50" y="200" width="160" height="80" rx="6" fill="#21262d"/>
+  <text x="70" y="225" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="11">"cat"</text>
+  <path d="M 100 220 C 130 200 150 200 180 220" stroke="#ff6b6b" stroke-width="2" fill="none"/>
+  <polygon points="180,220 175,213 183,216" fill="#ff6b6b"/>
+  <text x="155" y="225" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="11">"sat"</text>
+  <text x="130" y="260" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Captures: Subject→Verb</text>
+  <text x="130" y="275" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Agreement patterns</text>
+  
+  <!-- Head 2: Positional -->
+  <rect x="245" y="130" width="200" height="180" rx="10" fill="#161b22" stroke="url(#posGrad)" stroke-width="2"/>
+  <text x="345" y="160" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Head 2: Positional</text>
+  <text x="345" y="180" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Adjacent token patterns</text>
+  
+  <!-- Positional pattern visualization -->
+  <rect x="265" y="200" width="160" height="80" rx="6" fill="#21262d"/>
+  <text x="285" y="225" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11">"sat"</text>
+  <line x1="310" y1="220" x2="355" y2="220" stroke="#a29bfe" stroke-width="2"/>
+  <polygon points="355,220 348,215 348,225" fill="#a29bfe"/>
+  <text x="365" y="225" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11">"on"</text>
+  <text x="345" y="260" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Captures: i → i+1</text>
+  <text x="345" y="275" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Local context</text>
+  
+  <!-- Head 3: Coreference -->
+  <rect x="460" y="130" width="200" height="180" rx="10" fill="#161b22" stroke="url(#corefGrad)" stroke-width="2"/>
+  <text x="560" y="160" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Head 3: Coreference</text>
+  <text x="560" y="180" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Pronoun resolution</text>
+  
+  <!-- Coreference pattern visualization -->
+  <rect x="480" y="200" width="160" height="80" rx="6" fill="#21262d"/>
+  <text x="500" y="225" fill="#74b9ff" font-family="Arial, sans-serif" font-size="11">"it"</text>
+  <path d="M 520 220 C 560 190 600 190 620 220" stroke="#74b9ff" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+  <polygon points="620,220 613,215 615,223" fill="#74b9ff"/>
+  <text x="590" y="225" fill="#74b9ff" font-family="Arial, sans-serif" font-size="11">"mat"</text>
+  <text x="560" y="260" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Captures: Pronoun→Noun</text>
+  <text x="560" y="275" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Reference resolution</text>
+  
+  <!-- Head 4: Semantic -->
+  <rect x="675" y="130" width="200" height="180" rx="10" fill="#161b22" stroke="url(#semGrad)" stroke-width="2"/>
+  <text x="775" y="160" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Head 4: Semantic</text>
+  <text x="775" y="180" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Meaning similarity</text>
+  
+  <!-- Semantic pattern visualization -->
+  <rect x="695" y="200" width="160" height="80" rx="6" fill="#21262d"/>
+  <text x="715" y="225" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">"soft"</text>
+  <path d="M 750 220 C 780 200 800 200 830 220" stroke="#55efc4" stroke-width="2" fill="none"/>
+  <polygon points="830,220 823,215 825,223" fill="#55efc4"/>
+  <text x="800" y="225" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">"mat"</text>
+  <text x="775" y="260" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Captures: Property→Object</text>
+  <text x="775" y="275" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Related concepts</text>
+  
+  <!-- Combined output section -->
+  <rect x="100" y="340" width="700" height="140" rx="12" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="450" y="370" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Combined Multi-Head Output</text>
+  
+  <!-- Arrows from heads to combined -->
+  <path d="M 130 310 L 130 330 L 250 340" stroke="#ff6b6b" stroke-width="2" fill="none"/>
+  <path d="M 345 310 L 345 330 L 350 340" stroke="#a29bfe" stroke-width="2" fill="none"/>
+  <path d="M 560 310 L 560 330 L 550 340" stroke="#74b9ff" stroke-width="2" fill="none"/>
+  <path d="M 775 310 L 775 330 L 650 340" stroke="#55efc4" stroke-width="2" fill="none"/>
+  
+  <!-- Combined benefits -->
+  <text x="200" y="400" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="11">✓ Grammar</text>
+  <text x="350" y="400" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11">✓ Position</text>
+  <text x="500" y="400" fill="#74b9ff" font-family="Arial, sans-serif" font-size="11">✓ References</text>
+  <text x="650" y="400" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">✓ Meaning</text>
+  
+  <text x="450" y="435" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">All patterns are concatenated and projected through W_O</text>
+  <text x="450" y="460" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Result: Rich representation capturing multiple relationship types simultaneously</text>
+</svg>
+

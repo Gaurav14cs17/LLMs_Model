@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="sparseGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cec9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sparseGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sparseGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Sparse Attention Patterns</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="13">Reducing O(n²) complexity by attending to subset of positions</text>
+  
+  <!-- Dense Attention -->
+  <rect x="30" y="90" width="260" height="220" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="160" y="120" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Dense (Full) Attention</text>
+  <text x="160" y="140" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">O(n²) complexity</text>
+  
+  <!-- Dense matrix - all filled -->
+  <g transform="translate(80, 155)">
+    <rect x="0" y="0" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    <rect x="30" y="0" width="25" height="25" fill="#58a6ff" opacity="0.5"/>
+    <rect x="60" y="0" width="25" height="25" fill="#58a6ff" opacity="0.7"/>
+    <rect x="90" y="0" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    <rect x="120" y="0" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    
+    <rect x="0" y="30" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    <rect x="30" y="30" width="25" height="25" fill="#58a6ff" opacity="0.8"/>
+    <rect x="60" y="30" width="25" height="25" fill="#58a6ff" opacity="0.5"/>
+    <rect x="90" y="30" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    <rect x="120" y="30" width="25" height="25" fill="#58a6ff" opacity="0.3"/>
+    
+    <rect x="0" y="60" width="25" height="25" fill="#58a6ff" opacity="0.7"/>
+    <rect x="30" y="60" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    <rect x="60" y="60" width="25" height="25" fill="#58a6ff" opacity="0.9"/>
+    <rect x="90" y="60" width="25" height="25" fill="#58a6ff" opacity="0.5"/>
+    <rect x="120" y="60" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    
+    <rect x="0" y="90" width="25" height="25" fill="#58a6ff" opacity="0.5"/>
+    <rect x="30" y="90" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    <rect x="60" y="90" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    <rect x="90" y="90" width="25" height="25" fill="#58a6ff" opacity="0.8"/>
+    <rect x="120" y="90" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    
+    <rect x="0" y="120" width="25" height="25" fill="#58a6ff" opacity="0.6"/>
+    <rect x="30" y="120" width="25" height="25" fill="#58a6ff" opacity="0.3"/>
+    <rect x="60" y="120" width="25" height="25" fill="#58a6ff" opacity="0.5"/>
+    <rect x="90" y="120" width="25" height="25" fill="#58a6ff" opacity="0.4"/>
+    <rect x="120" y="120" width="25" height="25" fill="#58a6ff" opacity="0.7"/>
+  </g>
+  
+  <!-- Local/Sliding Window Attention -->
+  <rect x="320" y="90" width="260" height="220" rx="10" fill="#161b22" stroke="url(#sparseGrad1)" stroke-width="2"/>
+  <text x="450" y="120" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Local (Sliding Window)</text>
+  <text x="450" y="140" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">O(n × w) where w = window size</text>
+  
+  <!-- Local attention matrix - banded -->
+  <g transform="translate(370, 155)">
+    <rect x="0" y="0" width="25" height="25" fill="#00cec9" opacity="0.8"/>
+    <rect x="30" y="0" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="60" y="0" width="25" height="25" fill="#21262d"/>
+    <rect x="90" y="0" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="0" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="0" y="30" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="30" y="30" width="25" height="25" fill="#00cec9" opacity="0.9"/>
+    <rect x="60" y="30" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="90" y="30" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="30" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="0" y="60" width="25" height="25" fill="#21262d"/>
+    <rect x="30" y="60" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="60" y="60" width="25" height="25" fill="#00cec9" opacity="0.8"/>
+    <rect x="90" y="60" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="120" y="60" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="0" y="90" width="25" height="25" fill="#21262d"/>
+    <rect x="30" y="90" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="90" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="90" y="90" width="25" height="25" fill="#00cec9" opacity="0.9"/>
+    <rect x="120" y="90" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    
+    <rect x="0" y="120" width="25" height="25" fill="#21262d"/>
+    <rect x="30" y="120" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="120" width="25" height="25" fill="#21262d"/>
+    <rect x="90" y="120" width="25" height="25" fill="#00cec9" opacity="0.5"/>
+    <rect x="120" y="120" width="25" height="25" fill="#00cec9" opacity="0.8"/>
+  </g>
+  
+  <!-- Strided/Dilated Attention -->
+  <rect x="610" y="90" width="260" height="220" rx="10" fill="#161b22" stroke="url(#sparseGrad2)" stroke-width="2"/>
+  <text x="740" y="120" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Strided (Dilated)</text>
+  <text x="740" y="140" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Every k-th position</text>
+  
+  <!-- Strided attention matrix -->
+  <g transform="translate(660, 155)">
+    <rect x="0" y="0" width="25" height="25" fill="#fdcb6e" opacity="0.8"/>
+    <rect x="30" y="0" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="0" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    <rect x="90" y="0" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="0" width="25" height="25" fill="#fdcb6e" opacity="0.4"/>
+    
+    <rect x="0" y="30" width="25" height="25" fill="#21262d"/>
+    <rect x="30" y="30" width="25" height="25" fill="#fdcb6e" opacity="0.9"/>
+    <rect x="60" y="30" width="25" height="25" fill="#21262d"/>
+    <rect x="90" y="30" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    <rect x="120" y="30" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="0" y="60" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    <rect x="30" y="60" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="60" width="25" height="25" fill="#fdcb6e" opacity="0.8"/>
+    <rect x="90" y="60" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="60" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    
+    <rect x="0" y="90" width="25" height="25" fill="#21262d"/>
+    <rect x="30" y="90" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    <rect x="60" y="90" width="25" height="25" fill="#21262d"/>
+    <rect x="90" y="90" width="25" height="25" fill="#fdcb6e" opacity="0.9"/>
+    <rect x="120" y="90" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="0" y="120" width="25" height="25" fill="#fdcb6e" opacity="0.4"/>
+    <rect x="30" y="120" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="120" width="25" height="25" fill="#fdcb6e" opacity="0.5"/>
+    <rect x="90" y="120" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="120" width="25" height="25" fill="#fdcb6e" opacity="0.8"/>
+  </g>
+  
+  <!-- Global + Local (Longformer style) -->
+  <rect x="100" y="340" width="300" height="190" rx="10" fill="#161b22" stroke="url(#sparseGrad3)" stroke-width="2"/>
+  <text x="250" y="370" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Global + Local (Longformer)</text>
+  <text x="250" y="390" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Special tokens attend globally</text>
+  
+  <g transform="translate(130, 405)">
+    <!-- First column (global token [CLS]) -->
+    <rect x="0" y="0" width="25" height="25" fill="#a29bfe" opacity="0.9"/>
+    <rect x="0" y="30" width="25" height="25" fill="#a29bfe" opacity="0.7"/>
+    <rect x="0" y="60" width="25" height="25" fill="#a29bfe" opacity="0.6"/>
+    <rect x="0" y="90" width="25" height="25" fill="#a29bfe" opacity="0.8"/>
+    
+    <!-- First row (global token [CLS]) -->
+    <rect x="30" y="0" width="25" height="25" fill="#a29bfe" opacity="0.7"/>
+    <rect x="60" y="0" width="25" height="25" fill="#a29bfe" opacity="0.6"/>
+    <rect x="90" y="0" width="25" height="25" fill="#a29bfe" opacity="0.5"/>
+    <rect x="120" y="0" width="25" height="25" fill="#a29bfe" opacity="0.8"/>
+    
+    <!-- Local attention for other tokens -->
+    <rect x="30" y="30" width="25" height="25" fill="#6c5ce7" opacity="0.8"/>
+    <rect x="60" y="30" width="25" height="25" fill="#6c5ce7" opacity="0.4"/>
+    <rect x="90" y="30" width="25" height="25" fill="#21262d"/>
+    <rect x="120" y="30" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="30" y="60" width="25" height="25" fill="#6c5ce7" opacity="0.4"/>
+    <rect x="60" y="60" width="25" height="25" fill="#6c5ce7" opacity="0.9"/>
+    <rect x="90" y="60" width="25" height="25" fill="#6c5ce7" opacity="0.4"/>
+    <rect x="120" y="60" width="25" height="25" fill="#21262d"/>
+    
+    <rect x="30" y="90" width="25" height="25" fill="#21262d"/>
+    <rect x="60" y="90" width="25" height="25" fill="#6c5ce7" opacity="0.4"/>
+    <rect x="90" y="90" width="25" height="25" fill="#6c5ce7" opacity="0.8"/>
+    <rect x="120" y="90" width="25" height="25" fill="#6c5ce7" opacity="0.4"/>
+  </g>
+  
+  <text x="145" y="520" text-anchor="start" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11">■ Global token</text>
+  <text x="250" y="520" text-anchor="start" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="11">■ Local window</text>
+  
+  <!-- Comparison Box -->
+  <rect x="500" y="340" width="350" height="190" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="675" y="370" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Complexity Comparison</text>
+  
+  <text x="530" y="410" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="12">Dense:</text>
+  <text x="620" y="410" fill="#8b949e" font-family="monospace" font-size="12">O(n²) memory and time</text>
+  
+  <text x="530" y="440" fill="#00cec9" font-family="Arial, sans-serif" font-size="12">Local:</text>
+  <text x="620" y="440" fill="#8b949e" font-family="monospace" font-size="12">O(n × w) window size w</text>
+  
+  <text x="530" y="470" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="12">Strided:</text>
+  <text x="620" y="470" fill="#8b949e" font-family="monospace" font-size="12">O(n × √n) stride pattern</text>
+  
+  <text x="530" y="500" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12">Global+Local:</text>
+  <text x="650" y="500" fill="#8b949e" font-family="monospace" font-size="12">O(n × (g + w))</text>
+</svg>
+

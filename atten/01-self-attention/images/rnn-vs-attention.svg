@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450">
+  <defs>
+    <linearGradient id="rnnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="attnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cec9;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e17055"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00b894"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="850" height="450" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="425" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">RNN vs Self-Attention: Information Flow</text>
+  
+  <!-- RNN Side -->
+  <rect x="30" y="60" width="380" height="340" rx="15" fill="#161b22" stroke="#e17055" stroke-width="2"/>
+  <text x="220" y="90" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">RNN / LSTM</text>
+  <text x="220" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Sequential Processing</text>
+  
+  <!-- RNN tokens -->
+  <rect x="60" y="140" width="50" height="35" rx="5" fill="url(#rnnGrad)"/>
+  <text x="85" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₁</text>
+  
+  <rect x="140" y="140" width="50" height="35" rx="5" fill="url(#rnnGrad)"/>
+  <text x="165" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₂</text>
+  
+  <rect x="220" y="140" width="50" height="35" rx="5" fill="url(#rnnGrad)"/>
+  <text x="245" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₃</text>
+  
+  <rect x="300" y="140" width="50" height="35" rx="5" fill="url(#rnnGrad)"/>
+  <text x="325" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₄</text>
+  
+  <!-- RNN arrows (sequential) -->
+  <line x1="110" y1="157" x2="135" y2="157" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <line x1="190" y1="157" x2="215" y2="157" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <line x1="270" y1="157" x2="295" y2="157" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  
+  <!-- Hidden states -->
+  <rect x="60" y="200" width="50" height="30" rx="5" fill="#21262d" stroke="#e17055"/>
+  <text x="85" y="220" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">h₁</text>
+  
+  <rect x="140" y="200" width="50" height="30" rx="5" fill="#21262d" stroke="#e17055"/>
+  <text x="165" y="220" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">h₂</text>
+  
+  <rect x="220" y="200" width="50" height="30" rx="5" fill="#21262d" stroke="#e17055"/>
+  <text x="245" y="220" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">h₃</text>
+  
+  <rect x="300" y="200" width="50" height="30" rx="5" fill="#21262d" stroke="#e17055"/>
+  <text x="325" y="220" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">h₄</text>
+  
+  <line x1="85" y1="175" x2="85" y2="195" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="165" y1="175" x2="165" y2="195" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="245" y1="175" x2="245" y2="195" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="325" y1="175" x2="325" y2="195" stroke="#e17055" stroke-width="1.5"/>
+  
+  <!-- Hidden state chain -->
+  <line x1="110" y1="215" x2="135" y2="215" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <line x1="190" y1="215" x2="215" y2="215" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <line x1="270" y1="215" x2="295" y2="215" stroke="#e17055" stroke-width="2" marker-end="url(#arrowRed)"/>
+  
+  <!-- RNN problem description -->
+  <rect x="50" y="250" width="320" height="130" rx="8" fill="#21262d"/>
+  <text x="210" y="275" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">⚠️ Problems:</text>
+  <text x="70" y="300" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Path t₁→t₄ requires 3 steps</text>
+  <text x="70" y="320" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Gradient vanishes over long distances</text>
+  <text x="70" y="340" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Cannot parallelize (sequential)</text>
+  <text x="70" y="360" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Bottleneck in hidden state</text>
+  
+  <!-- Self-Attention Side -->
+  <rect x="440" y="60" width="380" height="340" rx="15" fill="#161b22" stroke="#00b894" stroke-width="2"/>
+  <text x="630" y="90" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Self-Attention</text>
+  <text x="630" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Parallel Processing</text>
+  
+  <!-- Attention tokens -->
+  <rect x="470" y="140" width="50" height="35" rx="5" fill="url(#attnGrad)"/>
+  <text x="495" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₁</text>
+  
+  <rect x="550" y="140" width="50" height="35" rx="5" fill="url(#attnGrad)"/>
+  <text x="575" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₂</text>
+  
+  <rect x="630" y="140" width="50" height="35" rx="5" fill="url(#attnGrad)"/>
+  <text x="655" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₃</text>
+  
+  <rect x="710" y="140" width="50" height="35" rx="5" fill="url(#attnGrad)"/>
+  <text x="735" y="162" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">t₄</text>
+  
+  <!-- All-to-all connections -->
+  <line x1="495" y1="175" x2="495" y2="195" stroke="#00b894" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="575" y1="175" x2="575" y2="195" stroke="#00b894" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="655" y1="175" x2="655" y2="195" stroke="#00b894" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="735" y1="175" x2="735" y2="195" stroke="#00b894" stroke-width="1.5" stroke-dasharray="3,2"/>
+  
+  <!-- Attention visualization (web of connections) -->
+  <ellipse cx="615" cy="215" rx="120" ry="25" fill="none" stroke="#00b894" stroke-width="2" opacity="0.5"/>
+  <text x="615" y="220" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10">All-to-All Attention</text>
+  
+  <!-- Direct paths -->
+  <path d="M 495 195 Q 615 250 735 195" stroke="#55efc4" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M 575 195 Q 655 240 735 195" stroke="#55efc4" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M 495 195 Q 535 240 575 195" stroke="#55efc4" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M 495 195 Q 575 250 655 195" stroke="#55efc4" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Attention benefits -->
+  <rect x="460" y="250" width="320" height="130" rx="8" fill="#21262d"/>
+  <text x="620" y="275" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">✓ Benefits:</text>
+  <text x="480" y="300" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Direct path t₁→t₄ (1 step!)</text>
+  <text x="480" y="320" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• No vanishing gradient</text>
+  <text x="480" y="340" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Fully parallelizable</text>
+  <text x="480" y="360" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Global context at each position</text>
+  
+  <!-- Comparison at bottom -->
+  <rect x="180" y="410" width="200" height="30" rx="5" fill="#e17055" opacity="0.3"/>
+  <text x="280" y="430" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12">Path Length: O(n)</text>
+  
+  <rect x="470" y="410" width="200" height="30" rx="5" fill="#00b894" opacity="0.3"/>
+  <text x="570" y="430" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12">Path Length: O(1)</text>
+</svg>
+

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="encGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cec9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="decGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="crossGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a29bfe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Cross-Attention: Step-by-Step Flow</text>
+  <text x="450" y="55" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">Translation Example: "Bonjour le monde" → "Hello world"</text>
+  
+  <!-- Step 1: Encoder -->
+  <rect x="30" y="75" width="120" height="25" rx="5" fill="#21262d"/>
+  <text x="90" y="92" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 1: Encoder</text>
+  
+  <rect x="50" y="110" width="350" height="120" rx="12" fill="#161b22" stroke="#00b894" stroke-width="2"/>
+  <text x="225" y="135" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ENCODER (Source: French)</text>
+  
+  <!-- French tokens -->
+  <rect x="80" y="155" width="80" height="40" rx="6" fill="url(#encGrad)"/>
+  <text x="120" y="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Bonjour</text>
+  
+  <rect x="180" y="155" width="50" height="40" rx="6" fill="url(#encGrad)"/>
+  <text x="205" y="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">le</text>
+  
+  <rect x="250" y="155" width="70" height="40" rx="6" fill="url(#encGrad)"/>
+  <text x="285" y="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">monde</text>
+  
+  <text x="360" y="180" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">→ K, V</text>
+  
+  <!-- Step 2: Generate K, V from Encoder -->
+  <rect x="30" y="245" width="120" height="25" rx="5" fill="#21262d"/>
+  <text x="90" y="262" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 2: K, V</text>
+  
+  <rect x="50" y="280" width="150" height="80" rx="8" fill="#161b22" stroke="#00cec9" stroke-width="2"/>
+  <text x="125" y="305" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Keys (K)</text>
+  <text x="125" y="325" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">K = H_enc × W_K</text>
+  <text x="125" y="350" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">[K₁, K₂, K₃]</text>
+  
+  <rect x="220" y="280" width="150" height="80" rx="8" fill="#161b22" stroke="#00cec9" stroke-width="2"/>
+  <text x="295" y="305" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Values (V)</text>
+  <text x="295" y="325" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">V = H_enc × W_V</text>
+  <text x="295" y="350" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">[V₁, V₂, V₃]</text>
+  
+  <!-- Arrows from encoder to K,V -->
+  <path d="M 120 195 L 120 275" stroke="#00b894" stroke-width="2" fill="none"/>
+  <path d="M 285 195 L 285 275" stroke="#00b894" stroke-width="2" fill="none"/>
+  
+  <!-- Step 3: Decoder -->
+  <rect x="450" y="75" width="120" height="25" rx="5" fill="#21262d"/>
+  <text x="510" y="92" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 3: Decoder</text>
+  
+  <rect x="450" y="110" width="400" height="120" rx="12" fill="#161b22" stroke="#e17055" stroke-width="2"/>
+  <text x="650" y="135" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">DECODER (Target: English)</text>
+  
+  <!-- English tokens -->
+  <rect x="490" y="155" width="70" height="40" rx="6" fill="url(#decGrad)"/>
+  <text x="525" y="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Hello</text>
+  
+  <rect x="580" y="155" width="70" height="40" rx="6" fill="url(#decGrad)" stroke="#fff" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="615" y="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">world</text>
+  <text x="615" y="210" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="9">← generating</text>
+  
+  <text x="700" y="180" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">→ Q</text>
+  
+  <!-- Step 4: Generate Q from Decoder -->
+  <rect x="450" y="245" width="120" height="25" rx="5" fill="#21262d"/>
+  <text x="510" y="262" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 4: Query</text>
+  
+  <rect x="450" y="280" width="150" height="80" rx="8" fill="#161b22" stroke="#f5576c" stroke-width="2"/>
+  <text x="525" y="305" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Query (Q)</text>
+  <text x="525" y="325" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Q = H_dec × W_Q</text>
+  <text x="525" y="350" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="10">Q for "world"</text>
+  
+  <path d="M 615 195 L 525 275" stroke="#e17055" stroke-width="2" fill="none"/>
+  
+  <!-- Step 5: Cross-Attention Computation -->
+  <rect x="200" y="390" width="150" height="25" rx="5" fill="#21262d"/>
+  <text x="275" y="407" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 5: Cross-Attention</text>
+  
+  <!-- Cross attention box -->
+  <rect x="200" y="425" width="500" height="100" rx="12" fill="#161b22" stroke="url(#crossGrad2)" stroke-width="3"/>
+  
+  <!-- Q meets K -->
+  <rect x="230" y="445" width="100" height="50" rx="6" fill="#21262d" stroke="#a29bfe" stroke-width="1"/>
+  <text x="280" y="465" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="11">Q (from decoder)</text>
+  <text x="280" y="485" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"world" query</text>
+  
+  <text x="350" y="475" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="16">×</text>
+  
+  <rect x="370" y="445" width="100" height="50" rx="6" fill="#21262d" stroke="#a29bfe" stroke-width="1"/>
+  <text x="420" y="465" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="11">K (from encoder)</text>
+  <text x="420" y="485" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">French keys</text>
+  
+  <text x="490" y="475" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="14">→</text>
+  
+  <!-- Attention weights -->
+  <rect x="510" y="445" width="170" height="50" rx="6" fill="#21262d" stroke="#a29bfe" stroke-width="1"/>
+  <text x="595" y="462" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10">Attention Weights:</text>
+  <text x="595" y="485" text-anchor="middle" fill="#55efc4" font-family="monospace" font-size="11">[0.1, 0.1, 0.8]</text>
+  <text x="595" y="500" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">High on "monde"!</text>
+  
+  <!-- Connection arrows -->
+  <path d="M 125 360 Q 125 400 230 460" stroke="#00cec9" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <path d="M 295 360 Q 350 400 370 460" stroke="#00cec9" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <path d="M 525 360 L 280 440" stroke="#f5576c" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  
+  <!-- Output -->
+  <rect x="720" y="445" width="150" height="70" rx="10" fill="url(#crossGrad2)" filter="url(#glow3)"/>
+  <text x="795" y="470" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Output</text>
+  <text x="795" y="490" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">Context for "world"</text>
+  <text x="795" y="505" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="10">from "monde"</text>
+</svg>
+

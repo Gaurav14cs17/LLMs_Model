@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="encGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="decGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="crossShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Cross-Attention Overview: English → Hindi</text>
+  <text x="450" y="52" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">"I am student" → "मैं छात्र हूँ" (main chaatr hoon)</text>
+  
+  <!-- Left: Simple Diagram -->
+  <rect x="50" y="75" width="400" height="320" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+  <text x="250" y="100" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">The Concept (Simple View)</text>
+  
+  <!-- Encoder box -->
+  <rect x="80" y="120" width="150" height="120" rx="8" fill="#21262d" stroke="#4facfe" stroke-width="2"/>
+  <text x="155" y="145" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ENCODER</text>
+  <text x="155" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">(English)</text>
+  <text x="155" y="190" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">"I am student"</text>
+  <text x="155" y="215" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="10">Provides: K, V</text>
+  <text x="155" y="230" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">(what's available)</text>
+  
+  <!-- Decoder box -->
+  <rect x="270" y="120" width="150" height="120" rx="8" fill="#21262d" stroke="#f093fb" stroke-width="2"/>
+  <text x="345" y="145" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DECODER</text>
+  <text x="345" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">(Hindi)</text>
+  <text x="345" y="190" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">"मैं छात्र ???"</text>
+  <text x="345" y="215" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="10">Provides: Q</text>
+  <text x="345" y="230" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">(what I need)</text>
+  
+  <!-- Arrow between them -->
+  <path d="M 230 180 L 270 180" stroke="#fdcb6e" stroke-width="3"/>
+  <polygon points="270,180 262,175 262,185" fill="#fdcb6e"/>
+  
+  <!-- Cross-attention result -->
+  <rect x="140" y="260" width="220" height="50" rx="8" fill="#fdcb6e" opacity="0.2" stroke="#fdcb6e" stroke-width="1"/>
+  <text x="250" y="280" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">CROSS-ATTENTION</text>
+  <text x="250" y="298" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10">Q asks K → gets weighted V</text>
+  
+  <!-- Simple explanation -->
+  <rect x="80" y="325" width="340" height="55" rx="6" fill="#21262d"/>
+  <text x="250" y="348" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">💡 The Idea:</text>
+  <text x="250" y="368" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Hindi word "हूँ" asks "which English word should I look at?"</text>
+  
+  <!-- Right: Detailed Flow -->
+  <rect x="480" y="75" width="380" height="320" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+  <text x="670" y="100" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">The Flow (Step by Step)</text>
+  
+  <!-- Step 1 -->
+  <rect x="500" y="115" width="340" height="45" rx="6" fill="#21262d" stroke="#4facfe" stroke-width="1"/>
+  <text x="520" y="135" fill="#4facfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">1.</text>
+  <text x="535" y="135" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Encoder processes English → creates K, V</text>
+  <text x="535" y="152" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">K = [K_I, K_am, K_student], V = [V_I, V_am, V_student]</text>
+  
+  <!-- Step 2 -->
+  <rect x="500" y="170" width="340" height="45" rx="6" fill="#21262d" stroke="#f093fb" stroke-width="1"/>
+  <text x="520" y="190" fill="#f093fb" font-family="Arial, sans-serif" font-size="10" font-weight="bold">2.</text>
+  <text x="535" y="190" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Decoder needs to generate "हूँ" → creates Q</text>
+  <text x="535" y="207" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Q_हूँ = "I need the verb conjugation"</text>
+  
+  <!-- Step 3 -->
+  <rect x="500" y="225" width="340" height="45" rx="6" fill="#21262d" stroke="#fdcb6e" stroke-width="1"/>
+  <text x="520" y="245" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">3.</text>
+  <text x="535" y="245" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Q matches against all K's</text>
+  <text x="535" y="262" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Q_हूँ · K_am = HIGH! (हूँ = am)</text>
+  
+  <!-- Step 4 -->
+  <rect x="500" y="280" width="340" height="45" rx="6" fill="#21262d" stroke="#55efc4" stroke-width="1"/>
+  <text x="520" y="300" fill="#55efc4" font-family="Arial, sans-serif" font-size="10" font-weight="bold">4.</text>
+  <text x="535" y="300" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Pull information from V based on attention</text>
+  <text x="535" y="317" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Output ≈ 0.80 × V_am + 0.10 × V_I + 0.10 × V_student</text>
+  
+  <!-- Result -->
+  <rect x="500" y="335" width="340" height="45" rx="6" fill="#55efc4" opacity="0.2" stroke="#55efc4" stroke-width="1"/>
+  <text x="670" y="355" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">✓ Decoder now knows to generate "हूँ"!</text>
+  <text x="670" y="372" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">It learned from "am" in the English source</text>
+  
+  <!-- Key insight box at bottom -->
+  <rect x="100" y="410" width="700" height="75" rx="10" fill="#21262d" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="450" y="438" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="13" font-weight="bold">🔑 Why Cross-Attention is Powerful</text>
+  <text x="450" y="460" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Even though Hindi word order is different (I student am), cross-attention</text>
+  <text x="450" y="478" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">lets "हूँ" (position 3) directly attend to "am" (position 2) → handles reordering!</text>
+</svg>

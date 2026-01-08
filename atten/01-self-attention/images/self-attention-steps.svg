@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="kGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="outGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Self-Attention: Step-by-Step Computation</text>
+  
+  <!-- STEP 1: Input -->
+  <rect x="30" y="60" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="80" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 1</text>
+  <text x="165" y="80" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Input Embeddings (same source for Q, K, V)</text>
+  
+  <!-- Input tokens -->
+  <rect x="200" y="100" width="80" height="50" rx="8" fill="url(#inputGrad)" filter="url(#shadow)"/>
+  <text x="240" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">The</text>
+  
+  <rect x="310" y="100" width="80" height="50" rx="8" fill="url(#inputGrad)" filter="url(#shadow)"/>
+  <text x="350" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">cat</text>
+  
+  <rect x="420" y="100" width="80" height="50" rx="8" fill="url(#inputGrad)" filter="url(#shadow)"/>
+  <text x="460" y="130" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">sat</text>
+  
+  <text x="550" y="130" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">X = [x₁, x₂, x₃]</text>
+  
+  <!-- Arrows down -->
+  <path d="M 240 150 L 240 175 L 150 200" stroke="#667eea" stroke-width="2" fill="none"/>
+  <path d="M 350 150 L 350 200" stroke="#667eea" stroke-width="2" fill="none"/>
+  <path d="M 460 150 L 460 175 L 550 200" stroke="#667eea" stroke-width="2" fill="none"/>
+  
+  <!-- STEP 2: Linear Projections -->
+  <rect x="30" y="210" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="230" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 2</text>
+  <text x="165" y="230" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Linear Projections → Q, K, V</text>
+  
+  <!-- Q projection -->
+  <rect x="100" y="250" width="100" height="40" rx="6" fill="url(#qGrad)" filter="url(#shadow)"/>
+  <text x="150" y="275" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Q = X·W_Q</text>
+  
+  <!-- K projection -->
+  <rect x="300" y="250" width="100" height="40" rx="6" fill="url(#kGrad)" filter="url(#shadow)"/>
+  <text x="350" y="275" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">K = X·W_K</text>
+  
+  <!-- V projection -->
+  <rect x="500" y="250" width="100" height="40" rx="6" fill="url(#vGrad)" filter="url(#shadow)"/>
+  <text x="550" y="275" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">V = X·W_V</text>
+  
+  <text x="720" y="275" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Learned</text>
+  <text x="720" y="290" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">parameters</text>
+  
+  <!-- Arrows -->
+  <line x1="150" y1="290" x2="150" y2="330" stroke="#f5576c" stroke-width="2"/>
+  <line x1="350" y1="290" x2="350" y2="330" stroke="#00f2fe" stroke-width="2"/>
+  <line x1="550" y1="290" x2="550" y2="490" stroke="#43e97b" stroke-width="2"/>
+  
+  <!-- STEP 3: Attention Scores -->
+  <rect x="30" y="340" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="360" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 3</text>
+  <text x="165" y="360" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Compute Attention Scores (Q·Kᵀ)</text>
+  
+  <!-- Q and K meeting -->
+  <rect x="200" y="380" width="200" height="100" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Attention matrix -->
+  <text x="235" y="405" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">The</text>
+  <text x="280" y="405" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">cat</text>
+  <text x="325" y="405" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">sat</text>
+  
+  <text x="215" y="430" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">The</text>
+  <text x="215" y="450" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">cat</text>
+  <text x="215" y="470" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">sat</text>
+  
+  <!-- Score values -->
+  <rect x="230" y="415" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.4"/>
+  <rect x="270" y="415" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="310" y="415" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.3"/>
+  
+  <rect x="230" y="438" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="270" y="438" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.8"/>
+  <rect x="310" y="438" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.6"/>
+  
+  <rect x="230" y="461" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.3"/>
+  <rect x="270" y="461" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <rect x="310" y="461" width="30" height="20" rx="3" fill="#58a6ff" opacity="0.9"/>
+  
+  <text x="300" y="500" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Score Matrix (3×3)</text>
+  
+  <!-- Scale and Softmax -->
+  <text x="430" y="430" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">÷ √d_k</text>
+  <line x1="400" y1="430" x2="420" y2="430" stroke="#888" stroke-width="2"/>
+  
+  <rect x="470" y="410" width="80" height="40" rx="6" fill="#21262d" stroke="#f093fb" stroke-width="2"/>
+  <text x="510" y="435" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="12">softmax</text>
+  
+  <!-- STEP 4: Attention Weights -->
+  <rect x="30" y="520" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="540" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 4</text>
+  <text x="165" y="540" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Attention Weights (softmax output)</text>
+  
+  <!-- Attention weights matrix -->
+  <rect x="200" y="560" width="200" height="80" rx="8" fill="#161b22" stroke="#f093fb" stroke-width="2"/>
+  
+  <text x="230" y="585" fill="#c9d1d9" font-family="monospace" font-size="10">[0.30, 0.37, 0.33]</text>
+  <text x="230" y="605" fill="#c9d1d9" font-family="monospace" font-size="10">[0.26, 0.40, 0.34]</text>
+  <text x="230" y="625" fill="#c9d1d9" font-family="monospace" font-size="10">[0.28, 0.34, 0.38]</text>
+  
+  <text x="430" y="600" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Each row sums to 1</text>
+  <text x="430" y="618" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">(probability distribution)</text>
+  
+  <!-- STEP 5: Output -->
+  <rect x="30" y="655" width="120" height="30" rx="5" fill="#21262d"/>
+  <text x="90" y="675" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 5</text>
+  <text x="165" y="675" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Weighted Sum (Attention × V)</text>
+  
+  <!-- Multiply symbol -->
+  <ellipse cx="500" y="550" rx="25" ry="20" fill="#21262d" stroke="#43e97b" stroke-width="2"/>
+  <text x="500" y="555" text-anchor="middle" fill="#43e97b" font-family="Arial, sans-serif" font-size="18">×</text>
+  
+  <!-- V matrix indicator -->
+  <rect x="540" y="530" width="60" height="40" rx="6" fill="url(#vGrad)" opacity="0.7"/>
+  <text x="570" y="555" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12">V</text>
+  
+  <!-- Output -->
+  <rect x="650" y="560" width="200" height="80" rx="10" fill="url(#outGrad)" filter="url(#shadow)"/>
+  <text x="750" y="590" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Output</text>
+  <text x="750" y="615" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="11">Context-aware embeddings</text>
+  <text x="750" y="632" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="11">[y₁, y₂, y₃]</text>
+  
+  <!-- Arrow to output -->
+  <line x1="600" y1="550" x2="650" y2="590" stroke="#fee140" stroke-width="2"/>
+  <line x1="400" y1="600" x2="480" y2="560" stroke="#f093fb" stroke-width="2"/>
+</svg>
+

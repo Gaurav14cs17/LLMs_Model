@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 800">
+  <defs>
+    <linearGradient id="step1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="step2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="step3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="step4Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="step5Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <filter id="stepShadowSA" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="950" height="800" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="475" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Self-Attention: 5-Step Computation</text>
+  
+  <!-- STEP 1 -->
+  <rect x="30" y="60" width="80" height="25" rx="5" fill="url(#step1Grad)"/>
+  <text x="70" y="77" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 1</text>
+  <text x="130" y="77" fill="#667eea" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Input Embeddings</text>
+  
+  <rect x="50" y="95" width="850" height="85" rx="10" fill="#161b22" stroke="#667eea" stroke-width="1"/>
+  
+  <text x="70" y="120" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Convert tokens to vectors (d_model dimensions each)</text>
+  
+  <!-- Input tokens visualization -->
+  <rect x="80" y="135" width="100" height="35" rx="5" fill="url(#step1Grad)" filter="url(#stepShadowSA)"/>
+  <text x="130" y="157" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">"The" → [0.2, 0.1, ...]</text>
+  
+  <rect x="200" y="135" width="100" height="35" rx="5" fill="url(#step1Grad)" filter="url(#stepShadowSA)"/>
+  <text x="250" y="157" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">"cat" → [0.8, 0.4, ...]</text>
+  
+  <rect x="320" y="135" width="100" height="35" rx="5" fill="url(#step1Grad)" filter="url(#stepShadowSA)"/>
+  <text x="370" y="157" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11">"sat" → [0.3, 0.9, ...]</text>
+  
+  <rect x="550" y="115" width="330" height="55" rx="6" fill="#21262d"/>
+  <text x="715" y="137" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Input shape: (n × d_model)</text>
+  <text x="715" y="155" text-anchor="middle" fill="#667eea" font-family="Arial, sans-serif" font-size="11">Example: (3 tokens × 512 dimensions)</text>
+  
+  <!-- Arrow -->
+  <path d="M 475 180 L 475 200" stroke="#667eea" stroke-width="2"/>
+  <polygon points="475,210 470,200 480,200" fill="#667eea"/>
+  
+  <!-- STEP 2 -->
+  <rect x="30" y="215" width="80" height="25" rx="5" fill="url(#step2Grad)"/>
+  <text x="70" y="232" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 2</text>
+  <text x="130" y="232" fill="#f093fb" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Create Q, K, V (Linear Projections)</text>
+  
+  <rect x="50" y="250" width="850" height="120" rx="10" fill="#161b22" stroke="#f093fb" stroke-width="1"/>
+  
+  <text x="70" y="275" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Multiply input X with learned weight matrices to create Query, Key, Value</text>
+  
+  <!-- Q, K, V boxes -->
+  <rect x="80" y="295" width="200" height="60" rx="6" fill="#21262d" stroke="#f5576c" stroke-width="1"/>
+  <text x="180" y="318" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Query: Q = X × W_Q</text>
+  <text x="180" y="340" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"What am I looking for?"</text>
+  
+  <rect x="310" y="295" width="200" height="60" rx="6" fill="#21262d" stroke="#4facfe" stroke-width="1"/>
+  <text x="410" y="318" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Key: K = X × W_K</text>
+  <text x="410" y="340" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"What do I contain?"</text>
+  
+  <rect x="540" y="295" width="200" height="60" rx="6" fill="#21262d" stroke="#43e97b" stroke-width="1"/>
+  <text x="640" y="318" text-anchor="middle" fill="#43e97b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Value: V = X × W_V</text>
+  <text x="640" y="340" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"What I actually give"</text>
+  
+  <rect x="770" y="295" width="110" height="60" rx="6" fill="#21262d"/>
+  <text x="825" y="320" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">All three:</text>
+  <text x="825" y="340" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="10">(n × d_k)</text>
+  
+  <!-- Arrow -->
+  <path d="M 475 370 L 475 390" stroke="#f093fb" stroke-width="2"/>
+  <polygon points="475,400 470,390 480,390" fill="#f093fb"/>
+  
+  <!-- STEP 3 -->
+  <rect x="30" y="405" width="80" height="25" rx="5" fill="url(#step3Grad)"/>
+  <text x="70" y="422" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 3</text>
+  <text x="130" y="422" fill="#4facfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Compute Attention Scores</text>
+  
+  <rect x="50" y="440" width="850" height="100" rx="10" fill="#161b22" stroke="#4facfe" stroke-width="1"/>
+  
+  <text x="70" y="465" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Score = Q × K^T / √d_k — measures how relevant each key is to each query</text>
+  
+  <!-- Score matrix visualization -->
+  <rect x="80" y="480" width="350" height="50" rx="6" fill="#21262d"/>
+  <text x="255" y="500" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="11">Scores = QK^T / √d_k</text>
+  <text x="255" y="520" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Result: n×n matrix (every token scores every token)</text>
+  
+  <rect x="470" y="480" width="400" height="50" rx="6" fill="#21262d" stroke="#fdcb6e" stroke-width="1"/>
+  <text x="670" y="500" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10">💡 Why √d_k? Prevents large values that saturate softmax</text>
+  <text x="670" y="520" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Keeps gradients healthy during training</text>
+  
+  <!-- Arrow -->
+  <path d="M 475 540 L 475 560" stroke="#4facfe" stroke-width="2"/>
+  <polygon points="475,570 470,560 480,560" fill="#4facfe"/>
+  
+  <!-- STEP 4 -->
+  <rect x="30" y="575" width="80" height="25" rx="5" fill="url(#step4Grad)"/>
+  <text x="70" y="592" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 4</text>
+  <text x="130" y="592" fill="#43e97b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Apply Softmax</text>
+  
+  <rect x="50" y="610" width="850" height="80" rx="10" fill="#161b22" stroke="#43e97b" stroke-width="1"/>
+  
+  <text x="70" y="635" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Convert scores to probabilities (each row sums to 1)</text>
+  
+  <rect x="80" y="650" width="350" height="30" rx="6" fill="#21262d"/>
+  <text x="255" y="670" text-anchor="middle" fill="#43e97b" font-family="Arial, sans-serif" font-size="11">Attention Weights = softmax(Scores)</text>
+  
+  <rect x="470" y="650" width="400" height="30" rx="6" fill="#21262d"/>
+  <text x="670" y="670" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Each row: probability distribution over all positions</text>
+  
+  <!-- Arrow -->
+  <path d="M 475 690 L 475 710" stroke="#43e97b" stroke-width="2"/>
+  <polygon points="475,720 470,710 480,710" fill="#43e97b"/>
+  
+  <!-- STEP 5 -->
+  <rect x="30" y="725" width="80" height="25" rx="5" fill="url(#step5Grad)"/>
+  <text x="70" y="742" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STEP 5</text>
+  <text x="130" y="742" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Weighted Sum of Values → Output</text>
+  
+  <rect x="50" y="755" width="850" height="35" rx="10" fill="#161b22" stroke="#fdcb6e" stroke-width="1"/>
+  
+  <text x="350" y="778" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Output = Attention Weights × V</text>
+  <text x="700" y="778" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">→ Context-aware representation for each token!</text>
+</svg>
+

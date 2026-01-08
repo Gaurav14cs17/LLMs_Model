@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="additiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="scaledGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Attention Score Functions: Evolution</text>
+  <text x="450" y="52" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">How to measure Query-Key compatibility</text>
+  
+  <!-- Timeline -->
+  <line x1="100" y1="90" x2="800" y2="90" stroke="#30363d" stroke-width="2"/>
+  <circle cx="180" cy="90" r="8" fill="url(#additiveGrad)"/>
+  <circle cx="450" cy="90" r="8" fill="url(#dotGrad)"/>
+  <circle cx="720" cy="90" r="8" fill="url(#scaledGrad)"/>
+  <text x="180" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">2014</text>
+  <text x="450" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">2015</text>
+  <text x="720" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">2017</text>
+  
+  <!-- Additive (Bahdanau) -->
+  <rect x="50" y="130" width="250" height="200" rx="10" fill="#161b22" stroke="#f5576c" stroke-width="2"/>
+  <text x="175" y="160" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Additive (Bahdanau)</text>
+  
+  <rect x="70" y="180" width="210" height="40" rx="6" fill="#21262d"/>
+  <text x="175" y="205" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="11">v^T × tanh(W₁q + W₂k)</text>
+  
+  <text x="80" y="245" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Has learnable parameters</text>
+  <text x="80" y="265" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Q, K can have different dims</text>
+  <text x="80" y="285" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• More expensive (2 mat muls)</text>
+  <text x="80" y="310" fill="#e17055" font-family="Arial, sans-serif" font-size="10">❌ Slower, rarely used today</text>
+  
+  <!-- Dot-Product (Luong) -->
+  <rect x="325" y="130" width="250" height="200" rx="10" fill="#161b22" stroke="#4facfe" stroke-width="2"/>
+  <text x="450" y="160" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Dot-Product (Luong)</text>
+  
+  <rect x="345" y="180" width="210" height="40" rx="6" fill="#21262d"/>
+  <text x="450" y="205" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="11">q^T × k</text>
+  
+  <text x="355" y="245" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• No learnable parameters</text>
+  <text x="355" y="265" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Q, K must have same dim</text>
+  <text x="355" y="285" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Very fast (single dot)</text>
+  <text x="355" y="310" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10">⚠️ Numerical issues for large d</text>
+  
+  <!-- Scaled Dot-Product (Transformer) -->
+  <rect x="600" y="130" width="250" height="200" rx="10" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="725" y="160" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Scaled (Transformer)</text>
+  
+  <rect x="620" y="180" width="210" height="40" rx="6" fill="#21262d"/>
+  <text x="725" y="205" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">(q^T × k) / √d_k</text>
+  
+  <text x="630" y="245" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Scaling prevents saturation</text>
+  <text x="630" y="265" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Numerically stable</text>
+  <text x="630" y="285" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Fast + reliable</text>
+  <text x="630" y="310" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">✓ Universal standard today!</text>
+  
+  <!-- Why scaling matters -->
+  <rect x="150" y="360" width="600" height="120" rx="12" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="450" y="390" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">💡 Why Scaling by √d_k Matters</text>
+  
+  <text x="180" y="420" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">Without scaling (d=512):</text>
+  <text x="180" y="440" fill="#e17055" font-family="Arial, sans-serif" font-size="10">scores ∈ [-45, 45] → softmax([10,20,30]) = [0.00, 0.00, 1.00] ❌ Saturated!</text>
+  
+  <text x="180" y="465" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">With scaling:</text>
+  <text x="180" y="480" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">scores ∈ [-3, 3] → softmax([1,2,3]) = [0.09, 0.24, 0.67] ✓ Smooth gradients!</text>
+</svg>
+
