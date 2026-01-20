@@ -336,6 +336,7 @@ k^* = O\left(\log \frac{|T|}{|S|}\right)
 If each step has compression ratio $r$, then after $k$ steps:
 
 ```math
+
 |S| = |T| / r^k
 k = \log_r(|T|/|S|)
 
@@ -386,6 +387,7 @@ Where $H(p\_T)$ is entropy of teacher predictions and $H(y)$ is entropy of label
 - High label uncertainty → higher T
 
 **Empirical Guidelines:**
+
 | Scenario | Recommended T |
 |----------|--------------|
 | Simple task, confident teacher | 2-4 |

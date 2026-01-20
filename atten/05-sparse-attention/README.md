@@ -58,6 +58,7 @@ Research shows that attention weights are often **sparse in practice**:
 Each position attends only to a **fixed-size window** of nearby positions.
 
 **Pattern Visualization:**
+
 | Position | Attends To |
 |----------|-----------|
 | 1 | [1, 2] |
@@ -112,6 +113,7 @@ Designate certain tokens as **"global tokens"** that attend to (and are attended
 Attend to every k-th position, creating a **sparse but global** pattern.
 
 **Pattern:**
+
 | Position | Attends To (k=2) |
 |----------|-----------------|
 | 1 | [1, 3, 5, 7, ...] |

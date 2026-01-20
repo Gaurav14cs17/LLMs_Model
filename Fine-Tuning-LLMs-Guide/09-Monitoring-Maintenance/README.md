@@ -39,6 +39,7 @@ After deploying a fine-tuned LLM, continuous monitoring ensures:
 
 ```
 +---------+    +-------------+    +-----------+    +---------+
+
 | Monitor |---▶| Detect Drift|---▶|Collect New|---▶| Retrain |
 |         |    |             |    |   Data    |    |         |
 +---------+    +-------------+    +-----------+    +---------+

@@ -128,6 +128,7 @@ Where $R$ = range of $f$.
 With $n$ samples, estimation error:
 
 ```math
+
 |\hat{s} - s^*| \leq O\left(\frac{\sigma}{\sqrt{n}}\right)
 
 ```

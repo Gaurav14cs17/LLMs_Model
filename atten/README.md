@@ -139,14 +139,17 @@ Then continue to Chapter 1:
 atten/
 +-- README.md                    ← You are here
 +-- images/
+
 |
 +-- 00-important-concepts/       ← START HERE (Prerequisites!)
 |   +-- README.md                  Why √d_k? d_model vs d_k? Q/K/V?
 |   +-- images/
+
 |
 +-- 01-self-attention/           ← Then continue here
 |   +-- README.md
 |   +-- images/
+
 |       +-- *.svg (N×N matrix diagrams)
 |
 +-- 02-cross-attention/
