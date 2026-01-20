@@ -29,8 +29,11 @@ To understand what "it" refers to, you need to connect it back to "animal" — a
 ### Key Insight
 
 The same input X produces all three components:
+
 - **Query (Q):** What information am I looking for?
+
 - **Key (K):** What information do I contain?
+
 - **Value (V):** What information do I actually provide?
 
 ---
@@ -75,7 +78,9 @@ We start with input tokens converted to embedding vectors.
 
 **What happens:**
 - Each word/token becomes a vector of numbers
+
 - All embeddings have the same dimension (d_model)
+
 - Example: "The cat sat" → 3 vectors, each of dimension 512
 
 | Token | Embedding (example) |
@@ -111,8 +116,11 @@ V = X \times W_V \quad \text{(Value)}
 
 **Why three separate projections?**
 - Different projections allow the model to learn different aspects
+
 - Q: learned to "ask good questions"
+
 - K: learned to "advertise" what's available  
+
 - V: learned to provide the "answer"
 
 **Shape after projection:** All three are (n × d_k)
@@ -136,8 +144,11 @@ V = X \times W_V \quad \text{(Value)}
 **Why NOT just use the same matrix for Q and K?**
 
 Using different matrices allows:
+
 - **Asymmetric relationships:** "The" can attend strongly to "cat" without "cat" attending equally to "The"
+
 - **Different roles:** Questions vs. answers require different representations
+
 - **Learned specialization:** Each matrix learns its optimal transformation
 
 ---
@@ -160,6 +171,7 @@ Calculate how relevant each position is to every other position:
 
 **What this produces:**
 - An **n × n matrix** where entry (i, j) = how relevant position j is to position i
+
 - Each row represents one query's compatibility with all keys
 
 ---
@@ -277,8 +289,11 @@ Convert raw scores into probability distributions:
 
 **Properties:**
 - Each row becomes a probability distribution over all positions
+
 - Higher scores → higher probabilities
+
 - Lower scores → near-zero probabilities
+
 - Each position now has an "attention distribution" over all positions
 
 ---
@@ -294,7 +309,9 @@ Compute the final output by aggregating values based on attention weights:
 
 **What this does:**
 - For each position, take a weighted average of ALL value vectors
+
 - Positions with higher attention weights contribute more
+
 - Result: **Context-aware representation** for each position
 
 **Example for position "sat":**
@@ -324,7 +341,9 @@ The output for "sat" now contains information weighted by relevance from all tok
 ### How to Interpret
 
 - **"cat" attends most to itself (0.40):** Makes sense — it's a noun, needs to preserve its identity
+
 - **"sat" attends to "cat" (0.34):** Captures subject-verb relationship
+
 - **"The" spreads attention fairly evenly:** Articles are context-dependent
 
 ### Final Output Computation
@@ -375,9 +394,13 @@ Self-attention is naturally **permutation equivariant** — if you shuffle the i
 ### 4. Captures Multiple Relationship Types
 
 Different attention heads (in multi-head attention) can learn to capture:
+
 - Syntactic relationships (subject-verb agreement)
+
 - Semantic similarity
+
 - Coreference (pronoun resolution)
+
 - Positional patterns
 
 ---
@@ -421,17 +444,25 @@ Research has shown that different attention heads in trained models specialize i
 ## Variants of Self-Attention
 
 ### 1. Bidirectional Self-Attention
+
 - Every position attends to all positions
+
 - Used in: BERT, encoder models
 
 ### 2. Causal (Unidirectional) Self-Attention
+
 - Each position only attends to previous positions
+
 - Used in: GPT, decoder models
+
 - [Learn more →](../04-causal-attention/)
 
 ### 3. Sparse Self-Attention
+
 - Attend to subset of positions
+
 - Used in: Longformer, BigBird
+
 - [Learn more →](../05-sparse-attention/)
 
 ---
@@ -468,27 +499,37 @@ Sometimes we add a **temperature parameter** τ to control attention sharpness:
 ### Q: Why not just use d_k instead of √d_k?
 
 **A:** Dividing by d_k would over-correct and make attention too flat. √d_k is mathematically optimal because:
+
 - Variance of dot product grows as d_k (not d_k²)
+
 - Dividing by √d_k brings variance to 1
 
 ### Q: Why do we need separate W_Q, W_K, W_V? Can't we use the same matrix?
 
 **A:** Different matrices allow:
+
 - **Asymmetric attention:** Token A attends to B ≠ Token B attends to A
+
 - **Different semantic spaces:** Query asks, Key advertises, Value provides
+
 - **More expressive power:** 3x more parameters, 3x more flexibility
 
 ### Q: Why is self-attention O(n²)?
 
 **A:** Because we compute attention between EVERY pair of tokens:
+
 - n tokens × n tokens = n² attention scores
+
 - Each score needs computation → O(n²) total
 
 ### Q: What's the relationship between √d_k and layer normalization?
 
 **A:** Both help with scale:
+
 - **√d_k:** Prevents softmax saturation by controlling variance
+
 - **LayerNorm:** Normalizes activations to prevent exploding/vanishing values
+
 - They work at different points in the computation
 
 ### Q: How do positional embeddings interact with self-attention?
@@ -514,7 +555,9 @@ Sometimes we add a **temperature parameter** τ to control attention sharpness:
 ## Further Reading
 
 - [Multi-Head Attention](../03-multi-head-attention/) — Running multiple self-attention in parallel
+
 - [Causal Attention](../04-causal-attention/) — Masked self-attention for generation
+
 - [Sparse Attention](../05-sparse-attention/) — Efficient alternatives for long sequences
 
 ---
@@ -522,8 +565,10 @@ Sometimes we add a **temperature parameter** τ to control attention sharpness:
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - How Q, K, V all come from the **same input**
 - The **N×N attention matrix** (every token attends to every token)
+
 - Why self-attention is **O(n²)** but **parallelizable**
 
 **Next Chapter:**

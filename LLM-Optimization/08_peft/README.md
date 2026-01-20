@@ -29,8 +29,11 @@ PEFT methods enable fine-tuning large models by training only a small subset of 
 ```
 
 Where:
+
 - $\theta\_0$ = Pre-trained weights (frozen)
+
 - $\phi$ = Trainable parameters
+
 - $g: \mathbb{R}^m \to \mathbb{R}^n$ = Mapping from PEFT params to weight space
 
 ---
@@ -47,8 +50,11 @@ W = W_0 + \Delta W = W_0 + BA
 ```
 
 Where:
+
 - $B \in \mathbb{R}^{d \times r}$
+
 - $A \in \mathbb{R}^{r \times k}$
+
 - $r \ll \min(d, k)$
 
 **Forward pass:**
@@ -75,6 +81,7 @@ Where $\sigma\_{r+1}$ is the $(r+1)$-th singular value.
 
 **Parameters:**
 - Full: $dk$
+
 - LoRA: $r(d + k)$
 
 **Ratio:**
@@ -101,7 +108,9 @@ h = W_0 x + \frac{\alpha}{r} BAx
 **Theorem 2 (Scaling Invariance):**
 
 For any $c > 0$, the outputs are identical with:
+
 - $(B, A) \to (cB, A/c)$
+
 - $\alpha \to \alpha$
 
 **Optimal scaling:** $\alpha = r$ (or $\alpha = 2r$) to match full fine-tuning learning rate dynamics.
@@ -112,6 +121,7 @@ For any $c > 0$, the outputs are identical with:
 
 **Standard Initialization:**
 - $A \sim \mathcal{N}(0, \sigma^2)$ (Kaiming)
+
 - $B = 0$
 
 **Theorem 3 (Zero Initialization Property):**
@@ -236,8 +246,11 @@ f_{adapter}(h) = W_{up} \cdot \text{ReLU}(W_{down} \cdot h)
 ```
 
 Where:
+
 - $W\_{down} \in \mathbb{R}^{r \times d}$
+
 - $W\_{up} \in \mathbb{R}^{d \times r}$
+
 - $r \ll d$ (bottleneck)
 
 ### Theorem 7 (Adapter Expressiveness)
@@ -283,7 +296,9 @@ Where $P\_K, P\_V \in \mathbb{R}^{l \times d}$ are learnable prefix embeddings.
 ### Theorem 8 (Prefix as Virtual Tokens)
 
 Prefix tuning is equivalent to prepending $l$ virtual tokens with:
+
 - Fixed key/value embeddings (learnable)
+
 - Zero query contribution (not attended to by prefix)
 
 **Parameters:** $2ld$ per layer

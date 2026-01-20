@@ -20,9 +20,13 @@ W = U \Sigma V^T
 ```
 
 Where:
+
 - $U \in \mathbb{R}^{m \times m}$ is orthogonal ($U^TU = I$)
+
 - $\Sigma \in \mathbb{R}^{m \times n}$ is diagonal with singular values $\sigma\_1 \geq \sigma\_2 \geq \ldots \geq \sigma\_r > 0$
+
 - $V \in \mathbb{R}^{n \times n}$ is orthogonal ($V^TV = I$)
+
 - $r = \text{rank}(W)$
 
 **Proof (sketch):**
@@ -189,8 +193,11 @@ For tensor $\mathcal{W} \in \mathbb{R}^{I\_1 \times I\_2 \times \ldots \times I\
 ```
 
 Where:
+
 - $\mathcal{G} \in \mathbb{R}^{R\_1 \times R\_2 \times \ldots \times R\_N}$ is the core tensor
+
 - $A^{(n)} \in \mathbb{R}^{I\_n \times R\_n}$ are factor matrices
+
 - $\times\_n$ is mode-$n$ product
 
 **Mode-n Product:**

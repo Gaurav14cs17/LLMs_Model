@@ -24,8 +24,11 @@ Q(x) = \text{round}\left(\frac{x - z}{s}\right), \quad \hat{x} = s \cdot Q(x) + 
 ```
 
 Where:
+
 - $s$ = scale (step size)
+
 - $z$ = zero-point (offset)
+
 - $b$ = bit-width
 
 **Computing scale and zero-point:**
@@ -372,7 +375,9 @@ Within-group variance is lower than full-tensor variance. For uniformly distribu
 ### Storage Overhead
 
 For $n$ weights with group size $g$:
+
 - Scales: $n/g$ values (16 or 32 bits each)
+
 - Overhead: $\frac{b\_{scale}}{g \cdot b\_{weight}}$ relative
 
 **Example:** g=128, 4-bit weights, FP16 scales:

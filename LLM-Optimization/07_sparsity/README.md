@@ -28,7 +28,9 @@ Sparsity exploits the fact that many computations involve zeros. This module pro
 
 **Compressed Sparse Row (CSR):**
 - Values: non-zero elements
+
 - Column indices: column of each value
+
 - Row pointers: start of each row
 
 **Storage:** $O(nnz + n)$ vs $O(mn)$ for dense.
@@ -132,8 +134,11 @@ y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x)
 ```
 
 Where:
+
 - $E\_i$ = Expert network $i$
+
 - $G(x) = \text{softmax}(W\_g x)$ = Gating/router function
+
 - $G(x)\_i$ = Probability of selecting expert $i$
 
 ### Top-K Routing
@@ -148,13 +153,19 @@ G(x)_i = \begin{cases} \text{softmax}(W_g x)_i & i \in \text{TopK}(W_g x) \\ 0 &
 **Theorem 3 (MoE Parameter vs. Compute):**
 
 For MoE with $N$ experts, top-$k$ routing:
+
 - Total parameters: $P\_{total} = P\_{router} + N \cdot P\_{expert}$
+
 - Active parameters: $P\_{active} = P\_{router} + k \cdot P\_{expert}$
+
 - Compute per token: $\propto P\_{active}$
 
 **Example:** Mixtral 8×7B:
+
 - $N = 8$ experts, $k = 2$
+
 - Total: ~47B parameters
+
 - Active: ~13B parameters per token
 
 ### Load Balancing
@@ -169,7 +180,9 @@ For MoE with $N$ experts, top-$k$ routing:
 ```
 
 Where:
+
 - $f\_i$ = Fraction of tokens routed to expert $i$
+
 - $P\_i$ = Average routing probability for expert $i$
 
 **Theorem 4:** This loss encourages uniform expert utilization:
@@ -198,6 +211,7 @@ Equality when all $f\_i P\_i$ are equal. Given $\sum\_i f\_i = 1$ and $\sum\_i P
 
 **Complexity:**
 - Time: $O(n^2 d)$
+
 - Space: $O(n^2)$ for attention matrix
 
 ### Sparse Attention Patterns
@@ -292,6 +306,7 @@ For feature map $\phi: \mathbb{R}^d \to \mathbb{R}^D$, the approximation error i
 
 **Common choices for $\phi$:**
 - Random Fourier features
+
 - ELU + 1
 - Softmax approximation
 

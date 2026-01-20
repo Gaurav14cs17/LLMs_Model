@@ -57,9 +57,13 @@ python build.py \
 ```
 
 Key features:
+
 - FP8/INT8/INT4 quantization
+
 - Tensor parallelism
+
 - Inflight batching
+
 - Paged KV cache
 
 ---

@@ -18,9 +18,13 @@ P_{total} = P_{embed} + L \cdot P_{layer} + P_{head}
 ```
 
 Where:
+
 - $P\_{embed}$ = Embedding parameters
+
 - $L$ = Number of layers
+
 - $P\_{layer}$ = Parameters per layer
+
 - $P\_{head}$ = Output head parameters
 
 #### Embedding Layer
@@ -31,7 +35,9 @@ P_{embed} = V \cdot d_{model}
 ```
 
 Where:
+
 - $V$ = Vocabulary size (typically 32K-100K)
+
 - $d\_{model}$ = Model hidden dimension
 
 #### Transformer Layer
@@ -68,9 +74,13 @@ P_{layer} = P_{attn} + P_{ffn} + P_{ln} = 12 \cdot d_{model}^2 + 4 \cdot d_{mode
 ```
 
 #### Example: LLaMA-7B
+
 - $V = 32,000$
+
 - $d\_{model} = 4,096$
+
 - $L = 32$
+
 - $d\_{ff} = 11,008$
 
 ```math
@@ -119,8 +129,11 @@ M_{KV} = 2 \times 1 \times 2048 \times 32 \times 4096 \times 2 = 1.07 \text{ GB}
 #### Training Memory
 
 Training requires additional memory for:
+
 - Gradients: Same size as weights
+
 - Optimizer states: 2× weights for Adam (momentum + variance)
+
 - Activations: Depends on batch size and checkpointing
 
 ```math
@@ -185,7 +198,9 @@ Where $|M|$ denotes the size of model $M$ in bits or bytes.
 ### 2. Rate-Distortion Theory
 
 Compression involves a fundamental trade-off between:
+
 - **Rate (R):** Bits used to represent the model
+
 - **Distortion (D):** Loss in model quality
 
 The rate-distortion function $R(D)$ gives the minimum rate required to achieve distortion ≤ D:
@@ -196,9 +211,13 @@ R(D) = \min_{p(\hat{w}|w): \mathbb{E}[d(w,\hat{w})] \leq D} I(W; \hat{W})
 ```
 
 Where:
+
 - $W$ = original weights
+
 - $\hat{W}$ = compressed weights
+
 - $d(w, \hat{w})$ = distortion measure
+
 - $I(W; \hat{W})$ = mutual information
 
 ### 3. Information-Theoretic Lower Bounds
@@ -236,6 +255,7 @@ H(W) = \frac{1}{2}\log_2(2\pi e \sigma^2) \text{ bits per weight}
 
 **Interpretation:**
 - Lower perplexity = better model
+
 - Perplexity of $k$ means the model is as uncertain as choosing uniformly among $k$ options
 
 **Cross-Entropy Relationship:**

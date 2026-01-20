@@ -22,8 +22,11 @@ Pruning removes redundant weights from neural networks. This module provides rig
 ```
 
 Where:
+
 - $\mathcal{L}$ = loss function
+
 - $\|\cdot\|\_0$ = number of non-zero elements
+
 - $k$ = sparsity budget
 
 **Equivalent Lagrangian form:**

@@ -29,7 +29,9 @@ Throughout this chapter, we'll use this example:
 | "I am student" | "मैं छात्र हूँ" (main chaatr hoon) |
 
 **Notice:** Hindi word order is different!
+
 - English: Subject-Verb-Object (I am student)
+
 - Hindi: Subject-Object-Verb (I student am)
 
 Cross-attention handles this reordering automatically!
@@ -246,14 +248,19 @@ During generation, English is fixed. We can cache K and V:
 ### ❓ "Why not use self-attention on both sequences concatenated?"
 
 Cross-attention is more **efficient** and **focused**:
+
 - Self-attention on concatenated: (n+m)² computations
+
 - Cross-attention: n × m computations
+
 - Plus, cross-attention explicitly models the "query-answer" relationship
 
 ### ❓ "What if source and target have same length?"
 
 The matrix is still **conceptually different** from self-attention:
+
 - Self-attention: Token i attends to token i in same sequence
+
 - Cross-attention: Target token i attends to all source tokens
 
 ### ❓ "Does position matter in cross-attention?"
@@ -265,9 +272,12 @@ The matrix is still **conceptually different** from self-attention:
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - Q from **decoder (target)**, K/V from **encoder (source)**
 - Matrix is **N×M (rectangular)**, not N×N
+
 - Cross-attention handles **word reordering** automatically
+
 - It's the **bridge** between encoder and decoder
 
 **Next Chapter:**

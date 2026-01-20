@@ -327,12 +327,19 @@ With continuous batching:
 Congratulations on completing the LLM Optimization course! You now have deep mathematical understanding of:
 
 - ✅ Quantization theory and error bounds
+
 - ✅ Pruning algorithms and saliency
+
 - ✅ Knowledge distillation mathematics
+
 - ✅ Weight sharing and factorization
+
 - ✅ Sparse computation patterns
+
 - ✅ PEFT methods (LoRA, QLoRA)
+
 - ✅ Efficient attention (Flash Attention)
+
 - ✅ Emerging techniques (speculative decoding, MoE, SSMs)
 
 **Happy Optimizing! 🚀**

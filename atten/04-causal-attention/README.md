@@ -47,8 +47,11 @@ P(x_t | x_1, x_2, ..., x_{t-1})
 
 **The Problem:**
 - If the model could "see" future tokens during training
+
 - The task becomes trivially easy (just copy!)
+
 - But the model wouldn't learn to actually predict
+
 - At inference time, future tokens don't exist!
 
 **The Solution:** Mask (block) attention to future positions.
@@ -101,8 +104,10 @@ M_{ij} = \begin{cases} 0 & \text{if } j \leq i \text{ (allowed)} \\ -\infty & \t
 ### Why -∞ Works
 
 After softmax:
+
 - softmax(-∞) = 0
 - The model **literally cannot** attend to future positions
+
 - Zero attention weight = zero information flow
 
 ---
@@ -162,7 +167,9 @@ After softmax, -∞ becomes 0:
 
 **What happened:**
 - Row 1 ("The"): Only sees itself → 100% attention on self
+
 - Row 2 ("cat"): Sees [The, cat] → attention split between them
+
 - Each row still sums to 1.0 (valid probability distribution)
 
 ---
@@ -207,7 +214,9 @@ With causal masking, **one forward pass trains on the entire sequence**:
 ### 3. Consistent Train-Test Behavior
 
 - **Training:** Model sees masked attention (past only)
+
 - **Inference:** Tokens generated one at a time (future doesn't exist)
+
 - **Result:** Same constraint in both phases!
 
 ---
@@ -302,7 +311,9 @@ During autoregressive generation, we cache K and V to avoid recomputation:
 ### 1. Sliding Window + Causal
 
 Combine causal masking with local attention (window size w):
+
 - Each position sees last w positions only
+
 - Still maintains causal constraint
 
 **Used in:** Mistral, Longformer
@@ -310,14 +321,19 @@ Combine causal masking with local attention (window size w):
 ### 2. Block-Causal
 
 Causal at block level, full attention within blocks:
+
 - Block 2 can see Block 1 (not Block 3)
+
 - Within each block: bidirectional attention
 
 ### 3. Causal with Global Tokens (Sink Tokens)
 
 Certain tokens attend globally:
+
 - Global token sees everything
+
 - All tokens see the global token
+
 - Useful for aggregating information
 
 ---
@@ -337,7 +353,9 @@ Certain tokens attend globally:
 ## Further Reading
 
 - [Self-Attention](../01-self-attention/) — The bidirectional counterpart
+
 - [Sparse Attention](../05-sparse-attention/) — Combining causal with sparsity
+
 - [Multi-Head Attention](../03-multi-head-attention/) — Causal applies per head
 
 ---
@@ -345,8 +363,11 @@ Certain tokens attend globally:
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - The N×N matrix becomes **lower triangular** (future blocked)
+
 - **-∞ masking** makes softmax output 0 for future positions
+
 - Essential for **autoregressive generation** (GPT, LLaMA)
 
 **Next Chapter:**

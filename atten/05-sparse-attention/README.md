@@ -23,7 +23,9 @@ The key insight: not all attention connections are equally important. By strateg
 ### Full Attention Cost
 
 For sequence length n:
+
 - **Time Complexity:** O(n²) — compute all pairwise scores
+
 - **Memory Complexity:** O(n²) — store attention matrix
 
 ### The Problem in Numbers
@@ -41,8 +43,11 @@ For context lengths like 100K+ tokens, full attention is simply **not feasible**
 ### The Key Observation
 
 Research shows that attention weights are often **sparse in practice**:
+
 - Most weights are near zero
+
 - Only a few positions receive significant attention
+
 - Many full-attention connections are "wasted computation"
 
 ---
@@ -78,8 +83,11 @@ Each position attends only to a **fixed-size window** of nearby positions.
 
 **Models Using Local Attention:**
 - Longformer (local + global)
+
 - BigBird (local + global + random)
+
 - **Mistral** (sliding window)
+
 - LongT5
 
 ---
@@ -90,6 +98,7 @@ Designate certain tokens as **"global tokens"** that attend to (and are attended
 
 **How It Works:**
 - Global tokens (e.g., [CLS]): See ALL positions
+
 - Regular tokens: See global tokens + local window
 
 **Properties:**
@@ -103,7 +112,9 @@ Designate certain tokens as **"global tokens"** that attend to (and are attended
 
 **Models Using Global + Local:**
 - **Longformer**: Configurable global positions
+
 - **BigBird**: Global + Local + Random
+
 - **LED** (Longformer-Encoder-Decoder)
 
 ---
@@ -272,7 +283,9 @@ For autoregressive models, combine sparsity with causal constraint:
 ## Further Reading
 
 - [Self-Attention](../01-self-attention/) — The dense baseline
+
 - [Causal Attention](../04-causal-attention/) — Masking for generation
+
 - [Score Functions](../06-score-functions/) — Computing the attention scores
 
 ---
@@ -280,7 +293,9 @@ For autoregressive models, combine sparsity with causal constraint:
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - Full attention is **O(n²)** — too expensive for long sequences
+
 - Sparse patterns: **Local, Global, Strided, Random**
 - BigBird = Local + Global + Random (universal approximator!)
 

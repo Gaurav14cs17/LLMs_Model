@@ -74,12 +74,15 @@ Each head gets its own **Q, K, V** through learned weight matrices:
 
 **Weight matrices:**
 - W_i^Q ∈ ℝ^(d_model × d_k)
+
 - W_i^K ∈ ℝ^(d_model × d_k)
+
 - W_i^V ∈ ℝ^(d_model × d_v)
 
 **Example with 8 heads:**
 - d_model = 512
 - h = 8 heads
+
 - d_k = 512 / 8 = 64 per head
 
 Each head operates in a **64-dimensional subspace**.
@@ -118,8 +121,11 @@ Each head operates in a **64-dimensional subspace**.
 #### Why This Works in Parallel
 
 All heads are computed **simultaneously** because:
+
 - Each head has independent weight matrices
+
 - No dependencies between heads during computation
+
 - Modern GPUs can batch all h heads together
 
 ---
@@ -135,6 +141,7 @@ After all heads complete their attention:
 
 **Shape transformation:**
 - Each head: (seq_len × d_k)
+
 - After concat: (seq_len × h × d_k) = (seq_len × d_model)
 
 **Example:**
@@ -155,7 +162,9 @@ Where W^O ∈ ℝ^(d_model × d_model)
 
 **Purpose of W^O:**
 - Mixes information across heads
+
 - Allows model to learn how to combine head outputs
+
 - Final transformation back to d_model space
 
 **Final output shape:** (seq_len × d_model)
@@ -214,6 +223,7 @@ Research analyzing trained Transformers reveals that different heads **specializ
 
 - Different projection matrices (W^Q, W^K, W^V) create different **subspaces**
 - During training, heads naturally diverge to capture complementary patterns
+
 - The final W^O learns to combine these patterns effectively
 
 ---
@@ -228,6 +238,7 @@ Research analyzing trained Transformers reveals that different heads **specializ
 
 **Structure:**
 - h Query heads
+
 - h Key-Value pairs (one per head)
 
 **Pros:** Highest quality, most expressive
@@ -237,11 +248,14 @@ Research analyzing trained Transformers reveals that different heads **specializ
 
 **Structure:**
 - h Query heads
+
 - g Key-Value groups (g < h)
+
 - Multiple Q heads share each KV group
 
 **Example:**
 - 8 query heads, 2 KV groups
+
 - Heads 1-4 share KV₁, Heads 5-8 share KV₂
 
 **Pros:** Good balance of quality and efficiency
@@ -253,6 +267,7 @@ Research analyzing trained Transformers reveals that different heads **specializ
 
 **Structure:**
 - h Query heads
+
 - 1 Key-Value pair (shared by ALL heads)
 
 **Pros:** Smallest KV cache, fastest inference
@@ -285,7 +300,9 @@ Research analyzing trained Transformers reveals that different heads **specializ
 ### Why Same Computation?
 
 - Single head: One (n × n) attention matrix with d dimensions
+
 - Multi-head: h attention matrices, each (n × n) with d/h dimensions
+
 - Total: h × d/h = d — same as single head!
 
 ---
@@ -342,7 +359,9 @@ Research analyzing trained Transformers reveals that different heads **specializ
 ## Further Reading
 
 - [Self-Attention](../01-self-attention/) — Foundation of each head
+
 - [Cross-Attention](../02-cross-attention/) — Multi-head applies to cross-attention too
+
 - [Causal Attention](../04-causal-attention/) — Multi-head with masking
 
 ---
@@ -350,8 +369,10 @@ Research analyzing trained Transformers reveals that different heads **specializ
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - Each head has its own **N×N attention matrix**
 - Different heads learn **different patterns** (syntactic, positional, etc.)
+
 - Heads are **concatenated** and projected back to d_model
 
 **Next Chapter:**

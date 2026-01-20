@@ -109,14 +109,18 @@ d_k = d_v = \frac{d_{model}}{h}
 ```
 
 **Example:** BERT-base
+
 - d_model = 768
 - h = 12 heads
+
 - d_k = d_v = 768 / 12 = 64
 
 ### Why This Matters
 
 - **Total computation stays constant:** 12 heads × 64 dimensions = 768 total
+
 - **Same output size:** Output is d_model regardless of head count
+
 - **√d_k changes with head count:** More heads → smaller d_k → smaller √d_k
 
 ---
@@ -141,8 +145,11 @@ Using **different learned projections** allows the model to:
 ### What If We Used Same Matrix for Q and K?
 
 If Q = K (same projection), attention would be **symmetric**:
+
 - Attention(A→B) = Attention(B→A)
+
 - Cannot model directional relationships
+
 - "The cat sat" — both directions would have same attention!
 
 ### Intuition
@@ -229,7 +236,9 @@ Dropout is applied to attention weights **after softmax, before multiplying with
 ### The Problem
 
 Self-attention is **permutation equivariant**:
+
 - If you shuffle input tokens, outputs shuffle the same way
+
 - Attention has NO built-in notion of position
 
 ### The Solution: Positional Encoding
@@ -254,7 +263,9 @@ Add position information **before** attention:
 ### Key Insight
 
 Position information flows into attention through Q and K:
+
 - Tokens close together may attend more (if useful)
+
 - Position-dependent patterns can emerge
 
 ---
@@ -281,7 +292,9 @@ After computing attention output, there's often an **output projection**:
 ### Dimensions
 
 - Input: (n × h × d_v) flattened to (n × d_model)
+
 - W_O: (d_model × d_model)
+
 - Output: (n × d_model)
 
 ---
@@ -317,7 +330,9 @@ Output
 ### Why Both?
 
 - **Attention alone:** Good at routing, weak at transformation
+
 - **FFN alone:** Good at transformation, no cross-position info
+
 - **Together:** Route information, then transform it
 
 ---
@@ -361,22 +376,31 @@ For n tokens, we compute n² attention scores:
 ### Flash Attention
 
 Modern efficient attention implementation:
+
 - Fuses operations in single GPU kernel
+
 - Reduces memory from O(n²) to O(n)
+
 - 2-4× faster than naive implementation
 
 ### KV Caching (for Generation)
 
 During autoregressive generation:
+
 - Cache computed K, V for previous tokens
+
 - Only compute Q for new token
+
 - Avoids recomputing everything at each step
 
 ### Memory-Efficient Attention
 
 Compute attention in chunks:
+
 - Don't materialize full n×n matrix
+
 - Trade compute for memory
+
 - Enables longer sequences
 
 ---

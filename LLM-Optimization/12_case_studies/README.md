@@ -9,25 +9,39 @@ Real-world examples of LLM compression and optimization, showing the techniques 
 ## 📊 Case Study 1: BERT Compression
 
 ### Original BERT-base
+
 - Parameters: 110M
+
 - Size: 440 MB (FP32)
+
 - Inference: ~10ms (GPU)
 
 ### DistilBERT (Knowledge Distillation)
+
 - Parameters: 66M (40% smaller)
+
 - Size: 264 MB
+
 - Performance: 97% of BERT
+
 - Speed: 60% faster
 
 ### TinyBERT (Aggressive Distillation)
+
 - Parameters: 14.5M (7.5x smaller)
+
 - Size: 58 MB
+
 - Performance: 96% of BERT
+
 - Speed: 9x faster
 
 ### Quantized BERT-base (INT8)
+
 - Size: 110 MB (4x smaller)
+
 - Performance: 99.5% of original
+
 - Speed: 2x faster
 
 ---
@@ -35,8 +49,11 @@ Real-world examples of LLM compression and optimization, showing the techniques 
 ## 📊 Case Study 2: LLaMA Compression
 
 ### LLaMA-2-7B Original
+
 - Parameters: 7B
+
 - Size: 14 GB (FP16)
+
 - VRAM: 14+ GB
 
 ### Compression Results
@@ -58,7 +75,9 @@ Real-world examples of LLM compression and optimization, showing the techniques 
 
 **Requirements:**
 - 100 concurrent users
+
 - <500ms latency (P95)
+
 - Budget: $1000/month
 
 **Solution:**

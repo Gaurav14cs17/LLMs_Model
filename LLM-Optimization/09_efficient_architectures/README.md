@@ -20,10 +20,15 @@ Efficient architectures reduce memory and compute through algorithmic innovation
 ```
 
 Where:
+
 - $Q \in \mathbb{R}^{N \times d}$ (queries)
+
 - $K \in \mathbb{R}^{N \times d}$ (keys)
+
 - $V \in \mathbb{R}^{N \times d}$ (values)
+
 - $N$ = sequence length
+
 - $d$ = head dimension
 
 ### Complexity Analysis
@@ -37,11 +42,13 @@ Where:
 
 **Memory:**
 - $Q, K, V$: $O(Nd)$
+
 - Attention matrix $S = QK^T$: $O(N^2)$ ← **Bottleneck!**
 - Softmax output: $O(N^2)$
 
 **For $N = 4096$, $d = 64$:**
 - Attention matrix: $4096^2 \times 4 = 67$ MB per head
+
 - 32 heads: **2.1 GB** just for attention!
 
 ---
@@ -52,10 +59,12 @@ Where:
 
 **GPU Memory Hierarchy:**
 - HBM (High Bandwidth Memory): Large (~40GB), slow (~1.5 TB/s)
+
 - SRAM (on-chip): Small (~20MB), fast (~19 TB/s)
 
 **Standard attention is memory-bound:**
 - Writes $O(N^2)$ to HBM
+
 - HBM bandwidth limits speed
 
 ### Tiling Strategy
@@ -148,8 +157,11 @@ O_{FA} = \text{softmax}(QK^T)V = O_{standard}
 **Proof:**
 
 The algorithm maintains invariants:
+
 - $\ell\_i = \sum\_{j \leq \text{current}} \exp(S\_{ij} - m\_i)$
+
 - $m\_i = \max\_{j \leq \text{current}} S\_{ij}$
+
 - $O\_i = \frac{\sum\_{j \leq \text{current}} \exp(S\_{ij} - m\_i) V\_j}{\ell\_i}$
 
 At termination (all blocks processed), this equals the full softmax.

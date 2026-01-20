@@ -9,9 +9,13 @@
 ## 🔍 Why Monitoring Matters
 
 After deploying a fine-tuned LLM, continuous monitoring ensures:
+
 - **Performance stability** over time
+
 - **Quality assurance** of model outputs
+
 - **Early detection** of degradation
+
 - **Cost optimization** in production
 
 ---

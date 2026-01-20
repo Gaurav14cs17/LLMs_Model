@@ -118,9 +118,13 @@ python 02_quantization/int8_quantization.py
 Each module includes detailed mathematical foundations:
 
 - **Quantization**: Lloyd-Max theorem, GPTQ Hessian analysis
+
 - **Pruning**: OBD/OBS saliency, lottery ticket hypothesis  
+
 - **Distillation**: KL divergence, temperature scaling proof
+
 - **LoRA**: Low-rank adaptation theory, error bounds
+
 - **Flash Attention**: IO complexity analysis
 
 ---

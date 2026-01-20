@@ -22,7 +22,9 @@ Knowledge Distillation (KD) transfers knowledge from a large "teacher" model to 
 ```
 
 Subject to:
+
 - $|\theta\_S| \ll |\theta\_T|$ (student is smaller)
+
 - $\theta\_T$ is fixed (teacher is frozen)
 
 ---
@@ -137,12 +139,16 @@ As $T \to 1$, this matches the cross-entropy gradient:
 ```
 
 Where:
+
 - $\alpha \in [0, 1]$ balances soft and hard labels
+
 - $T$ is temperature
+
 - $y$ is ground truth
 
 **Interpretation:**
 - First term: Match teacher's soft predictions (dark knowledge)
+
 - Second term: Match ground truth labels (task knowledge)
 
 ---
@@ -217,8 +223,11 @@ For teacher $f\_T$ with depth $L$ and width $w$, there exists student $f\_S$ wit
 ```
 
 Where:
+
 - $\mathcal{M}$ = set of matched layers
+
 - $\pi(l)$ = teacher layer corresponding to student layer $l$
+
 - $\phi$ = projection function (if dimensions differ)
 
 ### 2. Projection Function
@@ -384,6 +393,7 @@ Where $H(p\_T)$ is entropy of teacher predictions and $H(y)$ is entropy of label
 
 **Intuition:**
 - High teacher confidence → lower T
+
 - High label uncertainty → higher T
 
 **Empirical Guidelines:**

@@ -11,6 +11,7 @@
 The distinction between **soft** and **hard** attention represents a fundamental choice in how attention mechanisms select and aggregate information:
 
 - **Soft Attention:** Computes a weighted average of all inputs
+
 - **Hard Attention:** Selects a single input (or discrete subset)
 
 This choice has major implications for training, expressiveness, and application.
@@ -37,8 +38,11 @@ c = \sum_{i=1}^{n} \alpha_i \cdot v_i
 ```
 
 Where:
+
 - α_i are attention weights (sum to 1)
+
 - v_i are value vectors
+
 - c is the context/output vector
 
 ### How It Works
@@ -69,7 +73,9 @@ c = \sum_i \alpha_i v_i = \alpha^T V
 ```
 
 The softmax ensures:
+
 - α_i ≥ 0 (non-negative weights)
+
 - Σ α_i = 1 (normalized to probability)
 
 ---
@@ -145,8 +151,11 @@ Treat attention as a policy, use RL to train:
 ```
 
 Where:
+
 - R = reward (e.g., task accuracy)
+
 - b = baseline (variance reduction)
+
 - p_θ(i) = α_i = selection probability
 
 | Pros | Cons |
@@ -164,7 +173,9 @@ y_i = \frac{\exp((\log \alpha_i + g_i) / \tau)}{\sum_j \exp((\log \alpha_j + g_j
 ```
 
 Where:
+
 - g_i = Gumbel noise
+
 - τ = temperature (→ 0 becomes hard)
 
 | Pros | Cons |
@@ -223,7 +234,9 @@ Select top-k positions instead of all or one:
 ### Sparse Attention
 
 Learned or fixed sparsity patterns — a form of "planned" hard attention:
+
 - Local window (hard: only nearby)
+
 - Global tokens (hard: only special positions)
 
 ---

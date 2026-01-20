@@ -116,7 +116,9 @@ Minimizing subject to $E \leq \min(V, H)$:
 This is always positive, so minimum is at smallest $E$ that preserves information.
 
 **Practical choice:** $E = 128$ for $V = 30K$, $H = 768$:
+
 - Standard: $30K \times 768 = 23M$
+
 - Factorized: $30K \times 128 + 128 \times 768 = 3.9M$ (6× smaller)
 
 ---
@@ -211,6 +213,7 @@ P_{GQA} = h \cdot d_k \cdot d + g \cdot d_k \cdot d + g \cdot d_v \cdot d + h \c
 
 **Special Cases:**
 - $g = h$: MHA
+
 - $g = 1$: MQA
 
 ### Quality vs. Efficiency Trade-off
@@ -246,6 +249,7 @@ Where $a\_i \in \{1, \ldots, K\}$ assigns weight $i$ to cluster.
 
 **Storage:**
 - $K$ centroids: $K \times 32$ bits (FP32)
+
 - $n$ indices: $n \times \log\_2(K)$ bits
 
 **Total bits:** $32K + n\log\_2(K)$
@@ -282,7 +286,9 @@ For uniformly spaced centroids. Lloyd-Max optimal centroids achieve lower MSE.
 
 **Standard:**
 - Input embedding: $E\_{in} \in \mathbb{R}^{V \times d}$
+
 - Output projection: $W\_{out} \in \mathbb{R}^{d \times V}$
+
 - Parameters: $2Vd$
 
 **Tied:**

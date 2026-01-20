@@ -59,6 +59,7 @@ The attention score function determines **how compatibility between queries and 
 **When to Use:**
 - When query and key have **different dimensions**
 - When you want **learned compatibility** patterns
+
 - Historical architectures (pre-Transformer)
 
 ---
@@ -135,7 +136,9 @@ Saturated! No gradient for training ✗
 ### Why Does This Happen?
 
 For vectors q, k ∈ ℝ^d with independent components:
+
 - E[q·k] = 0 (if mean-centered)
+
 - **Var[q·k] = d** (variance grows with dimension!)
 
 | Dimension | Typical Score Range | Problem |
@@ -146,8 +149,11 @@ For vectors q, k ∈ ℝ^d with independent components:
 ### The Solution: Scale by √d
 
 After scaling by √d_k:
+
 - **Var[q·k/√d] = 1** (constant variance)
+
 - Softmax operates in a good range
+
 - Stable gradients during training
 
 ---
@@ -244,8 +250,11 @@ The learnable compatibility is handled by the **Q, K projection matrices** (W_Q,
 ## ✅ Chapter Complete!
 
 You've learned:
+
 - **Additive**: Flexible but slow (v^T tanh(W₁q + W₂k))
+
 - **Dot-Product**: Fast but unstable (q^T k)
+
 - **Scaled Dot-Product**: Fast AND stable (q^T k / √d_k) — **the standard!**
 
 **Next Chapter:**
