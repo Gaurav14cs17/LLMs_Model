@@ -23,6 +23,7 @@ Where:
 - $P\_{head}$ = Output head parameters
 
 #### Embedding Layer
+
 ```math
 P_{embed} = V \cdot d_{model}
 ```
@@ -35,6 +36,7 @@ Where:
 Each transformer layer contains:
 
 **Self-Attention:**
+
 ```math
 P_{attn} = 4 \cdot d_{model}^2
 ```
@@ -42,16 +44,19 @@ P_{attn} = 4 \cdot d_{model}^2
 (For Q, K, V, and output projections)
 
 **Feed-Forward Network:**
+
 ```math
 P_{ffn} = 2 \cdot d_{model} \cdot d_{ff} = 2 \cdot d_{model} \cdot (4 \cdot d_{model}) = 8 \cdot d_{model}^2
 ```
 
 **Layer Normalization:**
+
 ```math
 P_{ln} = 4 \cdot d_{model}
 ```
 
 **Total per layer:**
+
 ```math
 P_{layer} = P_{attn} + P_{ffn} + P_{ln} = 12 \cdot d_{model}^2 + 4 \cdot d_{model}
 ```
@@ -79,6 +84,7 @@ M_{inference} = M_{weights} + M_{activations} + M_{KV-cache}
 ```
 
 **Weights:**
+
 ```math
 M_{weights} = P_{total} \times b_w
 ```
@@ -86,6 +92,7 @@ M_{weights} = P_{total} \times b_w
 Where $b\_w$ = bytes per weight (4 for FP32, 2 for FP16, 0.5 for INT4)
 
 **KV-Cache:**
+
 ```math
 M_{KV} = 2 \times B \times S \times L \times d_{model} \times b_a
 ```
@@ -93,6 +100,7 @@ M_{KV} = 2 \times B \times S \times L \times d_{model} \times b_a
 The factor of 2 accounts for both K and V.
 
 **Example:** LLaMA-7B with B=1, S=2048, FP16:
+
 ```math
 M_{KV} = 2 \times 1 \times 2048 \times 32 \times 4096 \times 2 = 1.07 \text{ GB}
 ```
@@ -118,6 +126,7 @@ M_{training} \approx 4 \times M_{weights} + M_{activations}
 For a single forward pass with sequence length $S$:
 
 **Self-Attention:**
+
 ```math
 \text{FLOPs}_{attn} = 2 \times B \times S^2 \times d_{model} + 4 \times B \times S \times d_{model}^2
 ```
@@ -125,16 +134,19 @@ For a single forward pass with sequence length $S$:
 The $S^2$ term dominates for long sequences (attention computation).
 
 **Feed-Forward:**
+
 ```math
 \text{FLOPs}_{ffn} = 2 \times B \times S \times d_{model} \times d_{ff}
 ```
 
 **Total per layer:**
+
 ```math
 \text{FLOPs}_{layer} \approx 2BS^2d + 4BSd^2 + 4BSd \cdot d_{ff}
 ```
 
 **Approximate total (ignoring attention for short sequences):**
+
 ```math
 \text{FLOPs}_{total} \approx 2 \times P_{total} \times S
 ```
@@ -206,6 +218,7 @@ H(W) = \frac{1}{2}\log_2(2\pi e \sigma^2) \text{ bits per weight}
 - Perplexity of $k$ means the model is as uncertain as choosing uniformly among $k$ options
 
 **Cross-Entropy Relationship:**
+
 ```math
 \text{PPL} = 2^{H(p, q)} = \exp(CE)
 ```
@@ -279,16 +292,19 @@ Where $H\_{ii}$ is the $i$-th diagonal element of the Hessian $H = \nabla^2 \mat
 **Proof sketch:**
 
 Taylor expansion of loss around current weights:
+
 ```math
 \mathcal{L}(\theta + \delta) \approx \mathcal{L}(\theta) + g^T\delta + \frac{1}{2}\delta^T H \delta
 ```
 
 At a local minimum, $g \approx 0$, so:
+
 ```math
 \Delta\mathcal{L} \approx \frac{1}{2}\delta^T H \delta
 ```
 
 For pruning weight $i$ (setting $\delta\_i = -w\_i$):
+
 ```math
 \Delta\mathcal{L}_i \approx \frac{1}{2} H_{ii} w_i^2
 ```
@@ -343,6 +359,7 @@ Where $d$ = input dimension, $r$ = smoothness of $f$.
 The quantization step size is $\Delta = 2M / 2^b$.
 
 For uniform distribution of quantization error in $[-\Delta/2, \Delta/2]$:
+
 ```math
 \mathbb{E}[e^2] = \int_{-\Delta/2}^{\Delta/2} e^2 \cdot \frac{1}{\Delta} de = \frac{\Delta^2}{12} = \frac{M^2}{3 \cdot 2^{2b}}
 ```

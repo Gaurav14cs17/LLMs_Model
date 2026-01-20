@@ -183,6 +183,7 @@ When we compute the dot product Q·K^T, something dangerous happens:
 **Why does this happen?**
 
 If each element of q and k has variance 1, then:
+
 ```math
 \text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k
 ```

@@ -93,16 +93,19 @@ Each head operates in a **64-dimensional subspace**.
 #### Head i Computation:
 
 **Step 3a: Compute Attention Scores**
+
 ```math
 \text{scores}_i = \frac{Q_i \times K_i^T}{\sqrt{d_k}}
 ```
 
 **Step 3b: Apply Softmax**
+
 ```math
 \text{weights}_i = \text{softmax}(\text{scores}_i)
 ```
 
 **Step 3c: Weighted Sum of Values**
+
 ```math
 \text{head}_i = \text{weights}_i \times V_i
 ```

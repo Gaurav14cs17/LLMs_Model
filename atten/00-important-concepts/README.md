@@ -48,11 +48,13 @@ k = [k_1, k_2, ..., k_{d_k}]
 ```
 
 The dot product is:
+
 ```math
 q \cdot k = \sum_{i=1}^{d_k} q_i \times k_i
 ```
 
 Since Var(q_i × k_i) = 1 (assuming independence):
+
 ```math
 \text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k
 ```

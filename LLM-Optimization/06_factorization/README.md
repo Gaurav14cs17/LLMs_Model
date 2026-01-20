@@ -44,6 +44,7 @@ W_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T = U_k \Sigma_k V_k^T
 ```
 
 With error:
+
 ```math
 \|W - W_k\|_F = \sqrt{\sum_{i=k+1}^{r} \sigma_i^2}
 ```
@@ -57,6 +58,7 @@ Let $\tilde{W}$ be any rank-$k$ matrix. Then:
 ```
 
 By orthogonal invariance:
+
 ```math
 = \|\Sigma - U^T\tilde{W}V\|_F^2
 ```
@@ -74,6 +76,7 @@ Minimizing: $b\_{ii} = \sigma\_i$ for $i \leq k$, zero otherwise.
 ```
 
 **Corollary (Spectral Norm):**
+
 ```math
 \|W - W_k\|_2 = \sigma_{k+1}
 ```
@@ -107,23 +110,29 @@ For trained neural network weight matrices, singular values typically decay as:
 ### Standard vs. Factorized
 
 **Standard:**
+
 ```math
 y = Wx, \quad W \in \mathbb{R}^{m \times n}
 ```
+
 Parameters: $mn$
 
 **Factorized:**
+
 ```math
 y = (UV)x = U(Vx), \quad U \in \mathbb{R}^{m \times r}, V \in \mathbb{R}^{r \times n}
 ```
+
 Parameters: $r(m + n)$
 
 **Compression Ratio:**
+
 ```math
 \rho = \frac{mn}{r(m+n)} = \frac{mn}{r(m+n)}
 ```
 
 **When is this beneficial?**
+
 ```math
 r < \frac{mn}{m+n} = \frac{1}{1/m + 1/n}
 ```
@@ -168,6 +177,7 @@ Where:
 - $\times\_n$ is mode-$n$ product
 
 **Mode-n Product:**
+
 ```math
 (\mathcal{G} \times_n A)_{i_1...i_{n-1}ji_{n+1}...i_N} = \sum_{k} \mathcal{G}_{i_1...i_{n-1}ki_{n+1}...i_N} A_{jk}
 ```
@@ -189,6 +199,7 @@ Tucker: $R\_1 R\_2 R\_3 R\_4 + C\_{out}R\_1 + C\_{in}R\_2 + HR\_3 + WR\_4$
 ### Theorem 5 (Tucker Approximation Error)
 
 The Tucker decomposition minimizes:
+
 ```math
 \|\mathcal{W} - \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}\|_F
 ```
@@ -201,6 +212,7 @@ The Tucker decomposition minimizes:
 4. Compute core: $\mathcal{G} = \mathcal{W} \times\_1 A^{(1)T} \times\_2 A^{(2)T} \ldots$
 
 **Error bound:**
+
 ```math
 \|\mathcal{W} - \text{Tucker}(\mathcal{W})\|_F^2 \leq \sum_{n=1}^{N} \sum_{i > R_n} (\sigma_i^{(n)})^2
 ```
@@ -218,6 +230,7 @@ The Tucker decomposition minimizes:
 Where $\circ$ denotes outer product.
 
 **Element-wise:**
+
 ```math
 \mathcal{W}_{i_1 i_2 \ldots i_N} \approx \sum_{r=1}^{R} \lambda_r \prod_{n=1}^{N} a_{i_n r}^{(n)}
 ```
@@ -247,6 +260,7 @@ Where $I\_{\max} = \max\_n I\_n$.
 ### Mathematical Connection
 
 LoRA update:
+
 ```math
 W' = W + BA
 ```
@@ -254,6 +268,7 @@ W' = W + BA
 Where $B \in \mathbb{R}^{m \times r}$, $A \in \mathbb{R}^{r \times n}$.
 
 **This is low-rank matrix perturbation:**
+
 ```math
 \text{rank}(BA) \leq r
 ```
@@ -308,16 +323,19 @@ Training typically leads to:
 ### Choosing Rank
 
 **Energy-based:**
+
 ```math
 r^* = \min\{k : E_k \geq \tau\}
 ```
 
 **Error-based:**
+
 ```math
 r^* = \min\{k : \|W - W_k\|_F / \|W\|_F \leq \epsilon\}
 ```
 
 **Compute-based:**
+
 ```math
 r^* = \arg\min_k \{r(m+n) : r(m+n) < mn / \rho_{target}\}
 ```

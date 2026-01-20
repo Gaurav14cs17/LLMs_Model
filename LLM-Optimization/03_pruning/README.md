@@ -26,6 +26,7 @@ Where:
 - $k$ = sparsity budget
 
 **Equivalent Lagrangian form:**
+
 ```math
 \min_{\hat{W}} \mathcal{L}(f(x; \hat{W})) + \lambda \|\hat{W}\|_0
 ```
@@ -57,11 +58,13 @@ For pruning weight $i$ (setting $w\_i = 0$), we have $\delta w\_i = -w\_i$:
 ```
 
 **Diagonal Approximation:** If we assume $H$ is diagonal:
+
 ```math
 \delta\mathcal{L}_i \approx \frac{1}{2} H_{ii} w_i^2
 ```
 
 **Saliency Score:**
+
 ```math
 s_i = |H_{ii}| \cdot w_i^2
 ```
@@ -87,33 +90,39 @@ And the resulting loss increase is:
 **Proof:**
 
 We want to minimize:
+
 ```math
 \min_{\delta w} \frac{1}{2} \delta w^T H \delta w \quad \text{s.t.} \quad e_q^T(w + \delta w) = 0
 ```
 
 Using Lagrange multipliers:
+
 ```math
 \mathcal{L}_{Lagrange} = \frac{1}{2} \delta w^T H \delta w + \lambda(e_q^T w + e_q^T \delta w)
 ```
 
 Setting $\nabla\_{\delta w} \mathcal{L}\_{Lagrange} = 0$:
+
 ```math
 H \delta w + \lambda e_q = 0
 \delta w = -\lambda H^{-1} e_q
 ```
 
 From constraint $e\_q^T \delta w = -w\_q$:
+
 ```math
 -\lambda e_q^T H^{-1} e_q = -w_q
 \lambda = \frac{w_q}{[H^{-1}]_{qq}}
 ```
 
 Substituting back:
+
 ```math
 \delta w = -\frac{w_q}{[H^{-1}]_{qq}} H^{-1} e_q
 ```
 
 **Loss increase:**
+
 ```math
 \delta\mathcal{L} = \frac{1}{2} \delta w^T H \delta w = \frac{1}{2} \frac{w_q^2}{([H^{-1}]_{qq})^2} e_q^T H^{-1} H H^{-1} e_q = \frac{w_q^2}{2[H^{-1}]_{qq}}
 ```
@@ -131,6 +140,7 @@ Substituting back:
 ```
 
 For Gaussian weights $W \sim \mathcal{N}(0, \sigma^2)$:
+
 ```math
 \mathbb{P}(|w| < \tau) = \text{erf}\left(\frac{\tau}{\sigma\sqrt{2}}\right)
 ```
@@ -142,6 +152,7 @@ For Gaussian weights $W \sim \mathcal{N}(0, \sigma^2)$:
 ```
 
 For Gaussian:
+
 ```math
 = n \cdot \int_{-\tau}^{\tau} w^2 \cdot \frac{1}{\sqrt{2\pi}\sigma} e^{-w^2/2\sigma^2} dw
 = n\sigma^2 \left[\text{erf}\left(\frac{\tau}{\sigma\sqrt{2}}\right) - \frac{2\tau}{\sigma\sqrt{2\pi}} e^{-\tau^2/2\sigma^2}\right]
@@ -158,11 +169,13 @@ For Gaussian:
 For convolutional layer with weight tensor $W \in \mathbb{R}^{C\_{out} \times C\_{in} \times K \times K}$:
 
 **Channel Importance (L1 norm):**
+
 ```math
 s_c = \sum_{i,j,k} |W_{c,i,j,k}|
 ```
 
 **Channel Importance (L2 norm):**
+
 ```math
 s_c = \sqrt{\sum_{i,j,k} W_{c,i,j,k}^2}
 ```
@@ -176,11 +189,13 @@ Let $\mathcal{C}$ be the set of pruned channels. The output error is bounded by:
 ```
 
 **Proof:**
+
 ```math
 Y - \hat{Y} = \sum_{c \in \mathcal{C}} W_c * X_c
 ```
 
 By triangle inequality:
+
 ```math
 \|Y - \hat{Y}\|_F \leq \sum_{c \in \mathcal{C}} \|W_c * X_c\|_F \leq \sum_{c \in \mathcal{C}} \|W_c\|_F \|X_c\|_F
 ```
@@ -196,6 +211,7 @@ For multi-head attention with $h$ heads:
 **Head Importance Score:**
 
 Based on expected attention entropy:
+
 ```math
 s_i = -\mathbb{E}_{x}\left[\sum_j A_{ij} \log A_{ij}\right]
 ```
@@ -203,6 +219,7 @@ s_i = -\mathbb{E}_{x}\left[\sum_j A_{ij} \log A_{ij}\right]
 Low entropy heads are more "decisive" and important.
 
 **Gradient-based importance:**
+
 ```math
 s_i = \mathbb{E}\left[\left|\frac{\partial \mathcal{L}}{\partial \text{head}_i}\right|\right]
 ```
@@ -220,6 +237,7 @@ Let $f(x; \theta\_0)$ be a randomly initialized network with $\theta\_0 \sim \ma
 There exists a mask $m \in \{0, 1\}^{|\theta|}$ with $\|m\|\_0 = k \ll |\theta|$ such that:
 
 After $t$ training iterations:
+
 ```math
 \mathcal{L}(f(x; m \odot \theta_t)) \leq \mathcal{L}(f(x; \theta_t)) + \epsilon
 ```
@@ -282,6 +300,7 @@ For weight vector $w = [w\_1, w\_2, w\_3, w\_4]$, find mask $m \in \{0, 1\}^4$ w
 Where $w\_{(1)} \leq w\_{(2)}$ are the order statistics.
 
 For standard Gaussian:
+
 ```math
 \mathbb{E}[w_{(1)}^2] \approx 0.3176\sigma^2, \quad \mathbb{E}[w_{(2)}^2] \approx 0.6824\sigma^2
 \mathbb{E}[\text{error}] \approx 2\sigma^2 \times (0.3176 + 0.6824) = 2\sigma^2
@@ -338,6 +357,7 @@ Where $m$ is the number of training samples.
 ```
 
 For pruned networks, $KL(\hat{p} \| p)$ is related to sparsity:
+
 ```math
 KL \approx k \cdot \log\frac{n}{k} + (n-k)\log\frac{n}{n-k}
 ```

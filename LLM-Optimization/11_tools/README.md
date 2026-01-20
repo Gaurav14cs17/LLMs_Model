@@ -43,6 +43,7 @@ This module covers the essential tools and frameworks for LLM optimization and d
 NVIDIA's high-performance inference library.
 
 ```bash
+
 # Install
 pip install tensorrt-llm
 
@@ -68,6 +69,7 @@ Key features:
 Cross-platform inference with optimizations.
 
 ```bash
+
 # Export to ONNX
 optimum-cli export onnx \
     --model meta-llama/Llama-2-7b-hf \
@@ -88,6 +90,7 @@ python -m onnxruntime.transformers.optimizer \
 The most popular tool for local LLM deployment.
 
 ```bash
+
 # Clone and build
 git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp && make

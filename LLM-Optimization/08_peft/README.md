@@ -15,11 +15,13 @@ PEFT methods enable fine-tuning large models by training only a small subset of 
 ### 1. Problem Formulation
 
 **Full Fine-tuning:**
+
 ```math
 \min_{\theta \in \mathbb{R}^n} \mathcal{L}(f(x; \theta))
 ```
 
 **PEFT:**
+
 ```math
 \min_{\phi \in \mathbb{R}^m} \mathcal{L}(f(x; \theta_0 + g(\phi))), \quad m \ll n
 ```
@@ -47,6 +49,7 @@ Where:
 - $r \ll \min(d, k)$
 
 **Forward pass:**
+
 ```math
 h = W_0 x + BAx = W_0 x + B(Ax)
 ```
@@ -70,11 +73,13 @@ Where $\sigma\_{r+1}$ is the $(r+1)$-th singular value.
 - LoRA: $r(d + k)$
 
 **Ratio:**
+
 ```math
 \frac{r(d+k)}{dk} = \frac{r}{k} + \frac{r}{d} \approx \frac{2r}{\min(d,k)}
 ```
 
 **Example:** $d = k = 4096$, $r = 16$:
+
 ```math
 \text{Ratio} = \frac{16 \times 8192}{4096^2} = 0.78\%
 ```
@@ -108,6 +113,7 @@ With $B = 0$: $\Delta W = BA = 0$ at initialization.
 **Implication:** Training starts from pre-trained model exactly.
 
 **Gradient at Initialization:**
+
 ```math
 \frac{\partial \mathcal{L}}{\partial B} = \frac{\alpha}{r} \frac{\partial \mathcal{L}}{\partial h} x^T A^T
 \frac{\partial \mathcal{L}}{\partial A} = \frac{\alpha}{r} B^T \frac{\partial \mathcal{L}}{\partial h} x^T
@@ -128,6 +134,7 @@ Pre-trained models have low intrinsic dimensionality for downstream tasks.
 **Definition:** Intrinsic dimensionality $d^*$ is the minimum dimension of a random subspace where optimization succeeds.
 
 **Empirical finding (Aghajanyan et al., 2020):**
+
 ```math
 d^* \ll n
 ```
@@ -157,6 +164,7 @@ Sum of few rank-1 matrices remains low-rank.
 ### Mathematical Formulation
 
 **Quantized base model:**
+
 ```math
 W_0^{quant} = Q(W_0)
 ```
@@ -164,6 +172,7 @@ W_0^{quant} = Q(W_0)
 Where $Q$ is 4-bit NormalFloat quantization.
 
 **Forward pass:**
+
 ```math
 h = \text{dequant}(W_0^{quant}) \cdot x + BAx
 ```
@@ -184,6 +193,7 @@ Total error compared to full fine-tuning:
 **Double:** Quantize scales to FP8 (8 bits each)
 
 **Memory per weight:**
+
 ```math
 b_{DQ} = 4 + \frac{8}{g} + \frac{32}{256} \approx 4.19 \text{ bits}
 ```
@@ -197,11 +207,13 @@ vs $4 + \frac{32}{g} \approx 4.5$ bits without double quantization.
 ### Architecture
 
 Insert adapter module after attention/FFN:
+
 ```math
 h' = h + f_{adapter}(h)
 ```
 
 **Adapter structure:**
+
 ```math
 f_{adapter}(h) = W_{up} \cdot \text{ReLU}(W_{down} \cdot h)
 ```
@@ -243,6 +255,7 @@ K' = [P_K; K], \quad V' = [P_V; V]
 Where $P\_K, P\_V \in \mathbb{R}^{l \times d}$ are learnable prefix embeddings.
 
 **Attention:**
+
 ```math
 \text{Attention}(Q, K', V') = \text{softmax}\left(\frac{Q[P_K; K]^T}{\sqrt{d}}\right)[P_V; V]
 ```
@@ -288,6 +301,7 @@ PEFT operates in a lower-dimensional subspace of the loss landscape.
 **Let** $\mathcal{S} = \{\theta\_0 + g(\phi) : \phi \in \mathbb{R}^m\}$ be the PEFT subspace.
 
 **Property:** If $\theta^*$ (full fine-tuning optimum) is close to $\mathcal{S}$:
+
 ```math
 \min_{\theta \in \mathcal{S}} \mathcal{L}(\theta) \approx \mathcal{L}(\theta^*)
 ```
@@ -312,6 +326,7 @@ Full fine-tuning can move in all directions.
 ### LoRA Composition
 
 For multiple LoRA adapters:
+
 ```math
 W = W_0 + B_1 A_1 + B_2 A_2 + \ldots
 ```
@@ -321,6 +336,7 @@ W = W_0 + B_1 A_1 + B_2 A_2 + \ldots
 ### Weight Merging
 
 **Linear combination:**
+
 ```math
 W_{merged} = W_0 + \sum_i \lambda_i B_i A_i
 ```
@@ -330,11 +346,13 @@ Where $\sum\_i \lambda\_i = 1$.
 **Theorem 14 (Optimal Merging Weights):**
 
 For tasks with equal importance:
+
 ```math
 \lambda_i^* = \frac{1}{k}
 ```
 
 For weighted importance:
+
 ```math
 \lambda_i^* \propto \sqrt{\|B_i A_i\|_F^{-2}}
 ```

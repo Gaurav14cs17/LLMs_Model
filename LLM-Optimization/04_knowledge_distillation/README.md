@@ -37,11 +37,13 @@ Subject to:
 **Properties:**
 
 1. **$T \to 0$:** Approaches one-hot (argmax)
+
 ```math
 \lim_{T \to 0} \sigma_T(z) = e_{\arg\max_i z_i}
 ```math
 2. **$T \to \infty$:** Approaches uniform
 ```
+
 \lim_{T \to \infty} \sigma_T(z) = \frac{1}{K}\mathbf{1}
 ```
 
@@ -56,6 +58,7 @@ H(\sigma_T(z)) \geq H(\sigma_1(z)) \quad \forall T \geq 1
 **Proof:**
 
 The entropy is:
+
 ```math
 H(\sigma_T(z)) = -\sum_i \sigma_T(z)_i \log \sigma_T(z)_i
 ```
@@ -94,16 +97,19 @@ The $T^2$ factor ensures gradient magnitudes are preserved:
 **Proof:**
 
 Without $T^2$:
+
 ```math
 \frac{\partial \mathcal{L}_{KD}}{\partial z_{S,i}} = \frac{1}{T}(\sigma_T(z_S)_i - \sigma_T(z_T)_i)
 ```
 
 With $T^2$:
+
 ```math
 \frac{\partial (T^2 \mathcal{L}_{KD})}{\partial z_{S,i}} = T(\sigma_T(z_S)_i - \sigma_T(z_T)_i)
 ```
 
 As $T \to 1$, this matches the cross-entropy gradient:
+
 ```math
 \frac{\partial \mathcal{L}_{CE}}{\partial z_{S,i}} = \sigma_1(z_S)_i - y_i
 ```
@@ -212,6 +218,7 @@ When $d\_S \neq d\_T$, use learned projection:
 ```
 
 **Closed-form solution:**
+
 ```math
 W_{proj}^* = h_S h_T^T (h_T h_T^T)^{-1}
 ```
@@ -249,6 +256,7 @@ After successful attention distillation.
 ```
 
 Where:
+
 ```math
 \psi_D(x_i, x_j) = \frac{\|x_i - x_j\|_2}{\mu_D}, \quad \mu_D = \frac{1}{|\mathcal{P}|}\sum_{(i,j) \in \mathcal{P}} \|x_i - x_j\|_2
 ```
@@ -260,6 +268,7 @@ Where:
 ```
 
 Where:
+
 ```math
 \psi_A(x_i, x_j, x_k) = \cos \angle x_j x_i x_k = \frac{(x_i - x_j)^T(x_i - x_k)}{\|x_i - x_j\|\|x_i - x_k\|}
 ```
@@ -295,6 +304,7 @@ k^* = O\left(\log \frac{|T|}{|S|}\right)
 **Proof:**
 
 If each step has compression ratio $r$, then after $k$ steps:
+
 ```math
 |S| = |T| / r^k
 k = \log_r(|T|/|S|)
@@ -320,6 +330,7 @@ k = \log_r(|T|/|S|)
 Under mild conditions (ensembling effect).
 
 **Explanation:** Each generation acts as an implicit ensemble:
+
 ```math
 M_{k+1} \approx \mathbb{E}_{init}[M_k]
 ```

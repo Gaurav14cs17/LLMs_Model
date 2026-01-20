@@ -59,16 +59,19 @@ For uniform quantization with step size $\Delta$, the quantization error $e = x 
 **Proof:**
 
 Assuming the input is uniformly distributed within a quantization bin:
+
 ```math
 p(e) = \frac{1}{\Delta}, \quad e \in \left[-\frac{\Delta}{2}, \frac{\Delta}{2}\right]
 ```
 
 Mean:
+
 ```math
 \mathbb{E}[e] = \int_{-\Delta/2}^{\Delta/2} e \cdot \frac{1}{\Delta} de = 0
 ```
 
 Variance:
+
 ```math
 \mathbb{E}[e^2] = \int_{-\Delta/2}^{\Delta/2} e^2 \cdot \frac{1}{\Delta} de = \frac{1}{\Delta} \cdot \frac{e^3}{3}\Big|_{-\Delta/2}^{\Delta/2} = \frac{\Delta^2}{12}
 ```
@@ -80,6 +83,7 @@ Variance:
 ```
 
 In dB for full-range signal:
+
 ```math
 \text{SQNR}_{dB} \approx 6.02b + 1.76 \text{ dB}
 ```
@@ -97,11 +101,13 @@ In dB for full-range signal:
 **Optimality Conditions:**
 
 1. **Nearest Neighbor:** Each input is quantized to the nearest level:
+
 ```math
 d_i = \frac{q_i + q_{i+1}}{2}
 ```
 
 2. **Centroid:** Each level is the centroid of its region:
+
 ```math
 q_i = \frac{\int_{d_{i-1}}^{d_i} x \cdot p(x) dx}{\int_{d_{i-1}}^{d_i} p(x) dx}
 ```
@@ -129,6 +135,7 @@ The optimal quantization levels are not uniformly spaced. For $\mathcal{N}(0, 1)
 3. Find 16 quantization levels that minimize MSE for $\mathcal{N}(0, 1)$
 
 **Optimal NF4 Levels (for $\mathcal{N}(0,1)$):**
+
 ```math
 \mathcal{Q}_{NF4} = \{-1.0, -0.6962, -0.5251, -0.3949, -0.2844, -0.1848, -0.0911, 0.0,
 0.0796, 0.1609, 0.2461, 0.3379, 0.4407, 0.5626, 0.7230, 1.0\}
@@ -141,11 +148,13 @@ The optimal quantization levels are not uniformly spaced. For $\mathcal{N}(0, 1)
 For weights $W \sim \mathcal{N}(0, \sigma^2)$:
 
 Uniform INT4 MSE:
+
 ```math
 \text{MSE}_{uniform} = \frac{\Delta^2}{12} \approx \frac{(2 \cdot 3\sigma / 15)^2}{12} = 0.0333\sigma^2
 ```
 
 NF4 MSE (Lloyd-Max optimal):
+
 ```math
 \text{MSE}_{NF4} \approx 0.0220\sigma^2
 ```
@@ -167,6 +176,7 @@ NF4 MSE (Lloyd-Max optimal):
 **Error Analysis:**
 
 If true range is $[\mu - k\sigma, \mu + k\sigma]$:
+
 ```math
 \text{Clipping Error} = \mathbb{E}[(x - \text{clip}(x))^2] = 2\int_{k\sigma}^{\infty} (x - k\sigma)^2 p(x) dx
 ```
@@ -222,11 +232,13 @@ Where $H = 2X^TX$ is the Hessian of the squared error.
 **Proof:**
 
 The loss increase from quantizing $w\_q$ is:
+
 ```math
 \Delta\mathcal{L} = \frac{(w_q - \text{quant}(w_q))^2}{2[H^{-1}]_{qq}}
 ```
 
 Using Lagrange multipliers to minimize loss subject to $w\_q$ being quantized:
+
 ```math
 \nabla_{w_F} \mathcal{L} + \lambda \nabla_{w_F}(w_q - c) = 0
 ```
@@ -238,6 +250,7 @@ Solving gives the update formula above.
 GPTQ processes columns in order, updating the inverse Hessian efficiently:
 
 **Inverse Update (Gaussian Elimination):**
+
 ```math
 [H^{-1}]_{F,F} \leftarrow [H^{-1}]_{F,F} - \frac{[H^{-1}]_{F,q}[H^{-1}]_{q,F}}{[H^{-1}]_{qq}}
 ```
@@ -271,6 +284,7 @@ Where $s\_i = \mathbb{E}[|x\_i|]$ is the average activation magnitude.
 ```
 
 **Solution:** Grid search over $\alpha \in [0, 1]$ with:
+
 ```math
 \alpha_j = s_j^\beta, \quad \beta \in [0, 1]
 ```
@@ -284,11 +298,13 @@ Where $s\_j$ is the activation scale for channel $j$.
 Let $w$ be a weight with quantization error $e = w - Q(w)$.
 
 After scaling by $\alpha < 1$:
+
 ```math
 e' = \alpha \cdot Q(w/\alpha) - w
 ```
 
 For large $|w|$, the relative error decreases:
+
 ```math
 \frac{|e'|}{|w|} < \frac{|e|}{|w|}
 ```
@@ -318,6 +334,7 @@ Where groups $W\_1, \ldots, W\_g$ partition the weight matrix.
 **Proof sketch:**
 
 Within-group variance is lower than full-tensor variance. For uniformly distributed group means:
+
 ```math
 \text{Var}(W|group) \approx \frac{\text{Var}(W)}{g^{1/2}}
 ```
@@ -329,6 +346,7 @@ For $n$ weights with group size $g$:
 - Overhead: $\frac{b\_{scale}}{g \cdot b\_{weight}}$ relative
 
 **Example:** g=128, 4-bit weights, FP16 scales:
+
 ```math
 \text{Overhead} = \frac{16}{128 \times 4} = 3.1\%
 ```
@@ -360,6 +378,7 @@ For $n$ weights with group size $g$:
 ```
 
 Where $R(W)$ is a regularizer encouraging quantization-friendly weights:
+
 ```math
 R(W) = \|W - Q(W)\|_F^2
 ```
@@ -381,6 +400,7 @@ Where $\text{Lip}(\sigma)$ is the Lipschitz constant of activation $\sigma$.
 ### Corollary: Depth Sensitivity
 
 Deeper networks are more sensitive to quantization:
+
 ```math
 \text{Error} = O(\epsilon \cdot L \cdot \|W\|^L)
 ```

@@ -65,6 +65,7 @@ Partition $Q$ into blocks: $Q\_1, Q\_2, \ldots, Q\_{T\_r}$ of size $B\_r \times 
 Partition $K, V$ into blocks: $K\_1, V\_1, \ldots, K\_{T\_c}, V\_{T\_c}$ of size $B\_c \times d$
 
 **Block attention:**
+
 ```math
 O_i = \sum_j \text{softmax}_{local}(Q_i K_j^T) V_j
 ```
@@ -132,6 +133,7 @@ Output: O in HBM
 ### Theorem 3 (Flash Attention Correctness)
 
 Flash Attention computes exact attention:
+
 ```math
 O_{FA} = \text{softmax}(QK^T)V = O_{standard}
 ```
@@ -150,6 +152,7 @@ At termination (all blocks processed), this equals the full softmax.
 **IO Complexity:**
 
 Reads/writes to HBM:
+
 ```math
 \Theta\left(Nd + \frac{N^2d}{M}\right)
 ```
@@ -178,11 +181,13 @@ For typical values ($N = 4096$, $d = 64$, $M = 100KB$): **~4× fewer HBM accesse
 **Flash Attention 2:** Also parallelize over sequence length
 
 **Work partitioning:**
+
 ```math
 \text{Warps} \leftarrow \text{blocks of } Q
 ```
 
 Instead of:
+
 ```math
 \text{Warps} \leftarrow \text{blocks of } K, V
 ```
@@ -265,16 +270,19 @@ And $\omega\_i \sim \mathcal{N}(0, I)$.
 ### Mathematical Formulation
 
 **MHA:** Each head has own $K, V$
+
 ```math
 \text{head}_i = \text{Attn}(QW_i^Q, KW_i^K, VW_i^V)
 ```
 
 **MQA:** All heads share $K, V$
+
 ```math
 \text{head}_i = \text{Attn}(QW_i^Q, KW^K, VW^V)
 ```
 
 **GQA:** Groups share $K, V$
+
 ```math
 \text{head}_i = \text{Attn}(QW_i^Q, KW_{g(i)}^K, VW_{g(i)}^V)
 ```

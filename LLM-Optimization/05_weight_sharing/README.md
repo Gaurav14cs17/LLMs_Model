@@ -13,6 +13,7 @@ Weight sharing reduces model size by reusing parameters across different parts o
 #### ALBERT-Style Sharing
 
 **Standard Transformer:**
+
 ```math
 h^{(l)} = \text{TransformerLayer}_l(h^{(l-1)}; \theta_l)
 ```
@@ -20,6 +21,7 @@ h^{(l)} = \text{TransformerLayer}_l(h^{(l-1)}; \theta_l)
 Each layer has its own parameters $\theta\_l$.
 
 **ALBERT (Shared):**
+
 ```math
 h^{(l)} = \text{TransformerLayer}(h^{(l-1)}; \theta)
 ```
@@ -49,11 +51,13 @@ h_t = f(h_{t-1}; \theta) \quad \text{for } t = 1, \ldots, L
 **Fixed Point Analysis:**
 
 If the transformation is contractive:
+
 ```math
 \|f(h_1; \theta) - f(h_2; \theta)\| \leq \gamma \|h_1 - h_2\|, \quad \gamma < 1
 ```
 
 Then by Banach fixed-point theorem, there exists unique fixed point $h^*$:
+
 ```math
 h^* = f(h^*; \theta)
 ```
@@ -67,6 +71,7 @@ h^* = f(h^*; \theta)
 ### Mathematical Formulation
 
 **Standard Embedding:**
+
 ```math
 E \in \mathbb{R}^{V \times H}
 ```
@@ -74,6 +79,7 @@ E \in \mathbb{R}^{V \times H}
 Parameters: $V \times H$
 
 **Factorized Embedding:**
+
 ```math
 E = E_1 \cdot E_2, \quad E_1 \in \mathbb{R}^{V \times E}, \quad E_2 \in \mathbb{R}^{E \times H}
 ```
@@ -93,6 +99,7 @@ E^* = \min\left(\sqrt{VH}, \text{rank}_{effective}(E_{full})\right)
 Parameters: $f(E) = VE + EH = E(V + H)$
 
 Minimizing subject to $E \leq \min(V, H)$:
+
 ```math
 \frac{df}{dE} = V + H
 ```
@@ -114,11 +121,13 @@ This is always positive, so minimum is at smallest $E$ that preserves informatio
 ```
 
 Where each head:
+
 ```math
 \text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
 ```
 
 **Parameters per layer:**
+
 ```math
 P_{MHA} = h \cdot d_k \cdot d + h \cdot d_k \cdot d + h \cdot d_v \cdot d + h \cdot d_v \cdot d = 4hd_k d
 ```
@@ -132,11 +141,13 @@ P_{MHA} = h \cdot d_k \cdot d + h \cdot d_k \cdot d + h \cdot d_v \cdot d + h \c
 ```
 
 **Parameters:**
+
 ```math
 P_{MQA} = h \cdot d_k \cdot d + d_k \cdot d + d_v \cdot d + h \cdot d_v \cdot d = (h+2)d_k d
 ```
 
 **Reduction ratio:**
+
 ```math
 \frac{P_{MHA}}{P_{MQA}} = \frac{4h}{h+2} \approx 4 \text{ for large } h
 ```
@@ -176,6 +187,7 @@ Let $g$ = number of KV head groups, $h$ = query heads:
 Where $g(i) = \lfloor i \cdot g / h \rfloor$ maps query head to KV group.
 
 **Parameters:**
+
 ```math
 P_{GQA} = h \cdot d_k \cdot d + g \cdot d_k \cdot d + g \cdot d_v \cdot d + h \cdot d_v \cdot d = (h+2g)d_k d
 ```
@@ -253,14 +265,17 @@ For uniformly spaced centroids. Lloyd-Max optimal centroids achieve lower MSE.
 - Parameters: $2Vd$
 
 **Tied:**
+
 ```math
 W_{out} = E_{in}^T
 ```
+
 - Parameters: $Vd$ (2× reduction)
 
 **Theorem 7 (Tying Justification):**
 
 If input and output embeddings share semantic space:
+
 ```math
 \text{sim}(e_i^{in}, e_j^{out}) \propto P(j | i)
 ```
@@ -270,6 +285,7 @@ Then tying improves sample efficiency.
 **Proof (Information-Theoretic):**
 
 Tied weights enforce:
+
 ```math
 \langle e_i, e_j \rangle = \langle e_j, e_i \rangle
 ```

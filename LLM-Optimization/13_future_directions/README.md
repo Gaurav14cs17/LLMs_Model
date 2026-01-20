@@ -11,6 +11,7 @@ This module covers emerging techniques with their mathematical foundations.
 ### Mathematical Framework
 
 **Standard autoregressive generation:**
+
 ```math
 p(x_{1:T}) = \prod_{t=1}^{T} p(x_t | x_{1:t-1})
 ```
@@ -27,6 +28,7 @@ Each token requires one forward pass of the large model.
 Using rejection sampling, speculative decoding produces samples from the exact target distribution.
 
 **Acceptance criterion:**
+
 ```math
 \text{Accept } \tilde{x}_t \text{ with prob } \min\left(1, \frac{p(\tilde{x}_t | x_{1:t-1})}{q(\tilde{x}_t | x_{1:t-1})}\right)
 ```
@@ -36,11 +38,13 @@ Where $p$ = target, $q$ = draft.
 **Proof:**
 
 For accepted tokens:
+
 ```math
 P(\text{accept } x) = q(x) \cdot \min\left(1, \frac{p(x)}{q(x)}\right) = \min(q(x), p(x))
 ```
 
 Rejection samples from:
+
 ```math
 p_{reject}(x) \propto \max(0, p(x) - q(x))
 ```
@@ -52,6 +56,7 @@ Combined: exact $p(x)$.
 Let $\alpha = \mathbb{E}\_q[\min(1, p(x)/q(x))]$ be acceptance rate.
 
 Expected accepted tokens per verification:
+
 ```math
 \mathbb{E}[n] = \frac{1 - \alpha^{k+1}}{1 - \alpha}
 ```
@@ -67,6 +72,7 @@ For $\alpha = 0.8$, $k = 5$: $\mathbb{E}[n] \approx 3.4$ tokens.
 ```
 
 For $T\_{draft}/T\_{target} = 0.1$, $k = 5$, $\alpha = 0.8$:
+
 ```math
 \text{Speedup} \approx \frac{3.4}{0.5 + 1} = 2.3\times
 ```
@@ -78,11 +84,13 @@ For $T\_{draft}/T\_{target} = 0.1$, $k = 5$, $\alpha = 0.8$:
 ### Scaling Laws
 
 **Dense scaling law (Kaplan et al.):**
+
 ```math
 L(N) = \left(\frac{N_c}{N}\right)^{\alpha_N}
 ```
 
 **MoE scaling law:**
+
 ```math
 L(N, E, k) = \left(\frac{N_c}{N_{active}}\right)^{\alpha_N}
 ```
@@ -100,11 +108,13 @@ MoE with $E$ experts achieves loss of dense model with $E^{\beta}$ more paramete
 ### Load Balancing
 
 **Auxiliary loss:**
+
 ```math
 \mathcal{L}_{aux} = \alpha \cdot E \cdot \sum_{i=1}^{E} f_i \cdot P_i
 ```
 
 **Theorem 5:** Minimizing $\mathcal{L}\_{aux}$ encourages:
+
 ```math
 f_i = P_i = \frac{1}{E} \quad \forall i
 ```
@@ -116,18 +126,21 @@ f_i = P_i = \frac{1}{E} \quad \forall i
 ### Mathematical Formulation
 
 **Continuous state space:**
+
 ```math
 \frac{dh(t)}{dt} = Ah(t) + Bx(t)
 y(t) = Ch(t) + Dx(t)
 ```
 
 **Discretized (ZOH):**
+
 ```math
 h_k = \bar{A}h_{k-1} + \bar{B}x_k
 y_k = Ch_k + Dx_k
 ```
 
 Where:
+
 ```math
 \bar{A} = e^{\Delta A}, \quad \bar{B} = (\Delta A)^{-1}(e^{\Delta A} - I) \cdot \Delta B
 ```
@@ -142,6 +155,7 @@ SSMs can be computed in $O(N)$ for sequence length $N$.
 ### Selective State Spaces (Mamba)
 
 **Key innovation:** Make $\Delta$, $B$, $C$ input-dependent:
+
 ```math
 \Delta_k = \text{softplus}(W_\Delta x_k)
 B_k = W_B x_k
@@ -149,6 +163,7 @@ C_k = W_C x_k
 ```
 
 **Theorem 7:** Selection allows content-based reasoning:
+
 ```math
 \frac{\partial h_k}{\partial x_j} \neq 0 \text{ for } j < k
 ```
@@ -162,11 +177,13 @@ C_k = W_C x_k
 ### 1-Bit Networks (BitNet)
 
 **Weight representation:**
+
 ```math
 W \in \{-1, +1\}^{m \times n}
 ```
 
 **Forward pass:**
+
 ```math
 y = W \cdot x = \sum_j W_j \cdot x_j
 ```
@@ -182,6 +199,7 @@ For weights $W$ and binary approximation $\hat{W} \in \{-1, +1\}$:
 ```
 
 Error bound:
+
 ```math
 \mathbb{E}[\|W - \hat{W}\|_F^2] = \sum_{ij} (|W_{ij}| - 1)^2
 ```
@@ -191,11 +209,13 @@ Error bound:
 **Weights:** $W \in \{-\alpha, 0, +\alpha\}$
 
 **Threshold-based:**
+
 ```math
 \hat{W}_{ij} = \begin{cases} +\alpha & W_{ij} > \Delta \\ 0 & |W_{ij}| \leq \Delta \\ -\alpha & W_{ij} < -\Delta \end{cases}
 ```
 
 **Theorem 9 (Optimal Scale):**
+
 ```math
 \alpha^* = \frac{\sum_{|W_{ij}| > \Delta} |W_{ij}|}{|\{(i,j): |W_{ij}| > \Delta\}|}
 ```
@@ -207,11 +227,13 @@ Error bound:
 ### Quantization
 
 **Per-channel quantization:**
+
 ```math
 K^{quant} = Q(K), \quad V^{quant} = Q(V)
 ```
 
 **Theorem 10:** INT8 KV-cache has error:
+
 ```math
 \mathbb{E}[\|KV - K^qV^q\|] \leq O(\Delta_K \|V\| + \Delta_V \|K\|)
 ```
@@ -219,6 +241,7 @@ K^{quant} = Q(K), \quad V^{quant} = Q(V)
 ### Eviction Policies
 
 **Attention-based eviction:**
+
 ```math
 \text{Evict } k_i \text{ if } \sum_{j > i} A_{ji} < \tau
 ```
@@ -226,6 +249,7 @@ K^{quant} = Q(K), \quad V^{quant} = Q(V)
 Low-attention keys are less important.
 
 **Theorem 11 (Eviction Error):**
+
 ```math
 \|O - \hat{O}\| \leq \sum_{i \in \text{evicted}} A_i \cdot \|v_i\|
 ```
@@ -242,11 +266,13 @@ Low-attention keys are less important.
 **Theorem 12 (Throughput):**
 
 Without continuous batching (static):
+
 ```math
 \text{Throughput} = \frac{B}{\max_i T_i}
 ```
 
 With continuous batching:
+
 ```math
 \text{Throughput} = \mu \cdot B_{avg}
 ```
