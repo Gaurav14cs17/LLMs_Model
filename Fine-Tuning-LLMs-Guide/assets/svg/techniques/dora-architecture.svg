@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="doraMainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="400" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">DoRA: Weight-Decomposed Low-Rank Adaptation</text>
+  
+  <!-- Key Insight -->
+  <rect x="30" y="55" width="640" height="80" fill="white" stroke="#fecdd3" stroke-width="2" rx="10"/>
+  <text x="350" y="85" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e11d48" text-anchor="middle">Key Insight: Decompose weights into Magnitude and Direction</text>
+  <text x="350" y="110" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">W = m × V / ||V|| where m = magnitude, V = direction</text>
+  
+  <!-- DoRA Architecture -->
+  <rect x="30" y="150" width="640" height="180" fill="white" stroke="#fecdd3" stroke-width="2" rx="10"/>
+  
+  <!-- Magnitude Component -->
+  <g transform="translate(60, 170)">
+    <rect width="120" height="80" fill="#ffe4e6" stroke="#f43f5e" stroke-width="2" rx="8"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📏</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="11" fill="#be123c" text-anchor="middle" font-weight="bold">Magnitude m</text>
+    <text x="60" y="72" font-family="Arial, sans-serif" font-size="9" fill="#f43f5e" text-anchor="middle">Trainable</text>
+  </g>
+  
+  <!-- Multiply symbol -->
+  <text x="210" y="220" font-family="Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">×</text>
+  
+  <!-- Direction Component -->
+  <g transform="translate(240, 170)">
+    <rect width="120" height="80" fill="#fff1f2" stroke="#fda4af" stroke-width="2" rx="8"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🧭</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="11" fill="#be123c" text-anchor="middle" font-weight="bold">Direction V</text>
+    <text x="60" y="72" font-family="Arial, sans-serif" font-size="9" fill="#f43f5e" text-anchor="middle">Frozen Base</text>
+  </g>
+  
+  <!-- Plus symbol -->
+  <text x="390" y="220" font-family="Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">+</text>
+  
+  <!-- LoRA Update -->
+  <g transform="translate(420, 170)">
+    <rect width="120" height="80" fill="url(#doraMainGrad)" rx="8"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🎯</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">ΔV = BA</text>
+    <text x="60" y="72" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" opacity="0.9">LoRA Update</text>
+  </g>
+  
+  <!-- Equals -->
+  <text x="570" y="220" font-family="Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">=</text>
+  
+  <!-- Result -->
+  <g transform="translate(590, 180)">
+    <rect width="60" height="60" fill="#22c55e" rx="8"/>
+    <text x="30" y="38" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">W'</text>
+  </g>
+  
+  <!-- Benefits -->
+  <rect x="30" y="345" width="640" height="40" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="8"/>
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">✅ Better than LoRA</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">✅ Same Efficiency</text>
+  <text x="580" y="370" font-family="Arial, sans-serif" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">✅ Stable Training</text>
+</svg>
+

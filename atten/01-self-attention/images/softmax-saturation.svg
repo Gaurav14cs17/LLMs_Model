@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="goodSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Softmax Saturation: Before vs After √d_k Scaling</text>
+  
+  <!-- GOOD: With Scaling -->
+  <rect x="50" y="60" width="380" height="400" rx="12" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="240" y="95" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ WITH √d_k Scaling</text>
+  <text x="240" y="115" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Scores stay in [-3, +3] range</text>
+  
+  <!-- Input scores -->
+  <rect x="80" y="140" width="300" height="50" rx="8" fill="#21262d"/>
+  <text x="230" y="165" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Raw scores: [1.2, 2.5, 0.8, 1.5]</text>
+  <text x="230" y="182" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">(After dividing by √d_k)</text>
+  
+  <!-- Arrow -->
+  <text x="230" y="210" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="18">↓ softmax</text>
+  
+  <!-- Output - visual bars -->
+  <rect x="80" y="230" width="300" height="150" rx="8" fill="#21262d"/>
+  <text x="230" y="255" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Attention Weights:</text>
+  
+  <!-- Bar 1: 0.18 -->
+  <text x="100" y="285" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 1:</text>
+  <rect x="160" y="275" width="72" height="15" rx="3" fill="url(#goodSoft)" opacity="0.6"/>
+  <text x="240" y="286" fill="#fff" font-family="Arial, sans-serif" font-size="10">0.18</text>
+  
+  <!-- Bar 2: 0.42 -->
+  <text x="100" y="310" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 2:</text>
+  <rect x="160" y="300" width="168" height="15" rx="3" fill="url(#goodSoft)"/>
+  <text x="340" y="311" fill="#fff" font-family="Arial, sans-serif" font-size="10">0.42</text>
+  
+  <!-- Bar 3: 0.12 -->
+  <text x="100" y="335" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 3:</text>
+  <rect x="160" y="325" width="48" height="15" rx="3" fill="url(#goodSoft)" opacity="0.5"/>
+  <text x="215" y="336" fill="#fff" font-family="Arial, sans-serif" font-size="10">0.12</text>
+  
+  <!-- Bar 4: 0.28 -->
+  <text x="100" y="360" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 4:</text>
+  <rect x="160" y="350" width="112" height="15" rx="3" fill="url(#goodSoft)" opacity="0.7"/>
+  <text x="280" y="361" fill="#fff" font-family="Arial, sans-serif" font-size="10">0.28</text>
+  
+  <!-- Benefits -->
+  <rect x="80" y="390" width="300" height="55" rx="8" fill="#21262d" stroke="#55efc4" stroke-width="1"/>
+  <text x="230" y="415" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">✓ All tokens contribute</text>
+  <text x="230" y="435" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="11">✓ Gradients flow to all positions</text>
+  
+  <!-- BAD: Without Scaling -->
+  <rect x="470" y="60" width="380" height="400" rx="12" fill="#161b22" stroke="#e17055" stroke-width="2"/>
+  <text x="660" y="95" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">❌ WITHOUT Scaling</text>
+  <text x="660" y="115" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Scores in [-45, +45] range!</text>
+  
+  <!-- Input scores -->
+  <rect x="500" y="140" width="300" height="50" rx="8" fill="#21262d"/>
+  <text x="650" y="165" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Raw scores: [12, 35, 8, 15]</text>
+  <text x="650" y="182" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="10">(Much larger without √d_k!)</text>
+  
+  <!-- Arrow -->
+  <text x="650" y="210" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="18">↓ softmax</text>
+  
+  <!-- Output - visual bars -->
+  <rect x="500" y="230" width="300" height="150" rx="8" fill="#21262d"/>
+  <text x="650" y="255" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Attention Weights:</text>
+  
+  <!-- Bar 1: ~0 -->
+  <text x="520" y="285" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 1:</text>
+  <rect x="580" y="275" width="2" height="15" rx="1" fill="url(#badSoft)" opacity="0.3"/>
+  <text x="590" y="286" fill="#e17055" font-family="Arial, sans-serif" font-size="10">≈0.00</text>
+  
+  <!-- Bar 2: 1.00 (winner takes all) -->
+  <text x="520" y="310" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 2:</text>
+  <rect x="580" y="300" width="180" height="15" rx="3" fill="url(#badSoft)"/>
+  <text x="770" y="311" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">≈1.00</text>
+  
+  <!-- Bar 3: ~0 -->
+  <text x="520" y="335" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 3:</text>
+  <rect x="580" y="325" width="2" height="15" rx="1" fill="url(#badSoft)" opacity="0.3"/>
+  <text x="590" y="336" fill="#e17055" font-family="Arial, sans-serif" font-size="10">≈0.00</text>
+  
+  <!-- Bar 4: ~0 -->
+  <text x="520" y="360" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Token 4:</text>
+  <rect x="580" y="350" width="2" height="15" rx="1" fill="url(#badSoft)" opacity="0.3"/>
+  <text x="590" y="361" fill="#e17055" font-family="Arial, sans-serif" font-size="10">≈0.00</text>
+  
+  <!-- Problems -->
+  <rect x="500" y="390" width="300" height="55" rx="8" fill="#21262d" stroke="#e17055" stroke-width="1"/>
+  <text x="650" y="415" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="11">❌ One-hot: only ONE token matters</text>
+  <text x="650" y="435" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="11">❌ Gradient = 0 for most positions</text>
+</svg>
+

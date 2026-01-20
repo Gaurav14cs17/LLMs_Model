@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="deployGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="200" fill="url(#deployGrad)" rx="15"/>
+  <circle cx="80" cy="40" r="60" fill="white" opacity="0.05"/>
+  <circle cx="720" cy="160" r="80" fill="white" opacity="0.05"/>
+  
+  <rect x="30" y="25" width="740" height="150" fill="white" rx="10"/>
+  
+  <circle cx="100" cy="100" r="40" fill="#dbeafe"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="35" text-anchor="middle">🚀</text>
+  
+  <text x="440" y="65" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#1e293b" text-anchor="middle">Model Deployment</text>
+  <text x="440" y="95" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Take your fine-tuned model to production</text>
+  
+  <rect x="220" y="115" width="100" height="30" fill="#22c55e" rx="15"/>
+  <text x="270" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">vLLM</text>
+  
+  <rect x="330" y="115" width="100" height="30" fill="#f59e0b" rx="15"/>
+  <text x="380" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">TGI</text>
+  
+  <rect x="440" y="115" width="100" height="30" fill="#8b5cf6" rx="15"/>
+  <text x="490" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Ollama</text>
+  
+  <rect x="550" y="115" width="100" height="30" fill="#ef4444" rx="15"/>
+  <text x="600" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">llama.cpp</text>
+</svg>
+

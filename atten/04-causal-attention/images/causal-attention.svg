@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="maskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fd79a8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e84393;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="6" height="6">
+      <path d="M-1,1 l2,-2 M0,6 l6,-6 M5,7 l2,-2" stroke="#e84393" stroke-width="1" opacity="0.5"/>
+    </pattern>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="520" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Causal (Masked) Attention</text>
+  <text x="400" y="60" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="13">Prevents attending to future tokens - Essential for autoregressive generation</text>
+  
+  <!-- Full Attention Matrix (Left) -->
+  <text x="180" y="105" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Standard Self-Attention</text>
+  <text x="180" y="125" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Can see all positions</text>
+  
+  <rect x="60" y="145" width="240" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  
+  <!-- Column headers -->
+  <text x="110" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₁</text>
+  <text x="160" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₂</text>
+  <text x="210" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₃</text>
+  <text x="260" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₄</text>
+  
+  <!-- Row headers -->
+  <text x="75" y="200" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₁</text>
+  <text x="75" y="245" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₂</text>
+  <text x="75" y="290" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₃</text>
+  <text x="75" y="335" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₄</text>
+  
+  <!-- Full attention cells (all visible) -->
+  <rect x="90" y="180" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <rect x="140" y="180" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.4"/>
+  <rect x="190" y="180" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="240" y="180" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.3"/>
+  
+  <rect x="90" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="140" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.7"/>
+  <rect x="190" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.4"/>
+  <rect x="240" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.6"/>
+  
+  <rect x="90" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.3"/>
+  <rect x="140" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="190" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.8"/>
+  <rect x="240" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.4"/>
+  
+  <rect x="90" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.4"/>
+  <rect x="140" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.3"/>
+  <rect x="190" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <rect x="240" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.9"/>
+  
+  <!-- Arrow -->
+  <text x="400" y="270" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="30">→</text>
+  <text x="400" y="295" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Apply Mask</text>
+  
+  <!-- Causal Attention Matrix (Right) -->
+  <text x="620" y="105" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Causal Self-Attention</text>
+  <text x="620" y="125" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Can only see past + current</text>
+  
+  <rect x="500" y="145" width="240" height="200" rx="8" fill="#161b22" stroke="url(#maskGrad)" stroke-width="2"/>
+  
+  <!-- Column headers -->
+  <text x="550" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₁</text>
+  <text x="600" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₂</text>
+  <text x="650" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₃</text>
+  <text x="700" y="165" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₄</text>
+  
+  <!-- Row headers -->
+  <text x="515" y="200" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₁</text>
+  <text x="515" y="245" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₂</text>
+  <text x="515" y="290" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₃</text>
+  <text x="515" y="335" text-anchor="middle" fill="#7f8c8d" font-family="Arial, sans-serif" font-size="10">t₄</text>
+  
+  <!-- Causal attention cells - lower triangular visible -->
+  <!-- Row 1: only t1 visible -->
+  <rect x="530" y="180" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <rect x="580" y="180" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <rect x="630" y="180" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <rect x="680" y="180" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <text x="600" y="202" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  <text x="650" y="202" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  <text x="700" y="202" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  
+  <!-- Row 2: t1, t2 visible -->
+  <rect x="530" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="580" y="225" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.7"/>
+  <rect x="630" y="225" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <rect x="680" y="225" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <text x="650" y="247" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  <text x="700" y="247" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  
+  <!-- Row 3: t1, t2, t3 visible -->
+  <rect x="530" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.3"/>
+  <rect x="580" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.5"/>
+  <rect x="630" y="270" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.8"/>
+  <rect x="680" y="270" width="40" height="35" rx="3" fill="url(#diagonalHatch)"/>
+  <text x="700" y="292" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="12">-∞</text>
+  
+  <!-- Row 4: all visible -->
+  <rect x="530" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.4"/>
+  <rect x="580" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.3"/>
+  <rect x="630" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <rect x="680" y="315" width="40" height="35" rx="3" fill="#58a6ff" opacity="0.9"/>
+  
+  <!-- Explanatory boxes -->
+  <rect x="50" y="380" width="320" height="120" rx="10" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="210" y="410" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✓ Visible Positions</text>
+  <text x="210" y="435" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Token at position i can attend to</text>
+  <text x="210" y="455" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">all positions j where j ≤ i</text>
+  <text x="210" y="485" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Past and current tokens only</text>
+  
+  <rect x="430" y="380" width="320" height="120" rx="10" fill="#21262d" stroke="#e84393" stroke-width="2"/>
+  <text x="590" y="410" text-anchor="middle" fill="#e84393" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✗ Masked Positions</text>
+  <text x="590" y="435" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Set attention scores to -∞</text>
+  <text x="590" y="455" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">before softmax → weights become 0</text>
+  <text x="590" y="485" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Future tokens are invisible</text>
+</svg>
+

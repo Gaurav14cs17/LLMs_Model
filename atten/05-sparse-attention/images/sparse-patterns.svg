@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 550">
+  <defs>
+    <linearGradient id="localGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="globalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="randomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stridedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="950" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="475" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Types of Sparse Attention Patterns</text>
+  
+  <!-- Pattern 1: Local/Sliding Window -->
+  <rect x="30" y="60" width="200" height="220" rx="10" fill="#161b22" stroke="#74b9ff" stroke-width="2"/>
+  <text x="130" y="85" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">1. Local Window</text>
+  <text x="130" y="102" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Window size w=3</text>
+  
+  <!-- Local pattern 6x6 -->
+  <rect x="50" y="115" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="70" y="115" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="50" y="132" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="70" y="132" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="90" y="132" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="70" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="90" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="110" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="90" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="110" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="130" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="110" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="130" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="150" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="130" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="150" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="170" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <text x="130" y="240" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">O(n × w)</text>
+  <text x="130" y="255" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="8">Mistral, Longformer</text>
+  
+  <!-- Pattern 2: Global + Local -->
+  <rect x="250" y="60" width="200" height="220" rx="10" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="350" y="85" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="13" font-weight="bold">2. Global + Local</text>
+  <text x="350" y="102" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">[CLS] sees all</text>
+  
+  <!-- Global + Local pattern -->
+  <!-- First row (global) - full -->
+  <rect x="270" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="290" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="310" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="330" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="350" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="370" y="115" width="20" height="15" fill="url(#globalGrad)"/>
+  
+  <!-- Other rows - first column (global) + local -->
+  <rect x="270" y="132" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="290" y="132" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="310" y="132" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="270" y="149" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="290" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="310" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="330" y="149" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="270" y="166" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="310" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="330" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="350" y="166" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="270" y="183" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="330" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="350" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="370" y="183" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <rect x="270" y="200" width="20" height="15" fill="url(#globalGrad)"/>
+  <rect x="350" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="370" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  <rect x="390" y="200" width="20" height="15" fill="url(#localGrad)"/>
+  
+  <text x="350" y="240" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">O(n × (g + w))</text>
+  <text x="350" y="255" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="8">Longformer, LED</text>
+  
+  <!-- Pattern 3: Strided -->
+  <rect x="470" y="60" width="200" height="220" rx="10" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="570" y="85" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="13" font-weight="bold">3. Strided</text>
+  <text x="570" y="102" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Every k-th position</text>
+  
+  <!-- Strided pattern -->
+  <rect x="490" y="115" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="530" y="115" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="570" y="115" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <rect x="510" y="132" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="550" y="132" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="590" y="132" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <rect x="490" y="149" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="530" y="149" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="570" y="149" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <rect x="510" y="166" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="550" y="166" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="590" y="166" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <rect x="490" y="183" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="530" y="183" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="570" y="183" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <rect x="510" y="200" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="550" y="200" width="20" height="15" fill="url(#stridedGrad)"/>
+  <rect x="590" y="200" width="20" height="15" fill="url(#stridedGrad)"/>
+  
+  <text x="570" y="240" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">O(n × n/k)</text>
+  <text x="570" y="255" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="8">Sparse Global</text>
+  
+  <!-- Pattern 4: Random -->
+  <rect x="690" y="60" width="200" height="220" rx="10" fill="#161b22" stroke="#a29bfe" stroke-width="2"/>
+  <text x="790" y="85" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="13" font-weight="bold">4. Random</text>
+  <text x="790" y="102" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Random connections</text>
+  
+  <!-- Random pattern -->
+  <rect x="710" y="115" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="770" y="115" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <rect x="730" y="132" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="810" y="132" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="850" y="132" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <rect x="710" y="149" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="750" y="149" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="830" y="149" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <rect x="730" y="166" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="770" y="166" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="850" y="166" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <rect x="710" y="183" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="790" y="183" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="830" y="183" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <rect x="750" y="200" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="810" y="200" width="20" height="15" fill="url(#randomGrad)"/>
+  <rect x="850" y="200" width="20" height="15" fill="url(#randomGrad)"/>
+  
+  <text x="790" y="240" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">O(n × r)</text>
+  <text x="790" y="255" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="8">BigBird component</text>
+  
+  <!-- BigBird Combined -->
+  <rect x="200" y="310" width="550" height="220" rx="12" fill="#161b22" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="475" y="340" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">BigBird: Combining All Patterns</text>
+  <text x="475" y="360" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Local + Global + Random = Powerful approximation of full attention</text>
+  
+  <!-- Combined visualization -->
+  <rect x="270" y="380" width="100" height="50" rx="6" fill="url(#localGrad)" opacity="0.8"/>
+  <text x="320" y="410" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Local</text>
+  
+  <text x="390" y="410" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="20">+</text>
+  
+  <rect x="420" y="380" width="100" height="50" rx="6" fill="url(#globalGrad)" opacity="0.8"/>
+  <text x="470" y="410" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Global</text>
+  
+  <text x="540" y="410" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="20">+</text>
+  
+  <rect x="570" y="380" width="100" height="50" rx="6" fill="url(#randomGrad)" opacity="0.8"/>
+  <text x="620" y="410" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Random</text>
+  
+  <rect x="270" y="450" width="400" height="60" rx="6" fill="#21262d"/>
+  <text x="470" y="475" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Theoretical Guarantee:</text>
+  <text x="470" y="495" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Can approximate ANY full attention function given sufficient depth!</text>
+</svg>
+

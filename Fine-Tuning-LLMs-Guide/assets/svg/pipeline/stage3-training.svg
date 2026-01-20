@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+  <defs>
+    <linearGradient id="trainStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eab308;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ca8a04;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#trainStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#trainStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 3: Training Setup</text>
+  
+  <!-- Hyperparameters -->
+  <g transform="translate(30, 80)">
+    <rect width="200" height="180" fill="white" stroke="#fef08a" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ca8a04" text-anchor="middle">🎚️ Hyperparameters</text>
+    
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Learning Rate:</text>
+    <rect x="110" y="48" width="70" height="18" fill="#fef9c3" rx="3"/>
+    <text x="145" y="61" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">2e-5 ~ 5e-5</text>
+    
+    <text x="20" y="90" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Batch Size:</text>
+    <rect x="110" y="78" width="70" height="18" fill="#fef9c3" rx="3"/>
+    <text x="145" y="91" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">4 ~ 32</text>
+    
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Epochs:</text>
+    <rect x="110" y="108" width="70" height="18" fill="#fef9c3" rx="3"/>
+    <text x="145" y="121" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">1 ~ 5</text>
+    
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Warmup Steps:</text>
+    <rect x="110" y="138" width="70" height="18" fill="#fef9c3" rx="3"/>
+    <text x="145" y="151" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">100 ~ 500</text>
+    
+    <text x="20" y="180" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Weight Decay:</text>
+    <rect x="110" y="168" width="70" height="18" fill="#fef9c3" rx="3"/>
+    <text x="145" y="181" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">0.01</text>
+  </g>
+  
+  <!-- Optimizer -->
+  <g transform="translate(250, 80)">
+    <rect width="200" height="120" fill="white" stroke="#fef08a" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ca8a04" text-anchor="middle">⚡ Optimizer</text>
+    
+    <rect x="20" y="50" width="160" height="25" fill="#22c55e" rx="5"/>
+    <text x="100" y="67" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">AdamW ✓</text>
+    
+    <rect x="20" y="85" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="57" y="102" font-family="Arial, sans-serif" font-size="10" fill="#a16207" text-anchor="middle">Adam</text>
+    
+    <rect x="105" y="85" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="142" y="102" font-family="Arial, sans-serif" font-size="10" fill="#a16207" text-anchor="middle">SGD</text>
+  </g>
+  
+  <!-- Hardware -->
+  <g transform="translate(470, 80)">
+    <rect width="200" height="120" fill="white" stroke="#fef08a" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ca8a04" text-anchor="middle">🖥️ Hardware Setup</text>
+    
+    <text x="100" y="55" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🎮</text>
+    <text x="100" y="75" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">GPU: A100/H100</text>
+    <text x="100" y="93" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">VRAM: 40-80GB</text>
+    <text x="100" y="111" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Mixed Precision: fp16/bf16</text>
+  </g>
+  
+  <!-- Scheduler -->
+  <g transform="translate(250, 210)">
+    <rect width="200" height="120" fill="white" stroke="#fef08a" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ca8a04" text-anchor="middle">📉 LR Scheduler</text>
+    
+    <!-- Mini chart showing cosine decay -->
+    <polyline points="30,100 50,80 80,70 120,65 160,90 180,100" stroke="#eab308" stroke-width="2" fill="none"/>
+    <text x="100" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Cosine with Warmup</text>
+  </g>
+  
+  <!-- Tools -->
+  <g transform="translate(470, 210)">
+    <rect width="200" height="120" fill="white" stroke="#fef08a" stroke-width="2" rx="10"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ca8a04" text-anchor="middle">🛠️ Tools</text>
+    
+    <rect x="20" y="50" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="57" y="67" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">HuggingFace</text>
+    
+    <rect x="105" y="50" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="142" y="67" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">PyTorch</text>
+    
+    <rect x="20" y="85" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="57" y="102" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">DeepSpeed</text>
+    
+    <rect x="105" y="85" width="75" height="25" fill="#fef9c3" rx="5"/>
+    <text x="142" y="102" font-family="Arial, sans-serif" font-size="9" fill="#a16207" text-anchor="middle">Accelerate</text>
+  </g>
+</svg>
+

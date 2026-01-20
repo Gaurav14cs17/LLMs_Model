@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 550">
+  <defs>
+    <linearGradient id="loraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qloraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="doraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="adapterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="850" height="550" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="425" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Parameter-Efficient Fine-Tuning (PEFT) Techniques</text>
+  
+  <!-- LoRA Card -->
+  <rect x="30" y="60" width="190" height="280" fill="white" stroke="#c4b5fd" stroke-width="2" rx="12"/>
+  <rect x="30" y="60" width="190" height="50" fill="url(#loraGrad)" rx="12"/>
+  <rect x="30" y="95" width="190" height="15" fill="url(#loraGrad)"/>
+  <text x="125" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LoRA</text>
+  
+  <!-- LoRA Diagram -->
+  <rect x="60" y="130" width="50" height="50" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+  <text x="85" y="160" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">W</text>
+  <text x="120" y="160" font-family="Arial, sans-serif" font-size="16" fill="#64748b">+</text>
+  <rect x="135" y="130" width="25" height="50" fill="#8b5cf6" rx="3"/>
+  <text x="147" y="160" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">A</text>
+  <rect x="165" y="130" width="25" height="50" fill="#8b5cf6" rx="3"/>
+  <text x="177" y="160" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">B</text>
+  
+  <text x="125" y="205" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Low-Rank Matrices</text>
+  
+  <rect x="45" y="225" width="150" height="25" fill="#f5f3ff" rx="5"/>
+  <text x="120" y="242" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">~0.1% Parameters</text>
+  
+  <rect x="45" y="260" width="150" height="25" fill="#f5f3ff" rx="5"/>
+  <text x="120" y="277" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">16-bit Precision</text>
+  
+  <rect x="45" y="295" width="150" height="25" fill="#f5f3ff" rx="5"/>
+  <text x="120" y="312" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">~16GB VRAM</text>
+  
+  <!-- QLoRA Card -->
+  <rect x="235" y="60" width="190" height="280" fill="white" stroke="#a5f3fc" stroke-width="2" rx="12"/>
+  <rect x="235" y="60" width="190" height="50" fill="url(#qloraGrad)" rx="12"/>
+  <rect x="235" y="95" width="190" height="15" fill="url(#qloraGrad)"/>
+  <text x="330" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">QLoRA</text>
+  
+  <!-- QLoRA Diagram -->
+  <rect x="265" y="130" width="50" height="50" fill="#ecfeff" stroke="#06b6d4" stroke-width="2" rx="5"/>
+  <text x="290" y="152" font-family="Arial, sans-serif" font-size="8" fill="#0891b2" text-anchor="middle">4-bit</text>
+  <text x="290" y="168" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle">W</text>
+  <text x="325" y="160" font-family="Arial, sans-serif" font-size="16" fill="#64748b">+</text>
+  <rect x="340" y="130" width="25" height="50" fill="#06b6d4" rx="3"/>
+  <text x="352" y="160" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">A</text>
+  <rect x="370" y="130" width="25" height="50" fill="#06b6d4" rx="3"/>
+  <text x="382" y="160" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">B</text>
+  
+  <text x="330" y="205" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">4-bit Quantization</text>
+  
+  <rect x="250" y="225" width="150" height="25" fill="#ecfeff" rx="5"/>
+  <text x="325" y="242" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle">~0.1% Parameters</text>
+  
+  <rect x="250" y="260" width="150" height="25" fill="#ecfeff" rx="5"/>
+  <text x="325" y="277" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle">4-bit Precision</text>
+  
+  <rect x="250" y="295" width="150" height="25" fill="#ecfeff" rx="5"/>
+  <text x="325" y="312" font-family="Arial, sans-serif" font-size="10" fill="#0891b2" text-anchor="middle">~6GB VRAM</text>
+  
+  <!-- DoRA Card -->
+  <rect x="440" y="60" width="190" height="280" fill="white" stroke="#fecdd3" stroke-width="2" rx="12"/>
+  <rect x="440" y="60" width="190" height="50" fill="url(#doraGrad)" rx="12"/>
+  <rect x="440" y="95" width="190" height="15" fill="url(#doraGrad)"/>
+  <text x="535" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">DoRA</text>
+  
+  <!-- DoRA Diagram -->
+  <rect x="465" y="130" width="30" height="50" fill="#fff1f2" stroke="#f43f5e" stroke-width="2" rx="5"/>
+  <text x="480" y="160" font-family="Arial, sans-serif" font-size="8" fill="#e11d48" text-anchor="middle">m</text>
+  <text x="503" y="160" font-family="Arial, sans-serif" font-size="12" fill="#64748b">×</text>
+  <rect x="515" y="130" width="30" height="50" fill="#fff1f2" stroke="#f43f5e" stroke-width="2" rx="5"/>
+  <text x="530" y="160" font-family="Arial, sans-serif" font-size="8" fill="#e11d48" text-anchor="middle">V</text>
+  <text x="553" y="160" font-family="Arial, sans-serif" font-size="12" fill="#64748b">+</text>
+  <rect x="565" y="130" width="50" height="50" fill="#f43f5e" rx="3"/>
+  <text x="590" y="160" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">ΔV</text>
+  
+  <text x="535" y="205" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Magnitude + Direction</text>
+  
+  <rect x="455" y="225" width="150" height="25" fill="#fff1f2" rx="5"/>
+  <text x="530" y="242" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">~0.1% Parameters</text>
+  
+  <rect x="455" y="260" width="150" height="25" fill="#fff1f2" rx="5"/>
+  <text x="530" y="277" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">Better Performance</text>
+  
+  <rect x="455" y="295" width="150" height="25" fill="#fff1f2" rx="5"/>
+  <text x="530" y="312" font-family="Arial, sans-serif" font-size="10" fill="#e11d48" text-anchor="middle">~16GB VRAM</text>
+  
+  <!-- Adapters Card -->
+  <rect x="645" y="60" width="190" height="280" fill="white" stroke="#bbf7d0" stroke-width="2" rx="12"/>
+  <rect x="645" y="60" width="190" height="50" fill="url(#adapterGrad)" rx="12"/>
+  <rect x="645" y="95" width="190" height="15" fill="url(#adapterGrad)"/>
+  <text x="740" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Adapters</text>
+  
+  <!-- Adapters Diagram -->
+  <rect x="700" y="125" width="80" height="20" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="3"/>
+  <text x="740" y="139" font-family="Arial, sans-serif" font-size="8" fill="#16a34a" text-anchor="middle">Layer</text>
+  <rect x="715" y="150" width="50" height="25" fill="#22c55e" rx="3"/>
+  <text x="740" y="167" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">Adapter</text>
+  <rect x="700" y="180" width="80" height="20" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="3"/>
+  <text x="740" y="194" font-family="Arial, sans-serif" font-size="8" fill="#16a34a" text-anchor="middle">Layer</text>
+  
+  <text x="740" y="230" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Bottleneck Layers</text>
+  
+  <rect x="660" y="250" width="150" height="25" fill="#dcfce7" rx="5"/>
+  <text x="735" y="267" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">~1-5% Parameters</text>
+  
+  <rect x="660" y="285" width="150" height="25" fill="#dcfce7" rx="5"/>
+  <text x="735" y="302" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Modular Design</text>
+  
+  <rect x="660" y="320" width="150" height="25" fill="#dcfce7" rx="5"/>
+  <text x="735" y="337" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Task Switching</text>
+  
+  <!-- Comparison Table -->
+  <rect x="30" y="370" width="805" height="160" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="425" y="400" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Comparison Summary</text>
+  
+  <!-- Table Headers -->
+  <text x="130" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" text-anchor="middle">Metric</text>
+  <text x="280" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">LoRA</text>
+  <text x="430" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#06b6d4" text-anchor="middle">QLoRA</text>
+  <text x="580" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f43f5e" text-anchor="middle">DoRA</text>
+  <text x="730" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22c55e" text-anchor="middle">Adapters</text>
+  
+  <!-- Memory Row -->
+  <text x="130" y="460" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Memory</text>
+  <text x="280" y="460" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Medium</text>
+  <text x="430" y="460" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Low</text>
+  <text x="580" y="460" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Medium</text>
+  <text x="730" y="460" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">High</text>
+  
+  <!-- Speed Row -->
+  <text x="130" y="485" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Speed</text>
+  <text x="280" y="485" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Fast</text>
+  <text x="430" y="485" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Medium</text>
+  <text x="580" y="485" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Fast</text>
+  <text x="730" y="485" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Medium</text>
+  
+  <!-- Quality Row -->
+  <text x="130" y="510" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Quality</text>
+  <text x="280" y="510" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">High</text>
+  <text x="430" y="510" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">High</text>
+  <text x="580" y="510" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Highest</text>
+  <text x="730" y="510" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle">Good</text>
+</svg>
+

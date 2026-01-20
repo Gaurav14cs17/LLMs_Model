@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="300" fill="url(#heroGrad)" rx="20"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="50" cy="50" r="100" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="250" r="150" fill="white" opacity="0.05"/>
+  <circle cx="400" cy="150" r="200" fill="white" opacity="0.03"/>
+  
+  <!-- Main content box -->
+  <rect x="100" y="60" width="600" height="180" fill="white" rx="15" filter="url(#shadow)"/>
+  
+  <!-- Icon - Brain/AI -->
+  <g transform="translate(150, 100)">
+    <circle cx="40" cy="40" r="35" fill="url(#heroGrad)"/>
+    <path d="M25 40 Q30 25 40 25 Q50 25 55 40 Q60 55 40 65 Q20 55 25 40" fill="white" opacity="0.9"/>
+    <circle cx="32" cy="38" r="4" fill="white"/>
+    <circle cx="48" cy="38" r="4" fill="white"/>
+    <path d="M35 50 Q40 55 45 50" stroke="white" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="115" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#333" text-anchor="middle">Fine-Tuning LLMs</text>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="18" fill="#666" text-anchor="middle">Complete Guide with Code Examples</text>
+  
+  <!-- Tags -->
+  <rect x="240" y="170" width="80" height="28" fill="url(#heroGrad)" rx="14"/>
+  <text x="280" y="189" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">LoRA</text>
+  
+  <rect x="330" y="170" width="80" height="28" fill="url(#accentGrad)" rx="14"/>
+  <text x="370" y="189" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">QLoRA</text>
+  
+  <rect x="420" y="170" width="80" height="28" fill="#10b981" rx="14"/>
+  <text x="460" y="189" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">PEFT</text>
+  
+  <rect x="510" y="170" width="80" height="28" fill="#f59e0b" rx="14"/>
+  <text x="550" y="189" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">DPO</text>
+  
+  <!-- Arrow decoration -->
+  <path d="M720 140 L750 150 L720 160" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M730 145 L760 150 L730 155" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+</svg>
+

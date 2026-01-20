@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fd79a8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e84393;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="kvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Understanding Attention Dimensions: d_model, d_k, d_v, h</text>
+  
+  <!-- d_model Box -->
+  <rect x="50" y="60" width="260" height="180" rx="12" fill="#161b22" stroke="url(#modelGrad)" stroke-width="2"/>
+  <rect x="50" y="60" width="260" height="40" rx="12" fill="url(#modelGrad)"/>
+  <text x="180" y="87" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">d_model</text>
+  
+  <text x="180" y="125" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Model/Embedding Dimension</text>
+  <rect x="70" y="140" width="220" height="85" rx="6" fill="#21262d"/>
+  <text x="180" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Size of input/output vectors</text>
+  <text x="180" y="185" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Typical: 512, 768, 1024</text>
+  <text x="180" y="205" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10">BERT: 768, GPT-3: 12288</text>
+  
+  <!-- h (heads) Box -->
+  <rect x="320" y="60" width="260" height="180" rx="12" fill="#161b22" stroke="url(#headGrad)" stroke-width="2"/>
+  <rect x="320" y="60" width="260" height="40" rx="12" fill="url(#headGrad)"/>
+  <text x="450" y="87" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">h (Number of Heads)</text>
+  
+  <text x="450" y="125" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Parallel Attention Operations</text>
+  <rect x="340" y="140" width="220" height="85" rx="6" fill="#21262d"/>
+  <text x="450" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Number of attention heads</text>
+  <text x="450" y="185" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Typical: 8, 12, 16, 32</text>
+  <text x="450" y="205" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="10">BERT: 12, GPT-3: 96</text>
+  
+  <!-- d_k/d_v Box -->
+  <rect x="590" y="60" width="260" height="180" rx="12" fill="#161b22" stroke="url(#kvGrad)" stroke-width="2"/>
+  <rect x="590" y="60" width="260" height="40" rx="12" fill="url(#kvGrad)"/>
+  <text x="720" y="87" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">d_k / d_v</text>
+  
+  <text x="720" y="125" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Key/Value Dimension per Head</text>
+  <rect x="610" y="140" width="220" height="85" rx="6" fill="#21262d"/>
+  <text x="720" y="165" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Size of Q, K, V per head</text>
+  <text x="720" y="185" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">• Usually d_k = d_v = d_model / h</text>
+  <text x="720" y="205" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="10">BERT: 64, GPT-3: 128</text>
+  
+  <!-- Relationship Formula -->
+  <rect x="150" y="260" width="600" height="70" rx="12" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="450" y="290" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Key Relationship:</text>
+  <text x="450" y="315" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14">d_k = d_v = d_model / h</text>
+  
+  <!-- Example Calculation -->
+  <rect x="50" y="350" width="800" height="130" rx="12" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="450" y="380" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📝 Example: BERT-base Configuration</text>
+  
+  <rect x="80" y="400" width="180" height="60" rx="6" fill="#21262d" stroke="#a29bfe" stroke-width="1"/>
+  <text x="170" y="425" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12">d_model = 768</text>
+  <text x="170" y="445" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Embedding size</text>
+  
+  <text x="310" y="430" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="20">÷</text>
+  
+  <rect x="360" y="400" width="180" height="60" rx="6" fill="#21262d" stroke="#fd79a8" stroke-width="1"/>
+  <text x="450" y="425" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="12">h = 12</text>
+  <text x="450" y="445" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Attention heads</text>
+  
+  <text x="590" y="430" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="20">=</text>
+  
+  <rect x="640" y="400" width="180" height="60" rx="6" fill="#21262d" stroke="#74b9ff" stroke-width="1"/>
+  <text x="730" y="425" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="12">d_k = 64</text>
+  <text x="730" y="445" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Per-head dimension</text>
+</svg>
+

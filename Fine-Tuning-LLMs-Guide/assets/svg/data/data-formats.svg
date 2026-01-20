@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <!-- Background -->
+  <rect width="700" height="400" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Common Data Formats</text>
+  
+  <!-- Alpaca Format -->
+  <g transform="translate(30, 55)">
+    <rect width="310" height="150" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="310" height="35" fill="#22c55e" rx="10"/>
+    <rect y="28" width="310" height="7" fill="#22c55e"/>
+    <text x="155" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Alpaca Format</text>
+    
+    <rect x="15" y="50" width="280" height="85" fill="#f0fdf4" rx="5"/>
+    <text x="25" y="70" font-family="Courier, monospace" font-size="9" fill="#166534">{</text>
+    <text x="35" y="85" font-family="Courier, monospace" font-size="9" fill="#166534">"instruction": "Summarize...",</text>
+    <text x="35" y="100" font-family="Courier, monospace" font-size="9" fill="#166534">"input": "Article text...",</text>
+    <text x="35" y="115" font-family="Courier, monospace" font-size="9" fill="#166534">"output": "Summary..."</text>
+    <text x="25" y="130" font-family="Courier, monospace" font-size="9" fill="#166534">}</text>
+  </g>
+  
+  <!-- ShareGPT Format -->
+  <g transform="translate(360, 55)">
+    <rect width="310" height="150" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="310" height="35" fill="#3b82f6" rx="10"/>
+    <rect y="28" width="310" height="7" fill="#3b82f6"/>
+    <text x="155" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">ShareGPT/Chat Format</text>
+    
+    <rect x="15" y="50" width="280" height="85" fill="#eff6ff" rx="5"/>
+    <text x="25" y="70" font-family="Courier, monospace" font-size="9" fill="#1e40af">{"conversations": [</text>
+    <text x="35" y="85" font-family="Courier, monospace" font-size="9" fill="#1e40af">{"from": "human", "value": "..."},</text>
+    <text x="35" y="100" font-family="Courier, monospace" font-size="9" fill="#1e40af">{"from": "gpt", "value": "..."}</text>
+    <text x="25" y="115" font-family="Courier, monospace" font-size="9" fill="#1e40af">]}</text>
+  </g>
+  
+  <!-- DPO Format -->
+  <g transform="translate(30, 220)">
+    <rect width="310" height="160" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="310" height="35" fill="#8b5cf6" rx="10"/>
+    <rect y="28" width="310" height="7" fill="#8b5cf6"/>
+    <text x="155" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DPO/Preference Format</text>
+    
+    <rect x="15" y="50" width="280" height="95" fill="#f5f3ff" rx="5"/>
+    <text x="25" y="70" font-family="Courier, monospace" font-size="9" fill="#5b21b6">{</text>
+    <text x="35" y="85" font-family="Courier, monospace" font-size="9" fill="#5b21b6">"prompt": "Question...",</text>
+    <text x="35" y="100" font-family="Courier, monospace" font-size="9" fill="#5b21b6">"chosen": "Good answer...",</text>
+    <text x="35" y="115" font-family="Courier, monospace" font-size="9" fill="#5b21b6">"rejected": "Bad answer..."</text>
+    <text x="25" y="130" font-family="Courier, monospace" font-size="9" fill="#5b21b6">}</text>
+  </g>
+  
+  <!-- Completion Format -->
+  <g transform="translate(360, 220)">
+    <rect width="310" height="160" fill="white" stroke="#f97316" stroke-width="2" rx="10"/>
+    <rect width="310" height="35" fill="#f97316" rx="10"/>
+    <rect y="28" width="310" height="7" fill="#f97316"/>
+    <text x="155" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Completion Format</text>
+    
+    <rect x="15" y="50" width="280" height="95" fill="#fff7ed" rx="5"/>
+    <text x="25" y="70" font-family="Courier, monospace" font-size="9" fill="#9a3412">{</text>
+    <text x="35" y="85" font-family="Courier, monospace" font-size="9" fill="#9a3412">"text": "### Instruction:</text>
+    <text x="35" y="100" font-family="Courier, monospace" font-size="9" fill="#9a3412">Task description here...</text>
+    <text x="35" y="115" font-family="Courier, monospace" font-size="9" fill="#9a3412">### Response: Answer..."</text>
+    <text x="25" y="130" font-family="Courier, monospace" font-size="9" fill="#9a3412">}</text>
+  </g>
+</svg>
+

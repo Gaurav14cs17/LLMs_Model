@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="evalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Complete Pipeline Flow</text>
+  
+  <!-- Row 1: Data Flow -->
+  <g transform="translate(30, 60)">
+    <!-- Raw Data -->
+    <rect width="100" height="80" fill="white" stroke="#ef4444" stroke-width="2" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">📂</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="bold">Raw Data</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Documents, Q&amp;A</text>
+  </g>
+  
+  <path d="M135 100 L165 100" stroke="#64748b" stroke-width="2"/>
+  <polygon points="163,95 175,100 163,105" fill="#64748b"/>
+  
+  <g transform="translate(180, 60)">
+    <rect width="100" height="80" fill="url(#dataGrad)" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🔧</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Preprocess</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" opacity="0.9">Clean, Format</text>
+  </g>
+  
+  <path d="M285 100 L315 100" stroke="#64748b" stroke-width="2"/>
+  <polygon points="313,95 325,100 313,105" fill="#64748b"/>
+  
+  <g transform="translate(330, 60)">
+    <rect width="100" height="80" fill="white" stroke="#f97316" stroke-width="2" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">📊</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="bold">Dataset</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Train/Val/Test</text>
+  </g>
+  
+  <!-- Row 2: Model Setup -->
+  <g transform="translate(30, 170)">
+    <rect width="100" height="80" fill="white" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🤖</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="bold">Base Model</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">LLaMA, Mistral</text>
+  </g>
+  
+  <path d="M135 210 L165 210" stroke="#64748b" stroke-width="2"/>
+  <polygon points="163,205 175,210 163,215" fill="#64748b"/>
+  
+  <g transform="translate(180, 170)">
+    <rect width="100" height="80" fill="url(#modelGrad)" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">⚙️</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Config</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" opacity="0.9">Hyperparams</text>
+  </g>
+  
+  <!-- Connect data to training -->
+  <path d="M380 145 L380 180 L330 180 L330 210 L340 210" stroke="#64748b" stroke-width="2" fill="none"/>
+  
+  <g transform="translate(330, 170)">
+    <rect width="120" height="80" fill="url(#trainGrad)" rx="8"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🎛️</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Fine-Tuning</text>
+    <text x="60" y="70" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" opacity="0.9">LoRA/QLoRA/Full</text>
+  </g>
+  
+  <path d="M455 210 L485 210" stroke="#64748b" stroke-width="2"/>
+  <polygon points="483,205 495,210 483,215" fill="#64748b"/>
+  
+  <g transform="translate(500, 170)">
+    <rect width="100" height="80" fill="url(#evalGrad)" rx="8"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">📈</text>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Evaluate</text>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" opacity="0.9">Metrics</text>
+  </g>
+  
+  <!-- Row 3: Deployment -->
+  <path d="M550 255 L550 290 L350 290" stroke="#64748b" stroke-width="2" fill="none"/>
+  <polygon points="355,285 345,290 355,295" fill="#64748b"/>
+  
+  <g transform="translate(180, 290)">
+    <rect width="160" height="80" fill="white" stroke="#10b981" stroke-width="2" rx="8"/>
+    <text x="80" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🚀</text>
+    <text x="80" y="55" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="bold">Deploy Model</text>
+    <text x="80" y="70" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">vLLM, TGI, API</text>
+  </g>
+  
+  <path d="M345 330 L375 330" stroke="#64748b" stroke-width="2"/>
+  <polygon points="373,325 385,330 373,335" fill="#64748b"/>
+  
+  <g transform="translate(390, 290)">
+    <rect width="120" height="80" fill="white" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">📡</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="bold">Monitor</text>
+    <text x="60" y="70" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Logs, Metrics</text>
+  </g>
+  
+  <!-- Legend -->
+  <rect x="550" y="280" width="220" height="100" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="660" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Legend</text>
+  
+  <circle cx="580" cy="330" r="8" fill="#ef4444"/>
+  <text x="600" y="334" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Data Stage</text>
+  
+  <circle cx="680" cy="330" r="8" fill="#22c55e"/>
+  <text x="700" y="334" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Training</text>
+  
+  <circle cx="580" cy="355" r="8" fill="#3b82f6"/>
+  <text x="600" y="359" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Evaluation</text>
+  
+  <circle cx="680" cy="355" r="8" fill="#8b5cf6"/>
+  <text x="700" y="359" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Deploy</text>
+  
+  <!-- Feedback arrow -->
+  <path d="M510 375 Q550 400 510 420 L200 420 Q160 400 200 375" stroke="#8b5cf6" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <text x="355" y="435" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Iterate &amp; Improve</text>
+</svg>
+

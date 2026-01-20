@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="highAttn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="medAttn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lowAttn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="18" font-weight="bold">Attention Matrix Visualization: "The cat sat"</text>
+  
+  <!-- Matrix Labels -->
+  <text x="300" y="70" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">Keys (what each position contains)</text>
+  <text x="300" y="90" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="11">← "The"   "cat"   "sat" →</text>
+  
+  <text x="85" y="200" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12" transform="rotate(-90, 85, 200)">Queries (what each position looks for)</text>
+  
+  <!-- Query labels -->
+  <text x="140" y="135" text-anchor="end" fill="#f093fb" font-family="Arial, sans-serif" font-size="12">"The" →</text>
+  <text x="140" y="195" text-anchor="end" fill="#f093fb" font-family="Arial, sans-serif" font-size="12">"cat" →</text>
+  <text x="140" y="255" text-anchor="end" fill="#f093fb" font-family="Arial, sans-serif" font-size="12">"sat" →</text>
+  
+  <!-- Key labels -->
+  <text x="200" y="105" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="12">The</text>
+  <text x="300" y="105" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="12">cat</text>
+  <text x="400" y="105" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="12">sat</text>
+  
+  <!-- Matrix cells -->
+  <!-- Row 1: "The" queries -->
+  <rect x="150" y="115" width="100" height="50" rx="4" fill="url(#medAttn)" opacity="0.6"/>
+  <text x="200" y="145" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.30</text>
+  
+  <rect x="250" y="115" width="100" height="50" rx="4" fill="url(#highAttn)" opacity="0.7"/>
+  <text x="300" y="145" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.37</text>
+  
+  <rect x="350" y="115" width="100" height="50" rx="4" fill="url(#medAttn)" opacity="0.6"/>
+  <text x="400" y="145" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.33</text>
+  
+  <!-- Row 2: "cat" queries -->
+  <rect x="150" y="175" width="100" height="50" rx="4" fill="url(#lowAttn)" opacity="0.5"/>
+  <text x="200" y="205" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.26</text>
+  
+  <rect x="250" y="175" width="100" height="50" rx="4" fill="url(#highAttn)" opacity="0.8"/>
+  <text x="300" y="205" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.40</text>
+  
+  <rect x="350" y="175" width="100" height="50" rx="4" fill="url(#medAttn)" opacity="0.6"/>
+  <text x="400" y="205" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.34</text>
+  
+  <!-- Row 3: "sat" queries -->
+  <rect x="150" y="235" width="100" height="50" rx="4" fill="url(#lowAttn)" opacity="0.5"/>
+  <text x="200" y="265" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.28</text>
+  
+  <rect x="250" y="235" width="100" height="50" rx="4" fill="url(#medAttn)" opacity="0.6"/>
+  <text x="300" y="265" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.34</text>
+  
+  <rect x="350" y="235" width="100" height="50" rx="4" fill="url(#highAttn)" opacity="0.8"/>
+  <text x="400" y="265" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">0.38</text>
+  
+  <!-- Sum labels -->
+  <text x="480" y="145" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">= 1.0 ✓</text>
+  <text x="480" y="205" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">= 1.0 ✓</text>
+  <text x="480" y="265" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">= 1.0 ✓</text>
+  
+  <!-- Legend -->
+  <rect x="550" y="115" width="220" height="170" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="660" y="140" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Legend &amp; Interpretation</text>
+  
+  <rect x="570" y="155" width="20" height="15" rx="3" fill="url(#highAttn)"/>
+  <text x="600" y="167" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">High attention (0.35+)</text>
+  
+  <rect x="570" y="180" width="20" height="15" rx="3" fill="url(#medAttn)"/>
+  <text x="600" y="192" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Medium attention</text>
+  
+  <rect x="570" y="205" width="20" height="15" rx="3" fill="url(#lowAttn)"/>
+  <text x="600" y="217" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Lower attention</text>
+  
+  <line x1="570" y1="235" x2="750" y2="235" stroke="#30363d" stroke-width="1"/>
+  
+  <text x="570" y="255" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">• "cat" attends to itself (0.40)</text>
+  <text x="570" y="270" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">• "sat" attends to "cat" (0.34)</text>
+  <text x="570" y="285" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">(subject-verb relationship)</text>
+  
+  <!-- Explanation -->
+  <rect x="100" y="310" width="600" height="120" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+  <text x="400" y="335" text-anchor="middle" fill="#58a6ff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">How to Read This Matrix</text>
+  
+  <text x="120" y="360" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Each <tspan fill="#f093fb">row</tspan> shows how one token distributes its attention to all tokens</text>
+  <text x="120" y="380" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Each <tspan fill="#4facfe">column</tspan> shows how much attention one token receives from all queries</text>
+  <text x="120" y="400" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• <tspan fill="#fdcb6e">Row sums = 1.0</tspan> (softmax normalizes each query's attention)</text>
+  <text x="120" y="420" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11">• Higher values = more information flows from Key position to Query position</text>
+</svg>
+

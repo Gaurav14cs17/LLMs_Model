@@ -1,0 +1,27 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="200" fill="url(#banner_bg)"/>
+  
+  <!-- Pattern -->
+  <circle cx="50" cy="50" r="80" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="150" r="100" fill="white" opacity="0.05"/>
+  <circle cx="400" cy="180" r="60" fill="white" opacity="0.03"/>
+  
+  <!-- Title -->
+  <text x="400" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">LLM Optimization</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.9">Compress • Accelerate • Deploy</text>
+  
+  <!-- Decorative line -->
+  <rect x="300" y="150" width="200" height="3" rx="1.5" fill="white" opacity="0.5"/>
+  
+  <defs>
+    <linearGradient id="banner_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f3460"/>
+    </linearGradient>
+  </defs>
+</svg>
+

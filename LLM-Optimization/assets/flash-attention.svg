@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400">
+  <defs>
+    <linearGradient id="faGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#073b4c"/>
+      <stop offset="100%" style="stop-color:#118ab2"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="400" fill="#0d1117"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">⚡ Flash Attention</text>
+  <text x="425" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">IO-Aware Attention for O(N) Memory</text>
+  
+  <!-- Standard Attention -->
+  <rect x="30" y="80" width="380" height="140" rx="12" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="220" y="110" text-anchor="middle" fill="#f85149" font-size="16" font-weight="bold" font-family="Arial">❌ Standard Attention</text>
+  <text x="50" y="140" fill="#c9d1d9" font-size="12" font-family="Arial">Time: O(N²d)</text>
+  <text x="200" y="140" fill="#c9d1d9" font-size="12" font-family="Arial">Memory: O(N²)</text>
+  <text x="50" y="165" fill="#8b949e" font-size="11" font-family="Arial">• Materializes full N×N attention matrix</text>
+  <text x="50" y="185" fill="#8b949e" font-size="11" font-family="Arial">• Multiple HBM reads/writes</text>
+  <text x="50" y="205" fill="#f85149" font-size="11" font-family="Arial">• N=4K, 32 heads → 2.1 GB just for attn!</text>
+  
+  <!-- Flash Attention -->
+  <rect x="440" y="80" width="380" height="140" rx="12" fill="#161b22" stroke="#7ee787" stroke-width="3"/>
+  <text x="630" y="110" text-anchor="middle" fill="#7ee787" font-size="16" font-weight="bold" font-family="Arial">✅ Flash Attention</text>
+  <text x="460" y="140" fill="#c9d1d9" font-size="12" font-family="Arial">Time: O(N²d)</text>
+  <text x="610" y="140" fill="#c9d1d9" font-size="12" font-family="Arial">Memory: O(N)</text>
+  <text x="460" y="165" fill="#8b949e" font-size="11" font-family="Arial">• Tiled computation in SRAM</text>
+  <text x="460" y="185" fill="#8b949e" font-size="11" font-family="Arial">• Online softmax algorithm</text>
+  <text x="460" y="205" fill="#7ee787" font-size="11" font-family="Arial">• 2-4× speedup, 10-20× memory savings!</text>
+  
+  <!-- Algorithm -->
+  <rect x="30" y="240" width="790" height="140" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="425" y="270" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">📐 Online Softmax Update Rule</text>
+  
+  <text x="60" y="305" fill="#7ee787" font-size="12" font-weight="bold" font-family="Arial">Max update:</text>
+  <text x="170" y="305" fill="#c9d1d9" font-size="11" font-family="monospace">m_new = max(m_old, max(x_new))</text>
+  
+  <text x="450" y="305" fill="#f778ba" font-size="12" font-weight="bold" font-family="Arial">Sum update:</text>
+  <text x="560" y="305" fill="#c9d1d9" font-size="11" font-family="monospace">ℓ_new = e^(m_old-m_new)×ℓ_old + Σe^(x-m_new)</text>
+  
+  <text x="60" y="340" fill="#79c0ff" font-size="12" font-weight="bold" font-family="Arial">Output update:</text>
+  <text x="185" y="340" fill="#c9d1d9" font-size="11" font-family="monospace">O_new = (e^(m_old-m_new) × ℓ_old × O_old + Σe^(S-m_new) × V) / ℓ_new</text>
+  
+  <text x="60" y="370" fill="#ffa657" font-size="12" font-weight="bold" font-family="Arial">IO Complexity:</text>
+  <text x="185" y="370" fill="#c9d1d9" font-size="11" font-family="monospace">Θ(Nd + N²d/M) vs Θ(Nd + N²) standard</text>
+  <text x="550" y="370" fill="#8b949e" font-size="11" font-family="Arial">M = SRAM size (~20MB)</text>
+</svg>
+

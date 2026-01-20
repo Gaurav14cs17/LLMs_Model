@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800">
+  <defs>
+    <linearGradient id="encGradS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="decGradS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowS" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="800" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="24" font-weight="bold">Cross-Attention: Step by Step</text>
+  <text x="450" y="60" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="14">English → Hindi: "I am student" → "मैं छात्र हूँ"</text>
+  
+  <!-- ==================== STEP 1 ==================== -->
+  <rect x="40" y="85" width="820" height="120" rx="12" fill="#161b22" stroke="#4facfe" stroke-width="2"/>
+  
+  <rect x="60" y="95" width="100" height="30" rx="6" fill="#4facfe"/>
+  <text x="110" y="115" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 1</text>
+  <text x="180" y="115" fill="#4facfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Encoder processes English (Source)</text>
+  
+  <!-- English tokens -->
+  <rect x="80" y="135" width="60" height="50" rx="6" fill="url(#encGradS)" filter="url(#shadowS)"/>
+  <text x="110" y="165" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">I</text>
+  
+  <rect x="160" y="135" width="70" height="50" rx="6" fill="url(#encGradS)" filter="url(#shadowS)"/>
+  <text x="195" y="165" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">am</text>
+  
+  <rect x="250" y="135" width="100" height="50" rx="6" fill="url(#encGradS)" filter="url(#shadowS)"/>
+  <text x="300" y="165" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">student</text>
+  
+  <text x="400" y="165" fill="#8b949e" font-family="Arial, sans-serif" font-size="24">→</text>
+  
+  <rect x="450" y="130" width="380" height="60" rx="8" fill="#21262d"/>
+  <text x="640" y="158" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Encoder Output: H_enc</text>
+  <text x="640" y="178" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">[h_I, h_am, h_student] — 3 vectors</text>
+  
+  <!-- ==================== STEP 2 ==================== -->
+  <rect x="40" y="220" width="820" height="120" rx="12" fill="#161b22" stroke="#f093fb" stroke-width="2"/>
+  
+  <rect x="60" y="230" width="100" height="30" rx="6" fill="#f093fb"/>
+  <text x="110" y="250" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 2</text>
+  <text x="180" y="250" fill="#f093fb" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Decoder processes Hindi (Target)</text>
+  
+  <!-- Hindi tokens -->
+  <rect x="80" y="270" width="70" height="50" rx="6" fill="url(#decGradS)" filter="url(#shadowS)"/>
+  <text x="115" y="295" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">मैं</text>
+  <text x="115" y="312" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">(I)</text>
+  
+  <rect x="170" y="270" width="70" height="50" rx="6" fill="url(#decGradS)" filter="url(#shadowS)"/>
+  <text x="205" y="295" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">छात्र</text>
+  <text x="205" y="312" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">(student)</text>
+  
+  <rect x="260" y="270" width="70" height="50" rx="6" fill="url(#decGradS)" filter="url(#shadowS)"/>
+  <text x="295" y="295" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">हूँ</text>
+  <text x="295" y="312" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">(am)</text>
+  
+  <text x="380" y="300" fill="#8b949e" font-family="Arial, sans-serif" font-size="24">→</text>
+  
+  <rect x="430" y="265" width="400" height="60" rx="8" fill="#21262d"/>
+  <text x="630" y="293" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Decoder Output: H_dec</text>
+  <text x="630" y="313" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="12">[h_मैं, h_छात्र, h_हूँ] — 3 vectors</text>
+  
+  <!-- ==================== STEP 3: Create Q, K, V ==================== -->
+  <rect x="40" y="355" width="820" height="160" rx="12" fill="#161b22" stroke="#fdcb6e" stroke-width="2"/>
+  
+  <rect x="60" y="365" width="100" height="30" rx="6" fill="#fdcb6e"/>
+  <text x="110" y="385" text-anchor="middle" fill="#161b22" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 3</text>
+  <text x="180" y="385" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Create Q, K, V (THIS IS THE KEY DIFFERENCE!)</text>
+  
+  <!-- Q from Decoder -->
+  <rect x="80" y="410" width="220" height="90" rx="10" fill="#21262d" stroke="#f5576c" stroke-width="3"/>
+  <text x="190" y="438" text-anchor="middle" fill="#f5576c" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Q (Query)</text>
+  <text x="190" y="460" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">Q = H_dec × W_Q</text>
+  <text x="190" y="485" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="11" font-weight="bold">← From HINDI (Decoder)</text>
+  
+  <!-- K from Encoder -->
+  <rect x="340" y="410" width="220" height="90" rx="10" fill="#21262d" stroke="#4facfe" stroke-width="3"/>
+  <text x="450" y="438" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">K (Key)</text>
+  <text x="450" y="460" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">K = H_enc × W_K</text>
+  <text x="450" y="485" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">← From ENGLISH (Encoder)</text>
+  
+  <!-- V from Encoder -->
+  <rect x="600" y="410" width="220" height="90" rx="10" fill="#21262d" stroke="#43e97b" stroke-width="3"/>
+  <text x="710" y="438" text-anchor="middle" fill="#43e97b" font-family="Arial, sans-serif" font-size="16" font-weight="bold">V (Value)</text>
+  <text x="710" y="460" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">V = H_enc × W_V</text>
+  <text x="710" y="485" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">← From ENGLISH (Encoder)</text>
+  
+  <!-- ==================== STEP 4: Compute Attention ==================== -->
+  <rect x="40" y="530" width="820" height="120" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="60" y="540" width="100" height="30" rx="6" fill="#58a6ff"/>
+  <text x="110" y="560" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 4</text>
+  <text x="180" y="560" fill="#58a6ff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Compute Attention: Q × K^T / √d_k</text>
+  
+  <!-- Formula -->
+  <rect x="80" y="580" width="400" height="55" rx="8" fill="#21262d"/>
+  <text x="280" y="608" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Attention = softmax(Q × K^T / √d_k)</text>
+  <text x="280" y="628" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Shape: (3 Hindi) × (3 English) = 3×3 matrix</text>
+  
+  <!-- Matrix result -->
+  <rect x="520" y="580" width="320" height="55" rx="8" fill="#21262d" stroke="#55efc4" stroke-width="1"/>
+  <text x="680" y="605" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Each Hindi token learns which</text>
+  <text x="680" y="625" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">English token to attend to!</text>
+  
+  <!-- ==================== STEP 5: Output ==================== -->
+  <rect x="40" y="665" width="820" height="120" rx="12" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  
+  <rect x="60" y="675" width="100" height="30" rx="6" fill="#55efc4"/>
+  <text x="110" y="695" text-anchor="middle" fill="#161b22" font-family="Arial, sans-serif" font-size="14" font-weight="bold">STEP 5</text>
+  <text x="180" y="695" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Output = Attention × V</text>
+  
+  <!-- Results -->
+  <rect x="80" y="715" width="740" height="55" rx="8" fill="#21262d"/>
+  <text x="450" y="740" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">• "मैं" attends to "I" (0.85) → gets meaning of "I"</text>
+  <text x="450" y="758" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">• "छात्र" attends to "student" (0.85) → gets meaning of "student"</text>
+  <text x="450" y="776" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">• "हूँ" attends to "am" (0.80) → gets meaning of "am"</text>
+</svg>

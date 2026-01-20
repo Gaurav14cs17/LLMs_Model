@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="400" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">What is Fine-Tuning?</text>
+  
+  <!-- Pre-trained Model Box -->
+  <rect x="50" y="70" width="180" height="120" fill="url(#blueGrad)" rx="12"/>
+  <text x="140" y="110" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Pre-trained Model</text>
+  <text x="140" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">GPT, LLaMA, Mistral</text>
+  <text x="140" y="155" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">General Knowledge</text>
+  <text x="140" y="175" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">Billions of Parameters</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="235" y1="130" x2="285" y2="130" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Fine-Tuning Process Box -->
+  <rect x="290" y="70" width="180" height="120" fill="url(#purpleGrad)" rx="12"/>
+  <text x="380" y="105" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Fine-Tuning</text>
+  <text x="380" y="130" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">+ Domain Data</text>
+  <text x="380" y="150" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">+ Task-Specific Training</text>
+  <text x="380" y="170" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">+ Hyperparameter Tuning</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="475" y1="130" x2="525" y2="130" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Fine-tuned Model Box -->
+  <rect x="530" y="70" width="140" height="120" fill="url(#greenGrad)" rx="12"/>
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Fine-tuned</text>
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Model</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">Specialized</text>
+  <text x="600" y="175" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.9">High Performance</text>
+  
+  <!-- Benefits Section -->
+  <rect x="50" y="220" width="600" height="160" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="350" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b" text-anchor="middle">Key Benefits</text>
+  
+  <!-- Benefit Icons and Text -->
+  <circle cx="120" cy="310" r="25" fill="#dbeafe"/>
+  <text x="120" y="316" font-family="Arial, sans-serif" font-size="20" fill="#3b82f6" text-anchor="middle">🎯</text>
+  <text x="120" y="355" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Task-Specific</text>
+  
+  <circle cx="250" cy="310" r="25" fill="#dcfce7"/>
+  <text x="250" y="316" font-family="Arial, sans-serif" font-size="20" fill="#10b981" text-anchor="middle">⚡</text>
+  <text x="250" y="355" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Faster Training</text>
+  
+  <circle cx="380" cy="310" r="25" fill="#fef3c7"/>
+  <text x="380" y="316" font-family="Arial, sans-serif" font-size="20" fill="#f59e0b" text-anchor="middle">💰</text>
+  <text x="380" y="355" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Cost Effective</text>
+  
+  <circle cx="510" cy="310" r="25" fill="#ede9fe"/>
+  <text x="510" y="316" font-family="Arial, sans-serif" font-size="20" fill="#8b5cf6" text-anchor="middle">📈</text>
+  <text x="510" y="355" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Better Results</text>
+</svg>
+

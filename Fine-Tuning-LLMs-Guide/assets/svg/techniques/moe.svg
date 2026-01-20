@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450">
+  <defs>
+    <linearGradient id="moeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+    <linearGradient id="expertGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="450" fill="#0d1117"/>
+  
+  <text x="425" y="40" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Mixture of Experts (MoE)</text>
+  <text x="425" y="65" text-anchor="middle" fill="#8b949e" font-size="14" font-family="Arial">Sparse activation for efficient scaling</text>
+  
+  <!-- Input -->
+  <rect x="50" y="170" width="100" height="60" rx="10" fill="#238636"/>
+  <text x="100" y="200" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="Arial">Input</text>
+  <text x="100" y="218" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">Token</text>
+  
+  <!-- Arrow to Router -->
+  <path d="M150 200 L200 200" stroke="#58a6ff" stroke-width="2" fill="none"/>
+  
+  <!-- Router/Gating Network -->
+  <rect x="200" y="150" width="120" height="100" rx="12" fill="url(#moeGrad)" stroke="#f093fb" stroke-width="2"/>
+  <text x="260" y="190" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">Router</text>
+  <text x="260" y="210" text-anchor="middle" fill="white" font-size="10" font-family="Arial">Gating Network</text>
+  <text x="260" y="228" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">Softmax(Wx)</text>
+  
+  <!-- Arrows from Router to Experts -->
+  <path d="M320 180 L380 100" stroke="#58a6ff" stroke-width="2" fill="none"/>
+  <path d="M320 190 L380 170" stroke="#7ee787" stroke-width="3" fill="none"/>
+  <path d="M320 210 L380 250" stroke="#7ee787" stroke-width="3" fill="none"/>
+  <path d="M320 220 L380 320" stroke="#58a6ff" stroke-width="2" fill="none"/>
+  
+  <!-- Top-K indicator -->
+  <text x="360" y="140" fill="#7ee787" font-size="10" font-weight="bold" font-family="Arial">Top-K</text>
+  
+  <!-- Experts -->
+  <rect x="380" y="80" width="100" height="50" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="430" y="105" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Arial">Expert 1</text>
+  <text x="430" y="120" text-anchor="middle" fill="#6e7681" font-size="9" font-family="Arial">FFN</text>
+  
+  <rect x="380" y="150" width="100" height="50" rx="8" fill="url(#expertGrad)" stroke="#667eea" stroke-width="2"/>
+  <text x="430" y="175" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Expert 2 ✓</text>
+  <text x="430" y="190" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">FFN Active</text>
+  
+  <rect x="380" y="220" width="100" height="50" rx="8" fill="url(#expertGrad)" stroke="#667eea" stroke-width="2"/>
+  <text x="430" y="245" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Expert 3 ✓</text>
+  <text x="430" y="260" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">FFN Active</text>
+  
+  <rect x="380" y="290" width="100" height="50" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="430" y="315" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Arial">Expert N</text>
+  <text x="430" y="330" text-anchor="middle" fill="#6e7681" font-size="9" font-family="Arial">FFN</text>
+  
+  <!-- Arrows from Experts to Combine -->
+  <path d="M480 175 L540 200" stroke="#7ee787" stroke-width="3" fill="none"/>
+  <path d="M480 245 L540 220" stroke="#7ee787" stroke-width="3" fill="none"/>
+  
+  <!-- Weighted Sum -->
+  <rect x="540" y="170" width="100" height="80" rx="10" fill="#1f6feb"/>
+  <text x="590" y="200" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">Weighted</text>
+  <text x="590" y="220" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">Sum</text>
+  <text x="590" y="240" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">Σ wᵢ × Eᵢ(x)</text>
+  
+  <!-- Arrow to Output -->
+  <path d="M640 210 L700 210" stroke="#58a6ff" stroke-width="2" fill="none"/>
+  
+  <!-- Output -->
+  <rect x="700" y="180" width="100" height="60" rx="10" fill="#238636"/>
+  <text x="750" y="210" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="Arial">Output</text>
+  <text x="750" y="228" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">Next Layer</text>
+  
+  <!-- Key Stats Box -->
+  <rect x="50" y="360" width="750" height="75" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  
+  <text x="80" y="385" fill="#f778ba" font-size="13" font-weight="bold" font-family="Arial">📊 Key Concepts:</text>
+  
+  <text x="80" y="410" fill="#7ee787" font-size="11" font-family="Arial">• Sparse Activation: Only K experts active per token (K=2 typical)</text>
+  <text x="80" y="425" fill="#79c0ff" font-size="11" font-family="Arial">• Efficient Scaling: 8× experts = 8× capacity with same compute</text>
+  
+  <text x="480" y="410" fill="#ffa657" font-size="11" font-family="Arial">• Examples: Mixtral 8x7B, GPT-4</text>
+  <text x="480" y="425" fill="#f778ba" font-size="11" font-family="Arial">• Load Balancing Loss prevents expert collapse</text>
+</svg>
+

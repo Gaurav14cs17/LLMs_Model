@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280">
+  <!-- Background -->
+  <rect width="700" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Learning Rate Schedulers</text>
+  
+  <!-- Constant -->
+  <g transform="translate(30, 55)">
+    <rect width="150" height="200" fill="white" stroke="#94a3b8" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" text-anchor="middle">Constant</text>
+    <line x1="30" y1="80" x2="120" y2="80" stroke="#94a3b8" stroke-width="3"/>
+    <text x="75" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Fixed LR</text>
+    <text x="75" y="140" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Simple baseline</text>
+    <rect x="25" y="160" width="100" height="25" fill="#f1f5f9" rx="4"/>
+    <text x="75" y="177" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Not recommended</text>
+  </g>
+  
+  <!-- Linear -->
+  <g transform="translate(200, 55)">
+    <rect width="150" height="200" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2563eb" text-anchor="middle">Linear</text>
+    <polyline points="30,50 50,55 120,100" stroke="#3b82f6" stroke-width="3" fill="none"/>
+    <text x="75" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Warmup + Decay</text>
+    <text x="75" y="140" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Steady decrease</text>
+    <rect x="25" y="160" width="100" height="25" fill="#dbeafe" rx="4"/>
+    <text x="75" y="177" font-family="Arial, sans-serif" font-size="9" fill="#2563eb" text-anchor="middle">Good option</text>
+  </g>
+  
+  <!-- Cosine -->
+  <g transform="translate(370, 55)">
+    <rect width="150" height="200" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#16a34a" text-anchor="middle">Cosine</text>
+    <path d="M30 50 Q45 55, 60 65 Q90 85, 120 100" stroke="#22c55e" stroke-width="3" fill="none"/>
+    <text x="75" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Smooth decay</text>
+    <text x="75" y="140" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Popular choice</text>
+    <rect x="25" y="160" width="100" height="25" fill="#dcfce7" rx="4"/>
+    <text x="75" y="177" font-family="Arial, sans-serif" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">Recommended ✅</text>
+  </g>
+  
+  <!-- Cosine with Restarts -->
+  <g transform="translate(540, 55)">
+    <rect width="150" height="200" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#7c3aed" text-anchor="middle">Cosine Restarts</text>
+    <path d="M30 50 Q45 70, 55 80 L55 55 Q65 70, 75 80 L75 60 Q95 80, 120 100" stroke="#8b5cf6" stroke-width="3" fill="none"/>
+    <text x="75" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Multiple warmups</text>
+    <text x="75" y="140" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">For long training</text>
+    <rect x="25" y="160" width="100" height="25" fill="#ede9fe" rx="4"/>
+    <text x="75" y="177" font-family="Arial, sans-serif" font-size="9" fill="#7c3aed" text-anchor="middle">Advanced</text>
+  </g>
+</svg>
+

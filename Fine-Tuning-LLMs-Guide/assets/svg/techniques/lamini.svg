@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <defs>
+    <linearGradient id="laminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00c6ff"/>
+      <stop offset="100%" style="stop-color:#0072ff"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="380" fill="#0d1117"/>
+  
+  <text x="400" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Lamini Memory Tuning</text>
+  <text x="400" y="60" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">Precise factual recall through memory-augmented fine-tuning</text>
+  
+  <!-- Problem -->
+  <rect x="30" y="85" width="350" height="120" rx="12" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="205" y="115" text-anchor="middle" fill="#f85149" font-size="16" font-weight="bold" font-family="Arial">❌ The Hallucination Problem</text>
+  <text x="50" y="145" fill="#c9d1d9" font-size="12" font-family="Arial">• LLMs confabulate facts</text>
+  <text x="50" y="165" fill="#c9d1d9" font-size="12" font-family="Arial">• Unreliable for precise information</text>
+  <text x="50" y="185" fill="#c9d1d9" font-size="12" font-family="Arial">• Standard FT doesn't guarantee accuracy</text>
+  
+  <!-- Solution -->
+  <rect x="420" y="85" width="350" height="120" rx="12" fill="#161b22" stroke="url(#laminiGrad)" stroke-width="3"/>
+  <text x="595" y="115" text-anchor="middle" fill="url(#laminiGrad)" font-size="16" font-weight="bold" font-family="Arial">✅ Lamini Memory Solution</text>
+  <text x="440" y="145" fill="#7ee787" font-size="12" font-family="Arial">• Dedicated memory layer</text>
+  <text x="440" y="165" fill="#7ee787" font-size="12" font-family="Arial">• Stores exact facts as key-value pairs</text>
+  <text x="440" y="185" fill="#7ee787" font-size="12" font-family="Arial">• Near 100% accuracy on stored facts</text>
+  
+  <!-- Architecture Diagram -->
+  <text x="400" y="230" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">Memory Tuning Architecture</text>
+  
+  <!-- Input -->
+  <rect x="50" y="260" width="100" height="45" rx="8" fill="#238636"/>
+  <text x="100" y="287" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Input Query</text>
+  
+  <path d="M150 282 L200 282" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- LLM -->
+  <rect x="200" y="250" width="130" height="65" rx="8" fill="#1f6feb"/>
+  <text x="265" y="280" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">LLM Base</text>
+  <text x="265" y="300" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">Frozen Weights</text>
+  
+  <path d="M330 282 L380 282" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Memory Module -->
+  <rect x="380" y="245" width="180" height="75" rx="10" fill="url(#laminiGrad)" stroke="#00c6ff" stroke-width="2"/>
+  <text x="470" y="275" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="Arial">Memory Layer</text>
+  <text x="470" y="295" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="Arial">Key-Value Store</text>
+  <text x="470" y="310" text-anchor="middle" fill="#c9d1d9" font-size="9" font-family="Arial">Millions of Expert Facts</text>
+  
+  <path d="M560 282 L620 282" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Output -->
+  <rect x="620" y="260" width="130" height="45" rx="8" fill="#238636"/>
+  <text x="685" y="287" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Precise Output</text>
+  
+  <!-- Stats -->
+  <rect x="50" y="340" width="700" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="70" y="360" fill="#7ee787" font-size="11" font-family="Arial">📊 Results: 95%+ accuracy on factual recall</text>
+  <text x="350" y="360" fill="#79c0ff" font-size="11" font-family="Arial">• Minimal compute overhead</text>
+  <text x="550" y="360" fill="#f778ba" font-size="11" font-family="Arial">• lamini.ai research</text>
+</svg>
+

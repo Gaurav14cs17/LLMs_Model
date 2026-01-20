@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+  <defs>
+    <linearGradient id="driftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5af19"/>
+      <stop offset="100%" style="stop-color:#f12711"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="360" fill="#0d1117"/>
+  
+  <text x="400" y="35" text-anchor="middle" fill="#c9d1d9" font-size="24" font-weight="bold" font-family="Arial">Model &amp; Data Drift Detection</text>
+  
+  <!-- Types of Drift -->
+  <rect x="30" y="70" width="230" height="130" rx="12" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="145" y="100" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold" font-family="Arial">📉 Data Drift</text>
+  <text x="50" y="125" fill="#c9d1d9" font-size="11" font-family="Arial">Input distribution changes</text>
+  <text x="50" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• New vocabulary/topics</text>
+  <text x="50" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Seasonal patterns</text>
+  <text x="50" y="185" fill="#8b949e" font-size="10" font-family="Arial">Detect: KL Divergence, PSI</text>
+  
+  <rect x="285" y="70" width="230" height="130" rx="12" fill="#161b22" stroke="#ffa657" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" fill="#ffa657" font-size="14" font-weight="bold" font-family="Arial">📊 Concept Drift</text>
+  <text x="305" y="125" fill="#c9d1d9" font-size="11" font-family="Arial">Relationship changes</text>
+  <text x="305" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Meaning evolution</text>
+  <text x="305" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Task requirements shift</text>
+  <text x="305" y="185" fill="#8b949e" font-size="10" font-family="Arial">Detect: Performance metrics</text>
+  
+  <rect x="540" y="70" width="230" height="130" rx="12" fill="#161b22" stroke="#8957e5" stroke-width="2"/>
+  <text x="655" y="100" text-anchor="middle" fill="#8957e5" font-size="14" font-weight="bold" font-family="Arial">🔄 Model Decay</text>
+  <text x="560" y="125" fill="#c9d1d9" font-size="11" font-family="Arial">Performance degradation</text>
+  <text x="560" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Accuracy drops</text>
+  <text x="560" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Increased errors</text>
+  <text x="560" y="185" fill="#8b949e" font-size="10" font-family="Arial">Detect: Continuous eval</text>
+  
+  <!-- Detection Pipeline -->
+  <text x="400" y="230" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold" font-family="Arial">Drift Detection Pipeline</text>
+  
+  <rect x="50" y="255" width="120" height="45" rx="8" fill="#238636"/>
+  <text x="110" y="282" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">Collect Logs</text>
+  
+  <path d="M170 277 L210 277" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="210" y="255" width="120" height="45" rx="8" fill="#1f6feb"/>
+  <text x="270" y="282" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">Compute Stats</text>
+  
+  <path d="M330 277 L370 277" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="370" y="255" width="120" height="45" rx="8" fill="#8957e5"/>
+  <text x="430" y="282" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">Compare Base</text>
+  
+  <path d="M490 277 L530 277" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="530" y="255" width="120" height="45" rx="8" fill="url(#driftGrad)"/>
+  <text x="590" y="282" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">Alert if Drift</text>
+  
+  <path d="M650 277 L690 277" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="690" y="255" width="80" height="45" rx="8" fill="#238636"/>
+  <text x="730" y="282" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">Retrain</text>
+  
+  <!-- Tips -->
+  <rect x="50" y="320" width="700" height="28" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="70" y="339" fill="#7ee787" font-size="11" font-family="Arial">💡 Best Practice: Set baseline metrics at deployment • Monitor continuously • Automate retraining triggers</text>
+</svg>
+

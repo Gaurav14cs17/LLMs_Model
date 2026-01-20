@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="medGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b09b"/>
+      <stop offset="100%" style="stop-color:#96c93d"/>
+    </linearGradient>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5af19"/>
+      <stop offset="100%" style="stop-color:#f12711"/>
+    </linearGradient>
+    <linearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="sciGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="420" fill="#0d1117"/>
+  
+  <text x="450" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Domain-Specific Fine-Tuning</text>
+  <text x="450" y="60" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">Adapting LLMs to specialized industries and use cases</text>
+  
+  <!-- Medical -->
+  <rect x="30" y="85" width="200" height="150" rx="12" fill="#161b22" stroke="url(#medGrad)" stroke-width="3"/>
+  <text x="130" y="115" text-anchor="middle" fill="url(#medGrad)" font-size="18" font-weight="bold" font-family="Arial">🏥 Medical</text>
+  <text x="45" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Clinical notes</text>
+  <text x="45" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Drug interactions</text>
+  <text x="45" y="185" fill="#c9d1d9" font-size="11" font-family="Arial">• Diagnosis support</text>
+  <text x="45" y="205" fill="#8b949e" font-size="10" font-family="Arial">Ex: Med-PaLM, BioGPT</text>
+  <text x="45" y="225" fill="#7ee787" font-size="9" font-family="Arial">Data: PubMed, MIMIC</text>
+
+  <!-- Finance -->
+  <rect x="245" y="85" width="200" height="150" rx="12" fill="#161b22" stroke="url(#finGrad)" stroke-width="3"/>
+  <text x="345" y="115" text-anchor="middle" fill="url(#finGrad)" font-size="18" font-weight="bold" font-family="Arial">💰 Finance</text>
+  <text x="260" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Risk analysis</text>
+  <text x="260" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Fraud detection</text>
+  <text x="260" y="185" fill="#c9d1d9" font-size="11" font-family="Arial">• Market insights</text>
+  <text x="260" y="205" fill="#8b949e" font-size="10" font-family="Arial">Ex: BloombergGPT</text>
+  <text x="260" y="225" fill="#7ee787" font-size="9" font-family="Arial">Data: SEC filings, Reports</text>
+
+  <!-- Legal -->
+  <rect x="460" y="85" width="200" height="150" rx="12" fill="#161b22" stroke="url(#legGrad)" stroke-width="3"/>
+  <text x="560" y="115" text-anchor="middle" fill="url(#legGrad)" font-size="18" font-weight="bold" font-family="Arial">⚖️ Legal</text>
+  <text x="475" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Contract analysis</text>
+  <text x="475" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Case research</text>
+  <text x="475" y="185" fill="#c9d1d9" font-size="11" font-family="Arial">• Document review</text>
+  <text x="475" y="205" fill="#8b949e" font-size="10" font-family="Arial">Ex: LegalBERT</text>
+  <text x="475" y="225" fill="#7ee787" font-size="9" font-family="Arial">Data: Case law, Contracts</text>
+
+  <!-- Scientific -->
+  <rect x="675" y="85" width="200" height="150" rx="12" fill="#161b22" stroke="url(#sciGrad)" stroke-width="3"/>
+  <text x="775" y="115" text-anchor="middle" fill="url(#sciGrad)" font-size="18" font-weight="bold" font-family="Arial">🔬 Scientific</text>
+  <text x="690" y="145" fill="#c9d1d9" font-size="11" font-family="Arial">• Research synthesis</text>
+  <text x="690" y="165" fill="#c9d1d9" font-size="11" font-family="Arial">• Hypothesis gen</text>
+  <text x="690" y="185" fill="#c9d1d9" font-size="11" font-family="Arial">• Data analysis</text>
+  <text x="690" y="205" fill="#8b949e" font-size="10" font-family="Arial">Ex: Galactica, SciBERT</text>
+  <text x="690" y="225" fill="#7ee787" font-size="9" font-family="Arial">Data: arXiv, Papers</text>
+  
+  <!-- Process Flow -->
+  <text x="450" y="270" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">Domain Adaptation Process</text>
+  
+  <rect x="80" y="290" width="150" height="50" rx="8" fill="#238636"/>
+  <text x="155" y="320" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">1. Collect Data</text>
+  
+  <path d="M230 315 L270 315" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="270" y="290" width="150" height="50" rx="8" fill="#1f6feb"/>
+  <text x="345" y="320" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">2. Clean + Format</text>
+  
+  <path d="M420 315 L460 315" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="460" y="290" width="150" height="50" rx="8" fill="#8957e5"/>
+  <text x="535" y="320" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">3. Continue PT</text>
+  
+  <path d="M610 315 L650 315" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="650" y="290" width="150" height="50" rx="8" fill="#da3633"/>
+  <text x="725" y="320" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">4. SFT + RLHF</text>
+  
+  <!-- Bottom Tips -->
+  <rect x="80" y="360" width="740" height="45" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="100" y="385" fill="#ffa657" font-size="12" font-weight="bold" font-family="Arial">💡 Tips:</text>
+  <text x="160" y="385" fill="#c9d1d9" font-size="11" font-family="Arial">Domain vocab expansion • Expert data curation • Evaluation with domain experts • Compliance checks</text>
+</svg>
+

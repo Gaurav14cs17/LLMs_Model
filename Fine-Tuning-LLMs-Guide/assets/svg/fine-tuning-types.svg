@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400">
+  <defs>
+    <linearGradient id="unsupervisedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="supervisedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="instructGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="400" fill="#f1f5f9" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Types of LLM Fine-Tuning</text>
+  
+  <!-- Unsupervised Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="30" y="60" width="220" height="320" fill="white" rx="15"/>
+    <rect x="30" y="60" width="220" height="60" fill="url(#unsupervisedGrad)" rx="15"/>
+    <rect x="30" y="105" width="220" height="15" fill="url(#unsupervisedGrad)"/>
+    <text x="140" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Unsupervised</text>
+  </g>
+  
+  <!-- Unsupervised Content -->
+  <text x="140" y="155" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">🔄</text>
+  <text x="140" y="190" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">No labeled data needed</text>
+  
+  <rect x="50" y="210" width="180" height="35" fill="#fff7ed" rx="6"/>
+  <text x="140" y="232" font-family="Arial, sans-serif" font-size="11" fill="#ea580c" text-anchor="middle">Self-supervised learning</text>
+  
+  <rect x="50" y="255" width="180" height="35" fill="#fff7ed" rx="6"/>
+  <text x="140" y="277" font-family="Arial, sans-serif" font-size="11" fill="#ea580c" text-anchor="middle">Next token prediction</text>
+  
+  <rect x="50" y="300" width="180" height="35" fill="#fff7ed" rx="6"/>
+  <text x="140" y="322" font-family="Arial, sans-serif" font-size="11" fill="#ea580c" text-anchor="middle">Domain adaptation</text>
+  
+  <rect x="50" y="345" width="180" height="25" fill="#f97316" rx="12"/>
+  <text x="140" y="362" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Unlabeled Text</text>
+  
+  <!-- Supervised Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="265" y="60" width="220" height="320" fill="white" rx="15"/>
+    <rect x="265" y="60" width="220" height="60" fill="url(#supervisedGrad)" rx="15"/>
+    <rect x="265" y="105" width="220" height="15" fill="url(#supervisedGrad)"/>
+    <text x="375" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Supervised (SFT)</text>
+  </g>
+  
+  <!-- Supervised Content -->
+  <text x="375" y="155" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">🎯</text>
+  <text x="375" y="190" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Input-output pairs</text>
+  
+  <rect x="285" y="210" width="180" height="35" fill="#eff6ff" rx="6"/>
+  <text x="375" y="232" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Question-Answer pairs</text>
+  
+  <rect x="285" y="255" width="180" height="35" fill="#eff6ff" rx="6"/>
+  <text x="375" y="277" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Classification tasks</text>
+  
+  <rect x="285" y="300" width="180" height="35" fill="#eff6ff" rx="6"/>
+  <text x="375" y="322" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Summarization</text>
+  
+  <rect x="285" y="345" width="180" height="25" fill="#3b82f6" rx="12"/>
+  <text x="375" y="362" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Labeled Dataset</text>
+  
+  <!-- Instruction Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="500" y="60" width="220" height="320" fill="white" rx="15"/>
+    <rect x="500" y="60" width="220" height="60" fill="url(#instructGrad)" rx="15"/>
+    <rect x="500" y="105" width="220" height="15" fill="url(#instructGrad)"/>
+    <text x="610" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Instruction Tuning</text>
+  </g>
+  
+  <!-- Instruction Content -->
+  <text x="610" y="155" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">💬</text>
+  <text x="610" y="190" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Follow instructions</text>
+  
+  <rect x="520" y="210" width="180" height="35" fill="#ecfdf5" rx="6"/>
+  <text x="610" y="232" font-family="Arial, sans-serif" font-size="11" fill="#059669" text-anchor="middle">Prompt engineering</text>
+  
+  <rect x="520" y="255" width="180" height="35" fill="#ecfdf5" rx="6"/>
+  <text x="610" y="277" font-family="Arial, sans-serif" font-size="11" fill="#059669" text-anchor="middle">Multi-task learning</text>
+  
+  <rect x="520" y="300" width="180" height="35" fill="#ecfdf5" rx="6"/>
+  <text x="610" y="322" font-family="Arial, sans-serif" font-size="11" fill="#059669" text-anchor="middle">Chat optimization</text>
+  
+  <rect x="520" y="345" width="180" height="25" fill="#10b981" rx="12"/>
+  <text x="610" y="362" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Instruction Dataset</text>
+</svg>
+

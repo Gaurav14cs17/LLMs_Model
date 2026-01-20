@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="queryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="keyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7aa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="valueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#95a5f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7986cb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="22" font-weight="bold">Understanding Q, K, V — The Library Analogy</text>
+  
+  <!-- Library Setting -->
+  <rect x="50" y="55" width="800" height="80" rx="10" fill="#161b22" stroke="#8b949e" stroke-width="1"/>
+  <text x="450" y="85" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="13">Imagine a library where you're searching for information...</text>
+  <text x="450" y="115" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Each book has: a catalog entry (Key), the actual content (Value), and you come with a question (Query)</text>
+  
+  <!-- Query Section -->
+  <rect x="50" y="155" width="260" height="360" rx="12" fill="#161b22" stroke="url(#queryGrad)" stroke-width="2"/>
+  <rect x="50" y="155" width="260" height="45" rx="12" fill="url(#queryGrad)"/>
+  <text x="180" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Q — Query</text>
+  
+  <text x="180" y="225" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="13" font-weight="bold">"What am I looking for?"</text>
+  
+  <rect x="70" y="245" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="180" y="270" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Library Analogy:</text>
+  <text x="180" y="295" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">📝 Your research question</text>
+  <text x="180" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"I need info about neural networks"</text>
+  
+  <rect x="70" y="340" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="180" y="365" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">In Attention:</text>
+  <text x="180" y="390" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">The current token asking:</text>
+  <text x="180" y="410" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="10">"Who can help me understand context?"</text>
+  
+  <rect x="70" y="435" width="220" height="60" rx="8" fill="#21262d" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="180" y="460" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="11">Q = X × W_Q</text>
+  <text x="180" y="480" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Projects input to "question" space</text>
+  
+  <!-- Key Section -->
+  <rect x="320" y="155" width="260" height="360" rx="12" fill="#161b22" stroke="url(#keyGrad)" stroke-width="2"/>
+  <rect x="320" y="155" width="260" height="45" rx="12" fill="url(#keyGrad)"/>
+  <text x="450" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">K — Key</text>
+  
+  <text x="450" y="225" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="13" font-weight="bold">"What do I contain?"</text>
+  
+  <rect x="340" y="245" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="450" y="270" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Library Analogy:</text>
+  <text x="450" y="295" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">📖 Book catalog entry / index</text>
+  <text x="450" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">"Tags: AI, deep learning, backprop"</text>
+  
+  <rect x="340" y="340" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="450" y="365" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">In Attention:</text>
+  <text x="450" y="390" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Each token advertising:</text>
+  <text x="450" y="410" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="10">"I'm relevant to: subjects, verbs..."</text>
+  
+  <rect x="340" y="435" width="220" height="60" rx="8" fill="#21262d" stroke="#4ecdc4" stroke-width="1"/>
+  <text x="450" y="460" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="11">K = X × W_K</text>
+  <text x="450" y="480" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Projects input to "index" space</text>
+  
+  <!-- Value Section -->
+  <rect x="590" y="155" width="260" height="360" rx="12" fill="#161b22" stroke="url(#valueGrad)" stroke-width="2"/>
+  <rect x="590" y="155" width="260" height="45" rx="12" fill="url(#valueGrad)"/>
+  <text x="720" y="185" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">V — Value</text>
+  
+  <text x="720" y="225" text-anchor="middle" fill="#95a5f0" font-family="Arial, sans-serif" font-size="13" font-weight="bold">"What do I actually provide?"</text>
+  
+  <rect x="610" y="245" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="720" y="270" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Library Analogy:</text>
+  <text x="720" y="295" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">📚 The actual book content</text>
+  <text x="720" y="315" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">The paragraphs you'll read</text>
+  
+  <rect x="610" y="340" width="220" height="80" rx="8" fill="#21262d"/>
+  <text x="720" y="365" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">In Attention:</text>
+  <text x="720" y="390" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">The information to aggregate:</text>
+  <text x="720" y="410" text-anchor="middle" fill="#95a5f0" font-family="Arial, sans-serif" font-size="10">"Here's my semantic content..."</text>
+  
+  <rect x="610" y="435" width="220" height="60" rx="8" fill="#21262d" stroke="#95a5f0" stroke-width="1"/>
+  <text x="720" y="460" text-anchor="middle" fill="#95a5f0" font-family="Arial, sans-serif" font-size="11">V = X × W_V</text>
+  <text x="720" y="480" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">Projects input to "content" space</text>
+</svg>
+

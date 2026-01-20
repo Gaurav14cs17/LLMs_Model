@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="adapterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b4db"/>
+      <stop offset="100%" style="stop-color:#0083b0"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="450" fill="#0d1117"/>
+  
+  <text x="400" y="40" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Adapter Layers - PEFT Technique</text>
+  
+  <!-- Original Architecture -->
+  <text x="150" y="80" text-anchor="middle" fill="#8b949e" font-size="16" font-family="Arial">Standard Transformer</text>
+  
+  <rect x="80" y="100" width="140" height="50" rx="8" fill="#238636"/>
+  <text x="150" y="130" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">Self-Attention</text>
+  
+  <line x1="150" y1="150" x2="150" y2="180" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="80" y="180" width="140" height="50" rx="8" fill="#1f6feb"/>
+  <text x="150" y="210" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">Feed-Forward</text>
+  
+  <line x1="150" y1="230" x2="150" y2="260" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="80" y="260" width="140" height="50" rx="8" fill="#8957e5"/>
+  <text x="150" y="290" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">Layer Norm</text>
+
+  <!-- Arrow -->
+  <path d="M250 200 L350 200" stroke="#ffa657" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="300" y="190" text-anchor="middle" fill="#ffa657" font-size="14" font-weight="bold" font-family="Arial">+Adapters</text>
+
+  <!-- With Adapters Architecture -->
+  <text x="550" y="80" text-anchor="middle" fill="#7ee787" font-size="16" font-family="Arial">With Adapter Layers</text>
+  
+  <rect x="480" y="100" width="140" height="40" rx="8" fill="#238636"/>
+  <text x="550" y="125" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Self-Attention</text>
+  
+  <line x1="550" y1="140" x2="550" y2="155" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Adapter 1 -->
+  <rect x="485" y="155" width="130" height="45" rx="8" fill="url(#adapterGrad)" stroke="#00d4ff" stroke-width="2"/>
+  <text x="550" y="175" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">ADAPTER</text>
+  <text x="550" y="190" text-anchor="middle" fill="#c9d1d9" font-size="8" font-family="Arial">Down → Up Projection</text>
+  
+  <line x1="550" y1="200" x2="550" y2="215" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="480" y="215" width="140" height="40" rx="8" fill="#1f6feb"/>
+  <text x="550" y="240" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Feed-Forward</text>
+  
+  <line x1="550" y1="255" x2="550" y2="270" stroke="#58a6ff" stroke-width="2"/>
+  
+  <!-- Adapter 2 -->
+  <rect x="485" y="270" width="130" height="45" rx="8" fill="url(#adapterGrad)" stroke="#00d4ff" stroke-width="2"/>
+  <text x="550" y="290" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">ADAPTER</text>
+  <text x="550" y="305" text-anchor="middle" fill="#c9d1d9" font-size="8" font-family="Arial">Down → Up Projection</text>
+  
+  <line x1="550" y1="315" x2="550" y2="330" stroke="#58a6ff" stroke-width="2"/>
+  
+  <rect x="480" y="330" width="140" height="40" rx="8" fill="#8957e5"/>
+  <text x="550" y="355" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">Layer Norm</text>
+  
+  <!-- Adapter Detail -->
+  <rect x="650" y="150" width="130" height="120" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="715" y="175" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="bold" font-family="Arial">Adapter Inside</text>
+  
+  <rect x="665" y="190" width="100" height="25" rx="5" fill="#da3633"/>
+  <text x="715" y="207" text-anchor="middle" fill="white" font-size="9" font-family="Arial">Down: d→r</text>
+  
+  <text x="715" y="225" text-anchor="middle" fill="#7ee787" font-size="10" font-family="Arial">NonLinear</text>
+  
+  <rect x="665" y="235" width="100" height="25" rx="5" fill="#238636"/>
+  <text x="715" y="252" text-anchor="middle" fill="white" font-size="9" font-family="Arial">Up: r→d</text>
+  
+  <!-- Key Info -->
+  <rect x="30" y="380" width="740" height="55" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="50" y="405" fill="#7ee787" font-size="13" font-weight="bold" font-family="Arial">✅ Benefits:</text>
+  <text x="130" y="405" fill="#c9d1d9" font-size="11" font-family="Arial">Only 0.5-8% trainable params</text>
+  <text x="320" y="405" fill="#c9d1d9" font-size="11" font-family="Arial">• Original weights frozen</text>
+  <text x="520" y="405" fill="#c9d1d9" font-size="11" font-family="Arial">• Task-specific modules</text>
+  <text x="50" y="425" fill="#f778ba" font-size="13" font-weight="bold" font-family="Arial">📏 Bottleneck r:</text>
+  <text x="160" y="425" fill="#c9d1d9" font-size="11" font-family="Arial">8-64 typical (controls adapter capacity)</text>
+</svg>
+

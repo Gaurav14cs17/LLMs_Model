@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="head1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="head2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="head3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="head4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="concatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="24" font-weight="bold">Multi-Head Attention</text>
+  <text x="450" y="65" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="13">Multiple attention heads capture different relationship patterns</text>
+  
+  <!-- Input -->
+  <rect x="380" y="90" width="140" height="50" rx="8" fill="#21262d" stroke="#30363d" stroke-width="2" filter="url(#dropShadow)"/>
+  <text x="450" y="120" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Input Embedding</text>
+  
+  <!-- Split arrows -->
+  <path d="M 380 115 Q 280 115 200 180" stroke="#555" stroke-width="2" fill="none"/>
+  <path d="M 400 140 Q 340 160 300 180" stroke="#555" stroke-width="2" fill="none"/>
+  <path d="M 500 140 Q 560 160 600 180" stroke="#555" stroke-width="2" fill="none"/>
+  <path d="M 520 115 Q 620 115 700 180" stroke="#555" stroke-width="2" fill="none"/>
+  
+  <!-- Head 1 -->
+  <rect x="130" y="190" width="140" height="200" rx="10" fill="#161b22" stroke="url(#head1)" stroke-width="3" filter="url(#dropShadow)"/>
+  <text x="200" y="220" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Head 1</text>
+  <text x="200" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Syntactic</text>
+  <text x="200" y="268" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Relations</text>
+  
+  <rect x="155" y="285" width="30" height="25" rx="3" fill="#ff6b6b"/>
+  <text x="170" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q</text>
+  <rect x="185" y="285" width="30" height="25" rx="3" fill="#ff6b6b" opacity="0.7"/>
+  <text x="200" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K</text>
+  <rect x="215" y="285" width="30" height="25" rx="3" fill="#ff6b6b" opacity="0.5"/>
+  <text x="230" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">V</text>
+  
+  <rect x="155" y="325" width="90" height="50" rx="5" fill="#21262d" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="200" y="345" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Scaled</text>
+  <text x="200" y="360" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Dot-Product</text>
+  
+  <!-- Head 2 -->
+  <rect x="290" y="190" width="140" height="200" rx="10" fill="#161b22" stroke="url(#head2)" stroke-width="3" filter="url(#dropShadow)"/>
+  <text x="360" y="220" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Head 2</text>
+  <text x="360" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Semantic</text>
+  <text x="360" y="268" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Similarity</text>
+  
+  <rect x="315" y="285" width="30" height="25" rx="3" fill="#a29bfe"/>
+  <text x="330" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q</text>
+  <rect x="345" y="285" width="30" height="25" rx="3" fill="#a29bfe" opacity="0.7"/>
+  <text x="360" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K</text>
+  <rect x="375" y="285" width="30" height="25" rx="3" fill="#a29bfe" opacity="0.5"/>
+  <text x="390" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">V</text>
+  
+  <rect x="315" y="325" width="90" height="50" rx="5" fill="#21262d" stroke="#a29bfe" stroke-width="1"/>
+  <text x="360" y="345" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Scaled</text>
+  <text x="360" y="360" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Dot-Product</text>
+  
+  <!-- Head 3 -->
+  <rect x="470" y="190" width="140" height="200" rx="10" fill="#161b22" stroke="url(#head3)" stroke-width="3" filter="url(#dropShadow)"/>
+  <text x="540" y="220" text-anchor="middle" fill="#74b9ff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Head 3</text>
+  <text x="540" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Positional</text>
+  <text x="540" y="268" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Patterns</text>
+  
+  <rect x="495" y="285" width="30" height="25" rx="3" fill="#74b9ff"/>
+  <text x="510" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Q</text>
+  <rect x="525" y="285" width="30" height="25" rx="3" fill="#74b9ff" opacity="0.7"/>
+  <text x="540" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">K</text>
+  <rect x="555" y="285" width="30" height="25" rx="3" fill="#74b9ff" opacity="0.5"/>
+  <text x="570" y="302" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">V</text>
+  
+  <rect x="495" y="325" width="90" height="50" rx="5" fill="#21262d" stroke="#74b9ff" stroke-width="1"/>
+  <text x="540" y="345" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Scaled</text>
+  <text x="540" y="360" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Dot-Product</text>
+  
+  <!-- Head 4 -->
+  <rect x="630" y="190" width="140" height="200" rx="10" fill="#161b22" stroke="url(#head4)" stroke-width="3" filter="url(#dropShadow)"/>
+  <text x="700" y="220" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Head 4</text>
+  <text x="700" y="250" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Coreference</text>
+  <text x="700" y="268" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">Resolution</text>
+  
+  <rect x="655" y="285" width="30" height="25" rx="3" fill="#55efc4"/>
+  <text x="670" y="302" text-anchor="middle" fill="#000" font-family="Arial, sans-serif" font-size="10">Q</text>
+  <rect x="685" y="285" width="30" height="25" rx="3" fill="#55efc4" opacity="0.7"/>
+  <text x="700" y="302" text-anchor="middle" fill="#000" font-family="Arial, sans-serif" font-size="10">K</text>
+  <rect x="715" y="285" width="30" height="25" rx="3" fill="#55efc4" opacity="0.5"/>
+  <text x="730" y="302" text-anchor="middle" fill="#000" font-family="Arial, sans-serif" font-size="10">V</text>
+  
+  <rect x="655" y="325" width="90" height="50" rx="5" fill="#21262d" stroke="#55efc4" stroke-width="1"/>
+  <text x="700" y="345" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Scaled</text>
+  <text x="700" y="360" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">Dot-Product</text>
+  
+  <!-- Ellipsis between heads -->
+  <text x="440" y="290" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="20">...</text>
+  
+  <!-- Arrows down from heads -->
+  <line x1="200" y1="390" x2="200" y2="430" stroke="#ff6b6b" stroke-width="2"/>
+  <line x1="360" y1="390" x2="360" y2="430" stroke="#a29bfe" stroke-width="2"/>
+  <line x1="540" y1="390" x2="540" y2="430" stroke="#74b9ff" stroke-width="2"/>
+  <line x1="700" y1="390" x2="700" y2="430" stroke="#55efc4" stroke-width="2"/>
+  
+  <!-- Concat Box -->
+  <rect x="150" y="440" width="600" height="50" rx="10" fill="url(#concatGrad)" filter="url(#dropShadow)"/>
+  <text x="450" y="470" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Concatenate</text>
+  
+  <!-- Arrow down -->
+  <line x1="450" y1="490" x2="450" y2="520" stroke="#fdcb6e" stroke-width="3"/>
+  <polygon points="450,530 443,515 457,515" fill="#fdcb6e"/>
+  
+  <!-- Final Linear -->
+  <rect x="350" y="535" width="200" height="45" rx="8" fill="#21262d" stroke="#e17055" stroke-width="2" filter="url(#dropShadow)"/>
+  <text x="450" y="563" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Linear (W_O)</text>
+  
+  <!-- Formula -->
+  <text x="450" y="598" text-anchor="middle" fill="#8b949e" font-family="Georgia, serif" font-size="12">MultiHead(Q,K,V) = Concat(head₁, ..., headₕ)W_O  where headᵢ = Attention(QWᵢQ, KWᵢK, VWᵢV)</text>
+</svg>
+

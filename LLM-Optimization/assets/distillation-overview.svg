@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380">
+  <defs>
+    <linearGradient id="dGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b4d8"/>
+      <stop offset="100%" style="stop-color:#0077b6"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="850" height="380" fill="#0d1117"/>
+  
+  <text x="425" y="35" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">Knowledge Distillation</text>
+  <text x="425" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="Arial">Transfer knowledge from large Teacher to small Student</text>
+  
+  <!-- Teacher -->
+  <rect x="50" y="85" width="200" height="120" rx="15" fill="url(#dGrad)" stroke="#00b4d8" stroke-width="2"/>
+  <text x="150" y="120" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial">🎓 Teacher</text>
+  <text x="150" y="145" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">Large Model (70B)</text>
+  <text x="150" y="170" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Soft Predictions</text>
+  <text x="150" y="190" text-anchor="middle" fill="#7ee787" font-size="10" font-family="Arial">σ_T(z) = exp(z/T)/Σexp(z/T)</text>
+  
+  <!-- Arrow -->
+  <path d="M250 145 L340 145" stroke="#ffa657" stroke-width="3" fill="none"/>
+  <text x="295" y="135" text-anchor="middle" fill="#ffa657" font-size="12" font-weight="bold" font-family="Arial">KL Div</text>
+  
+  <!-- Loss Box -->
+  <rect x="340" y="100" width="170" height="90" rx="10" fill="#161b22" stroke="#ffa657" stroke-width="2"/>
+  <text x="425" y="130" text-anchor="middle" fill="#ffa657" font-size="14" font-weight="bold" font-family="Arial">Distillation Loss</text>
+  <text x="425" y="155" text-anchor="middle" fill="#c9d1d9" font-size="10" font-family="monospace">L = T² × KL(σ_T(z_T) ‖ σ_T(z_S))</text>
+  <text x="425" y="180" text-anchor="middle" fill="#8b949e" font-size="9" font-family="Arial">T² preserves gradients</text>
+  
+  <!-- Arrow -->
+  <path d="M510 145 L600 145" stroke="#7ee787" stroke-width="3" fill="none"/>
+  <text x="555" y="135" text-anchor="middle" fill="#7ee787" font-size="12" font-weight="bold" font-family="Arial">Train</text>
+  
+  <!-- Student -->
+  <rect x="600" y="85" width="200" height="120" rx="15" fill="#161b22" stroke="#7ee787" stroke-width="3"/>
+  <text x="700" y="120" text-anchor="middle" fill="#7ee787" font-size="18" font-weight="bold" font-family="Arial">📚 Student</text>
+  <text x="700" y="145" text-anchor="middle" fill="#c9d1d9" font-size="12" font-family="Arial">Small Model (7B)</text>
+  <text x="700" y="170" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="Arial">Learns Dark Knowledge</text>
+  <text x="700" y="190" text-anchor="middle" fill="#ffa657" font-size="10" font-family="Arial">10× smaller, 95% quality</text>
+  
+  <!-- Math Box -->
+  <rect x="50" y="225" width="750" height="135" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="425" y="255" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="Arial">📐 Mathematical Framework</text>
+  
+  <text x="80" y="290" fill="#00b4d8" font-size="12" font-weight="bold" font-family="Arial">Combined Loss:</text>
+  <text x="200" y="290" fill="#c9d1d9" font-size="11" font-family="monospace">L = α×T²×KL(soft) + (1-α)×CE(hard)</text>
+  
+  <text x="530" y="290" fill="#7ee787" font-size="12" font-weight="bold" font-family="Arial">Temperature:</text>
+  <text x="640" y="290" fill="#c9d1d9" font-size="11" font-family="monospace">T ∈ [2, 20]</text>
+  
+  <text x="80" y="320" fill="#f778ba" font-size="12" font-weight="bold" font-family="Arial">Dark Knowledge:</text>
+  <text x="210" y="320" fill="#c9d1d9" font-size="11" font-family="Arial">Class relationships + uncertainty</text>
+  
+  <text x="450" y="320" fill="#ffa657" font-size="12" font-weight="bold" font-family="Arial">Generalization:</text>
+  <text x="590" y="320" fill="#c9d1d9" font-size="11" font-family="monospace">ε_S ≤ ε_T + √d_KL</text>
+  
+  <text x="80" y="350" fill="#8b949e" font-size="11" font-family="Arial">💡 Hint: Higher T reveals more class relationships • Feature distillation: ‖h_S - Wh_T‖²</text>
+</svg>
+

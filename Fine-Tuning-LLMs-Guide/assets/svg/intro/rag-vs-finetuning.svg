@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="ragGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00c6ff"/>
+      <stop offset="100%" style="stop-color:#0072ff"/>
+    </linearGradient>
+    <linearGradient id="ftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f857a6"/>
+      <stop offset="100%" style="stop-color:#ff5858"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="450" fill="#0d1117"/>
+  
+  <text x="450" y="40" text-anchor="middle" fill="#c9d1d9" font-size="26" font-weight="bold" font-family="Arial">RAG vs Fine-Tuning: When to Use Which?</text>
+  
+  <!-- RAG Section -->
+  <rect x="30" y="70" width="400" height="350" rx="15" fill="#161b22" stroke="url(#ragGrad2)" stroke-width="2"/>
+  <text x="230" y="105" text-anchor="middle" fill="url(#ragGrad2)" font-size="22" font-weight="bold" font-family="Arial">🔍 RAG</text>
+  <text x="230" y="130" text-anchor="middle" fill="#8b949e" font-size="12" font-family="Arial">Retrieval Augmented Generation</text>
+  
+  <!-- RAG Pros -->
+  <text x="50" y="160" fill="#3fb950" font-size="14" font-weight="bold" font-family="Arial">✅ Advantages</text>
+  <text x="60" y="185" fill="#c9d1d9" font-size="12" font-family="Arial">• No model training needed</text>
+  <text x="60" y="205" fill="#c9d1d9" font-size="12" font-family="Arial">• Real-time data updates</text>
+  <text x="60" y="225" fill="#c9d1d9" font-size="12" font-family="Arial">• Source attribution</text>
+  <text x="60" y="245" fill="#c9d1d9" font-size="12" font-family="Arial">• Lower hallucination risk</text>
+  <text x="60" y="265" fill="#c9d1d9" font-size="12" font-family="Arial">• Fast to implement</text>
+  
+  <!-- RAG Best For -->
+  <text x="50" y="300" fill="#58a6ff" font-size="14" font-weight="bold" font-family="Arial">🎯 Best For</text>
+  <text x="60" y="325" fill="#c9d1d9" font-size="12" font-family="Arial">• Knowledge-intensive QA</text>
+  <text x="60" y="345" fill="#c9d1d9" font-size="12" font-family="Arial">• Frequently changing data</text>
+  <text x="60" y="365" fill="#c9d1d9" font-size="12" font-family="Arial">• Need source citations</text>
+  <text x="60" y="385" fill="#c9d1d9" font-size="12" font-family="Arial">• Limited compute budget</text>
+  <text x="60" y="405" fill="#c9d1d9" font-size="12" font-family="Arial">• Enterprise search</text>
+
+  <!-- VS Circle -->
+  <circle cx="450" cy="245" r="35" fill="#21262d" stroke="#30363d" stroke-width="2"/>
+  <text x="450" y="252" text-anchor="middle" fill="#ffa657" font-size="18" font-weight="bold" font-family="Arial">VS</text>
+  
+  <!-- Fine-Tuning Section -->
+  <rect x="470" y="70" width="400" height="350" rx="15" fill="#161b22" stroke="url(#ftGrad)" stroke-width="2"/>
+  <text x="670" y="105" text-anchor="middle" fill="url(#ftGrad)" font-size="22" font-weight="bold" font-family="Arial">🎯 Fine-Tuning</text>
+  <text x="670" y="130" text-anchor="middle" fill="#8b949e" font-size="12" font-family="Arial">Adapt Model Weights</text>
+  
+  <!-- FT Pros -->
+  <text x="490" y="160" fill="#3fb950" font-size="14" font-weight="bold" font-family="Arial">✅ Advantages</text>
+  <text x="500" y="185" fill="#c9d1d9" font-size="12" font-family="Arial">• Custom behavior/style</text>
+  <text x="500" y="205" fill="#c9d1d9" font-size="12" font-family="Arial">• No retrieval latency</text>
+  <text x="500" y="225" fill="#c9d1d9" font-size="12" font-family="Arial">• Domain expertise</text>
+  <text x="500" y="245" fill="#c9d1d9" font-size="12" font-family="Arial">• Format consistency</text>
+  <text x="500" y="265" fill="#c9d1d9" font-size="12" font-family="Arial">• Compact deployment</text>
+  
+  <!-- FT Best For -->
+  <text x="490" y="300" fill="#58a6ff" font-size="14" font-weight="bold" font-family="Arial">🎯 Best For</text>
+  <text x="500" y="325" fill="#c9d1d9" font-size="12" font-family="Arial">• Custom output format</text>
+  <text x="500" y="345" fill="#c9d1d9" font-size="12" font-family="Arial">• Specific writing style</text>
+  <text x="500" y="365" fill="#c9d1d9" font-size="12" font-family="Arial">• Domain terminology</text>
+  <text x="500" y="385" fill="#c9d1d9" font-size="12" font-family="Arial">• Specialized reasoning</text>
+  <text x="500" y="405" fill="#c9d1d9" font-size="12" font-family="Arial">• Privacy/offline use</text>
+</svg>
+

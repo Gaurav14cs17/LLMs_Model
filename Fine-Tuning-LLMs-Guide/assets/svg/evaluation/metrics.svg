@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 350">
+  <!-- Background -->
+  <rect width="750" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Evaluation Metrics for LLMs</text>
+  
+  <!-- Perplexity -->
+  <g transform="translate(30, 60)">
+    <rect width="160" height="130" fill="white" stroke="#06b6d4" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#06b6d4" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#06b6d4"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Perplexity ↓</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📉</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Lower = Better</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Measures uncertainty</text>
+  </g>
+  
+  <!-- BLEU -->
+  <g transform="translate(210, 60)">
+    <rect width="160" height="130" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#3b82f6" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#3b82f6"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">BLEU Score ↑</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🎯</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">0-100, Higher = Better</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Translation quality</text>
+  </g>
+  
+  <!-- ROUGE -->
+  <g transform="translate(390, 60)">
+    <rect width="160" height="130" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="160" height="35" fill="#8b5cf6" rx="10"/>
+    <rect y="28" width="160" height="7" fill="#8b5cf6"/>
+    <text x="80" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">ROUGE Score ↑</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📊</text>
+    <text x="80" y="95" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">0-1, Higher = Better</text>
+    <text x="80" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Summarization</text>
+  </g>
+  
+  <!-- F1/Accuracy -->
+  <g transform="translate(570, 60)">
+    <rect width="150" height="130" fill="white" stroke="#10b981" stroke-width="2" rx="10"/>
+    <rect width="150" height="35" fill="#10b981" rx="10"/>
+    <rect y="28" width="150" height="7" fill="#10b981"/>
+    <text x="75" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Accuracy ↑</text>
+    <text x="75" y="65" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">✅</text>
+    <text x="75" y="95" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">0-100%</text>
+    <text x="75" y="115" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Classification</text>
+  </g>
+  
+  <!-- Benchmarks -->
+  <rect x="30" y="210" width="690" height="120" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  <text x="375" y="240" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Popular Benchmarks</text>
+  
+  <rect x="60" y="260" width="90" height="50" fill="#dbeafe" rx="8"/>
+  <text x="105" y="290" font-family="Arial, sans-serif" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold">MMLU</text>
+  
+  <rect x="170" y="260" width="90" height="50" fill="#dcfce7" rx="8"/>
+  <text x="215" y="290" font-family="Arial, sans-serif" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">HellaSwag</text>
+  
+  <rect x="280" y="260" width="90" height="50" fill="#fef3c7" rx="8"/>
+  <text x="325" y="290" font-family="Arial, sans-serif" font-size="12" fill="#d97706" text-anchor="middle" font-weight="bold">ARC</text>
+  
+  <rect x="390" y="260" width="100" height="50" fill="#ede9fe" rx="8"/>
+  <text x="440" y="290" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold">TruthfulQA</text>
+  
+  <rect x="510" y="260" width="90" height="50" fill="#ffe4e6" rx="8"/>
+  <text x="555" y="290" font-family="Arial, sans-serif" font-size="12" fill="#e11d48" text-anchor="middle" font-weight="bold">GSM8K</text>
+  
+  <rect x="620" y="260" width="90" height="50" fill="#ecfeff" rx="8"/>
+  <text x="665" y="290" font-family="Arial, sans-serif" font-size="12" fill="#0891b2" text-anchor="middle" font-weight="bold">HumanEval</text>
+</svg>
+

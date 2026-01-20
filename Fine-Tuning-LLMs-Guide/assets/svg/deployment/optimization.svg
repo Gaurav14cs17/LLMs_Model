@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 280">
+  <!-- Background -->
+  <rect width="750" height="280" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b" text-anchor="middle">Model Optimization for Deployment</text>
+  
+  <!-- Quantization -->
+  <g transform="translate(30, 55)">
+    <rect width="160" height="200" fill="white" stroke="#3b82f6" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#3b82f6" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#3b82f6"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Quantization</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📉</text>
+    <rect x="20" y="100" width="120" height="25" fill="#dbeafe" rx="5"/>
+    <text x="80" y="117" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">INT8: 2x smaller</text>
+    <rect x="20" y="135" width="120" height="25" fill="#dbeafe" rx="5"/>
+    <text x="80" y="152" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">INT4: 4x smaller</text>
+    <rect x="20" y="170" width="120" height="25" fill="#dbeafe" rx="5"/>
+    <text x="80" y="187" font-family="Arial, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">GPTQ, AWQ</text>
+  </g>
+  
+  <!-- Batching -->
+  <g transform="translate(210, 55)">
+    <rect width="160" height="200" fill="white" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#22c55e" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#22c55e"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Batching</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">📦</text>
+    <rect x="20" y="100" width="120" height="25" fill="#dcfce7" rx="5"/>
+    <text x="80" y="117" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Continuous batching</text>
+    <rect x="20" y="135" width="120" height="25" fill="#dcfce7" rx="5"/>
+    <text x="80" y="152" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Dynamic batching</text>
+    <rect x="20" y="170" width="120" height="25" fill="#dcfce7" rx="5"/>
+    <text x="80" y="187" font-family="Arial, sans-serif" font-size="10" fill="#16a34a" text-anchor="middle">Higher throughput</text>
+  </g>
+  
+  <!-- KV Cache -->
+  <g transform="translate(390, 55)">
+    <rect width="160" height="200" fill="white" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+    <rect width="160" height="40" fill="#8b5cf6" rx="10"/>
+    <rect y="33" width="160" height="7" fill="#8b5cf6"/>
+    <text x="80" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">KV Cache</text>
+    <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">💾</text>
+    <rect x="20" y="100" width="120" height="25" fill="#ede9fe" rx="5"/>
+    <text x="80" y="117" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">PagedAttention</text>
+    <rect x="20" y="135" width="120" height="25" fill="#ede9fe" rx="5"/>
+    <text x="80" y="152" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">Memory efficient</text>
+    <rect x="20" y="170" width="120" height="25" fill="#ede9fe" rx="5"/>
+    <text x="80" y="187" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed" text-anchor="middle">vLLM feature</text>
+  </g>
+  
+  <!-- Pruning -->
+  <g transform="translate(570, 55)">
+    <rect width="150" height="200" fill="white" stroke="#f59e0b" stroke-width="2" rx="10"/>
+    <rect width="150" height="40" fill="#f59e0b" rx="10"/>
+    <rect y="33" width="150" height="7" fill="#f59e0b"/>
+    <text x="75" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Pruning</text>
+    <text x="75" y="75" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">✂️</text>
+    <rect x="15" y="100" width="120" height="25" fill="#fef3c7" rx="5"/>
+    <text x="75" y="117" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">Remove neurons</text>
+    <rect x="15" y="135" width="120" height="25" fill="#fef3c7" rx="5"/>
+    <text x="75" y="152" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">Structured pruning</text>
+    <rect x="15" y="170" width="120" height="25" fill="#fef3c7" rx="5"/>
+    <text x="75" y="187" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">2-4x speedup</text>
+  </g>
+</svg>
+

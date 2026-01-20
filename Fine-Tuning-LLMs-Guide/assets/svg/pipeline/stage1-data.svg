@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+  <defs>
+    <linearGradient id="dataStageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="350" fill="#f8fafc" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="700" height="60" fill="url(#dataStageGrad)" rx="10"/>
+  <rect x="0" y="50" width="700" height="10" fill="url(#dataStageGrad)"/>
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Stage 1: Data Preparation</text>
+  
+  <!-- Steps -->
+  <g transform="translate(30, 80)">
+    <!-- Step 1: Collection -->
+    <rect width="145" height="120" fill="white" stroke="#fecaca" stroke-width="2" rx="10"/>
+    <rect width="145" height="35" fill="#fee2e2" rx="10"/>
+    <rect y="28" width="145" height="7" fill="#fee2e2"/>
+    <text x="72" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">📥 Collection</text>
+    <text x="72" y="60" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Web scraping</text>
+    <text x="72" y="78" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• APIs</text>
+    <text x="72" y="96" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Databases</text>
+    <text x="72" y="114" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Documents</text>
+  </g>
+  
+  <path d="M180 140 L200 140" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="198,135 210,140 198,145" fill="#dc2626"/>
+  
+  <g transform="translate(190, 80)">
+    <!-- Step 2: Preprocessing -->
+    <rect width="145" height="120" fill="white" stroke="#fecaca" stroke-width="2" rx="10"/>
+    <rect width="145" height="35" fill="#fee2e2" rx="10"/>
+    <rect y="28" width="145" height="7" fill="#fee2e2"/>
+    <text x="72" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">🔧 Preprocess</text>
+    <text x="72" y="60" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Clean text</text>
+    <text x="72" y="78" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Remove noise</text>
+    <text x="72" y="96" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Normalize</text>
+    <text x="72" y="114" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Tokenize</text>
+  </g>
+  
+  <path d="M340 140 L360 140" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="358,135 370,140 358,145" fill="#dc2626"/>
+  
+  <g transform="translate(350, 80)">
+    <!-- Step 3: Formatting -->
+    <rect width="145" height="120" fill="white" stroke="#fecaca" stroke-width="2" rx="10"/>
+    <rect width="145" height="35" fill="#fee2e2" rx="10"/>
+    <rect y="28" width="145" height="7" fill="#fee2e2"/>
+    <text x="72" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">📝 Formatting</text>
+    <text x="72" y="60" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Chat format</text>
+    <text x="72" y="78" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Instruction</text>
+    <text x="72" y="96" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• Q&amp;A pairs</text>
+    <text x="72" y="114" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">• JSON/JSONL</text>
+  </g>
+  
+  <path d="M500 140 L520 140" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="518,135 530,140 518,145" fill="#dc2626"/>
+  
+  <g transform="translate(510, 80)">
+    <!-- Step 4: Splitting -->
+    <rect width="145" height="120" fill="white" stroke="#fecaca" stroke-width="2" rx="10"/>
+    <rect width="145" height="35" fill="#fee2e2" rx="10"/>
+    <rect y="28" width="145" height="7" fill="#fee2e2"/>
+    <text x="72" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">✂️ Splitting</text>
+    <text x="72" y="65" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Train: 80%</text>
+    <text x="72" y="85" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Val: 10%</text>
+    <text x="72" y="105" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Test: 10%</text>
+  </g>
+  
+  <!-- Data Format Example -->
+  <rect x="30" y="220" width="640" height="110" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="350" y="245" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Example Data Format (Alpaca Style)</text>
+  
+  <rect x="50" y="260" width="600" height="55" fill="#fef2f2" rx="5"/>
+  <text x="70" y="280" font-family="Courier, monospace" font-size="10" fill="#991b1b">{"instruction": "Summarize the text",</text>
+  <text x="70" y="295" font-family="Courier, monospace" font-size="10" fill="#991b1b"> "input": "Long article about AI...",</text>
+  <text x="70" y="310" font-family="Courier, monospace" font-size="10" fill="#991b1b"> "output": "AI is transforming..."}</text>
+</svg>
+

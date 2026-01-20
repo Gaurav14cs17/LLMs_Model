@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="fullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sparseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="450" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="20" font-weight="bold">Sparse Attention: The Problem and Solution</text>
+  
+  <!-- Full Attention Problem -->
+  <rect x="50" y="60" width="380" height="370" rx="12" fill="#161b22" stroke="#e17055" stroke-width="2"/>
+  <text x="240" y="90" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">❌ Full Attention</text>
+  <text x="240" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">O(n²) complexity</text>
+  
+  <!-- Full attention matrix visualization -->
+  <rect x="100" y="130" width="250" height="150" rx="8" fill="url(#fullGrad)" opacity="0.4"/>
+  <text x="225" y="210" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">n × n matrix</text>
+  <text x="225" y="235" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="11">Every position attends to ALL</text>
+  
+  <!-- Problem stats -->
+  <rect x="80" y="300" width="320" height="120" rx="8" fill="#21262d"/>
+  <text x="240" y="325" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Problem: Memory explodes!</text>
+  <text x="100" y="350" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• n=512:    262K entries (512 KB)</text>
+  <text x="100" y="370" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• n=8,192:  67M entries (128 MB)</text>
+  <text x="100" y="390" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• n=32,768: 1B entries (2 GB) 🔥</text>
+  <text x="100" y="410" fill="#e17055" font-family="Arial, sans-serif" font-size="10">Long sequences become impossible!</text>
+  
+  <!-- Sparse Attention Solution -->
+  <rect x="470" y="60" width="380" height="370" rx="12" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="660" y="90" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ Sparse Attention</text>
+  <text x="660" y="110" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="11">O(n × k) complexity, k « n</text>
+  
+  <!-- Sparse attention matrix visualization -->
+  <rect x="520" y="130" width="250" height="150" rx="8" fill="#21262d"/>
+  <!-- Sparse pattern -->
+  <rect x="530" y="140" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="560" y="140" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="650" y="140" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  
+  <rect x="530" y="165" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="560" y="165" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="590" y="165" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="710" y="165" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  
+  <rect x="560" y="190" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="590" y="190" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="620" y="190" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="530" y="190" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  
+  <rect x="590" y="215" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="620" y="215" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="650" y="215" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="530" y="215" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  
+  <rect x="620" y="240" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="650" y="240" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="680" y="240" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  <rect x="710" y="240" width="30" height="20" fill="url(#sparseGrad)" opacity="0.8"/>
+  
+  <text x="645" y="270" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">Only attend to SELECTED positions</text>
+  
+  <!-- Solution benefits -->
+  <rect x="500" y="300" width="320" height="120" rx="8" fill="#21262d"/>
+  <text x="660" y="325" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Solution: Attend to subset!</text>
+  <text x="520" y="350" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Local window (nearby tokens)</text>
+  <text x="520" y="370" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Global tokens (special positions)</text>
+  <text x="520" y="390" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">• Random sampling</text>
+  <text x="520" y="410" fill="#55efc4" font-family="Arial, sans-serif" font-size="10">Enables 100K+ token contexts!</text>
+</svg>
+

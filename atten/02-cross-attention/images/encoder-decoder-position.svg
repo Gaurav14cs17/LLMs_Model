@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="encBlock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="decBlock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="crossBlock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e17055;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ffnBlock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b894;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="18" font-weight="bold">Where Cross-Attention Fits: English → Hindi</text>
+  
+  <!-- Encoder Stack (English) -->
+  <rect x="50" y="70" width="250" height="380" rx="12" fill="#161b22" stroke="#4facfe" stroke-width="2"/>
+  <text x="175" y="100" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ENCODER (English)</text>
+  
+  <!-- Encoder input -->
+  <rect x="80" y="120" width="190" height="40" rx="6" fill="#21262d"/>
+  <text x="175" y="138" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">"I am student"</text>
+  <text x="175" y="152" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">+ Positional Encoding</text>
+  
+  <!-- Encoder block -->
+  <rect x="70" y="175" width="210" height="140" rx="8" fill="#21262d" stroke="#4facfe" stroke-width="1"/>
+  <text x="175" y="198" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Encoder Block × N</text>
+  
+  <rect x="90" y="212" width="170" height="35" rx="4" fill="url(#encBlock)" opacity="0.7"/>
+  <text x="175" y="235" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Self-Attention</text>
+  
+  <rect x="90" y="257" width="170" height="35" rx="4" fill="url(#ffnBlock)" opacity="0.7"/>
+  <text x="175" y="280" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">Feed-Forward</text>
+  
+  <!-- Encoder output -->
+  <rect x="80" y="335" width="190" height="50" rx="6" fill="#4facfe" opacity="0.3"/>
+  <text x="175" y="355" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Encoder Output</text>
+  <text x="175" y="372" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="9">H_enc → provides K, V</text>
+  
+  <!-- Arrow from encoder to cross-attention -->
+  <path d="M 280 360 L 440 290" stroke="#4facfe" stroke-width="3" fill="none"/>
+  <polygon points="450,285 440,280 440,295" fill="#4facfe"/>
+  <text x="350" y="310" fill="#4facfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">K, V</text>
+  
+  <!-- Decoder Stack (Hindi) -->
+  <rect x="400" y="70" width="250" height="380" rx="12" fill="#161b22" stroke="#f093fb" stroke-width="2"/>
+  <text x="525" y="100" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="14" font-weight="bold">DECODER (Hindi)</text>
+  
+  <!-- Decoder input -->
+  <rect x="430" y="120" width="190" height="40" rx="6" fill="#21262d"/>
+  <text x="525" y="138" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="10">"मैं छात्र ???"</text>
+  <text x="525" y="152" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">+ Positional Encoding</text>
+  
+  <!-- Decoder block -->
+  <rect x="420" y="175" width="210" height="200" rx="8" fill="#21262d" stroke="#f093fb" stroke-width="1"/>
+  <text x="525" y="198" text-anchor="middle" fill="#f093fb" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Decoder Block × N</text>
+  
+  <!-- 1. Masked Self-Attention -->
+  <rect x="440" y="212" width="170" height="35" rx="4" fill="url(#decBlock)" opacity="0.7"/>
+  <text x="525" y="230" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9">1. Masked Self-Attention</text>
+  <text x="525" y="243" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="7">(Hindi → Hindi)</text>
+  
+  <!-- 2. Cross-Attention (HIGHLIGHTED) -->
+  <rect x="437" y="255" width="176" height="50" rx="4" fill="url(#crossBlock)" stroke="#fdcb6e" stroke-width="3"/>
+  <text x="525" y="275" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">2. CROSS-ATTENTION</text>
+  <text x="525" y="295" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="8">Q (Hindi) meets K,V (English)</text>
+  
+  <!-- 3. Feed-Forward -->
+  <rect x="440" y="315" width="170" height="35" rx="4" fill="url(#ffnBlock)" opacity="0.7"/>
+  <text x="525" y="338" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10">3. Feed-Forward</text>
+  
+  <!-- Decoder output -->
+  <rect x="430" y="390" width="190" height="45" rx="6" fill="#21262d"/>
+  <text x="525" y="410" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="10">Output Probabilities</text>
+  <text x="525" y="425" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">→ Next Hindi token</text>
+  
+  <!-- Output (Hindi) -->
+  <rect x="700" y="150" width="170" height="180" rx="10" fill="#161b22" stroke="#55efc4" stroke-width="2"/>
+  <text x="785" y="180" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">OUTPUT (Hindi)</text>
+  
+  <text x="785" y="210" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">मैं</text>
+  <text x="785" y="228" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">(I)</text>
+  <text x="785" y="255" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">छात्र</text>
+  <text x="785" y="273" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">(student)</text>
+  <text x="785" y="300" text-anchor="middle" fill="#c9d1d9" font-family="Arial, sans-serif" font-size="12">हूँ</text>
+  <text x="785" y="318" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="8">(am)</text>
+  
+  <!-- Arrow from decoder to output -->
+  <path d="M 650 400 L 700 280" stroke="#55efc4" stroke-width="2"/>
+  
+  <!-- Key insight -->
+  <rect x="150" y="460" width="600" height="30" rx="6" fill="#21262d" stroke="#fdcb6e" stroke-width="1"/>
+  <text x="450" y="480" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Cross-Attention is the ONLY bridge between English encoder and Hindi decoder!</text>
+</svg>

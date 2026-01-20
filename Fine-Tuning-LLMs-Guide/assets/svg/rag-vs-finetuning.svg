@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="ragGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hybridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8fafc" rx="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">RAG vs Fine-Tuning: When to Use?</text>
+  
+  <!-- RAG Section -->
+  <rect x="30" y="60" width="240" height="420" fill="white" stroke="#fde68a" stroke-width="2" rx="12"/>
+  <rect x="30" y="60" width="240" height="55" fill="url(#ragGrad)" rx="12"/>
+  <rect x="30" y="100" width="240" height="15" fill="url(#ragGrad)"/>
+  <text x="150" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">RAG</text>
+  
+  <!-- RAG Diagram -->
+  <g transform="translate(50, 130)">
+    <rect x="0" y="0" width="60" height="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="30" y="22" font-family="Arial, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">Query</text>
+    
+    <path d="M65 17 L85 17" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="83,12 93,17 83,22" fill="#f59e0b"/>
+    
+    <rect x="95" y="0" width="60" height="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+    <text x="125" y="16" font-family="Arial, sans-serif" font-size="8" fill="#d97706" text-anchor="middle">Vector</text>
+    <text x="125" y="28" font-family="Arial, sans-serif" font-size="8" fill="#d97706" text-anchor="middle">DB</text>
+    
+    <path d="M125 40 L125 55" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="120,53 125,63 130,53" fill="#f59e0b"/>
+    
+    <rect x="60" y="65" width="80" height="35" fill="#f59e0b" rx="5"/>
+    <text x="100" y="87" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">LLM + Context</text>
+  </g>
+  
+  <!-- RAG Best For -->
+  <text x="150" y="260" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Best For:</text>
+  
+  <rect x="50" y="275" width="180" height="28" fill="#fef3c7" rx="6"/>
+  <text x="60" y="294" font-family="Arial, sans-serif" font-size="11" fill="#d97706">✓ Dynamic knowledge</text>
+  
+  <rect x="50" y="310" width="180" height="28" fill="#fef3c7" rx="6"/>
+  <text x="60" y="329" font-family="Arial, sans-serif" font-size="11" fill="#d97706">✓ Frequent updates</text>
+  
+  <rect x="50" y="345" width="180" height="28" fill="#fef3c7" rx="6"/>
+  <text x="60" y="364" font-family="Arial, sans-serif" font-size="11" fill="#d97706">✓ Large doc corpus</text>
+  
+  <rect x="50" y="380" width="180" height="28" fill="#fef3c7" rx="6"/>
+  <text x="60" y="399" font-family="Arial, sans-serif" font-size="11" fill="#d97706">✓ Explainability needed</text>
+  
+  <rect x="50" y="415" width="180" height="28" fill="#fef3c7" rx="6"/>
+  <text x="60" y="434" font-family="Arial, sans-serif" font-size="11" fill="#d97706">✓ Low compute budget</text>
+  
+  <!-- Fine-Tuning Section -->
+  <rect x="280" y="60" width="240" height="420" fill="white" stroke="#c4b5fd" stroke-width="2" rx="12"/>
+  <rect x="280" y="60" width="240" height="55" fill="url(#ftGrad)" rx="12"/>
+  <rect x="280" y="100" width="240" height="15" fill="url(#ftGrad)"/>
+  <text x="400" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Fine-Tuning</text>
+  
+  <!-- Fine-Tuning Diagram -->
+  <g transform="translate(300, 130)">
+    <rect x="0" y="0" width="60" height="35" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+    <text x="30" y="16" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">Base</text>
+    <text x="30" y="28" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">Model</text>
+    
+    <text x="80" y="22" font-family="Arial, sans-serif" font-size="16" fill="#64748b">+</text>
+    
+    <rect x="100" y="0" width="60" height="35" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+    <text x="130" y="16" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">Task</text>
+    <text x="130" y="28" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" text-anchor="middle">Data</text>
+    
+    <path d="M100 40 L100 55" stroke="#8b5cf6" stroke-width="2"/>
+    <polygon points="95,53 100,63 105,53" fill="#8b5cf6"/>
+    
+    <rect x="40" y="65" width="100" height="35" fill="#8b5cf6" rx="5"/>
+    <text x="90" y="87" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Specialized LLM</text>
+  </g>
+  
+  <!-- Fine-Tuning Best For -->
+  <text x="400" y="260" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Best For:</text>
+  
+  <rect x="300" y="275" width="180" height="28" fill="#ede9fe" rx="6"/>
+  <text x="310" y="294" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">✓ Domain expertise</text>
+  
+  <rect x="300" y="310" width="180" height="28" fill="#ede9fe" rx="6"/>
+  <text x="310" y="329" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">✓ Custom behavior</text>
+  
+  <rect x="300" y="345" width="180" height="28" fill="#ede9fe" rx="6"/>
+  <text x="310" y="364" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">✓ Specific format</text>
+  
+  <rect x="300" y="380" width="180" height="28" fill="#ede9fe" rx="6"/>
+  <text x="310" y="399" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">✓ Latency critical</text>
+  
+  <rect x="300" y="415" width="180" height="28" fill="#ede9fe" rx="6"/>
+  <text x="310" y="434" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">✓ Stable knowledge</text>
+  
+  <!-- Hybrid Section -->
+  <rect x="530" y="60" width="240" height="420" fill="white" stroke="#a7f3d0" stroke-width="2" rx="12"/>
+  <rect x="530" y="60" width="240" height="55" fill="url(#hybridGrad)" rx="12"/>
+  <rect x="530" y="100" width="240" height="15" fill="url(#hybridGrad)"/>
+  <text x="650" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">RAG + Fine-Tuning</text>
+  
+  <!-- Hybrid Diagram -->
+  <g transform="translate(555, 130)">
+    <rect x="20" y="0" width="50" height="30" fill="#dcfce7" stroke="#10b981" stroke-width="2" rx="5"/>
+    <text x="45" y="20" font-family="Arial, sans-serif" font-size="8" fill="#059669" text-anchor="middle">FT Model</text>
+    
+    <rect x="100" y="0" width="50" height="30" fill="#dcfce7" stroke="#10b981" stroke-width="2" rx="5"/>
+    <text x="125" y="20" font-family="Arial, sans-serif" font-size="8" fill="#059669" text-anchor="middle">RAG</text>
+    
+    <path d="M45 35 L85 50" stroke="#10b981" stroke-width="2"/>
+    <path d="M125 35 L85 50" stroke="#10b981" stroke-width="2"/>
+    
+    <rect x="45" y="55" width="80" height="35" fill="#10b981" rx="5"/>
+    <text x="85" y="77" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Best of Both</text>
+  </g>
+  
+  <!-- Hybrid Best For -->
+  <text x="650" y="260" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Best For:</text>
+  
+  <rect x="550" y="275" width="180" height="28" fill="#dcfce7" rx="6"/>
+  <text x="560" y="294" font-family="Arial, sans-serif" font-size="11" fill="#059669">✓ Complex domains</text>
+  
+  <rect x="550" y="310" width="180" height="28" fill="#dcfce7" rx="6"/>
+  <text x="560" y="329" font-family="Arial, sans-serif" font-size="11" fill="#059669">✓ Production systems</text>
+  
+  <rect x="550" y="345" width="180" height="28" fill="#dcfce7" rx="6"/>
+  <text x="560" y="364" font-family="Arial, sans-serif" font-size="11" fill="#059669">✓ Enterprise apps</text>
+  
+  <rect x="550" y="380" width="180" height="28" fill="#dcfce7" rx="6"/>
+  <text x="560" y="399" font-family="Arial, sans-serif" font-size="11" fill="#059669">✓ Accuracy + Updates</text>
+  
+  <rect x="550" y="415" width="180" height="28" fill="#dcfce7" rx="6"/>
+  <text x="560" y="434" font-family="Arial, sans-serif" font-size="11" fill="#059669">✓ Maximum quality</text>
+</svg>
+
