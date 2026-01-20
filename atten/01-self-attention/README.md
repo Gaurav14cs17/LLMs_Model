@@ -219,9 +219,13 @@ When softmax receives large values:
 | [10, 20, 30] | [0.00, 0.00, 1.00] | ❌ Near-zero gradients |
 
 **What goes wrong:**
+
 1. Softmax becomes **one-hot** (winner-takes-all)
+
 2. Gradient of softmax ≈ 0 for all positions
+
 3. Model **can't learn** — gradients don't flow back
+
 4. Training becomes **unstable** or fails completely
 
 ### The Solution: Scale by √d_k

@@ -226,9 +226,13 @@ Concatenate q and k, pass through MLP.
 ### Modern Best Practice
 
 Almost all modern models use **Scaled Dot-Product** because:
+
 1. Efficient (matrix multiplication)
+
 2. Hardware-optimized
+
 3. Numerically stable
+
 4. Well-understood
 
 The learnable compatibility is handled by the **Q, K projection matrices** (W_Q, W_K), not the score function itself.

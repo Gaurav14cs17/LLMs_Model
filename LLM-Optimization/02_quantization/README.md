@@ -145,7 +145,9 @@ The optimal quantization levels are not uniformly spaced. For $\mathcal{N}(0, 1)
 **NF4 Construction:**
 
 1. Assume weights $W \sim \mathcal{N}(0, \sigma^2)$
+
 2. Normalize: $\tilde{W} = W/\sigma$
+
 3. Find 16 quantization levels that minimize MSE for $\mathcal{N}(0, 1)$
 
 **Optimal NF4 Levels (for $\mathcal{N}(0,1)$):**
@@ -185,9 +187,13 @@ NF4 MSE (Lloyd-Max optimal):
 ### 1. Min-Max Quantization
 
 **Algorithm:**
+
 1. Collect activation statistics over calibration data
+
 2. Compute range: $[x\_{min}, x\_{max}]$
+
 3. Compute scale and zero-point
+
 4. Quantize weights/activations
 
 **Error Analysis:**
@@ -405,7 +411,9 @@ For $n$ weights with group size $g$:
 ### Mathematical Justification
 
 **Theorem 6 (Bengio et al., 2013):** STE provides an unbiased gradient estimate when:
+
 1. Quantization error is small relative to weight updates
+
 2. Loss surface is relatively smooth
 
 ### QAT Loss Function

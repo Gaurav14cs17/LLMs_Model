@@ -46,6 +46,7 @@ Subject to:
 \lim_{T \to 0} \sigma_T(z) = e_{\arg\max_i z_i}
 
 ```math
+
 2. **$T \to \infty$:** Approaches uniform
 
 ```
@@ -175,8 +176,11 @@ The teacher's soft predictions carry additional mutual information about input $
 **Proof sketch:**
 
 $p\_T$ encodes:
+
 1. Which classes are similar (high probability on related classes)
+
 2. Confidence levels (uncertainty about prediction)
+
 3. Input-dependent information
 
 This information is lost in hard labels.
@@ -358,8 +362,11 @@ k = \log_r(|T|/|S|)
 ### Born-Again Networks
 
 **Process:**
+
 1. Train model $M\_1$ on data
+
 2. Train $M\_2$ (same architecture) with $M\_1$ as teacher
+
 3. Repeat
 
 **Theorem 8:** Self-distillation can improve generalization:

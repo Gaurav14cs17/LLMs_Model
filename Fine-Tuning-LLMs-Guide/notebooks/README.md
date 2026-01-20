@@ -34,7 +34,9 @@
 
 1. **Use GPU Runtime**: `Runtime` → `Change runtime type` → `GPU`
 2. **Free Tier**: T4 GPU (16GB) - sufficient for QLoRA
+
 3. **Colab Pro**: A100 (40GB) - better for larger models
+
 4. **Save checkpoints**: Mount Google Drive to persist models
 
 ---

@@ -9,14 +9,23 @@ This chapter covers the often-overlooked but crucial concepts in attention mecha
 ## Table of Contents
 
 1. [Why Divide by √d_k?](#why-divide-by-√dk)
+
 2. [What is d_k, d_v, d_model?](#what-is-dk-dv-dmodel)
+
 3. [Why Separate Q, K, V Matrices?](#why-separate-q-k-v-matrices)
+
 4. [Softmax Temperature](#softmax-temperature)
+
 5. [Attention Dropout](#attention-dropout)
+
 6. [Positional Encoding vs Attention](#positional-encoding-vs-attention)
+
 7. [Output Projection](#output-projection)
+
 8. [Attention vs Feed-Forward](#attention-vs-feed-forward)
+
 9. [Why N×N Matrix?](#why-n×n-matrix)
+
 10. [Computational Tricks](#computational-tricks)
 
 ---

@@ -32,8 +32,11 @@ Where:
 **Proof (sketch):**
 
 1. Consider $W^TW$ (symmetric positive semi-definite)
+
 2. Eigendecomposition: $W^TW = V\Lambda V^T$ with eigenvalues $\lambda\_i = \sigma\_i^2$
+
 3. Define $U\_i = Wv\_i / \sigma\_i$
+
 4. Verify $U^TU = I$ and $W = U\Sigma V^T$
 
 ---
@@ -233,8 +236,11 @@ The Tucker decomposition minimizes:
 **Solution via Higher-Order SVD (HOSVD):**
 
 1. Compute mode-$n$ unfolding $W\_{(n)}$
+
 2. Compute SVD: $W\_{(n)} = U^{(n)} \Sigma^{(n)} V^{(n)T}$
+
 3. Set $A^{(n)} = U^{(n)}\_{:,1:R\_n}$
+
 4. Compute core: $\mathcal{G} = \mathcal{W} \times\_1 A^{(1)T} \times\_2 A^{(2)T} \ldots$
 
 **Error bound:**
@@ -345,8 +351,11 @@ Where $\lambda\_i$ follows the Marchenko-Pastur distribution.
 ### After Training
 
 Training typically leads to:
+
 1. **Larger leading singular values** (task-relevant directions)
+
 2. **Smaller trailing singular values** (noise)
+
 3. **Increased effective rank** initially, then decrease
 
 **Implication:** Post-training factorization is often more effective than pre-training.

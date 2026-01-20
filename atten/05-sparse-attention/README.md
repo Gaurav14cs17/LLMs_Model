@@ -192,8 +192,11 @@ Divide sequence into blocks; attend within blocks and to selected other blocks.
 Longformer combines multiple patterns:
 
 **Components:**
+
 1. **Sliding Window**: Every token attends to w neighbors
+
 2. **Global Attention**: Selected tokens attend everywhere
+
 3. **Dilated Sliding Window**: Larger windows in higher layers
 
 **How It Works:**

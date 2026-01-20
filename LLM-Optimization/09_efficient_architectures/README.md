@@ -34,8 +34,11 @@ Where:
 ### Complexity Analysis
 
 **Compute:**
+
 1. $QK^T$: $O(N^2 d)$ operations
+
 2. Softmax: $O(N^2)$ operations
+
 3. $(\text{softmax}) \cdot V$: $O(N^2 d)$ operations
 
 **Total:** $O(N^2 d)$
@@ -130,17 +133,29 @@ Input: Q, K, V in HBM, block sizes Br, Bc
 Output: O in HBM
 
 1. Initialize O = 0, ℓ = 0, m = -∞ in HBM
+
 2. for i = 1 to Tr:
+
 3.     Load Qi from HBM to SRAM
+
 4.     Initialize Oi = 0, ℓi = 0, mi = -∞ in SRAM
+
 5.     for j = 1 to Tc:
+
 6.         Load Kj, Vj from HBM to SRAM
+
 7.         Sij = Qi Kj^T (in SRAM)
+
 8.         mij = max(mi, rowmax(Sij))
+
 9.         Pij = exp(Sij - mij)
+
 10.        ℓij = exp(mi - mij) × ℓi + rowsum(Pij)
+
 11.        Oi = (ℓi/ℓij) × exp(mi - mij) × Oi + Pij × Vj
+
 12.        mi = mij, ℓi = ℓij
+
 13.    Write Oi to HBM
 
 ```

@@ -289,7 +289,9 @@ N = O\left(\frac{n^2}{\epsilon^2}\right)
 **Proof sketch:**
 
 1. Consider each weight in $f\_T$ as a target
+
 2. By random initialization, each neuron in $f\_R$ has some probability of being close to target
+
 3. With $N$ neurons, the probability of finding all matches approaches 1
 4. Union bound over all $n$ targets gives the result
 

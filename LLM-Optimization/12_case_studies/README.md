@@ -81,9 +81,12 @@ Real-world examples of LLM compression and optimization, showing the techniques 
 - Budget: $1000/month
 
 **Solution:**
+
 1. Model: LLaMA-2-7B → AWQ INT4
 2. Server: 1x A10G (24GB)
+
 3. Runtime: vLLM with continuous batching
+
 4. Result: 200+ concurrent users supported
 
 ---

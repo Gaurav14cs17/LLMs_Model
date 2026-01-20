@@ -331,13 +331,17 @@ This symmetric similarity is appropriate for bidirectional relationships.
 A transformer with shared weights across $L$ layers can approximate any continuous function $f: \mathbb{R}^{d\_{in}} \to \mathbb{R}^{d\_{out}}$ to arbitrary precision, given:
 
 1. Sufficient hidden dimension $d$
+
 2. Sufficient depth $L$
+
 3. Skip connections
 
 **Proof sketch:**
 
 1. Each layer applies same nonlinear transformation
+
 2. Skip connections allow information bypass
+
 3. Composition of nonlinearities + skip = universal
 
 This is analogous to the universal approximation theorem for deep networks.

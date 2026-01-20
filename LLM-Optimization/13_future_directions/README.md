@@ -20,8 +20,11 @@ p(x_{1:T}) = \prod_{t=1}^{T} p(x_t | x_{1:t-1})
 Each token requires one forward pass of the large model.
 
 **Speculative decoding:**
+
 1. Draft model generates $k$ tokens: $\tilde{x}\_1, \ldots, \tilde{x}\_k$
+
 2. Target model verifies in parallel
+
 3. Accept valid prefix
 
 ### Theorem 1 (Speculative Decoding Correctness)
