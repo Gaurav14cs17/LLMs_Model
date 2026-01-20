@@ -42,6 +42,7 @@ In autoregressive language modeling, we predict the next token based only on pre
 
 ```math
 P(x_t | x_1, x_2, ..., x_{t-1})
+
 ```
 
 **The Problem:**
@@ -78,6 +79,7 @@ P(x_t | x_1, x_2, ..., x_{t-1})
 
 ```math
 \text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+
 ```
 
 All positions can attend to all other positions.
@@ -86,12 +88,14 @@ All positions can attend to all other positions.
 
 ```math
 \text{CausalAttention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right) V
+
 ```
 
 Where M is the **causal mask**:
 
 ```math
 M_{ij} = \begin{cases} 0 & \text{if } j \leq i \text{ (allowed)} \\ -\infty & \text{if } j > i \text{ (blocked)} \end{cases}
+
 ```
 
 ### Why -∞ Works

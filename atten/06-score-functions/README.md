@@ -34,6 +34,7 @@ The attention score function determines **how compatibility between queries and 
 
 ```math
 \text{score}(q, k) = v^T \tanh(W_1 q + W_2 k)
+
 ```
 
 **How It Works:**
@@ -66,6 +67,7 @@ The attention score function determines **how compatibility between queries and 
 
 ```math
 \text{score}(q, k) = q^T k
+
 ```
 
 Simply compute the inner product between q and k.
@@ -92,6 +94,7 @@ Simply compute the inner product between q and k.
 
 ```math
 \text{score}(q, k) = \frac{q^T k}{\sqrt{d_k}}
+
 ```
 
 **Properties:**
@@ -177,6 +180,7 @@ For a single query-key pair:
 
 ```math
 \text{score}(q, k) = q^T W k
+
 ```
 
 Introduces a learnable interaction matrix W.
@@ -185,6 +189,7 @@ Introduces a learnable interaction matrix W.
 
 ```math
 \text{score}(q, k) = \frac{q^T k}{\|q\| \|k\|}
+
 ```
 
 Normalized dot product (bounded [-1, 1]).
@@ -193,6 +198,7 @@ Normalized dot product (bounded [-1, 1]).
 
 ```math
 \text{score}(q, k) = \text{MLP}([q; k])
+
 ```
 
 Concatenate q and k, pass through MLP.

@@ -102,6 +102,7 @@ Each module includes detailed mathematical proofs and formulas:
 📐 Distillation: L = T² × KL(σ_T(z_T) ‖ σ_T(z_S))
 📐 LoRA: W = W₀ + BA, rank(BA) ≤ r
 📐 Flash Attention: O(Nd + N²d/M) IO complexity
+
 ```
 
 ---
@@ -120,6 +121,7 @@ pip install transformers datasets accelerate peft bitsandbytes trl
 
 # Install Optimization dependencies  
 pip install -r LLM-Optimization/requirements.txt
+
 ```
 
 ### Basic Usage
@@ -133,6 +135,7 @@ model = AutoModelForCausalLM.from_pretrained("microsoft/phi-2")
 lora_config = LoraConfig(r=16, lora_alpha=32)
 model = get_peft_model(model, lora_config)
 # Train only 0.1% of parameters!
+
 ```
 
 ```python
@@ -148,6 +151,7 @@ model = AutoModelForCausalLM.from_pretrained(
     quantization_config=bnb_config
 )
 # 4x smaller model!
+
 ```
 
 ---

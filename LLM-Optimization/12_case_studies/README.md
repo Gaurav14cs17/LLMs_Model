@@ -75,6 +75,7 @@ Real-world examples of LLM compression and optimization, showing the techniques 
 cd 12_case_studies
 python bert_compression.py
 python llama_compression.py
+
 ```
 
 ---

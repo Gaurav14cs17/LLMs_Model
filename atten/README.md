@@ -14,6 +14,7 @@
 
 ```
 Chapter 0 (Concepts) → 1 → 2 → 3 → 4 → 5 → 6 → 7
+
 ```
 
 Each chapter builds on the previous one. Don't skip!
@@ -70,6 +71,7 @@ Think of attention as a **soft database lookup**:
 
 ```math
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+
 ```
 
 ### Step-by-Step:
@@ -153,6 +155,7 @@ atten/
 +-- 05-sparse-attention/
 +-- 06-score-functions/
 +-- 07-soft-hard-attention/
+
 ```
 
 ---

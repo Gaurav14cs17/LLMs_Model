@@ -120,6 +120,7 @@ Now Q (Hindi) meets K, V (English):
 
 ```math
 \text{CrossAttention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+
 ```
 
 | Sub-step | Operation | Result Shape |

@@ -98,6 +98,7 @@ Each input embedding is transformed into three different vectors through learned
 Q = X \times W_Q \quad \text{(Query)}
 K = X \times W_K \quad \text{(Key)}
 V = X \times W_V \quad \text{(Value)}
+
 ```
 
 **What each represents:**
@@ -147,6 +148,7 @@ Calculate how relevant each position is to every other position:
 
 ```math
 \text{Scores} = \frac{QK^T}{\sqrt{d_k}}
+
 ```
 
 **Step-by-step breakdown:**
@@ -186,6 +188,7 @@ If each element of q and k has variance 1, then:
 
 ```math
 \text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k
+
 ```
 
 The **variance grows linearly** with dimension!
@@ -213,12 +216,14 @@ When softmax receives large values:
 
 ```math
 \text{Scaled Scores} = \frac{Q \cdot K^T}{\sqrt{d_k}}
+
 ```
 
 **Why √d_k specifically?**
 
 ```math
 \text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{d_k}{d_k} = 1
+
 ```
 
 Now the variance is **always 1**, regardless of dimension!
@@ -226,15 +231,19 @@ Now the variance is **always 1**, regardless of dimension!
 ### Numerical Example
 
 **Without scaling (d_k = 64):**
+
 ```
 q = [0.1, -0.2, 0.3, ...] (64 values)
 k = [0.2, 0.1, -0.3, ...] (64 values)
 q·k = sum of 64 terms ≈ 12.8 (can be large!)
+
 ```
 
 **With scaling:**
+
 ```
 q·k / √64 = 12.8 / 8 = 1.6 (reasonable!)
+
 ```
 
 ### Visual Comparison
@@ -255,6 +264,7 @@ Convert raw scores into probability distributions:
 
 ```math
 \text{Attention Weights} = \text{softmax}(\text{Scores})
+
 ```
 
 **What softmax does:**
@@ -279,6 +289,7 @@ Compute the final output by aggregating values based on attention weights:
 
 ```math
 \text{Output} = \text{Attention Weights} \times V
+
 ```
 
 **What this does:**
@@ -287,8 +298,10 @@ Compute the final output by aggregating values based on attention weights:
 - Result: **Context-aware representation** for each position
 
 **Example for position "sat":**
+
 ```
 Output_sat = 0.22 × V_the + 0.35 × V_cat + 0.43 × V_sat
+
 ```
 The output for "sat" now contains information weighted by relevance from all tokens!
 
@@ -330,6 +343,7 @@ Each output is now **context-aware** — it incorporates information from all po
 
 ```math
 \text{SelfAttention}(X) = \text{softmax}\left(\frac{(XW_Q)(XW_K)^T}{\sqrt{d_k}}\right)(XW_V)
+
 ```
 
 ### Parameter Shapes
@@ -434,6 +448,7 @@ Sometimes we add a **temperature parameter** τ to control attention sharpness:
 
 ```math
 \text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k} \times \tau}\right)V
+
 ```
 
 ### Effect of Temperature

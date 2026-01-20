@@ -108,6 +108,7 @@
 ```bash
 pip install -r requirements.txt
 python 02_quantization/int8_quantization.py
+
 ```
 
 ---

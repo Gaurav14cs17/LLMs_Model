@@ -96,18 +96,21 @@ Each head operates in a **64-dimensional subspace**.
 
 ```math
 \text{scores}_i = \frac{Q_i \times K_i^T}{\sqrt{d_k}}
+
 ```
 
 **Step 3b: Apply Softmax**
 
 ```math
 \text{weights}_i = \text{softmax}(\text{scores}_i)
+
 ```
 
 **Step 3c: Weighted Sum of Values**
 
 ```math
 \text{head}_i = \text{weights}_i \times V_i
+
 ```
 
 **Output shape per head:** (seq_len × d_k)
@@ -127,6 +130,7 @@ After all heads complete their attention:
 
 ```math
 \text{Concat} = [\text{head}_1; \text{head}_2; ...; \text{head}_h]
+
 ```
 
 **Shape transformation:**
@@ -144,6 +148,7 @@ The concatenated output passes through a final linear layer:
 
 ```math
 \text{Output} = \text{Concat} \times W^O
+
 ```
 
 Where W^O ∈ ℝ^(d_model × d_model)
@@ -161,18 +166,21 @@ Where W^O ∈ ℝ^(d_model × d_model)
 
 ```math
 \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, ..., \text{head}_h) \times W^O
+
 ```
 
 Where each head is:
 
 ```math
 \text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
+
 ```
 
 And Attention is:
 
 ```math
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+
 ```
 
 ---

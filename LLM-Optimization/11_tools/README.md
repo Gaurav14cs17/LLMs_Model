@@ -53,6 +53,7 @@ python build.py \
     --use_gpt_attention_plugin \
     --use_gemm_plugin \
     --output_dir ./trt-llama
+
 ```
 
 Key features:
@@ -79,6 +80,7 @@ python -m onnxruntime.transformers.optimizer \
     --input llama-onnx/model.onnx \
     --output llama-onnx/model_optimized.onnx \
     --model_type gpt2
+
 ```
 
 ---
@@ -100,6 +102,7 @@ python convert.py model_path --outtype q4_0 --outfile model.gguf
 
 # Quantize further
 ./quantize model.gguf model_q4_k_m.gguf q4_k_m
+
 ```
 
 ### GGUF Quantization Types
@@ -122,6 +125,7 @@ python convert.py model_path --outtype q4_0 --outfile model.gguf
 cd 11_tools
 python onnx_export.py
 python tensorrt_optimize.py
+
 ```
 
 ---
@@ -134,6 +138,7 @@ Need high throughput API? → vLLM or TGI
 Need to run on CPU/Mac? → llama.cpp
 Need easy local setup? → Ollama
 Need cross-platform? → ONNX Runtime
+
 ```
 
 ---
