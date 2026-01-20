@@ -19,13 +19,13 @@ P_{total} = P_{embed} + L \cdot P_{layer} + P_{head}
 
 Where:
 
-- $P\_{embed}$ = Embedding parameters
+- $P_{embed}$ = Embedding parameters
 
 - $L$ = Number of layers
 
-- $P\_{layer}$ = Parameters per layer
+- $P_{layer}$ = Parameters per layer
 
-- $P\_{head}$ = Output head parameters
+- $P_{head}$ = Output head parameters
 
 #### Embedding Layer
 
@@ -38,7 +38,7 @@ Where:
 
 - $V$ = Vocabulary size (typically 32K-100K)
 
-- $d\_{model}$ = Model hidden dimension
+- $d_{model}$ = Model hidden dimension
 
 #### Transformer Layer
 Each transformer layer contains:
@@ -77,11 +77,11 @@ P_{layer} = P_{attn} + P_{ffn} + P_{ln} = 12 \cdot d_{model}^2 + 4 \cdot d_{mode
 
 - $V = 32,000$
 
-- $d\_{model} = 4,096$
+- $d_{model} = 4,096$
 
 - $L = 32$
 
-- $d\_{ff} = 11,008$
+- $d_{ff} = 11,008$
 
 ```math
 P_{total} \approx 32,000 \times 4,096 + 32 \times 12 \times 4,096^2 \approx 7B
@@ -108,7 +108,7 @@ M_{weights} = P_{total} \times b_w
 
 ```
 
-Where $b\_w$ = bytes per weight (4 for FP32, 2 for FP16, 0.5 for INT4)
+Where $b_w$ = bytes per weight (4 for FP32, 2 for FP16, 0.5 for INT4)
 
 **KV-Cache:**
 
@@ -290,7 +290,7 @@ And compression efficiency:
 
 ```
 
-**Optimal compression** maximizes $\eta$ subject to $Q \geq Q\_{min}$.
+**Optimal compression** maximizes $\eta$ subject to $Q \geq Q_{min}$.
 
 ---
 
@@ -315,27 +315,27 @@ Compression typically increases bias but may reduce variance (regularization eff
 
 Let $f(x; \theta)$ be a network with parameters $\theta \in \mathbb{R}^d$.
 
-There exists a mask $m \in \{0, 1\}^d$ with $\|m\|\_0 \ll d$ such that:
+There exists a mask $m \in \{0, 1\}^d$ with $\|m\|_0 \ll d$ such that:
 
 ```math
 \min_t \mathcal{L}(f(x; m \odot \theta_t)) \approx \min_t \mathcal{L}(f(x; \theta_t))
 
 ```
 
-Where $\theta\_t$ denotes parameters at training step $t$.
+Where $\theta_t$ denotes parameters at training step $t$.
 
 ### 3. Neural Network Pruning Theory
 
 **Optimal Brain Damage (LeCun et al., 1990):**
 
-The saliency of weight $w\_i$ is approximated by:
+The saliency of weight $w_i$ is approximated by:
 
 ```math
 s_i = \frac{1}{2} H_{ii} w_i^2
 
 ```
 
-Where $H\_{ii}$ is the $i$-th diagonal element of the Hessian $H = \nabla^2 \mathcal{L}$.
+Where $H_{ii}$ is the $i$-th diagonal element of the Hessian $H = \nabla^2 \mathcal{L}$.
 
 **Proof sketch:**
 
@@ -353,7 +353,7 @@ At a local minimum, $g \approx 0$, so:
 
 ```
 
-For pruning weight $i$ (setting $\delta\_i = -w\_i$):
+For pruning weight $i$ (setting $\delta_i = -w_i$):
 
 ```math
 \Delta\mathcal{L}_i \approx \frac{1}{2} H_{ii} w_i^2
@@ -370,7 +370,7 @@ For pruning weight $i$ (setting $\delta\_i = -w\_i$):
 |-----------|-----------------|----------------|
 | Quantization (PTQ) | $O(n)$ | $O(n/k)$ where $k$ = compression ratio |
 | Pruning | $O(n \log n)$ for sorting | $O(n \cdot (1-s))$ where $s$ = sparsity |
-| Distillation | $O(T \cdot n\_{teacher})$ | $O(n\_{student})$ |
+| Distillation | $O(T \cdot n_{teacher})$ | $O(n_{student})$ |
 | Low-rank factorization | $O(n \cdot r)$ | $O(n \cdot r / d)$ |
 
 ### Space Complexity
@@ -390,7 +390,7 @@ Where $n$ = original parameters, $g$ = group size, $s$ = sparsity, $r$ = rank.
 
 ### Theorem 1: Universal Approximation with Compressed Networks
 
-**Statement:** For any $\epsilon > 0$ and any continuous function $f$ on a compact set, there exists a compressed network $\hat{f}$ with $\rho$ compression ratio such that $\|f - \hat{f}\|\_\infty < \epsilon$, provided:
+**Statement:** For any $\epsilon > 0$ and any continuous function $f$ on a compact set, there exists a compressed network $\hat{f}$ with $\rho$ compression ratio such that $\|f - \hat{f}\|_\infty < \epsilon$, provided:
 
 ```math
 \rho < O\left(\frac{1}{\epsilon^{d/r}}\right)
@@ -425,10 +425,10 @@ For uniform distribution of quantization error in $[-\Delta/2, \Delta/2]$:
 | Concept | Formula | Significance |
 |---------|---------|--------------|
 | Model size | $P = 12Ld^2 + Vd$ | Determines memory requirements |
-| Compression ratio | $\rho = \|M\_{orig}\| / \|M\_{comp}\|$ | Measures compression effectiveness |
+| Compression ratio | $\rho = \|M_{orig}\| / \|M_{comp}\|$ | Measures compression effectiveness |
 | Perplexity | $\text{PPL} = \exp(-\frac{1}{N}\sum \log p)$ | Measures language model quality |
 | Quantization error | $\mathbb{E}[e^2] \leq \frac{M^2}{3 \cdot 2^{2b}}$ | Bounds precision loss |
-| Saliency | $s\_i = \frac{1}{2}H\_{ii}w\_i^2$ | Guides pruning decisions |
+| Saliency | $s_i = \frac{1}{2}H_{ii}w_i^2$ | Guides pruning decisions |
 
 ---
 

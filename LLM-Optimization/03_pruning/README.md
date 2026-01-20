@@ -25,7 +25,7 @@ Where:
 
 - $\mathcal{L}$ = loss function
 
-- $\|\cdot\|\_0$ = number of non-zero elements
+- $\|\cdot\|_0$ = number of non-zero elements
 
 - $k$ = sparsity budget
 
@@ -40,7 +40,7 @@ Where:
 
 ### 2. Optimal Brain Damage (OBD)
 
-**Theorem 1 (LeCun et al., 1990):** The increase in loss from removing weight $w\_i$ is approximately:
+**Theorem 1 (LeCun et al., 1990):** The increase in loss from removing weight $w_i$ is approximately:
 
 ```math
 \delta\mathcal{L}_i = \frac{1}{2} H_{ii} w_i^2
@@ -58,7 +58,7 @@ Taylor expansion of loss around optimal weights $w^*$:
 
 ```
 
-For pruning weight $i$ (setting $w\_i = 0$), we have $\delta w\_i = -w\_i$:
+For pruning weight $i$ (setting $w_i = 0$), we have $\delta w_i = -w_i$:
 
 ```math
 \delta\mathcal{L} \approx \frac{1}{2} \delta w^T H \delta w
@@ -85,7 +85,7 @@ Prune weights with lowest saliency.
 
 ### 3. Optimal Brain Surgeon (OBS)
 
-**Theorem 2 (Hassibi & Stork, 1993):** When pruning weight $w\_q$, the optimal adjustment to remaining weights is:
+**Theorem 2 (Hassibi & Stork, 1993):** When pruning weight $w_q$, the optimal adjustment to remaining weights is:
 
 ```math
 \delta w = -\frac{w_q}{[H^{-1}]_{qq}} H^{-1} e_q
@@ -115,7 +115,7 @@ Using Lagrange multipliers:
 
 ```
 
-Setting $\nabla\_{\delta w} \mathcal{L}\_{Lagrange} = 0$:
+Setting $\nabla_{\delta w} \mathcal{L}_{Lagrange} = 0$:
 
 ```math
 H \delta w + \lambda e_q = 0
@@ -123,7 +123,7 @@ H \delta w + \lambda e_q = 0
 
 ```
 
-From constraint $e\_q^T \delta w = -w\_q$:
+From constraint $e_q^T \delta w = -w_q$:
 
 ```math
 -\lambda e_q^T H^{-1} e_q = -w_q
@@ -188,7 +188,7 @@ For Gaussian:
 
 **Objective:** Remove entire filters/channels to reduce dimensions.
 
-For convolutional layer with weight tensor $W \in \mathbb{R}^{C\_{out} \times C\_{in} \times K \times K}$:
+For convolutional layer with weight tensor $W \in \mathbb{R}^{C_{out} \times C_{in} \times K \times K}$:
 
 **Channel Importance (L1 norm):**
 
@@ -262,9 +262,9 @@ s_i = \mathbb{E}\left[\left|\frac{\partial \mathcal{L}}{\partial \text{head}_i}\
 
 **Theorem 5 (Frankle & Carlin, 2019):**
 
-Let $f(x; \theta\_0)$ be a randomly initialized network with $\theta\_0 \sim \mathcal{D}\_{init}$.
+Let $f(x; \theta_0)$ be a randomly initialized network with $\theta_0 \sim \mathcal{D}_{init}$.
 
-There exists a mask $m \in \{0, 1\}^{|\theta|}$ with $\|m\|\_0 = k \ll |\theta|$ such that:
+There exists a mask $m \in \{0, 1\}^{|\theta|}$ with $\|m\|_0 = k \ll |\theta|$ such that:
 
 After $t$ training iterations:
 
@@ -279,7 +279,7 @@ With probability at least $1 - \delta$, where $k = O(|\theta|^{1-\alpha})$ for s
 
 **Proposition (Malach et al., 2020):**
 
-For any target network $f\_T$ with $n$ parameters, a sufficiently overparameterized random network $f\_R$ with $N$ parameters contains a subnetwork that $\epsilon$-approximates $f\_T$, where:
+For any target network $f_T$ with $n$ parameters, a sufficiently overparameterized random network $f_R$ with $N$ parameters contains a subnetwork that $\epsilon$-approximates $f_T$, where:
 
 ```math
 N = O\left(\frac{n^2}{\epsilon^2}\right)
@@ -288,9 +288,9 @@ N = O\left(\frac{n^2}{\epsilon^2}\right)
 
 **Proof sketch:**
 
-1. Consider each weight in $f\_T$ as a target
+1. Consider each weight in $f_T$ as a target
 
-2. By random initialization, each neuron in $f\_R$ has some probability of being close to target
+2. By random initialization, each neuron in $f_R$ has some probability of being close to target
 
 3. With $N$ neurons, the probability of finding all matches approaches 1
 4. Union bound over all $n$ targets gives the result
@@ -315,7 +315,7 @@ Common pattern: **2:4 sparsity** (50% sparse)
 
 ### Mathematical Formulation
 
-For weight vector $w = [w\_1, w\_2, w\_3, w\_4]$, find mask $m \in \{0, 1\}^4$ with $\|m\|\_0 = 2$ minimizing:
+For weight vector $w = [w_1, w_2, w_3, w_4]$, find mask $m \in \{0, 1\}^4$ with $\|m\|_0 = 2$ minimizing:
 
 ```math
 \min_{m: \|m\|_0 = 2} \|w - m \odot w\|_2^2 = \min_{m} \sum_{i: m_i = 0} w_i^2
@@ -333,7 +333,7 @@ For weight vector $w = [w\_1, w\_2, w\_3, w\_4]$, find mask $m \in \{0, 1\}^4$ w
 
 ```
 
-Where $w\_{(1)} \leq w\_{(2)}$ are the order statistics.
+Where $w_{(1)} \leq w_{(2)}$ are the order statistics.
 
 For standard Gaussian:
 
@@ -351,7 +351,7 @@ For standard Gaussian:
 
 ### Gradual Magnitude Pruning (GMP)
 
-**Sparsity Schedule:** Cubic schedule from $s\_0$ to $s\_f$ over $T$ steps:
+**Sparsity Schedule:** Cubic schedule from $s_0$ to $s_f$ over $T$ steps:
 
 ```math
 s(t) = s_f + (s_0 - s_f)\left(1 - \frac{t - t_0}{T}\right)^3
@@ -371,7 +371,7 @@ s(t) = s_f + (s_0 - s_f)\left(1 - \frac{t - t_0}{T}\right)^3
 
 ```
 
-Where $\epsilon\_k \to 0$ as pruning becomes slower.
+Where $\epsilon_k \to 0$ as pruning becomes slower.
 
 ---
 
@@ -417,7 +417,7 @@ KL \approx k \cdot \log\frac{n}{k} + (n-k)\log\frac{n}{n-k}
 
 ```
 
-Where $\theta\_l^{(s)}$ has layer $l$ pruned to sparsity $s$.
+Where $\theta_l^{(s)}$ has layer $l$ pruned to sparsity $s$.
 
 **Empirical Finding:** First and last layers are typically most sensitive.
 
@@ -430,7 +430,7 @@ Where $\theta\_l^{(s)}$ has layer $l$ pruned to sparsity $s$.
 
 ```
 
-Where $F\_l = \mathbb{E}[\nabla\_{\theta\_l} \log p(y|x; \theta) \nabla\_{\theta\_l} \log p(y|x; \theta)^T]$
+Where $F_l = \mathbb{E}[\nabla_{\theta_l} \log p(y|x; \theta) \nabla_{\theta_l} \log p(y|x; \theta)^T]$
 
 Layers with high Fisher information are more sensitive to pruning.
 
@@ -440,11 +440,11 @@ Layers with high Fisher information are more sensitive to pruning.
 
 | Concept | Formula |
 |---------|---------|
-| OBD saliency | $s\_i = \frac{1}{2}H\_{ii}w\_i^2$ |
-| OBS weight update | $\delta w = -\frac{w\_q}{[H^{-1}]\_{qq}}H^{-1}e\_q$ |
-| OBS loss increase | $\delta\mathcal{L} = \frac{w\_q^2}{2[H^{-1}]\_{qq}}$ |
-| L1 importance | $s\_c = \sum\_{i,j,k}\|W\_{c,i,j,k}\|$ |
-| Sparsity schedule | $s(t) = s\_f + (s\_0 - s\_f)(1 - t/T)^3$ |
+| OBD saliency | $s_i = \frac{1}{2}H_{ii}w_i^2$ |
+| OBS weight update | $\delta w = -\frac{w_q}{[H^{-1}]_{qq}}H^{-1}e_q$ |
+| OBS loss increase | $\delta\mathcal{L} = \frac{w_q^2}{2[H^{-1}]_{qq}}$ |
+| L1 importance | $s_c = \sum_{i,j,k}\|W_{c,i,j,k}\|$ |
+| Sparsity schedule | $s(t) = s_f + (s_0 - s_f)(1 - t/T)^3$ |
 | Generalization bound | $O(\sqrt{k\log(n/k)/m})$ |
 
 ---

@@ -17,18 +17,18 @@ This module covers the mathematical framework for combining compression techniqu
 
 ```
 
-**Composed techniques:** $C\_n \circ C\_{n-1} \circ \ldots \circ C\_1$
+**Composed techniques:** $C_n \circ C_{n-1} \circ \ldots \circ C_1$
 
 **Theorem 1 (Error Accumulation):**
 
-For compression pipeline $C\_1, C\_2, \ldots, C\_n$ with errors $\epsilon\_1, \ldots, \epsilon\_n$:
+For compression pipeline $C_1, C_2, \ldots, C_n$ with errors $\epsilon_1, \ldots, \epsilon_n$:
 
 ```math
 \|W - C_n \circ \ldots \circ C_1(W)\| \leq \sum_{i=1}^{n} \epsilon_i \prod_{j>i} L_j
 
 ```
 
-Where $L\_j$ is the Lipschitz constant of $C\_j$.
+Where $L_j$ is the Lipschitz constant of $C_j$.
 
 **Special case (linear compressions):**
 
@@ -46,7 +46,7 @@ Where $L\_j$ is the Lipschitz constant of $C\_j$.
 
 ```
 
-Where $\rho\_i$ = compression ratio.
+Where $\rho_i$ = compression ratio.
 
 **Proof:** Minimizes total error subject to target compression.
 
@@ -162,7 +162,7 @@ S_l \approx \text{tr}(F_l)
 
 ```
 
-Where $F\_l$ is Fisher information matrix:
+Where $F_l$ is Fisher information matrix:
 
 ```math
 F_l = \mathbb{E}\left[\nabla_{\theta_l} \log p(y|x) \nabla_{\theta_l} \log p(y|x)^T\right]
@@ -256,9 +256,9 @@ For transformer: $I \approx 2d$ (for large batch).
 
 | Concept | Formula |
 |---------|---------|
-| Error accumulation | $\sum\_i \epsilon\_i \prod\_{j>i} L\_j$ |
+| Error accumulation | $\sum_i \epsilon_i \prod_{j>i} L_j$ |
 | Sample complexity | $n = O(R^2/\epsilon^2)$ |
-| Sensitivity | $S\_l = \partial\mathcal{L}/\partial\|\Delta W\_l\|$ |
+| Sensitivity | $S_l = \partial\mathcal{L}/\partial\|\Delta W_l\|$ |
 | Optimal batch | $B^* = (M-S)/m$ |
 | Roofline | $\min(\text{Peak}, BW \times I)$ |
 

@@ -19,7 +19,7 @@ h^{(l)} = \text{TransformerLayer}_l(h^{(l-1)}; \theta_l)
 
 ```
 
-Each layer has its own parameters $\theta\_l$.
+Each layer has its own parameters $\theta_l$.
 
 **ALBERT (Shared):**
 
@@ -177,15 +177,15 @@ For batch size $B$, sequence length $S$, layers $L$:
 
 | Method | KV-Cache Size |
 |--------|---------------|
-| MHA | $2 \cdot B \cdot S \cdot L \cdot h \cdot d\_k$ |
-| MQA | $2 \cdot B \cdot S \cdot L \cdot d\_k$ |
+| MHA | $2 \cdot B \cdot S \cdot L \cdot h \cdot d_k$ |
+| MQA | $2 \cdot B \cdot S \cdot L \cdot d_k$ |
 
 **Reduction:** $h \times$ (e.g., 32× for 32 heads)
 
 **Proof:**
 
-MHA stores K and V for each head: $2 \times h \times d\_k$ per position.
-MQA stores single K and V: $2 \times d\_k$ per position.
+MHA stores K and V for each head: $2 \times h \times d_k$ per position.
+MQA stores single K and V: $2 \times d_k$ per position.
 
 ---
 
@@ -225,7 +225,7 @@ P_{GQA} = h \cdot d_k \cdot d + g \cdot d_k \cdot d + g \cdot d_v \cdot d + h \c
 
 ```
 
-Where $\sigma\_{KV}^2$ is variance in KV head outputs.
+Where $\sigma_{KV}^2$ is variance in KV head outputs.
 
 **Proof sketch:**
 
@@ -245,14 +245,14 @@ Error proportional to within-group variance, which decreases with more groups.
 
 ```
 
-Where $a\_i \in \{1, \ldots, K\}$ assigns weight $i$ to cluster.
+Where $a_i \in \{1, \ldots, K\}$ assigns weight $i$ to cluster.
 
 **Storage:**
 - $K$ centroids: $K \times 32$ bits (FP32)
 
-- $n$ indices: $n \times \log\_2(K)$ bits
+- $n$ indices: $n \times \log_2(K)$ bits
 
-**Total bits:** $32K + n\log\_2(K)$
+**Total bits:** $32K + n\log_2(K)$
 
 **Theorem 5 (Optimal Number of Clusters):**
 
@@ -285,9 +285,9 @@ For uniformly spaced centroids. Lloyd-Max optimal centroids achieve lower MSE.
 ### Input-Output Weight Tying
 
 **Standard:**
-- Input embedding: $E\_{in} \in \mathbb{R}^{V \times d}$
+- Input embedding: $E_{in} \in \mathbb{R}^{V \times d}$
 
-- Output projection: $W\_{out} \in \mathbb{R}^{d \times V}$
+- Output projection: $W_{out} \in \mathbb{R}^{d \times V}$
 
 - Parameters: $2Vd$
 
@@ -328,7 +328,7 @@ This symmetric similarity is appropriate for bidirectional relationships.
 
 ### Theorem 8 (Expressiveness of Shared Weights)
 
-A transformer with shared weights across $L$ layers can approximate any continuous function $f: \mathbb{R}^{d\_{in}} \to \mathbb{R}^{d\_{out}}$ to arbitrary precision, given:
+A transformer with shared weights across $L$ layers can approximate any continuous function $f: \mathbb{R}^{d_{in}} \to \mathbb{R}^{d_{out}}$ to arbitrary precision, given:
 
 1. Sufficient hidden dimension $d$
 
@@ -378,8 +378,8 @@ With shared weights, the mutual information is limited by the shared parameter c
 
 **Definition:** The rate $R$ is the number of bits to describe the model:
 
-For standard: $R\_{std} = n \cdot 32$ bits
-For shared: $R\_{shared} = (n/L) \cdot 32$ bits
+For standard: $R_{std} = n \cdot 32$ bits
+For shared: $R_{shared} = (n/L) \cdot 32$ bits
 
 **Theorem 10:** Weight sharing is optimal when:
 
@@ -399,8 +399,8 @@ i.e., layer weights are similar to each other.
 | ALBERT compression | $L\times$ fewer parameters |
 | Factorized embedding | $VE + EH$ vs $VH$ |
 | MQA KV-cache | $h\times$ smaller |
-| GQA parameters | $(h + 2g)d\_k d$ |
-| Cluster storage | $32K + n\log\_2 K$ bits |
+| GQA parameters | $(h + 2g)d_k d$ |
+| Cluster storage | $32K + n\log_2 K$ bits |
 | Tied embeddings | $2\times$ reduction |
 
 ---

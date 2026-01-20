@@ -76,9 +76,9 @@ Common pattern: **2:4** (50% sparse)
 
 ### Mathematical Formulation
 
-For weight vector $w = [w\_1, \ldots, w\_M]$:
+For weight vector $w = [w_1, \ldots, w_M]$:
 
-Find optimal mask $m \in \{0, 1\}^M$ with $\|m\|\_0 = N$:
+Find optimal mask $m \in \{0, 1\}^M$ with $\|m\|_0 = N$:
 
 ```math
 \min_{m: \|m\|_0 = N} \|w - m \odot w\|_2^2 = \min_{m} \sum_{i: m_i = 0} w_i^2
@@ -96,7 +96,7 @@ For $w \sim \mathcal{N}(0, \sigma^2)^4$, the expected squared error is:
 
 ```
 
-Where $w\_{(1)} \leq w\_{(2)} \leq w\_{(3)} \leq w\_{(4)}$ are order statistics.
+Where $w_{(1)} \leq w_{(2)} \leq w_{(3)} \leq w_{(4)}$ are order statistics.
 
 **For standard Gaussian:**
 
@@ -135,11 +135,11 @@ y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x)
 
 Where:
 
-- $E\_i$ = Expert network $i$
+- $E_i$ = Expert network $i$
 
-- $G(x) = \text{softmax}(W\_g x)$ = Gating/router function
+- $G(x) = \text{softmax}(W_g x)$ = Gating/router function
 
-- $G(x)\_i$ = Probability of selecting expert $i$
+- $G(x)_i$ = Probability of selecting expert $i$
 
 ### Top-K Routing
 
@@ -154,11 +154,11 @@ G(x)_i = \begin{cases} \text{softmax}(W_g x)_i & i \in \text{TopK}(W_g x) \\ 0 &
 
 For MoE with $N$ experts, top-$k$ routing:
 
-- Total parameters: $P\_{total} = P\_{router} + N \cdot P\_{expert}$
+- Total parameters: $P_{total} = P_{router} + N \cdot P_{expert}$
 
-- Active parameters: $P\_{active} = P\_{router} + k \cdot P\_{expert}$
+- Active parameters: $P_{active} = P_{router} + k \cdot P_{expert}$
 
-- Compute per token: $\propto P\_{active}$
+- Compute per token: $\propto P_{active}$
 
 **Example:** Mixtral 8×7B:
 
@@ -181,9 +181,9 @@ For MoE with $N$ experts, top-$k$ routing:
 
 Where:
 
-- $f\_i$ = Fraction of tokens routed to expert $i$
+- $f_i$ = Fraction of tokens routed to expert $i$
 
-- $P\_i$ = Average routing probability for expert $i$
+- $P_i$ = Average routing probability for expert $i$
 
 **Theorem 4:** This loss encourages uniform expert utilization:
 
@@ -194,9 +194,9 @@ Where:
 
 **Proof:**
 
-By Cauchy-Schwarz: $\sum\_i f\_i P\_i \geq N (\prod\_i f\_i P\_i)^{1/N}$
+By Cauchy-Schwarz: $\sum_i f_i P_i \geq N (\prod_i f_i P_i)^{1/N}$
 
-Equality when all $f\_i P\_i$ are equal. Given $\sum\_i f\_i = 1$ and $\sum\_i P\_i = 1$, minimum is at $f\_i = P\_i = 1/N$.
+Equality when all $f_i P_i$ are equal. Given $\sum_i f_i = 1$ and $\sum_i P_i = 1$, minimum is at $f_i = P_i = 1/N$.
 
 ---
 
@@ -338,7 +338,7 @@ Where $\Phi$ is the standard normal CDF.
 
 **Theorem 8 (Activation-Sparse Speedup):**
 
-If $\mathbb{E}[\|h\|\_0] = \alpha \cdot d$ for $\alpha < 1$:
+If $\mathbb{E}[\|h\|_0] = \alpha \cdot d$ for $\alpha < 1$:
 
 Theoretical speedup in next layer: $1/\alpha$
 
@@ -348,14 +348,14 @@ Theoretical speedup in next layer: $1/\alpha$
 
 ### Theorem 9 (Sparse Training Convergence)
 
-For training with sparsity constraint $\|W\|\_0 \leq k$:
+For training with sparsity constraint $\|W\|_0 \leq k$:
 
 ```math
 \mathcal{L}(W_t) - \mathcal{L}(W^*) \leq O\left(\frac{\|W_0 - W^*\|_F^2}{t} + \sigma_k(W^*)\right)
 
 ```
 
-Where $\sigma\_k(W^*)$ is the error from approximating optimal weights with $k$ non-zeros.
+Where $\sigma_k(W^*)$ is the error from approximating optimal weights with $k$ non-zeros.
 
 ### Gradient Flow Through Sparse Masks
 
@@ -381,11 +381,11 @@ Where $\sigma\_k(W^*)$ is the error from approximating optimal weights with $k$ 
 
 | Concept | Formula |
 |---------|---------|
-| Sparsity ratio | $1 - \|W\|\_0 / mn$ |
+| Sparsity ratio | $1 - \|W\|_0 / mn$ |
 | Sparse speedup | $mn / nnz$ |
 | 2:4 error | $\approx \sigma^2$ per group |
-| MoE compute | $P\_{router} + k \cdot P\_{expert}$ |
-| Load balance loss | $\alpha N \sum\_i f\_i P\_i$ |
+| MoE compute | $P_{router} + k \cdot P_{expert}$ |
+| Load balance loss | $\alpha N \sum_i f_i P_i$ |
 | Sliding window complexity | $O(nwd)$ |
 | Linear attention | $O(nd^2)$ |
 | ReLU sparsity | $\Phi(-\mu/\sigma)$ |

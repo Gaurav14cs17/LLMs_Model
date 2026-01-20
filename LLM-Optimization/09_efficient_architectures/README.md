@@ -74,8 +74,8 @@ Where:
 
 **Idea:** Compute attention in blocks that fit in SRAM.
 
-Partition $Q$ into blocks: $Q\_1, Q\_2, \ldots, Q\_{T\_r}$ of size $B\_r \times d$
-Partition $K, V$ into blocks: $K\_1, V\_1, \ldots, K\_{T\_c}, V\_{T\_c}$ of size $B\_c \times d$
+Partition $Q$ into blocks: $Q_1, Q_2, \ldots, Q_{T_r}$ of size $B_r \times d$
+Partition $K, V$ into blocks: $K_1, V_1, \ldots, K_{T_c}, V_{T_c}$ of size $B_c \times d$
 
 **Block attention:**
 
@@ -99,11 +99,11 @@ The softmax can be computed incrementally:
 
 ```
 
-Where $m = \max\_j x\_j$ (for numerical stability).
+Where $m = \max_j x_j$ (for numerical stability).
 
 **Online Algorithm:**
 
-For new block $x\_{new}$:
+For new block $x_{new}$:
 
 ```math
 m_{new} = \max(m_{old}, \max(x_{new}))
@@ -173,11 +173,11 @@ O_{FA} = \text{softmax}(QK^T)V = O_{standard}
 
 The algorithm maintains invariants:
 
-- $\ell\_i = \sum\_{j \leq \text{current}} \exp(S\_{ij} - m\_i)$
+- $\ell_i = \sum_{j \leq \text{current}} \exp(S_{ij} - m_i)$
 
-- $m\_i = \max\_{j \leq \text{current}} S\_{ij}$
+- $m_i = \max_{j \leq \text{current}} S_{ij}$
 
-- $O\_i = \frac{\sum\_{j \leq \text{current}} \exp(S\_{ij} - m\_i) V\_j}{\ell\_i}$
+- $O_i = \frac{\sum_{j \leq \text{current}} \exp(S_{ij} - m_i) V_j}{\ell_i}$
 
 At termination (all blocks processed), this equals the full softmax.
 
@@ -297,9 +297,9 @@ k(x, y) \approx \phi(x)^T\phi(y)
 
 ```
 
-Where $\phi(x) = \sqrt{\frac{2}{D}}[\cos(\omega\_1^T x), \sin(\omega\_1^T x), \ldots]$
+Where $\phi(x) = \sqrt{\frac{2}{D}}[\cos(\omega_1^T x), \sin(\omega_1^T x), \ldots]$
 
-And $\omega\_i \sim \mathcal{N}(0, I)$.
+And $\omega_i \sim \mathcal{N}(0, I)$.
 
 **Error:** $O(1/\sqrt{D})$ with $D$ random features.
 
@@ -359,10 +359,10 @@ For LLaMA-2 70B ($h = 64$, $g = 8$): 8× reduction.
 |---------|---------|
 | Standard attention | $O(N^2d)$ time, $O(N^2)$ space |
 | Flash Attention IO | $O(Nd + N^2d/M)$ |
-| Online softmax | $\ell\_{new} = e^{m\_{old} - m\_{new}}\ell\_{old} + \sum e^{x - m\_{new}}$ |
+| Online softmax | $\ell_{new} = e^{m_{old} - m_{new}}\ell_{old} + \sum e^{x - m_{new}}$ |
 | Linear attention | $O(Nd^2)$ |
 | GQA KV-cache | $2BSgd$ |
-| FA2 speedup | $\min(N/B\_r, 2)\times$ |
+| FA2 speedup | $\min(N/B_r, 2)\times$ |
 
 ---
 

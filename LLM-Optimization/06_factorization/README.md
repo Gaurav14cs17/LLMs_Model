@@ -23,7 +23,7 @@ Where:
 
 - $U \in \mathbb{R}^{m \times m}$ is orthogonal ($U^TU = I$)
 
-- $\Sigma \in \mathbb{R}^{m \times n}$ is diagonal with singular values $\sigma\_1 \geq \sigma\_2 \geq \ldots \geq \sigma\_r > 0$
+- $\Sigma \in \mathbb{R}^{m \times n}$ is diagonal with singular values $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0$
 
 - $V \in \mathbb{R}^{n \times n}$ is orthogonal ($V^TV = I$)
 
@@ -33,9 +33,9 @@ Where:
 
 1. Consider $W^TW$ (symmetric positive semi-definite)
 
-2. Eigendecomposition: $W^TW = V\Lambda V^T$ with eigenvalues $\lambda\_i = \sigma\_i^2$
+2. Eigendecomposition: $W^TW = V\Lambda V^T$ with eigenvalues $\lambda_i = \sigma_i^2$
 
-3. Define $U\_i = Wv\_i / \sigma\_i$
+3. Define $U_i = Wv_i / \sigma_i$
 
 4. Verify $U^TU = I$ and $W = U\Sigma V^T$
 
@@ -82,7 +82,7 @@ Let $B = U^T\tilde{W}V$. Since $\text{rank}(B) = \text{rank}(\tilde{W}) \leq k$:
 
 ```
 
-Minimizing: $b\_{ii} = \sigma\_i$ for $i \leq k$, zero otherwise.
+Minimizing: $b_{ii} = \sigma_i$ for $i \leq k$, zero otherwise.
 
 ```math
 \min_{\tilde{W}} \|W - \tilde{W}\|_F^2 = \sum_{i=k+1}^{r} \sigma_i^2
@@ -107,7 +107,7 @@ E_k = \frac{\sum_{i=1}^{k} \sigma_i^2}{\sum_{i=1}^{r} \sigma_i^2} = \frac{\|W_k\
 
 ```
 
-**Choosing Rank:** Select $k$ such that $E\_k \geq \tau$ (e.g., $\tau = 0.99$).
+**Choosing Rank:** Select $k$ such that $E_k \geq \tau$ (e.g., $\tau = 0.99$).
 
 **Theorem 3 (Energy Decay for Neural Networks):**
 
@@ -188,7 +188,7 @@ Where $\text{Lip}(\phi)$ is the Lipschitz constant of the activation function.
 
 ### Definition
 
-For tensor $\mathcal{W} \in \mathbb{R}^{I\_1 \times I\_2 \times \ldots \times I\_N}$:
+For tensor $\mathcal{W} \in \mathbb{R}^{I_1 \times I_2 \times \ldots \times I_N}$:
 
 ```math
 \mathcal{W} \approx \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}
@@ -197,11 +197,11 @@ For tensor $\mathcal{W} \in \mathbb{R}^{I\_1 \times I\_2 \times \ldots \times I\
 
 Where:
 
-- $\mathcal{G} \in \mathbb{R}^{R\_1 \times R\_2 \times \ldots \times R\_N}$ is the core tensor
+- $\mathcal{G} \in \mathbb{R}^{R_1 \times R_2 \times \ldots \times R_N}$ is the core tensor
 
-- $A^{(n)} \in \mathbb{R}^{I\_n \times R\_n}$ are factor matrices
+- $A^{(n)} \in \mathbb{R}^{I_n \times R_n}$ are factor matrices
 
-- $\times\_n$ is mode-$n$ product
+- $\times_n$ is mode-$n$ product
 
 **Mode-n Product:**
 
@@ -212,15 +212,15 @@ Where:
 
 ### Parameter Count
 
-**Original:** $\prod\_{n=1}^{N} I\_n$
+**Original:** $\prod_{n=1}^{N} I_n$
 
-**Tucker:** $\prod\_{n=1}^{N} R\_n + \sum\_{n=1}^{N} I\_n R\_n$
+**Tucker:** $\prod_{n=1}^{N} R_n + \sum_{n=1}^{N} I_n R_n$
 
-**For 4D Convolution** ($C\_{out} \times C\_{in} \times H \times W$):
+**For 4D Convolution** ($C_{out} \times C_{in} \times H \times W$):
 
-Original: $C\_{out} \cdot C\_{in} \cdot H \cdot W$
+Original: $C_{out} \cdot C_{in} \cdot H \cdot W$
 
-Tucker: $R\_1 R\_2 R\_3 R\_4 + C\_{out}R\_1 + C\_{in}R\_2 + HR\_3 + WR\_4$
+Tucker: $R_1 R_2 R_3 R_4 + C_{out}R_1 + C_{in}R_2 + HR_3 + WR_4$
 
 ---
 
@@ -235,13 +235,13 @@ The Tucker decomposition minimizes:
 
 **Solution via Higher-Order SVD (HOSVD):**
 
-1. Compute mode-$n$ unfolding $W\_{(n)}$
+1. Compute mode-$n$ unfolding $W_{(n)}$
 
-2. Compute SVD: $W\_{(n)} = U^{(n)} \Sigma^{(n)} V^{(n)T}$
+2. Compute SVD: $W_{(n)} = U^{(n)} \Sigma^{(n)} V^{(n)T}$
 
-3. Set $A^{(n)} = U^{(n)}\_{:,1:R\_n}$
+3. Set $A^{(n)} = U^{(n)}_{:,1:R_n}$
 
-4. Compute core: $\mathcal{G} = \mathcal{W} \times\_1 A^{(1)T} \times\_2 A^{(2)T} \ldots$
+4. Compute core: $\mathcal{G} = \mathcal{W} \times_1 A^{(1)T} \times_2 A^{(2)T} \ldots$
 
 **Error bound:**
 
@@ -272,9 +272,9 @@ Where $\circ$ denotes outer product.
 
 ### Parameters
 
-Original: $\prod\_n I\_n$
+Original: $\prod_n I_n$
 
-CP with rank $R$: $R(1 + \sum\_n I\_n)$
+CP with rank $R$: $R(1 + \sum_n I_n)$
 
 **Extreme compression for high-order tensors.**
 
@@ -287,7 +287,7 @@ R \leq \frac{\prod_{n=1}^{N} I_n}{I_{\max}}
 
 ```
 
-Where $I\_{\max} = \max\_n I\_n$.
+Where $I_{\max} = \max_n I_n$.
 
 ---
 
@@ -324,14 +324,14 @@ Any weight update $\Delta W$ can be approximated by LoRA with rank $r$ if:
 
 ### Optimal LoRA Initialization
 
-**Theorem 8:** The optimal $B, A$ minimizing $\|W' - W\_{new}\|\_F$ are:
+**Theorem 8:** The optimal $B, A$ minimizing $\|W' - W_{new}\|_F$ are:
 
 ```math
 A = \sqrt{\Sigma_r} V_r^T, \quad B = U_r \sqrt{\Sigma_r}
 
 ```
 
-Where $\Delta W = W\_{new} - W = U\_r \Sigma\_r V\_r^T$ is the rank-$r$ SVD.
+Where $\Delta W = W_{new} - W = U_r \Sigma_r V_r^T$ is the rank-$r$ SVD.
 
 ---
 
@@ -346,7 +346,7 @@ For randomly initialized neural networks:
 
 ```
 
-Where $\lambda\_i$ follows the Marchenko-Pastur distribution.
+Where $\lambda_i$ follows the Marchenko-Pastur distribution.
 
 ### After Training
 
@@ -389,7 +389,7 @@ r^* = \arg\min_k \{r(m+n) : r(m+n) < mn / \rho_{target}\}
 
 ### Theorem 10 (Factorization with Fine-tuning)
 
-Let $\mathcal{L}^*$ be optimal loss and $\mathcal{L}\_k$ loss after rank-$k$ factorization:
+Let $\mathcal{L}^*$ be optimal loss and $\mathcal{L}_k$ loss after rank-$k$ factorization:
 
 After fine-tuning for $T$ steps with learning rate $\eta$:
 
@@ -407,11 +407,11 @@ After fine-tuning for $T$ steps with learning rate $\eta$:
 | Concept | Formula |
 |---------|---------|
 | SVD | $W = U\Sigma V^T$ |
-| Rank-k error | $\|W - W\_k\|\_F = \sqrt{\sum\_{i>k}\sigma\_i^2}$ |
-| Energy ratio | $E\_k = \sum\_{i \leq k}\sigma\_i^2 / \sum\_i\sigma\_i^2$ |
+| Rank-k error | $\|W - W_k\|_F = \sqrt{\sum_{i>k}\sigma_i^2}$ |
+| Energy ratio | $E_k = \sum_{i \leq k}\sigma_i^2 / \sum_i\sigma_i^2$ |
 | Compression ratio | $\rho = mn / (r(m+n))$ |
-| Tucker core | $\mathcal{G} = \mathcal{W} \times\_1 A^{(1)T} \times\_2 A^{(2)T}...$ |
-| CP form | $\mathcal{W} \approx \sum\_r \lambda\_r \prod\_n a\_r^{(n)}$ |
+| Tucker core | $\mathcal{G} = \mathcal{W} \times_1 A^{(1)T} \times_2 A^{(2)T}...$ |
+| CP form | $\mathcal{W} \approx \sum_r \lambda_r \prod_n a_r^{(n)}$ |
 
 ---
 

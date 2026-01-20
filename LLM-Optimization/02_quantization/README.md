@@ -39,7 +39,7 @@ z = x_{min} - s \cdot q_{min}
 
 ```
 
-Where $q\_{min} = 0$ for unsigned or $q\_{min} = -2^{b-1}$ for signed.
+Where $q_{min} = 0$ for unsigned or $q_{min} = -2^{b-1}$ for signed.
 
 #### Symmetric Quantization
 
@@ -108,7 +108,7 @@ In dB for full-range signal:
 
 #### Lloyd-Max Quantizer
 
-**Problem:** Find quantization levels $\{q\_i\}$ and decision boundaries $\{d\_i\}$ that minimize mean squared error.
+**Problem:** Find quantization levels $\{q_i\}$ and decision boundaries $\{d_i\}$ that minimize mean squared error.
 
 **Optimality Conditions:**
 
@@ -190,7 +190,7 @@ NF4 MSE (Lloyd-Max optimal):
 
 1. Collect activation statistics over calibration data
 
-2. Compute range: $[x\_{min}, x\_{max}]$
+2. Compute range: $[x_{min}, x_{max}]$
 
 3. Compute scale and zero-point
 
@@ -248,7 +248,7 @@ Where $X$ is the input activation matrix.
 
 **Theorem 3 (Weight Update Formula):**
 
-When quantizing weight $w\_q$ in column $q$, the optimal update to remaining weights is:
+When quantizing weight $w_q$ in column $q$, the optimal update to remaining weights is:
 
 ```math
 \delta_F = -\frac{w_q - \text{quant}(w_q)}{[H^{-1}]_{qq}} \cdot (H^{-1})_{:,q}
@@ -259,14 +259,14 @@ Where $H = 2X^TX$ is the Hessian of the squared error.
 
 **Proof:**
 
-The loss increase from quantizing $w\_q$ is:
+The loss increase from quantizing $w_q$ is:
 
 ```math
 \Delta\mathcal{L} = \frac{(w_q - \text{quant}(w_q))^2}{2[H^{-1}]_{qq}}
 
 ```
 
-Using Lagrange multipliers to minimize loss subject to $w\_q$ being quantized:
+Using Lagrange multipliers to minimize loss subject to $w_q$ being quantized:
 
 ```math
 \nabla_{w_F} \mathcal{L} + \lambda \nabla_{w_F}(w_q - c) = 0
@@ -286,7 +286,7 @@ GPTQ processes columns in order, updating the inverse Hessian efficiently:
 
 ```
 
-**Complexity:** $O(d\_{col} \cdot d\_{row}^2)$ per layer.
+**Complexity:** $O(d_{col} \cdot d_{row}^2)$ per layer.
 
 ---
 
@@ -305,7 +305,7 @@ The quantization error weighted by activation magnitude is:
 
 ```
 
-Where $s\_i = \mathbb{E}[|x\_i|]$ is the average activation magnitude.
+Where $s_i = \mathbb{E}[|x_i|]$ is the average activation magnitude.
 
 ### Optimal Scaling
 
@@ -323,7 +323,7 @@ Where $s\_i = \mathbb{E}[|x\_i|]$ is the average activation magnitude.
 
 ```
 
-Where $s\_j$ is the activation scale for channel $j$.
+Where $s_j$ is the activation scale for channel $j$.
 
 ### Proof of Effectiveness
 
@@ -358,7 +358,7 @@ Q(W) = \begin{bmatrix} s_1 \cdot Q(W_1/s_1) \\ s_2 \cdot Q(W_2/s_2) \\ \vdots \\
 
 ```
 
-Where groups $W\_1, \ldots, W\_g$ partition the weight matrix.
+Where groups $W_1, \ldots, W_g$ partition the weight matrix.
 
 ### Error Analysis
 
@@ -384,7 +384,7 @@ For $n$ weights with group size $g$:
 
 - Scales: $n/g$ values (16 or 32 bits each)
 
-- Overhead: $\frac{b\_{scale}}{g \cdot b\_{weight}}$ relative
+- Overhead: $\frac{b_{scale}}{g \cdot b_{weight}}$ relative
 
 **Example:** g=128, 4-bit weights, FP16 scales:
 
@@ -436,7 +436,7 @@ R(W) = \|W - Q(W)\|_F^2
 
 ### Theorem 7 (Quantization Error Propagation)
 
-For an $L$-layer network with per-layer quantization error $\epsilon\_l$:
+For an $L$-layer network with per-layer quantization error $\epsilon_l$:
 
 ```math
 \|f(x) - \hat{f}(x)\| \leq \sum_{l=1}^{L} \epsilon_l \cdot \prod_{k=l+1}^{L} \|W_k\| \cdot \text{Lip}(\sigma)^{L-l}
@@ -465,9 +465,9 @@ Deeper networks are more sensitive to quantization:
 | Uniform quantization | $Q(x) = s \cdot \text{round}(x/s - z) + z$ |
 | Quantization MSE | $\mathbb{E}[e^2] = \Delta^2/12$ |
 | SQNR | $\approx 6.02b + 1.76$ dB |
-| GPTQ weight update | $\delta\_F = -\frac{w\_q - Q(w\_q)}{[H^{-1}]\_{qq}} (H^{-1})\_{:,q}$ |
-| AWQ objective | $\min\_\alpha \|Q(W/\alpha)\alpha x - Wx\|^2$ |
-| Group overhead | $b\_{scale}/(g \cdot b\_{weight})$ |
+| GPTQ weight update | $\delta_F = -\frac{w_q - Q(w_q)}{[H^{-1}]_{qq}} (H^{-1})_{:,q}$ |
+| AWQ objective | $\min_\alpha \|Q(W/\alpha)\alpha x - Wx\|^2$ |
+| Group overhead | $b_{scale}/(g \cdot b_{weight})$ |
 
 ---
 

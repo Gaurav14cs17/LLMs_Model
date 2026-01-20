@@ -14,7 +14,7 @@ Knowledge Distillation (KD) transfers knowledge from a large "teacher" model to 
 
 ### 1. Problem Formulation
 
-**Objective:** Train student $f\_S$ to mimic teacher $f\_T$:
+**Objective:** Train student $f_S$ to mimic teacher $f_T$:
 
 ```math
 \min_{\theta_S} \mathbb{E}_{x \sim \mathcal{D}}\left[\mathcal{L}_{KD}(f_S(x; \theta_S), f_T(x; \theta_T))\right]
@@ -23,9 +23,9 @@ Knowledge Distillation (KD) transfers knowledge from a large "teacher" model to 
 
 Subject to:
 
-- $|\theta\_S| \ll |\theta\_T|$ (student is smaller)
+- $|\theta_S| \ll |\theta_T|$ (student is smaller)
 
-- $\theta\_T$ is fixed (teacher is frozen)
+- $\theta_T$ is fixed (teacher is frozen)
 
 ---
 
@@ -73,7 +73,7 @@ H(\sigma_T(z)) = -\sum_i \sigma_T(z)_i \log \sigma_T(z)_i
 
 ```
 
-As $T$ increases, $\sigma\_T(z)$ becomes more uniform, and entropy increases toward $\log K$.
+As $T$ increases, $\sigma_T(z)$ becomes more uniform, and entropy increases toward $\log K$.
 
 **Gradient Property:**
 
@@ -164,7 +164,7 @@ Soft labels contain information about class relationships that hard labels don't
 
 **Formal Statement:**
 
-Let $p\_T = \sigma\_T(z\_T)$ and $y$ be one-hot. Then:
+Let $p_T = \sigma_T(z_T)$ and $y$ be one-hot. Then:
 
 ```math
 I(X; p_T | Y) \geq 0
@@ -175,7 +175,7 @@ The teacher's soft predictions carry additional mutual information about input $
 
 **Proof sketch:**
 
-$p\_T$ encodes:
+$p_T$ encodes:
 
 1. Which classes are similar (high probability on related classes)
 
@@ -189,14 +189,14 @@ This information is lost in hard labels.
 
 **Theorem 4 (Distillation Generalization):**
 
-Let $\epsilon\_T$ be teacher's generalization error and $d\_{KL}$ the average KL divergence achieved by student:
+Let $\epsilon_T$ be teacher's generalization error and $d_{KL}$ the average KL divergence achieved by student:
 
 ```math
 \epsilon_S \leq \epsilon_T + \sqrt{d_{KL}} + O\left(\sqrt{\frac{\text{complexity}(S)}{n}}\right)
 
 ```
 
-**Implication:** If student can match teacher well ($d\_{KL} \approx 0$), it inherits teacher's generalization.
+**Implication:** If student can match teacher well ($d_{KL} \approx 0$), it inherits teacher's generalization.
 
 ### 3. Model Compression Bound
 
@@ -204,7 +204,7 @@ Let $\epsilon\_T$ be teacher's generalization error and $d\_{KL}$ the average KL
 
 A shallow network trained with distillation can approximate a deep network:
 
-For teacher $f\_T$ with depth $L$ and width $w$, there exists student $f\_S$ with depth 1 and width $w' = O(w^L)$ such that:
+For teacher $f_T$ with depth $L$ and width $w$, there exists student $f_S$ with depth 1 and width $w' = O(w^L)$ such that:
 
 ```math
 \|f_T(x) - f_S(x)\| \leq \epsilon \quad \forall x \in \mathcal{X}
@@ -236,14 +236,14 @@ Where:
 
 ### 2. Projection Function
 
-When $d\_S \neq d\_T$, use learned projection:
+When $d_S \neq d_T$, use learned projection:
 
 ```math
 \phi(h_T) = W_{proj} h_T, \quad W_{proj} \in \mathbb{R}^{d_S \times d_T}
 
 ```
 
-**Learning $W\_{proj}$:**
+**Learning $W_{proj}$:**
 
 ```math
 \min_{W_{proj}} \|h_S - W_{proj} h_T\|_F^2
@@ -335,7 +335,7 @@ With $k$ intermediate models of geometrically decreasing size:
 
 ```
 
-Where $\epsilon\_{step}$ is per-step distillation error.
+Where $\epsilon_{step}$ is per-step distillation error.
 
 **Optimal number of steps:**
 
@@ -363,9 +363,9 @@ k = \log_r(|T|/|S|)
 
 **Process:**
 
-1. Train model $M\_1$ on data
+1. Train model $M_1$ on data
 
-2. Train $M\_2$ (same architecture) with $M\_1$ as teacher
+2. Train $M_2$ (same architecture) with $M_1$ as teacher
 
 3. Repeat
 
@@ -396,7 +396,7 @@ T^* \approx \sqrt{\frac{H(p_T)}{H(y)}}
 
 ```
 
-Where $H(p\_T)$ is entropy of teacher predictions and $H(y)$ is entropy of labels.
+Where $H(p_T)$ is entropy of teacher predictions and $H(y)$ is entropy of labels.
 
 **Intuition:**
 - High teacher confidence → lower T
@@ -417,11 +417,11 @@ Where $H(p\_T)$ is entropy of teacher predictions and $H(y)$ is entropy of label
 
 | Concept | Formula |
 |---------|---------|
-| Temperature softmax | $\sigma\_T(z)\_i = \frac{\exp(z\_i/T)}{\sum\_j \exp(z\_j/T)}$ |
-| KL loss | $\mathcal{L}\_{KD} = T^2 \cdot KL(\sigma\_T(z\_T) \| \sigma\_T(z\_S))$ |
+| Temperature softmax | $\sigma_T(z)_i = \frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}$ |
+| KL loss | $\mathcal{L}_{KD} = T^2 \cdot KL(\sigma_T(z_T) \| \sigma_T(z_S))$ |
 | Combined loss | $\alpha T^2 KL + (1-\alpha)CE$ |
-| Hidden loss | $\sum\_l \|h\_S^{(l)} - \phi(h\_T^{(l)})\|\_F^2$ |
-| RKD distance | $\psi\_D = \|x\_i - x\_j\|\_2 / \mu\_D$ |
+| Hidden loss | $\sum_l \|h_S^{(l)} - \phi(h_T^{(l)})\|_F^2$ |
+| RKD distance | $\psi_D = \|x_i - x_j\|_2 / \mu_D$ |
 | Optimal steps | $k^* = O(\log(|T|/|S|))$ |
 
 ---

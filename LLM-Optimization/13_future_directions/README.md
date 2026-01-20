@@ -21,7 +21,7 @@ Each token requires one forward pass of the large model.
 
 **Speculative decoding:**
 
-1. Draft model generates $k$ tokens: $\tilde{x}\_1, \ldots, \tilde{x}\_k$
+1. Draft model generates $k$ tokens: $\tilde{x}_1, \ldots, \tilde{x}_k$
 
 2. Target model verifies in parallel
 
@@ -60,7 +60,7 @@ Combined: exact $p(x)$.
 
 ### Theorem 2 (Expected Tokens per Step)
 
-Let $\alpha = \mathbb{E}\_q[\min(1, p(x)/q(x))]$ be acceptance rate.
+Let $\alpha = \mathbb{E}_q[\min(1, p(x)/q(x))]$ be acceptance rate.
 
 Expected accepted tokens per verification:
 
@@ -80,7 +80,7 @@ For $\alpha = 0.8$, $k = 5$: $\mathbb{E}[n] \approx 3.4$ tokens.
 
 ```
 
-For $T\_{draft}/T\_{target} = 0.1$, $k = 5$, $\alpha = 0.8$:
+For $T_{draft}/T_{target} = 0.1$, $k = 5$, $\alpha = 0.8$:
 
 ```math
 \text{Speedup} \approx \frac{3.4}{0.5 + 1} = 2.3\times
@@ -107,7 +107,7 @@ L(N, E, k) = \left(\frac{N_c}{N_{active}}\right)^{\alpha_N}
 
 ```
 
-Where $N\_{active} = N/E \cdot k$ (active parameters).
+Where $N_{active} = N/E \cdot k$ (active parameters).
 
 ### Theorem 4 (MoE Efficiency)
 
@@ -126,7 +126,7 @@ MoE with $E$ experts achieves loss of dense model with $E^{\beta}$ more paramete
 
 ```
 
-**Theorem 5:** Minimizing $\mathcal{L}\_{aux}$ encourages:
+**Theorem 5:** Minimizing $\mathcal{L}_{aux}$ encourages:
 
 ```math
 f_i = P_i = \frac{1}{E} \quad \forall i
@@ -308,7 +308,7 @@ With continuous batching:
 
 ```
 
-**Improvement:** Up to $\max\_i T\_i / \bar{T}$ where $\bar{T}$ = average completion time.
+**Improvement:** Up to $\max_i T_i / \bar{T}$ where $\bar{T}$ = average completion time.
 
 ---
 
@@ -318,10 +318,10 @@ With continuous batching:
 |---------|---------|
 | Speculative acceptance | $\min(1, p(x)/q(x))$ |
 | Expected tokens | $(1 - \alpha^{k+1})/(1 - \alpha)$ |
-| MoE scaling | $L \propto N\_{active}^{-\alpha}$ |
-| SSM recurrence | $h\_k = \bar{A}h\_{k-1} + \bar{B}x\_k$ |
+| MoE scaling | $L \propto N_{active}^{-\alpha}$ |
+| SSM recurrence | $h_k = \bar{A}h_{k-1} + \bar{B}x_k$ |
 | BitNet weights | $W \in \{-1, +1\}$ |
-| KV eviction error | $\sum\_{i \in evict} A\_i \|v\_i\|$ |
+| KV eviction error | $\sum_{i \in evict} A_i \|v_i\|$ |
 
 ---
 

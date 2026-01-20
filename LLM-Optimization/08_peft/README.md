@@ -30,7 +30,7 @@ PEFT methods enable fine-tuning large models by training only a small subset of 
 
 Where:
 
-- $\theta\_0$ = Pre-trained weights (frozen)
+- $\theta_0$ = Pre-trained weights (frozen)
 
 - $\phi$ = Trainable parameters
 
@@ -42,7 +42,7 @@ Where:
 
 ### Mathematical Formulation
 
-For weight matrix $W\_0 \in \mathbb{R}^{d \times k}$:
+For weight matrix $W_0 \in \mathbb{R}^{d \times k}$:
 
 ```math
 W = W_0 + \Delta W = W_0 + BA
@@ -73,7 +73,7 @@ Any full-rank update $\Delta W$ can be approximated by LoRA with error:
 
 ```
 
-Where $\sigma\_{r+1}$ is the $(r+1)$-th singular value.
+Where $\sigma_{r+1}$ is the $(r+1)$-th singular value.
 
 **Proof:** By Eckart-Young theorem, the best rank-$r$ approximation is the truncated SVD.
 
@@ -172,9 +172,9 @@ During fine-tuning, weight updates are approximately low-rank:
 
 **Proof sketch:**
 
-Gradient updates: $\Delta W = -\eta \sum\_t \nabla\_W \mathcal{L}\_t$
+Gradient updates: $\Delta W = -\eta \sum_t \nabla_W \mathcal{L}_t$
 
-Each gradient $\nabla\_W \mathcal{L} = \frac{\partial \mathcal{L}}{\partial h} x^T$ is rank-1.
+Each gradient $\nabla_W \mathcal{L} = \frac{\partial \mathcal{L}}{\partial h} x^T$ is rank-1.
 
 Sum of few rank-1 matrices remains low-rank.
 
@@ -209,7 +209,7 @@ Total error compared to full fine-tuning:
 
 ```
 
-**For NF4 quantization:** Quantization error $\approx 0.015\sigma\_W$ per element.
+**For NF4 quantization:** Quantization error $\approx 0.015\sigma_W$ per element.
 
 ### Double Quantization
 
@@ -247,9 +247,9 @@ f_{adapter}(h) = W_{up} \cdot \text{ReLU}(W_{down} \cdot h)
 
 Where:
 
-- $W\_{down} \in \mathbb{R}^{r \times d}$
+- $W_{down} \in \mathbb{R}^{r \times d}$
 
-- $W\_{up} \in \mathbb{R}^{d \times r}$
+- $W_{up} \in \mathbb{R}^{d \times r}$
 
 - $r \ll d$ (bottleneck)
 
@@ -284,7 +284,7 @@ K' = [P_K; K], \quad V' = [P_V; V]
 
 ```
 
-Where $P\_K, P\_V \in \mathbb{R}^{l \times d}$ are learnable prefix embeddings.
+Where $P_K, P_V \in \mathbb{R}^{l \times d}$ are learnable prefix embeddings.
 
 **Attention:**
 
@@ -335,7 +335,7 @@ Since $m \ll d$, PEFT has tighter generalization bound!
 
 PEFT operates in a lower-dimensional subspace of the loss landscape.
 
-**Let** $\mathcal{S} = \{\theta\_0 + g(\phi) : \phi \in \mathbb{R}^m\}$ be the PEFT subspace.
+**Let** $\mathcal{S} = \{\theta_0 + g(\phi) : \phi \in \mathbb{R}^m\}$ be the PEFT subspace.
 
 **Property:** If $\theta^*$ (full fine-tuning optimum) is close to $\mathcal{S}$:
 
@@ -371,7 +371,7 @@ W = W_0 + B_1 A_1 + B_2 A_2 + \ldots
 
 ```
 
-**Theorem 13:** The composed update has rank at most $\sum\_i r\_i$.
+**Theorem 13:** The composed update has rank at most $\sum_i r_i$.
 
 ### Weight Merging
 
@@ -382,7 +382,7 @@ W_{merged} = W_0 + \sum_i \lambda_i B_i A_i
 
 ```
 
-Where $\sum\_i \lambda\_i = 1$.
+Where $\sum_i \lambda_i = 1$.
 
 **Theorem 14 (Optimal Merging Weights):**
 
@@ -408,13 +408,13 @@ For weighted importance:
 
 | Concept | Formula |
 |---------|---------|
-| LoRA update | $W = W\_0 + BA$ |
+| LoRA update | $W = W_0 + BA$ |
 | LoRA parameters | $r(d + k)$ |
-| LoRA scaling | $h = W\_0x + \frac{\alpha}{r}BAx$ |
-| LoRA error bound | $\|\Delta W - BA\|\_F \leq \sigma\_{r+1}$ |
+| LoRA scaling | $h = W_0x + \frac{\alpha}{r}BAx$ |
+| LoRA error bound | $\|\Delta W - BA\|_F \leq \sigma_{r+1}$ |
 | QLoRA bits | $\approx 4.19$ per weight |
-| Adapter | $h' = h + W\_{up}\text{ReLU}(W\_{down}h)$ |
-| Prefix attention | $\text{Att}(Q, [P\_K;K], [P\_V;V])$ |
+| Adapter | $h' = h + W_{up}\text{ReLU}(W_{down}h)$ |
+| Prefix attention | $\text{Att}(Q, [P_K;K], [P_V;V])$ |
 | PEFT generalization | $O(\sqrt{m\log(n/m)/n})$ |
 
 ---
