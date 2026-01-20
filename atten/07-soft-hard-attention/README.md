@@ -31,9 +31,9 @@ This choice has major implications for training, expressiveness, and application
 
 Soft attention computes a **continuous weighted combination** of all input values:
 
-```math
+$$
 c = \sum_{i=1}^{n} \alpha_i \cdot v_i
-```
+$$
 
 Where:
 - α_i are attention weights (sum to 1)
@@ -61,10 +61,10 @@ Where:
 
 ### Mathematical Form
 
-```math
+$$
 \alpha = \text{softmax}(\text{scores})
 c = \sum_i \alpha_i v_i = \alpha^T V
-```
+$$
 
 The softmax ensures:
 - α_i ≥ 0 (non-negative weights)
@@ -78,9 +78,9 @@ The softmax ensures:
 
 Hard attention **selects a single position** (or discrete subset) to attend to:
 
-```math
+$$
 c = v_i \quad \text{where} \quad i \sim \text{Categorical}(\alpha)
-```
+$$
 
 The index i is **sampled** from the attention distribution.
 
@@ -136,9 +136,9 @@ Since hard attention is non-differentiable, special techniques are needed:
 
 Treat attention as a policy, use RL to train:
 
-```math
+$$
 \nabla_\theta J = \mathbb{E}[(R - b) \nabla_\theta \log p_\theta(i)]
-```
+$$
 
 Where:
 - R = reward (e.g., task accuracy)
@@ -154,9 +154,9 @@ Where:
 
 Approximate discrete sampling with continuous relaxation:
 
-```math
+$$
 y_i = \frac{\exp((\log \alpha_i + g_i) / \tau)}{\sum_j \exp((\log \alpha_j + g_j) / \tau)}
-```
+$$
 
 Where:
 - g_i = Gumbel noise
