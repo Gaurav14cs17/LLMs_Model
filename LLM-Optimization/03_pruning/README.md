@@ -16,9 +16,9 @@ Pruning removes redundant weights from neural networks. This module provides rig
 
 **Objective:** Find a sparse weight matrix $\hat{W}$ that minimizes:
 
-$$
+```math
 \min_{\hat{W}} \mathcal{L}(f(x; \hat{W})) \quad \text{s.t.} \quad \|\hat{W}\|_0 \leq k
-$$
+```
 
 Where:
 - $\mathcal{L}$ = loss function
@@ -27,9 +27,9 @@ Where:
 
 **Equivalent Lagrangian form:**
 
-$$
+```math
 \min_{\hat{W}} \mathcal{L}(f(x; \hat{W})) + \lambda \|\hat{W}\|_0
-$$
+```
 
 ---
 
@@ -37,9 +37,9 @@ $$
 
 **Theorem 1 (LeCun et al., 1990):** The increase in loss from removing weight $w\_i$ is approximately:
 
-$$
+```math
 \delta\mathcal{L}_i = \frac{1}{2} H_{ii} w_i^2
-$$
+```
 
 Where $H = \nabla^2 \mathcal{L}$ is the Hessian matrix.
 
@@ -47,27 +47,27 @@ Where $H = \nabla^2 \mathcal{L}$ is the Hessian matrix.
 
 Taylor expansion of loss around optimal weights $w^*$:
 
-$$
+```math
 \mathcal{L}(w^* + \delta w) = \mathcal{L}(w^*) + \underbrace{\nabla\mathcal{L}^T \delta w}_{=0 \text{ at optimum}} + \frac{1}{2} \delta w^T H \delta w + O(\|\delta w\|^3)
-$$
+```
 
 For pruning weight $i$ (setting $w\_i = 0$), we have $\delta w\_i = -w\_i$:
 
-$$
+```math
 \delta\mathcal{L} \approx \frac{1}{2} \delta w^T H \delta w
-$$
+```
 
 **Diagonal Approximation:** If we assume $H$ is diagonal:
 
-$$
+```math
 \delta\mathcal{L}_i \approx \frac{1}{2} H_{ii} w_i^2
-$$
+```
 
 **Saliency Score:**
 
-$$
+```math
 s_i = |H_{ii}| \cdot w_i^2
-$$
+```
 
 Prune weights with lowest saliency.
 
@@ -77,55 +77,55 @@ Prune weights with lowest saliency.
 
 **Theorem 2 (Hassibi & Stork, 1993):** When pruning weight $w\_q$, the optimal adjustment to remaining weights is:
 
-$$
+```math
 \delta w = -\frac{w_q}{[H^{-1}]_{qq}} H^{-1} e_q
-$$
+```
 
 And the resulting loss increase is:
 
-$$
+```math
 \delta\mathcal{L}_q = \frac{w_q^2}{2[H^{-1}]_{qq}}
-$$
+```
 
 **Proof:**
 
 We want to minimize:
 
-$$
+```math
 \min_{\delta w} \frac{1}{2} \delta w^T H \delta w \quad \text{s.t.} \quad e_q^T(w + \delta w) = 0
-$$
+```
 
 Using Lagrange multipliers:
 
-$$
+```math
 \mathcal{L}_{Lagrange} = \frac{1}{2} \delta w^T H \delta w + \lambda(e_q^T w + e_q^T \delta w)
-$$
+```
 
 Setting $\nabla\_{\delta w} \mathcal{L}\_{Lagrange} = 0$:
 
-$$
+```math
 H \delta w + \lambda e_q = 0
 \delta w = -\lambda H^{-1} e_q
-$$
+```
 
 From constraint $e\_q^T \delta w = -w\_q$:
 
-$$
+```math
 -\lambda e_q^T H^{-1} e_q = -w_q
 \lambda = \frac{w_q}{[H^{-1}]_{qq}}
-$$
+```
 
 Substituting back:
 
-$$
+```math
 \delta w = -\frac{w_q}{[H^{-1}]_{qq}} H^{-1} e_q
-$$
+```
 
 **Loss increase:**
 
-$$
+```math
 \delta\mathcal{L} = \frac{1}{2} \delta w^T H \delta w = \frac{1}{2} \frac{w_q^2}{([H^{-1}]_{qq})^2} e_q^T H^{-1} H H^{-1} e_q = \frac{w_q^2}{2[H^{-1}]_{qq}}
-$$
+```
 
 ---
 
@@ -135,28 +135,28 @@ $$
 
 **Theorem 3:** For magnitude pruning with threshold $\tau$, the expected fraction of pruned weights is:
 
-$$
+```math
 \mathbb{P}(|w| < \tau) = F_W(\tau) - F_W(-\tau)
-$$
+```
 
 For Gaussian weights $W \sim \mathcal{N}(0, \sigma^2)$:
 
-$$
+```math
 \mathbb{P}(|w| < \tau) = \text{erf}\left(\frac{\tau}{\sigma\sqrt{2}}\right)
-$$
+```
 
 **Expected Pruning Error:**
 
-$$
+```math
 \mathbb{E}[\|W - \hat{W}\|_F^2] = n \cdot \mathbb{E}[w^2 \cdot \mathbf{1}_{|w| < \tau}]
-$$
+```
 
 For Gaussian:
 
-$$
+```math
 = n \cdot \int_{-\tau}^{\tau} w^2 \cdot \frac{1}{\sqrt{2\pi}\sigma} e^{-w^2/2\sigma^2} dw
 = n\sigma^2 \left[\text{erf}\left(\frac{\tau}{\sigma\sqrt{2}}\right) - \frac{2\tau}{\sigma\sqrt{2\pi}} e^{-\tau^2/2\sigma^2}\right]
-$$
+```
 
 ---
 
@@ -170,59 +170,59 @@ For convolutional layer with weight tensor $W \in \mathbb{R}^{C\_{out} \times C\
 
 **Channel Importance (L1 norm):**
 
-$$
+```math
 s_c = \sum_{i,j,k} |W_{c,i,j,k}|
-$$
+```
 
 **Channel Importance (L2 norm):**
 
-$$
+```math
 s_c = \sqrt{\sum_{i,j,k} W_{c,i,j,k}^2}
-$$
+```
 
 **Theorem 4 (Filter Pruning Error Bound):**
 
 Let $\mathcal{C}$ be the set of pruned channels. The output error is bounded by:
 
-$$
+```math
 \|Y - \hat{Y}\|_F \leq \|X\|_F \cdot \sum_{c \in \mathcal{C}} \|W_c\|_F
-$$
+```
 
 **Proof:**
 
-$$
+```math
 Y - \hat{Y} = \sum_{c \in \mathcal{C}} W_c * X_c
-$$
+```
 
 By triangle inequality:
 
-$$
+```math
 \|Y - \hat{Y}\|_F \leq \sum_{c \in \mathcal{C}} \|W_c * X_c\|_F \leq \sum_{c \in \mathcal{C}} \|W_c\|_F \|X_c\|_F
-$$
+```
 
 ### 2. Attention Head Pruning
 
 For multi-head attention with $h$ heads:
 
-$$
+```math
 \text{MHA}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h) W^O
-$$
+```
 
 **Head Importance Score:**
 
 Based on expected attention entropy:
 
-$$
+```math
 s_i = -\mathbb{E}_{x}\left[\sum_j A_{ij} \log A_{ij}\right]
-$$
+```
 
 Low entropy heads are more "decisive" and important.
 
 **Gradient-based importance:**
 
-$$
+```math
 s_i = \mathbb{E}\left[\left|\frac{\partial \mathcal{L}}{\partial \text{head}_i}\right|\right]
-$$
+```
 
 ---
 
@@ -238,9 +238,9 @@ There exists a mask $m \in \{0, 1\}^{|\theta|}$ with $\|m\|\_0 = k \ll |\theta|$
 
 After $t$ training iterations:
 
-$$
+```math
 \mathcal{L}(f(x; m \odot \theta_t)) \leq \mathcal{L}(f(x; \theta_t)) + \epsilon
-$$
+```
 
 With probability at least $1 - \delta$, where $k = O(|\theta|^{1-\alpha})$ for some $\alpha > 0$.
 
@@ -250,9 +250,9 @@ With probability at least $1 - \delta$, where $k = O(|\theta|^{1-\alpha})$ for s
 
 For any target network $f\_T$ with $n$ parameters, a sufficiently overparameterized random network $f\_R$ with $N$ parameters contains a subnetwork that $\epsilon$-approximates $f\_T$, where:
 
-$$
+```math
 N = O\left(\frac{n^2}{\epsilon^2}\right)
-$$
+```
 
 **Proof sketch:**
 
@@ -283,9 +283,9 @@ Common pattern: **2:4 sparsity** (50% sparse)
 
 For weight vector $w = [w\_1, w\_2, w\_3, w\_4]$, find mask $m \in \{0, 1\}^4$ with $\|m\|\_0 = 2$ minimizing:
 
-$$
+```math
 \min_{m: \|m\|_0 = 2} \|w - m \odot w\|_2^2 = \min_{m} \sum_{i: m_i = 0} w_i^2
-$$
+```
 
 **Solution:** Keep the 2 largest magnitude elements.
 
@@ -293,18 +293,18 @@ $$
 
 **Theorem 7:** For weights $w \sim \mathcal{N}(0, \sigma^2)$, the expected error from 2:4 pruning is:
 
-$$
+```math
 \mathbb{E}[\|w - m \odot w\|_2^2] = 2\sigma^2 \cdot \mathbb{E}[w_{(1)}^2 + w_{(2)}^2]
-$$
+```
 
 Where $w\_{(1)} \leq w\_{(2)}$ are the order statistics.
 
 For standard Gaussian:
 
-$$
+```math
 \mathbb{E}[w_{(1)}^2] \approx 0.3176\sigma^2, \quad \mathbb{E}[w_{(2)}^2] \approx 0.6824\sigma^2
 \mathbb{E}[\text{error}] \approx 2\sigma^2 \times (0.3176 + 0.6824) = 2\sigma^2
-$$
+```
 
 **Relative error:** 50% of total weight energy (expected for 50% sparsity).
 
@@ -316,9 +316,9 @@ $$
 
 **Sparsity Schedule:** Cubic schedule from $s\_0$ to $s\_f$ over $T$ steps:
 
-$$
+```math
 s(t) = s_f + (s_0 - s_f)\left(1 - \frac{t - t_0}{T}\right)^3
-$$
+```
 
 **Theorem 8:** Gradual pruning achieves lower final loss than one-shot pruning.
 
@@ -328,9 +328,9 @@ $$
 
 **Proposition:** Under mild conditions, iterative pruning with fine-tuning converges:
 
-$$
+```math
 \mathcal{L}(\theta^{(k)}) \leq \mathcal{L}(\theta^{(k-1)}) + \epsilon_k
-$$
+```
 
 Where $\epsilon\_k \to 0$ as pruning becomes slower.
 
@@ -342,9 +342,9 @@ Where $\epsilon\_k \to 0$ as pruning becomes slower.
 
 For a neural network with $n$ parameters pruned to $k$ non-zero weights:
 
-$$
+```math
 \text{Generalization gap} \leq O\left(\sqrt{\frac{k \log(n/k)}{m}}\right)
-$$
+```
 
 Where $m$ is the number of training samples.
 
@@ -352,15 +352,15 @@ Where $m$ is the number of training samples.
 
 ### PAC-Bayes Bound
 
-$$
+```math
 \mathcal{L}_{test} \leq \mathcal{L}_{train} + \sqrt{\frac{KL(\hat{p} \| p) + \log(m/\delta)}{2m}}
-$$
+```
 
 For pruned networks, $KL(\hat{p} \| p)$ is related to sparsity:
 
-$$
+```math
 KL \approx k \cdot \log\frac{n}{k} + (n-k)\log\frac{n}{n-k}
-$$
+```
 
 ---
 
@@ -370,9 +370,9 @@ $$
 
 **Definition:** The sensitivity of layer $l$ is:
 
-$$
+```math
 \text{Sens}_l(s) = \frac{\mathcal{L}(\theta_l^{(s)}) - \mathcal{L}(\theta)}{\mathcal{L}(\theta)}
-$$
+```
 
 Where $\theta\_l^{(s)}$ has layer $l$ pruned to sparsity $s$.
 
@@ -382,9 +382,9 @@ Where $\theta\_l^{(s)}$ has layer $l$ pruned to sparsity $s$.
 
 **Theorem 10:** The sensitivity is related to Fisher Information:
 
-$$
+```math
 \text{Sens}_l \propto \text{tr}(F_l)
-$$
+```
 
 Where $F\_l = \mathbb{E}[\nabla\_{\theta\_l} \log p(y|x; \theta) \nabla\_{\theta\_l} \log p(y|x; \theta)^T]$
 

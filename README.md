@@ -111,7 +111,6 @@ Each module includes detailed mathematical proofs and formulas:
 ### Installation
 
 ```bash
-
 # Clone repository
 git clone https://github.com/Gaurav14cs17/LLMs_Model.git
 cd LLMS_MODEL
@@ -126,7 +125,6 @@ pip install -r LLM-Optimization/requirements.txt
 ### Basic Usage
 
 ```python
-
 # Fine-tune with LoRA
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM
@@ -134,12 +132,10 @@ from transformers import AutoModelForCausalLM
 model = AutoModelForCausalLM.from_pretrained("microsoft/phi-2")
 lora_config = LoraConfig(r=16, lora_alpha=32)
 model = get_peft_model(model, lora_config)
-
 # Train only 0.1% of parameters!
 ```
 
 ```python
-
 # Quantize to 4-bit
 from transformers import BitsAndBytesConfig
 
@@ -151,7 +147,6 @@ model = AutoModelForCausalLM.from_pretrained(
     "meta-llama/Llama-2-7b-hf",
     quantization_config=bnb_config
 )
-
 # 4x smaller model!
 ```
 

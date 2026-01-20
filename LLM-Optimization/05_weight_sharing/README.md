@@ -14,17 +14,17 @@ Weight sharing reduces model size by reusing parameters across different parts o
 
 **Standard Transformer:**
 
-$$
+```math
 h^{(l)} = \text{TransformerLayer}_l(h^{(l-1)}; \theta_l)
-$$
+```
 
 Each layer has its own parameters $\theta\_l$.
 
 **ALBERT (Shared):**
 
-$$
+```math
 h^{(l)} = \text{TransformerLayer}(h^{(l-1)}; \theta)
-$$
+```
 
 All layers share parameters $\theta$.
 
@@ -44,23 +44,23 @@ All layers share parameters $\theta$.
 
 ALBERT can be viewed as a recurrent network unrolled for $L$ steps:
 
-$$
+```math
 h_t = f(h_{t-1}; \theta) \quad \text{for } t = 1, \ldots, L
-$$
+```
 
 **Fixed Point Analysis:**
 
 If the transformation is contractive:
 
-$$
+```math
 \|f(h_1; \theta) - f(h_2; \theta)\| \leq \gamma \|h_1 - h_2\|, \quad \gamma < 1
-$$
+```
 
 Then by Banach fixed-point theorem, there exists unique fixed point $h^*$:
 
-$$
+```math
 h^* = f(h^*; \theta)
-$$
+```
 
 **Interpretation:** Deep enough ALBERT approximates finding this fixed point.
 
@@ -72,17 +72,17 @@ $$
 
 **Standard Embedding:**
 
-$$
+```math
 E \in \mathbb{R}^{V \times H}
-$$
+```
 
 Parameters: $V \times H$
 
 **Factorized Embedding:**
 
-$$
+```math
 E = E_1 \cdot E_2, \quad E_1 \in \mathbb{R}^{V \times E}, \quad E_2 \in \mathbb{R}^{E \times H}
-$$
+```
 
 Parameters: $V \times E + E \times H$
 
@@ -90,9 +90,9 @@ Parameters: $V \times E + E \times H$
 
 For vocabulary $V$, hidden size $H$, the optimal $E$ minimizing parameters while maintaining rank is:
 
-$$
+```math
 E^* = \min\left(\sqrt{VH}, \text{rank}_{effective}(E_{full})\right)
-$$
+```
 
 **Proof:**
 
@@ -100,9 +100,9 @@ Parameters: $f(E) = VE + EH = E(V + H)$
 
 Minimizing subject to $E \leq \min(V, H)$:
 
-$$
+```math
 \frac{df}{dE} = V + H
-$$
+```
 
 This is always positive, so minimum is at smallest $E$ that preserves information.
 
@@ -116,41 +116,41 @@ This is always positive, so minimum is at smallest $E$ that preserves informatio
 
 ### Standard Multi-Head Attention
 
-$$
+```math
 \text{MHA}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O
-$$
+```
 
 Where each head:
 
-$$
+```math
 \text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
-$$
+```
 
 **Parameters per layer:**
 
-$$
+```math
 P_{MHA} = h \cdot d_k \cdot d + h \cdot d_k \cdot d + h \cdot d_v \cdot d + h \cdot d_v \cdot d = 4hd_k d
-$$
+```
 
 ### Multi-Query Attention
 
 **Key Insight:** Share K and V projections across all heads:
 
-$$
+```math
 \text{head}_i = \text{Attention}(QW_i^Q, KW^K, VW^V)
-$$
+```
 
 **Parameters:**
 
-$$
+```math
 P_{MQA} = h \cdot d_k \cdot d + d_k \cdot d + d_v \cdot d + h \cdot d_v \cdot d = (h+2)d_k d
-$$
+```
 
 **Reduction ratio:**
 
-$$
+```math
 \frac{P_{MHA}}{P_{MQA}} = \frac{4h}{h+2} \approx 4 \text{ for large } h
-$$
+```
 
 ### KV-Cache Reduction
 
@@ -180,17 +180,17 @@ MQA stores single K and V: $2 \times d\_k$ per position.
 
 Let $g$ = number of KV head groups, $h$ = query heads:
 
-$$
+```math
 \text{head}_i = \text{Attention}(QW_i^Q, KW_{g(i)}^K, VW_{g(i)}^V)
-$$
+```
 
 Where $g(i) = \lfloor i \cdot g / h \rfloor$ maps query head to KV group.
 
 **Parameters:**
 
-$$
+```math
 P_{GQA} = h \cdot d_k \cdot d + g \cdot d_k \cdot d + g \cdot d_v \cdot d + h \cdot d_v \cdot d = (h+2g)d_k d
-$$
+```
 
 **Special Cases:**
 - $g = h$: MHA
@@ -200,9 +200,9 @@ $$
 
 **Theorem 4:** The approximation error of GQA compared to MHA is:
 
-$$
+```math
 \mathbb{E}[\|\text{MHA}(x) - \text{GQA}(x)\|^2] \leq \frac{h - g}{h} \cdot \sigma_{KV}^2
-$$
+```
 
 Where $\sigma\_{KV}^2$ is variance in KV head outputs.
 
@@ -219,9 +219,9 @@ Error proportional to within-group variance, which decreases with more groups.
 
 **Objective:** Cluster weights into $K$ centroids:
 
-$$
+```math
 \min_{\{c_k\}, \{a_i\}} \sum_i (w_i - c_{a_i})^2
-$$
+```
 
 Where $a\_i \in \{1, \ldots, K\}$ assigns weight $i$ to cluster.
 
@@ -235,9 +235,9 @@ Where $a\_i \in \{1, \ldots, K\}$ assigns weight $i$ to cluster.
 
 For $n$ weights with target bits per weight $b$:
 
-$$
+```math
 K^* = \frac{2^b \cdot n}{n + 32 \cdot 2^b / b} \approx 2^b
-$$
+```
 
 For large $n$.
 
@@ -247,9 +247,9 @@ For large $n$.
 
 For weights $W \sim \mathcal{N}(0, \sigma^2)$, optimal K-means MSE is:
 
-$$
+```math
 \text{MSE}_K \approx \sigma^2 \cdot \frac{1}{12} \cdot \left(\frac{2\sqrt{3}\sigma}{K}\right)^2 = \frac{\sigma^4}{K^2}
-$$
+```
 
 For uniformly spaced centroids. Lloyd-Max optimal centroids achieve lower MSE.
 
@@ -266,9 +266,9 @@ For uniformly spaced centroids. Lloyd-Max optimal centroids achieve lower MSE.
 
 **Tied:**
 
-$$
+```math
 W_{out} = E_{in}^T
-$$
+```
 
 - Parameters: $Vd$ (2× reduction)
 
@@ -276,9 +276,9 @@ $$
 
 If input and output embeddings share semantic space:
 
-$$
+```math
 \text{sim}(e_i^{in}, e_j^{out}) \propto P(j | i)
-$$
+```
 
 Then tying improves sample efficiency.
 
@@ -286,9 +286,9 @@ Then tying improves sample efficiency.
 
 Tied weights enforce:
 
-$$
+```math
 \langle e_i, e_j \rangle = \langle e_j, e_i \rangle
-$$
+```
 
 This symmetric similarity is appropriate for bidirectional relationships.
 
@@ -331,9 +331,9 @@ This is analogous to the universal approximation theorem for deep networks.
 
 Weight sharing creates an information bottleneck:
 
-$$
+```math
 I(X; h^{(L)}) \leq I(X; \theta)
-$$
+```
 
 With shared weights, the mutual information is limited by the shared parameter capacity.
 
@@ -348,9 +348,9 @@ For shared: $R\_{shared} = (n/L) \cdot 32$ bits
 
 **Theorem 10:** Weight sharing is optimal when:
 
-$$
+```math
 \text{Var}(\theta_l - \theta_{l'}) \ll \text{Var}(\theta_l)
-$$
+```
 
 i.e., layer weights are similar to each other.
 

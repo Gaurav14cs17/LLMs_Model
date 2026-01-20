@@ -18,9 +18,9 @@ Quantization reduces the numerical precision of model weights and activations. T
 
 #### Affine (Asymmetric) Quantization
 
-$$
+```math
 Q(x) = \text{round}\left(\frac{x - z}{s}\right), \quad \hat{x} = s \cdot Q(x) + z
-$$
+```
 
 Where:
 - $s$ = scale (step size)
@@ -29,10 +29,10 @@ Where:
 
 **Computing scale and zero-point:**
 
-$$
+```math
 s = \frac{x_{max} - x_{min}}{2^b - 1}
 z = x_{min} - s \cdot q_{min}
-$$
+```
 
 Where $q\_{min} = 0$ for unsigned or $q\_{min} = -2^{b-1}$ for signed.
 
@@ -40,9 +40,9 @@ Where $q\_{min} = 0$ for unsigned or $q\_{min} = -2^{b-1}$ for signed.
 
 For symmetric quantization around zero:
 
-$$
+```math
 Q(x) = \text{round}\left(\frac{x}{s}\right), \quad s = \frac{\max(|x_{max}|, |x_{min}|)}{2^{b-1} - 1}
-$$
+```
 
 ---
 
@@ -52,41 +52,41 @@ $$
 
 For uniform quantization with step size $\Delta$, the quantization error $e = x - Q(x)$ has:
 
-$$
+```math
 \mathbb{E}[e] = 0, \quad \mathbb{E}[e^2] = \frac{\Delta^2}{12}
-$$
+```
 
 **Proof:**
 
 Assuming the input is uniformly distributed within a quantization bin:
 
-$$
+```math
 p(e) = \frac{1}{\Delta}, \quad e \in \left[-\frac{\Delta}{2}, \frac{\Delta}{2}\right]
-$$
+```
 
 Mean:
 
-$$
+```math
 \mathbb{E}[e] = \int_{-\Delta/2}^{\Delta/2} e \cdot \frac{1}{\Delta} de = 0
-$$
+```
 
 Variance:
 
-$$
+```math
 \mathbb{E}[e^2] = \int_{-\Delta/2}^{\Delta/2} e^2 \cdot \frac{1}{\Delta} de = \frac{1}{\Delta} \cdot \frac{e^3}{3}\Big|_{-\Delta/2}^{\Delta/2} = \frac{\Delta^2}{12}
-$$
+```
 
 **Corollary:** Signal-to-Quantization-Noise Ratio (SQNR):
 
-$$
+```math
 \text{SQNR} = \frac{\sigma_x^2}{\sigma_e^2} = \frac{12\sigma_x^2}{\Delta^2}
-$$
+```
 
 In dB for full-range signal:
 
-$$
+```math
 \text{SQNR}_{dB} \approx 6.02b + 1.76 \text{ dB}
-$$
+```
 
 **Each additional bit provides ~6 dB improvement.**
 
@@ -102,15 +102,15 @@ $$
 
 1. **Nearest Neighbor:** Each input is quantized to the nearest level:
 
-$$
+```math
 d_i = \frac{q_i + q_{i+1}}{2}
-$$
+```
 
 2. **Centroid:** Each level is the centroid of its region:
 
-$$
+```math
 q_i = \frac{\int_{d_{i-1}}^{d_i} x \cdot p(x) dx}{\int_{d_{i-1}}^{d_i} p(x) dx}
-$$
+```
 
 **For Gaussian Distribution:**
 
@@ -136,10 +136,10 @@ The optimal quantization levels are not uniformly spaced. For $\mathcal{N}(0, 1)
 
 **Optimal NF4 Levels (for $\mathcal{N}(0,1)$):**
 
-$$
+```math
 \mathcal{Q}_{NF4} = \{-1.0, -0.6962, -0.5251, -0.3949, -0.2844, -0.1848, -0.0911, 0.0,
 0.0796, 0.1609, 0.2461, 0.3379, 0.4407, 0.5626, 0.7230, 1.0\}
-$$
+```
 
 **Theorem 2:** NF4 achieves lower MSE than uniform INT4 for Gaussian-distributed weights.
 
@@ -149,15 +149,15 @@ For weights $W \sim \mathcal{N}(0, \sigma^2)$:
 
 Uniform INT4 MSE:
 
-$$
+```math
 \text{MSE}_{uniform} = \frac{\Delta^2}{12} \approx \frac{(2 \cdot 3\sigma / 15)^2}{12} = 0.0333\sigma^2
-$$
+```
 
 NF4 MSE (Lloyd-Max optimal):
 
-$$
+```math
 \text{MSE}_{NF4} \approx 0.0220\sigma^2
-$$
+```
 
 **Improvement:** $\frac{0.0333 - 0.0220}{0.0333} \approx 34\%$ lower MSE.
 
@@ -177,9 +177,9 @@ $$
 
 If true range is $[\mu - k\sigma, \mu + k\sigma]$:
 
-$$
+```math
 \text{Clipping Error} = \mathbb{E}[(x - \text{clip}(x))^2] = 2\int_{k\sigma}^{\infty} (x - k\sigma)^2 p(x) dx
-$$
+```
 
 For Gaussian, optimal $k \approx 2.83$ for 4-bit.
 
@@ -187,9 +187,9 @@ For Gaussian, optimal $k \approx 2.83$ for 4-bit.
 
 Use percentiles instead of min/max to reduce outlier sensitivity:
 
-$$
+```math
 x_{min} = \text{Percentile}(X, p), \quad x_{max} = \text{Percentile}(X, 100-p)
-$$
+```
 
 Typical $p = 0.1\%$ to $1\%$.
 
@@ -197,9 +197,9 @@ Typical $p = 0.1\%$ to $1\%$.
 
 **Objective:** Find $s, z$ that minimize:
 
-$$
+```math
 \min_{s, z} \|W - Q(W; s, z)\|_F^2
-$$
+```
 
 **Solution:** Grid search or analytical approximation.
 
@@ -211,9 +211,9 @@ $$
 
 **Objective:** Quantize weights to minimize output error:
 
-$$
+```math
 \min_{\hat{W}} \|WX - \hat{W}X\|_F^2
-$$
+```
 
 Where $X$ is the input activation matrix.
 
@@ -223,9 +223,9 @@ Where $X$ is the input activation matrix.
 
 When quantizing weight $w\_q$ in column $q$, the optimal update to remaining weights is:
 
-$$
+```math
 \delta_F = -\frac{w_q - \text{quant}(w_q)}{[H^{-1}]_{qq}} \cdot (H^{-1})_{:,q}
-$$
+```
 
 Where $H = 2X^TX$ is the Hessian of the squared error.
 
@@ -233,15 +233,15 @@ Where $H = 2X^TX$ is the Hessian of the squared error.
 
 The loss increase from quantizing $w\_q$ is:
 
-$$
+```math
 \Delta\mathcal{L} = \frac{(w_q - \text{quant}(w_q))^2}{2[H^{-1}]_{qq}}
-$$
+```
 
 Using Lagrange multipliers to minimize loss subject to $w\_q$ being quantized:
 
-$$
+```math
 \nabla_{w_F} \mathcal{L} + \lambda \nabla_{w_F}(w_q - c) = 0
-$$
+```
 
 Solving gives the update formula above.
 
@@ -251,9 +251,9 @@ GPTQ processes columns in order, updating the inverse Hessian efficiently:
 
 **Inverse Update (Gaussian Elimination):**
 
-$$
+```math
 [H^{-1}]_{F,F} \leftarrow [H^{-1}]_{F,F} - \frac{[H^{-1}]_{F,q}[H^{-1}]_{q,F}}{[H^{-1}]_{qq}}
-$$
+```
 
 **Complexity:** $O(d\_{col} \cdot d\_{row}^2)$ per layer.
 
@@ -269,9 +269,9 @@ $$
 
 The quantization error weighted by activation magnitude is:
 
-$$
+```math
 \mathcal{L} = \sum_i s_i (w_i - \hat{w}_i)^2
-$$
+```
 
 Where $s\_i = \mathbb{E}[|x\_i|]$ is the average activation magnitude.
 
@@ -279,15 +279,15 @@ Where $s\_i = \mathbb{E}[|x\_i|]$ is the average activation magnitude.
 
 **Objective:** Find per-channel scales $\alpha$ that minimize weighted error:
 
-$$
+```math
 \min_\alpha \mathbb{E}_x\left[\left\|Q\left(\frac{W}{\alpha}\right) \cdot \alpha \cdot x - W \cdot x\right\|^2\right]
-$$
+```
 
 **Solution:** Grid search over $\alpha \in [0, 1]$ with:
 
-$$
+```math
 \alpha_j = s_j^\beta, \quad \beta \in [0, 1]
-$$
+```
 
 Where $s\_j$ is the activation scale for channel $j$.
 
@@ -299,15 +299,15 @@ Let $w$ be a weight with quantization error $e = w - Q(w)$.
 
 After scaling by $\alpha < 1$:
 
-$$
+```math
 e' = \alpha \cdot Q(w/\alpha) - w
-$$
+```
 
 For large $|w|$, the relative error decreases:
 
-$$
+```math
 \frac{|e'|}{|w|} < \frac{|e|}{|w|}
-$$
+```
 
 ---
 
@@ -317,9 +317,9 @@ $$
 
 Instead of per-tensor scales, use per-group scales:
 
-$$
+```math
 Q(W) = \begin{bmatrix} s_1 \cdot Q(W_1/s_1) \\ s_2 \cdot Q(W_2/s_2) \\ \vdots \\ s_g \cdot Q(W_g/s_g) \end{bmatrix}
-$$
+```
 
 Where groups $W\_1, \ldots, W\_g$ partition the weight matrix.
 
@@ -327,17 +327,17 @@ Where groups $W\_1, \ldots, W\_g$ partition the weight matrix.
 
 **Theorem 5:** Group-wise quantization with group size $g$ reduces MSE by factor of approximately:
 
-$$
+```math
 \frac{\text{MSE}_{per-tensor}}{\text{MSE}_{group}} \approx \frac{\text{Var}(W)}{\text{Var}(W|group)} \approx \sqrt{g}
-$$
+```
 
 **Proof sketch:**
 
 Within-group variance is lower than full-tensor variance. For uniformly distributed group means:
 
-$$
+```math
 \text{Var}(W|group) \approx \frac{\text{Var}(W)}{g^{1/2}}
-$$
+```
 
 ### Storage Overhead
 
@@ -347,9 +347,9 @@ For $n$ weights with group size $g$:
 
 **Example:** g=128, 4-bit weights, FP16 scales:
 
-$$
+```math
 \text{Overhead} = \frac{16}{128 \times 4} = 3.1\%
-$$
+```
 
 ---
 
@@ -361,9 +361,9 @@ $$
 
 **Solution:** Use STE for backpropagation:
 
-$$
+```math
 \frac{\partial \mathcal{L}}{\partial w} = \frac{\partial \mathcal{L}}{\partial \hat{w}} \cdot \underbrace{\frac{\partial \hat{w}}{\partial w}}_{\approx 1}
-$$
+```
 
 ### Mathematical Justification
 
@@ -373,15 +373,15 @@ $$
 
 ### QAT Loss Function
 
-$$
+```math
 \mathcal{L}_{QAT} = \mathcal{L}_{task}(Q(W)) + \lambda \cdot R(W)
-$$
+```
 
 Where $R(W)$ is a regularizer encouraging quantization-friendly weights:
 
-$$
+```math
 R(W) = \|W - Q(W)\|_F^2
-$$
+```
 
 ---
 
@@ -391,9 +391,9 @@ $$
 
 For an $L$-layer network with per-layer quantization error $\epsilon\_l$:
 
-$$
+```math
 \|f(x) - \hat{f}(x)\| \leq \sum_{l=1}^{L} \epsilon_l \cdot \prod_{k=l+1}^{L} \|W_k\| \cdot \text{Lip}(\sigma)^{L-l}
-$$
+```
 
 Where $\text{Lip}(\sigma)$ is the Lipschitz constant of activation $\sigma$.
 
@@ -401,9 +401,9 @@ Where $\text{Lip}(\sigma)$ is the Lipschitz constant of activation $\sigma$.
 
 Deeper networks are more sensitive to quantization:
 
-$$
+```math
 \text{Error} = O(\epsilon \cdot L \cdot \|W\|^L)
-$$
+```
 
 **Implication:** Early layers may need higher precision.
 

@@ -16,15 +16,15 @@ PEFT methods enable fine-tuning large models by training only a small subset of 
 
 **Full Fine-tuning:**
 
-$$
+```math
 \min_{\theta \in \mathbb{R}^n} \mathcal{L}(f(x; \theta))
-$$
+```
 
 **PEFT:**
 
-$$
+```math
 \min_{\phi \in \mathbb{R}^m} \mathcal{L}(f(x; \theta_0 + g(\phi))), \quad m \ll n
-$$
+```
 
 Where:
 - $\theta\_0$ = Pre-trained weights (frozen)
@@ -39,9 +39,9 @@ Where:
 
 For weight matrix $W\_0 \in \mathbb{R}^{d \times k}$:
 
-$$
+```math
 W = W_0 + \Delta W = W_0 + BA
-$$
+```
 
 Where:
 - $B \in \mathbb{R}^{d \times r}$
@@ -50,17 +50,17 @@ Where:
 
 **Forward pass:**
 
-$$
+```math
 h = W_0 x + BAx = W_0 x + B(Ax)
-$$
+```
 
 ### Theorem 1 (LoRA Expressiveness)
 
 Any full-rank update $\Delta W$ can be approximated by LoRA with error:
 
-$$
+```math
 \|\Delta W - BA\|_F \leq \sigma_{r+1}(\Delta W)
-$$
+```
 
 Where $\sigma\_{r+1}$ is the $(r+1)$-th singular value.
 
@@ -74,21 +74,21 @@ Where $\sigma\_{r+1}$ is the $(r+1)$-th singular value.
 
 **Ratio:**
 
-$$
+```math
 \frac{r(d+k)}{dk} = \frac{r}{k} + \frac{r}{d} \approx \frac{2r}{\min(d,k)}
-$$
+```
 
 **Example:** $d = k = 4096$, $r = 16$:
 
-$$
+```math
 \text{Ratio} = \frac{16 \times 8192}{4096^2} = 0.78\%
-$$
+```
 
 ### Scaling Factor
 
-$$
+```math
 h = W_0 x + \frac{\alpha}{r} BAx
-$$
+```
 
 **Theorem 2 (Scaling Invariance):**
 
@@ -114,10 +114,10 @@ With $B = 0$: $\Delta W = BA = 0$ at initialization.
 
 **Gradient at Initialization:**
 
-$$
+```math
 \frac{\partial \mathcal{L}}{\partial B} = \frac{\alpha}{r} \frac{\partial \mathcal{L}}{\partial h} x^T A^T
 \frac{\partial \mathcal{L}}{\partial A} = \frac{\alpha}{r} B^T \frac{\partial \mathcal{L}}{\partial h} x^T
-$$
+```
 
 Since $B = 0$: $\frac{\partial \mathcal{L}}{\partial A} = 0$
 
@@ -135,9 +135,9 @@ Pre-trained models have low intrinsic dimensionality for downstream tasks.
 
 **Empirical finding (Aghajanyan et al., 2020):**
 
-$$
+```math
 d^* \ll n
-$$
+```
 
 For BERT-base ($n = 110M$): $d^* \approx 100-1000$ for many tasks.
 
@@ -145,9 +145,9 @@ For BERT-base ($n = 110M$): $d^* \approx 100-1000$ for many tasks.
 
 During fine-tuning, weight updates are approximately low-rank:
 
-$$
+```math
 \text{rank}(\Delta W_{full}) \ll \min(d, k)
-$$
+```
 
 **Proof sketch:**
 
@@ -165,25 +165,25 @@ Sum of few rank-1 matrices remains low-rank.
 
 **Quantized base model:**
 
-$$
+```math
 W_0^{quant} = Q(W_0)
-$$
+```
 
 Where $Q$ is 4-bit NormalFloat quantization.
 
 **Forward pass:**
 
-$$
+```math
 h = \text{dequant}(W_0^{quant}) \cdot x + BAx
-$$
+```
 
 ### Theorem 6 (QLoRA Error Bound)
 
 Total error compared to full fine-tuning:
 
-$$
+```math
 \|h_{full} - h_{QLoRA}\| \leq \underbrace{\|W_0 - \text{dequant}(W_0^{quant})\|}_{\text{quantization error}} \cdot \|x\| + \underbrace{\|\Delta W - BA\|}_{\text{LoRA approx error}} \cdot \|x\|
-$$
+```
 
 **For NF4 quantization:** Quantization error $\approx 0.015\sigma\_W$ per element.
 
@@ -194,9 +194,9 @@ $$
 
 **Memory per weight:**
 
-$$
+```math
 b_{DQ} = 4 + \frac{8}{g} + \frac{32}{256} \approx 4.19 \text{ bits}
-$$
+```
 
 vs $4 + \frac{32}{g} \approx 4.5$ bits without double quantization.
 
@@ -208,15 +208,15 @@ vs $4 + \frac{32}{g} \approx 4.5$ bits without double quantization.
 
 Insert adapter module after attention/FFN:
 
-$$
+```math
 h' = h + f_{adapter}(h)
-$$
+```
 
 **Adapter structure:**
 
-$$
+```math
 f_{adapter}(h) = W_{up} \cdot \text{ReLU}(W_{down} \cdot h)
-$$
+```
 
 Where:
 - $W\_{down} \in \mathbb{R}^{r \times d}$
@@ -227,9 +227,9 @@ Where:
 
 Adapters with bottleneck $r$ can approximate any Lipschitz function $g: \mathbb{R}^d \to \mathbb{R}^d$ with error:
 
-$$
+```math
 \|f_{adapter} - g\|_\infty \leq O\left(\frac{\text{Lip}(g)}{\sqrt{r}}\right)
-$$
+```
 
 ### Comparison with LoRA
 
@@ -248,17 +248,17 @@ $$
 
 Prepend learnable "soft prompts" to keys and values:
 
-$$
+```math
 K' = [P_K; K], \quad V' = [P_V; V]
-$$
+```
 
 Where $P\_K, P\_V \in \mathbb{R}^{l \times d}$ are learnable prefix embeddings.
 
 **Attention:**
 
-$$
+```math
 \text{Attention}(Q, K', V') = \text{softmax}\left(\frac{Q[P_K; K]^T}{\sqrt{d}}\right)[P_V; V]
-$$
+```
 
 ### Theorem 8 (Prefix as Virtual Tokens)
 
@@ -272,9 +272,9 @@ Prefix tuning is equivalent to prepending $l$ virtual tokens with:
 
 For attention with prefix length $l$:
 
-$$
+```math
 \text{Span of achievable attention outputs} = \text{Span}(V) + \text{Span}(P_V)
-$$
+```
 
 **Implication:** Prefix can "inject" new information directions.
 
@@ -286,9 +286,9 @@ $$
 
 For PEFT method with $m$ trainable parameters on $n$ training samples:
 
-$$
+```math
 \mathcal{L}_{test} \leq \mathcal{L}_{train} + O\left(\sqrt{\frac{m \log(n/m)}{n}}\right)
-$$
+```
 
 **Compare to full fine-tuning:** $O\left(\sqrt{\frac{d}{n}}\right)$
 
@@ -302,17 +302,17 @@ PEFT operates in a lower-dimensional subspace of the loss landscape.
 
 **Property:** If $\theta^*$ (full fine-tuning optimum) is close to $\mathcal{S}$:
 
-$$
+```math
 \min_{\theta \in \mathcal{S}} \mathcal{L}(\theta) \approx \mathcal{L}(\theta^*)
-$$
+```
 
 ### Theorem 12 (Catastrophic Forgetting)
 
 PEFT reduces catastrophic forgetting:
 
-$$
+```math
 \mathbb{E}[\|\theta_{PEFT} - \theta_0\|_2^2] \leq \mathbb{E}[\|\theta_{full} - \theta_0\|_2^2]
-$$
+```
 
 **Proof:** 
 
@@ -327,9 +327,9 @@ Full fine-tuning can move in all directions.
 
 For multiple LoRA adapters:
 
-$$
+```math
 W = W_0 + B_1 A_1 + B_2 A_2 + \ldots
-$$
+```
 
 **Theorem 13:** The composed update has rank at most $\sum\_i r\_i$.
 
@@ -337,9 +337,9 @@ $$
 
 **Linear combination:**
 
-$$
+```math
 W_{merged} = W_0 + \sum_i \lambda_i B_i A_i
-$$
+```
 
 Where $\sum\_i \lambda\_i = 1$.
 
@@ -347,15 +347,15 @@ Where $\sum\_i \lambda\_i = 1$.
 
 For tasks with equal importance:
 
-$$
+```math
 \lambda_i^* = \frac{1}{k}
-$$
+```
 
 For weighted importance:
 
-$$
+```math
 \lambda_i^* \propto \sqrt{\|B_i A_i\|_F^{-2}}
-$$
+```
 
 (Inverse variance weighting)
 

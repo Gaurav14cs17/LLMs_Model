@@ -12,15 +12,15 @@ Sparsity exploits the fact that many computations involve zeros. This module pro
 
 **Definition:** A matrix $W$ is $s$-sparse if:
 
-$$
+```math
 \|W\|_0 = |\{(i,j) : W_{ij} \neq 0\}| \leq s
-$$
+```
 
 **Sparsity ratio:**
 
-$$
+```math
 \text{sparsity} = 1 - \frac{\|W\|_0}{mn}
-$$
+```
 
 ### Storage Formats
 
@@ -37,25 +37,25 @@ $$
 
 **Dense:** $y = Wx$
 
-$$
+```math
 y_i = \sum_{j=1}^{n} W_{ij} x_j
-$$
+```
 
 FLOPs: $2mn$
 
 **Sparse:** Only compute non-zero terms:
 
-$$
+```math
 y_i = \sum_{j: W_{ij} \neq 0} W_{ij} x_j
-$$
+```
 
 FLOPs: $2 \cdot nnz$
 
 **Speedup (theoretical):**
 
-$$
+```math
 \text{Speedup} = \frac{mn}{nnz} = \frac{1}{1 - \text{sparsity}}
-$$
+```
 
 ---
 
@@ -73,9 +73,9 @@ For weight vector $w = [w\_1, \ldots, w\_M]$:
 
 Find optimal mask $m \in \{0, 1\}^M$ with $\|m\|\_0 = N$:
 
-$$
+```math
 \min_{m: \|m\|_0 = N} \|w - m \odot w\|_2^2 = \min_{m} \sum_{i: m_i = 0} w_i^2
-$$
+```
 
 **Solution:** Keep the $N$ largest magnitude elements.
 
@@ -83,17 +83,17 @@ $$
 
 For $w \sim \mathcal{N}(0, \sigma^2)^4$, the expected squared error is:
 
-$$
+```math
 \mathbb{E}[\|w - m^* \odot w\|_2^2] = 2\mathbb{E}[w_{(1)}^2 + w_{(2)}^2]
-$$
+```
 
 Where $w\_{(1)} \leq w\_{(2)} \leq w\_{(3)} \leq w\_{(4)}$ are order statistics.
 
 **For standard Gaussian:**
 
-$$
+```math
 \mathbb{E}[w_{(1)}^2] = \sigma^2(1 - \frac{3}{\sqrt{\pi}}\int_0^{\infty} x\Phi(x)^3\phi(x)dx) \approx 0.318\sigma^2
-$$
+```
 
 **Total expected error:** $\approx \sigma^2$ (25% of total energy per group of 4)
 
@@ -103,9 +103,9 @@ $$
 
 For 2:4 sparse matrix multiplication:
 
-$$
+```math
 \text{Speedup} = 2\times \text{ (theoretical)}
-$$
+```
 
 With overhead from index management: ~$1.8\times$ (practical).
 
@@ -117,9 +117,9 @@ With overhead from index management: ~$1.8\times$ (practical).
 
 **MoE Layer:**
 
-$$
+```math
 y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x)
-$$
+```
 
 Where:
 - $E\_i$ = Expert network $i$
@@ -130,9 +130,9 @@ Where:
 
 **Sparse Gating:**
 
-$$
+```math
 G(x)_i = \begin{cases} \text{softmax}(W_g x)_i & i \in \text{TopK}(W_g x) \\ 0 & \text{otherwise} \end{cases}
-$$
+```
 
 **Theorem 3 (MoE Parameter vs. Compute):**
 
@@ -152,9 +152,9 @@ For MoE with $N$ experts, top-$k$ routing:
 
 **Auxiliary Loss:**
 
-$$
+```math
 \mathcal{L}_{aux} = \alpha \cdot N \cdot \sum_{i=1}^{N} f_i \cdot P_i
-$$
+```
 
 Where:
 - $f\_i$ = Fraction of tokens routed to expert $i$
@@ -162,9 +162,9 @@ Where:
 
 **Theorem 4:** This loss encourages uniform expert utilization:
 
-$$
+```math
 \min \mathcal{L}_{aux} \Rightarrow f_i = P_i = \frac{1}{N} \quad \forall i
-$$
+```
 
 **Proof:**
 
@@ -178,9 +178,9 @@ Equality when all $f\_i P\_i$ are equal. Given $\sum\_i f\_i = 1$ and $\sum\_i P
 
 ### Standard Attention Complexity
 
-$$
+```math
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-$$
+```
 
 **Complexity:**
 - Time: $O(n^2 d)$
@@ -190,45 +190,45 @@ $$
 
 **Definition:** Sparse attention uses mask $M \in \{0, 1\}^{n \times n}$:
 
-$$
+```math
 A_{ij} = \begin{cases} \text{softmax}(QK^T/\sqrt{d})_{ij} & M_{ij} = 1 \\ 0 & M_{ij} = 0 \end{cases}
-$$
+```
 
 **Types of Patterns:**
 
 1. **Local (Sliding Window):**
 
-$$
+```math
 M_{ij} = \mathbf{1}[|i - j| \leq w/2]
-$$
+```
 
 2. **Strided:**
 
-$$
+```math
 M_{ij} = \mathbf{1}[j \mod s = 0]
-$$
+```
 
 3. **Global + Local:**
 
-$$
+```math
 M_{ij} = \mathbf{1}[|i - j| \leq w/2] \lor \mathbf{1}[i \in \mathcal{G}] \lor \mathbf{1}[j \in \mathcal{G}]
-$$
+```
 
 ### Theorem 5 (Sparse Attention Complexity)
 
 For sparsity pattern with $c$ connections per query:
 
-$$
+```math
 \text{Time} = O(ncd), \quad \text{Space} = O(nc)
-$$
+```
 
 **For sliding window (width $w$):** $c = w$, giving $O(nwd)$ time.
 
 **Speedup over full attention:**
 
-$$
+```math
 \frac{n^2}{nw} = \frac{n}{w}
-$$
+```
 
 For $n = 4096$, $w = 256$: 16× speedup.
 
@@ -238,23 +238,23 @@ For $n = 4096$, $w = 256$: 16× speedup.
 
 ### Standard Attention (Quadratic)
 
-$$
+```math
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V
-$$
+```
 
 ### Linear Attention (Linear)
 
 **Key Insight:** Replace softmax with kernel function:
 
-$$
+```math
 \text{Attention}(Q, K, V) = \frac{\phi(Q)\phi(K)^T V}{\phi(Q)\phi(K)^T \mathbf{1}}
-$$
+```
 
 **Rearranging (associativity):**
 
-$$
+```math
 = \frac{\phi(Q)(\phi(K)^T V)}{\phi(Q)(\phi(K)^T \mathbf{1})}
-$$
+```
 
 **Complexity:** $O(nd^2)$ instead of $O(n^2d)$.
 
@@ -262,9 +262,9 @@ $$
 
 For feature map $\phi: \mathbb{R}^d \to \mathbb{R}^D$, the approximation error is:
 
-$$
+```math
 \mathbb{E}[\|K_{exact} - \phi(Q)\phi(K)^T\|_F^2] \leq O\left(\frac{d}{D}\right)
-$$
+```
 
 **Common choices for $\phi$:**
 - Random Fourier features
@@ -279,15 +279,15 @@ $$
 
 For hidden activations after ReLU:
 
-$$
+```math
 h = \max(0, Wx + b)
-$$
+```
 
 **Theorem 7:** For $Wx + b \sim \mathcal{N}(\mu, \sigma^2)$:
 
-$$
+```math
 \mathbb{P}[h = 0] = \Phi\left(-\frac{\mu}{\sigma}\right)
-$$
+```
 
 Where $\Phi$ is the standard normal CDF.
 
@@ -309,9 +309,9 @@ Theoretical speedup in next layer: $1/\alpha$
 
 For training with sparsity constraint $\|W\|\_0 \leq k$:
 
-$$
+```math
 \mathcal{L}(W_t) - \mathcal{L}(W^*) \leq O\left(\frac{\|W_0 - W^*\|_F^2}{t} + \sigma_k(W^*)\right)
-$$
+```
 
 Where $\sigma\_k(W^*)$ is the error from approximating optimal weights with $k$ non-zeros.
 
@@ -321,15 +321,15 @@ Where $\sigma\_k(W^*)$ is the error from approximating optimal weights with $k$ 
 
 **Solution (STE):**
 
-$$
+```math
 \frac{\partial \mathcal{L}}{\partial W} = \frac{\partial \mathcal{L}}{\partial (M \odot W)} \odot M
-$$
+```
 
 **Theorem 10:** STE provides unbiased gradient estimate when:
 
-$$
+```math
 \mathbb{E}[M | W] = \text{smooth function of } W
-$$
+```
 
 ---
 
