@@ -14,10 +14,7 @@ Matrix factorization decomposes large weight matrices into products of smaller m
 
 Every matrix $W \in \mathbb{R}^{m \times n}$ can be decomposed as:
 
-```math
-W = U \Sigma V^T
-
-```
+$$W = U \Sigma V^T$$
 
 Where:
 
@@ -47,54 +44,33 @@ Where:
 
 The best rank-$k$ approximation to $W$ in Frobenius norm is:
 
-```math
-W_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T = U_k \Sigma_k V_k^T
-
-```
+$$W_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T = U_k \Sigma_k V_k^T$$
 
 With error:
 
-```math
-\|W - W_k\|_F = \sqrt{\sum_{i=k+1}^{r} \sigma_i^2}
-
-```
+$$\|W - W_k\|_F = \sqrt{\sum_{i=k+1}^{r} \sigma_i^2}$$
 
 **Proof:**
 
 Let $\tilde{W}$ be any rank-$k$ matrix. Then:
 
-```math
-\|W - \tilde{W}\|_F^2 = \|U\Sigma V^T - \tilde{W}\|_F^2
-
-```
+$$\|W - \tilde{W}\|_F^2 = \|U\Sigma V^T - \tilde{W}\|_F^2$$
 
 By orthogonal invariance:
 
-```math
-= \|\Sigma - U^T\tilde{W}V\|_F^2
-
-```
+$$= \|\Sigma - U^T\tilde{W}V\|_F^2$$
 
 Let $B = U^T\tilde{W}V$. Since $\text{rank}(B) = \text{rank}(\tilde{W}) \leq k$:
 
-```math
-\|W - \tilde{W}\|_F^2 = \sum_{i=1}^{r} (\sigma_i - b_{ii})^2 + \sum_{i \neq j} b_{ij}^2
-
-```
+$$\|W - \tilde{W}\|_F^2 = \sum_{i=1}^{r} (\sigma_i - b_{ii})^2 + \sum_{i \neq j} b_{ij}^2$$
 
 Minimizing: $b_{ii} = \sigma_i$ for $i \leq k$, zero otherwise.
 
-```math
-\min_{\tilde{W}} \|W - \tilde{W}\|_F^2 = \sum_{i=k+1}^{r} \sigma_i^2
-
-```
+$$\min_{\tilde{W}} \|W - \tilde{W}\|_F^2 = \sum_{i=k+1}^{r} \sigma_i^2$$
 
 **Corollary (Spectral Norm):**
 
-```math
-\|W - W_k\|_2 = \sigma_{k+1}
-
-```
+$$\|W - W_k\|_2 = \sigma_{k+1}$$
 
 ---
 
@@ -102,10 +78,7 @@ Minimizing: $b_{ii} = \sigma_i$ for $i \leq k$, zero otherwise.
 
 **Definition:** The energy captured by rank-$k$ approximation:
 
-```math
-E_k = \frac{\sum_{i=1}^{k} \sigma_i^2}{\sum_{i=1}^{r} \sigma_i^2} = \frac{\|W_k\|_F^2}{\|W\|_F^2}
-
-```
+$$E_k = \frac{\sum_{i=1}^{k} \sigma_i^2}{\sum_{i=1}^{r} \sigma_i^2} = \frac{\|W_k\|_F^2}{\|W\|_F^2}$$
 
 **Choosing Rank:** Select $k$ such that $E_k \geq \tau$ (e.g., $\tau = 0.99$).
 
@@ -113,10 +86,7 @@ E_k = \frac{\sum_{i=1}^{k} \sigma_i^2}{\sum_{i=1}^{r} \sigma_i^2} = \frac{\|W_k\
 
 For trained neural network weight matrices, singular values typically decay as:
 
-```math
-\sigma_i \approx c \cdot i^{-\alpha}, \quad \alpha \in [0.5, 2]
-
-```
+$$\sigma_i \approx c \cdot i^{-\alpha}, \quad \alpha \in [0.5, 2]$$
 
 **Implication:** Many weight matrices are approximately low-rank.
 
@@ -128,35 +98,23 @@ For trained neural network weight matrices, singular values typically decay as:
 
 **Standard:**
 
-```math
-y = Wx, \quad W \in \mathbb{R}^{m \times n}
-
-```
+$$y = Wx, \quad W \in \mathbb{R}^{m \times n}$$
 
 Parameters: $mn$
 
 **Factorized:**
 
-```math
-y = (UV)x = U(Vx), \quad U \in \mathbb{R}^{m \times r}, V \in \mathbb{R}^{r \times n}
-
-```
+$$y = (UV)x = U(Vx), \quad U \in \mathbb{R}^{m \times r}, V \in \mathbb{R}^{r \times n}$$
 
 Parameters: $r(m + n)$
 
 **Compression Ratio:**
 
-```math
-\rho = \frac{mn}{r(m+n)} = \frac{mn}{r(m+n)}
-
-```
+$$\rho = \frac{mn}{r(m+n)} = \frac{mn}{r(m+n)}$$
 
 **When is this beneficial?**
 
-```math
-r < \frac{mn}{m+n} = \frac{1}{1/m + 1/n}
-
-```
+$$r < \frac{mn}{m+n} = \frac{1}{1/m + 1/n}$$
 
 For $m = n$: $r < n/2$
 
@@ -168,17 +126,11 @@ For $m = n$: $r < n/2$
 
 For factorized layer with approximation error $E = W - UV$:
 
-```math
-\|Wx - UVx\|_2 = \|Ex\|_2 \leq \|E\|_2 \|x\|_2 = \sigma_{k+1} \|x\|_2
-
-```
+$$\|Wx - UVx\|_2 = \|Ex\|_2 \leq \|E\|_2 \|x\|_2 = \sigma_{k+1} \|x\|_2$$
 
 **For entire network with $L$ factorized layers:**
 
-```math
-\|f(x) - \hat{f}(x)\|_2 \leq \sum_{l=1}^{L} \sigma_{k_l+1}^{(l)} \prod_{j>l} \|W_j\|_2 \cdot \text{Lip}(\phi)^{L-l} \|x\|_2
-
-```
+$$\|f(x) - \hat{f}(x)\|_2 \leq \sum_{l=1}^{L} \sigma_{k_l+1}^{(l)} \prod_{j>l} \|W_j\|_2 \cdot \text{Lip}(\phi)^{L-l} \|x\|_2$$
 
 Where $\text{Lip}(\phi)$ is the Lipschitz constant of the activation function.
 
@@ -190,10 +142,7 @@ Where $\text{Lip}(\phi)$ is the Lipschitz constant of the activation function.
 
 For tensor $\mathcal{W} \in \mathbb{R}^{I_1 \times I_2 \times \ldots \times I_N}$:
 
-```math
-\mathcal{W} \approx \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}
-
-```
+$$\mathcal{W} \approx \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}$$
 
 Where:
 
@@ -205,10 +154,7 @@ Where:
 
 **Mode-n Product:**
 
-```math
-(\mathcal{G} \times_n A)_{i_1...i_{n-1}ji_{n+1}...i_N} = \sum_{k} \mathcal{G}_{i_1...i_{n-1}ki_{n+1}...i_N} A_{jk}
-
-```
+$$(\mathcal{G} \times_n A)_{i_1...i_{n-1}ji_{n+1}...i_N} = \sum_{k} \mathcal{G}_{i_1...i_{n-1}ki_{n+1}...i_N} A_{jk}$$
 
 ### Parameter Count
 
@@ -228,10 +174,7 @@ Tucker: $R_1 R_2 R_3 R_4 + C_{out}R_1 + C_{in}R_2 + HR_3 + WR_4$
 
 The Tucker decomposition minimizes:
 
-```math
-\|\mathcal{W} - \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}\|_F
-
-```
+$$\|\mathcal{W} - \mathcal{G} \times_1 A^{(1)} \times_2 A^{(2)} \ldots \times_N A^{(N)}\|_F$$
 
 **Solution via Higher-Order SVD (HOSVD):**
 
@@ -245,10 +188,7 @@ The Tucker decomposition minimizes:
 
 **Error bound:**
 
-```math
-\|\mathcal{W} - \text{Tucker}(\mathcal{W})\|_F^2 \leq \sum_{n=1}^{N} \sum_{i > R_n} (\sigma_i^{(n)})^2
-
-```
+$$\|\mathcal{W} - \text{Tucker}(\mathcal{W})\|_F^2 \leq \sum_{n=1}^{N} \sum_{i > R_n} (\sigma_i^{(n)})^2$$
 
 ---
 
@@ -256,19 +196,13 @@ The Tucker decomposition minimizes:
 
 ### Definition (CANDECOMP/PARAFAC)
 
-```math
-\mathcal{W} \approx \sum_{r=1}^{R} \lambda_r \cdot a_r^{(1)} \circ a_r^{(2)} \circ \ldots \circ a_r^{(N)}
-
-```
+$$\mathcal{W} \approx \sum_{r=1}^{R} \lambda_r \cdot a_r^{(1)} \circ a_r^{(2)} \circ \ldots \circ a_r^{(N)}$$
 
 Where $\circ$ denotes outer product.
 
 **Element-wise:**
 
-```math
-\mathcal{W}_{i_1 i_2 \ldots i_N} \approx \sum_{r=1}^{R} \lambda_r \prod_{n=1}^{N} a_{i_n r}^{(n)}
-
-```
+$$\mathcal{W}_{i_1 i_2 \ldots i_N} \approx \sum_{r=1}^{R} \lambda_r \prod_{n=1}^{N} a_{i_n r}^{(n)}$$
 
 ### Parameters
 
@@ -282,10 +216,7 @@ CP with rank $R$: $R(1 + \sum_n I_n)$
 
 The CP decomposition is essentially unique (up to permutation and scaling) when:
 
-```math
-R \leq \frac{\prod_{n=1}^{N} I_n}{I_{\max}}
-
-```
+$$R \leq \frac{\prod_{n=1}^{N} I_n}{I_{\max}}$$
 
 Where $I_{\max} = \max_n I_n$.
 
@@ -297,28 +228,19 @@ Where $I_{\max} = \max_n I_n$.
 
 LoRA update:
 
-```math
-W' = W + BA
-
-```
+$$W' = W + BA$$
 
 Where $B \in \mathbb{R}^{m \times r}$, $A \in \mathbb{R}^{r \times n}$.
 
 **This is low-rank matrix perturbation:**
 
-```math
-\text{rank}(BA) \leq r
-
-```
+$$\text{rank}(BA) \leq r$$
 
 ### Theorem 7 (LoRA Expressiveness)
 
 Any weight update $\Delta W$ can be approximated by LoRA with rank $r$ if:
 
-```math
-\|\Delta W - BA\|_F \leq \sigma_{r+1}(\Delta W)
-
-```
+$$\|\Delta W - BA\|_F \leq \sigma_{r+1}(\Delta W)$$
 
 **Proof:** By Eckart-Young theorem.
 
@@ -326,10 +248,7 @@ Any weight update $\Delta W$ can be approximated by LoRA with rank $r$ if:
 
 **Theorem 8:** The optimal $B, A$ minimizing $\|W' - W_{new}\|_F$ are:
 
-```math
-A = \sqrt{\Sigma_r} V_r^T, \quad B = U_r \sqrt{\Sigma_r}
-
-```
+$$A = \sqrt{\Sigma_r} V_r^T, \quad B = U_r \sqrt{\Sigma_r}$$
 
 Where $\Delta W = W_{new} - W = U_r \Sigma_r V_r^T$ is the rank-$r$ SVD.
 
@@ -341,10 +260,7 @@ Where $\Delta W = W_{new} - W = U_r \Sigma_r V_r^T$ is the rank-$r$ SVD.
 
 For randomly initialized neural networks:
 
-```math
-\sigma_i \sim \sqrt{n} \cdot f(\lambda_i)
-
-```
+$$\sigma_i \sim \sqrt{n} \cdot f(\lambda_i)$$
 
 Where $\lambda_i$ follows the Marchenko-Pastur distribution.
 
@@ -368,24 +284,15 @@ Training typically leads to:
 
 **Energy-based:**
 
-```math
-r^* = \min\{k : E_k \geq \tau\}
-
-```
+$$r^* = \min\{k : E_k \geq \tau\}$$
 
 **Error-based:**
 
-```math
-r^* = \min\{k : \|W - W_k\|_F / \|W\|_F \leq \epsilon\}
-
-```
+$$r^* = \min\{k : \|W - W_k\|_F / \|W\|_F \leq \epsilon\}$$
 
 **Compute-based:**
 
-```math
-r^* = \arg\min_k \{r(m+n) : r(m+n) < mn / \rho_{target}\}
-
-```
+$$r^* = \arg\min_k \{r(m+n) : r(m+n) < mn / \rho_{target}\}$$
 
 ### Theorem 10 (Factorization with Fine-tuning)
 
@@ -393,10 +300,7 @@ Let $\mathcal{L}^*$ be optimal loss and $\mathcal{L}_k$ loss after rank-$k$ fact
 
 After fine-tuning for $T$ steps with learning rate $\eta$:
 
-```math
-\mathcal{L}_{k,T} \leq \mathcal{L}_k - T\eta\|\nabla\mathcal{L}\|^2 / 2
-
-```
+$$\mathcal{L}_{k,T} \leq \mathcal{L}_k - T\eta\|\nabla\mathcal{L}\|^2 / 2$$
 
 **Implication:** Fine-tuning can recover most accuracy lost to factorization.
 

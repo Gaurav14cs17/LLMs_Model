@@ -32,10 +32,7 @@ The attention score function determines **how compatibility between queries and 
 
 ### 1. Additive Attention (Bahdanau, 2014)
 
-```math
-\text{score}(q, k) = v^T \tanh(W_1 q + W_2 k)
-
-```
+$$\text{score}(q, k) = v^T \tanh(W_1 q + W_2 k)$$
 
 **How It Works:**
 
@@ -66,10 +63,7 @@ The attention score function determines **how compatibility between queries and 
 
 ### 2. Dot-Product Attention (Luong, 2015)
 
-```math
-\text{score}(q, k) = q^T k
-
-```
+$$\text{score}(q, k) = q^T k$$
 
 Simply compute the inner product between q and k.
 
@@ -93,10 +87,7 @@ Simply compute the inner product between q and k.
 
 ### 3. Scaled Dot-Product Attention (Transformer, 2017)
 
-```math
-\text{score}(q, k) = \frac{q^T k}{\sqrt{d_k}}
-
-```
+$$\text{score}(q, k) = \frac{q^T k}{\sqrt{d_k}}$$
 
 **Properties:**
 
@@ -184,28 +175,19 @@ For a single query-key pair:
 
 ### General Attention (Learned Similarity)
 
-```math
-\text{score}(q, k) = q^T W k
-
-```
+$$\text{score}(q, k) = q^T W k$$
 
 Introduces a learnable interaction matrix W.
 
 ### Cosine Similarity
 
-```math
-\text{score}(q, k) = \frac{q^T k}{\|q\| \|k\|}
-
-```
+$$\text{score}(q, k) = \frac{q^T k}{\|q\| \|k\|}$$
 
 Normalized dot product (bounded [-1, 1]).
 
 ### Concatenation-based
 
-```math
-\text{score}(q, k) = \text{MLP}([q; k])
-
-```
+$$\text{score}(q, k) = \text{MLP}([q; k])$$
 
 Concatenate q and k, pass through MLP.
 

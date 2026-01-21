@@ -99,12 +99,9 @@ Each input embedding is transformed into three different vectors through learned
 
 **The formulas:**
 
-```math
-Q = X \times W_Q \quad \text{(Query)}
+$$Q = X \times W_Q \quad \text{(Query)}
 K = X \times W_K \quad \text{(Key)}
-V = X \times W_V \quad \text{(Value)}
-
-```
+V = X \times W_V \quad \text{(Value)}$$
 
 **What each represents:**
 
@@ -157,10 +154,7 @@ Using different matrices allows:
 
 Calculate how relevant each position is to every other position:
 
-```math
-\text{Scores} = \frac{QK^T}{\sqrt{d_k}}
-
-```
+$$\text{Scores} = \frac{QK^T}{\sqrt{d_k}}$$
 
 **Step-by-step breakdown:**
 
@@ -198,10 +192,7 @@ When we compute the dot product Q·K^T, something dangerous happens:
 
 If each element of q and k has variance 1, then:
 
-```math
-\text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k
-
-```
+$$\text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k$$
 
 The **variance grows linearly** with dimension!
 
@@ -230,17 +221,11 @@ When softmax receives large values:
 
 ### The Solution: Scale by √d_k
 
-```math
-\text{Scaled Scores} = \frac{Q \cdot K^T}{\sqrt{d_k}}
-
-```
+$$\text{Scaled Scores} = \frac{Q \cdot K^T}{\sqrt{d_k}}$$
 
 **Why √d_k specifically?**
 
-```math
-\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{d_k}{d_k} = 1
-
-```
+$$\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{d_k}{d_k} = 1$$
 
 Now the variance is **always 1**, regardless of dimension!
 
@@ -278,10 +263,7 @@ q·k / √64 = 12.8 / 8 = 1.6 (reasonable!)
 
 Convert raw scores into probability distributions:
 
-```math
-\text{Attention Weights} = \text{softmax}(\text{Scores})
-
-```
+$$\text{Attention Weights} = \text{softmax}(\text{Scores})$$
 
 **What softmax does:**
 
@@ -306,10 +288,7 @@ Convert raw scores into probability distributions:
 
 Compute the final output by aggregating values based on attention weights:
 
-```math
-\text{Output} = \text{Attention Weights} \times V
-
-```
+$$\text{Output} = \text{Attention Weights} \times V$$
 
 **What this does:**
 - For each position, take a weighted average of ALL value vectors
@@ -364,10 +343,7 @@ Each output is now **context-aware** — it incorporates information from all po
 
 ## Complete Mathematical Formula
 
-```math
-\text{SelfAttention}(X) = \text{softmax}\left(\frac{(XW_Q)(XW_K)^T}{\sqrt{d_k}}\right)(XW_V)
-
-```
+$$\text{SelfAttention}(X) = \text{softmax}\left(\frac{(XW_Q)(XW_K)^T}{\sqrt{d_k}}\right)(XW_V)$$
 
 ### Parameter Shapes
 
@@ -481,10 +457,7 @@ Research has shown that different attention heads in trained models specialize i
 
 Sometimes we add a **temperature parameter** τ to control attention sharpness:
 
-```math
-\text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k} \times \tau}\right)V
-
-```
+$$\text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k} \times \tau}\right)V$$
 
 ### Effect of Temperature
 

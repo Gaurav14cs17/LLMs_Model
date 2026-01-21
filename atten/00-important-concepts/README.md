@@ -51,34 +51,22 @@ When computing attention scores via dot product, the **variance grows with dimen
 
 Assume q and k have zero mean and unit variance per component:
 
-```math
-q = [q_1, q_2, ..., q_{d_k}]
-k = [k_1, k_2, ..., k_{d_k}]
-
-```
+$$q = [q_1, q_2, ..., q_{d_k}]
+k = [k_1, k_2, ..., k_{d_k}]$$
 
 The dot product is:
 
-```math
-q \cdot k = \sum_{i=1}^{d_k} q_i \times k_i
-
-```
+$$q \cdot k = \sum_{i=1}^{d_k} q_i \times k_i$$
 
 Since Var(q_i × k_i) = 1 (assuming independence):
 
-```math
-\text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k
-
-```
+$$\text{Var}(q \cdot k) = \sum_{i=1}^{d_k} \text{Var}(q_i \times k_i) = d_k$$
 
 ### The Solution
 
 After dividing by √d_k:
 
-```math
-\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{\text{Var}(q \cdot k)}{d_k} = \frac{d_k}{d_k} = 1
-
-```
+$$\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{\text{Var}(q \cdot k)}{d_k} = \frac{d_k}{d_k} = 1$$
 
 **Variance is now ~1 regardless of dimension!**
 
@@ -112,10 +100,7 @@ After dividing by √d_k:
 
 In multi-head attention:
 
-```math
-d_k = d_v = \frac{d_{model}}{h}
-
-```
+$$d_k = d_v = \frac{d_{model}}{h}$$
 
 **Example:** BERT-base
 
@@ -183,10 +168,7 @@ Different roles need different transformations!
 
 Temperature τ modifies how "sharp" the attention distribution is:
 
-```math
-\text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k} \times \tau}\right)
-
-```
+$$\text{Attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k} \times \tau}\right)$$
 
 ### Temperature Effects
 
@@ -217,10 +199,7 @@ Temperature τ modifies how "sharp" the attention distribution is:
 
 Dropout is applied to attention weights **after softmax, before multiplying with V**:
 
-```math
-\text{Output} = \text{Dropout}(\text{softmax}(scores)) \times V
-
-```
+$$\text{Output} = \text{Dropout}(\text{softmax}(scores)) \times V$$
 
 ### Why Drop Attention Weights?
 
@@ -254,10 +233,7 @@ Self-attention is **permutation equivariant**:
 
 Add position information **before** attention:
 
-```math
-\text{Input} = \text{Embedding} + \text{PositionalEncoding}
-
-```
+$$\text{Input} = \text{Embedding} + \text{PositionalEncoding}$$
 
 ### Types of Positional Encoding
 
@@ -285,10 +261,7 @@ Position information flows into attention through Q and K:
 
 After computing attention output, there's often an **output projection**:
 
-```math
-\text{FinalOutput} = \text{Concat}(\text{head}_1, ..., \text{head}_h) \times W_O
-
-```
+$$\text{FinalOutput} = \text{Concat}(\text{head}_1, ..., \text{head}_h) \times W_O$$
 
 ### Purpose of W_O
 

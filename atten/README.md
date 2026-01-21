@@ -69,10 +69,7 @@ Think of attention as a **soft database lookup**:
 
 ## 📐 The Universal Formula
 
-```math
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
-
-```
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
 
 ### Step-by-Step:
 

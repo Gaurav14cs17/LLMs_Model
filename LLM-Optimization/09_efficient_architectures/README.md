@@ -14,10 +14,7 @@ Efficient architectures reduce memory and compute through algorithmic innovation
 
 ### Attention Mechanism
 
-```math
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-
-```
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 Where:
 
@@ -79,10 +76,7 @@ Partition $K, V$ into blocks: $K_1, V_1, \ldots, K_{T_c}, V_{T_c}$ of size $B_c 
 
 **Block attention:**
 
-```math
-O_i = \sum_j \text{softmax}_{local}(Q_i K_j^T) V_j
-
-```
+$$O_i = \sum_j \text{softmax}_{local}(Q_i K_j^T) V_j$$
 
 **Problem:** Softmax requires seeing all values!
 
@@ -94,10 +88,7 @@ O_i = \sum_j \text{softmax}_{local}(Q_i K_j^T) V_j
 
 The softmax can be computed incrementally:
 
-```math
-\text{softmax}(x)_i = \frac{e^{x_i}}{\sum_j e^{x_j}} = \frac{e^{x_i - m}}{\sum_j e^{x_j - m}}
-
-```
+$$\text{softmax}(x)_i = \frac{e^{x_i}}{\sum_j e^{x_j}} = \frac{e^{x_i - m}}{\sum_j e^{x_j - m}}$$
 
 Where $m = \max_j x_j$ (for numerical stability).
 
@@ -105,21 +96,15 @@ Where $m = \max_j x_j$ (for numerical stability).
 
 For new block $x_{new}$:
 
-```math
-m_{new} = \max(m_{old}, \max(x_{new}))
+$$m_{new} = \max(m_{old}, \max(x_{new}))
 \ell_{new} = e^{m_{old} - m_{new}} \cdot \ell_{old} + \sum_j e^{x_{new,j} - m_{new}}
-\text{softmax}(x)_i = \frac{e^{x_i - m_{new}}}{\ell_{new}}
-
-```
+\text{softmax}(x)_i = \frac{e^{x_i - m_{new}}}{\ell_{new}}$$
 
 **Theorem 2 (Output Update):**
 
 For attention output $O$ with blocks:
 
-```math
-O_{new} = \frac{e^{m_{old} - m_{new}} \cdot \ell_{old} \cdot O_{old} + \sum_j e^{S_{ij} - m_{new}} V_j}{\ell_{new}}
-
-```
+$$O_{new} = \frac{e^{m_{old} - m_{new}} \cdot \ell_{old} \cdot O_{old} + \sum_j e^{S_{ij} - m_{new}} V_j}{\ell_{new}}$$
 
 This allows computing attention without materializing the full $N \times N$ matrix!
 
@@ -164,10 +149,7 @@ Output: O in HBM
 
 Flash Attention computes exact attention:
 
-```math
-O_{FA} = \text{softmax}(QK^T)V = O_{standard}
-
-```
+$$O_{FA} = \text{softmax}(QK^T)V = O_{standard}$$
 
 **Proof:**
 
@@ -187,10 +169,7 @@ At termination (all blocks processed), this equals the full softmax.
 
 Reads/writes to HBM:
 
-```math
-\Theta\left(Nd + \frac{N^2d}{M}\right)
-
-```
+$$\Theta\left(Nd + \frac{N^2d}{M}\right)$$
 
 Where $M$ = SRAM size.
 
@@ -217,26 +196,17 @@ For typical values ($N = 4096$, $d = 64$, $M = 100KB$): **~4× fewer HBM accesse
 
 **Work partitioning:**
 
-```math
-\text{Warps} \leftarrow \text{blocks of } Q
-
-```
+$$\text{Warps} \leftarrow \text{blocks of } Q$$
 
 Instead of:
 
-```math
-\text{Warps} \leftarrow \text{blocks of } K, V
-
-```
+$$\text{Warps} \leftarrow \text{blocks of } K, V$$
 
 ### Theorem 4 (Flash Attention 2 Speedup)
 
 For sequence length $N$ and $P$ processing units:
 
-```math
-\text{Speedup}_{FA2/FA1} \approx \min\left(\frac{N}{B_r}, 2\right)
-
-```
+$$\text{Speedup}_{FA2/FA1} \approx \min\left(\frac{N}{B_r}, 2\right)$$
 
 **Typical:** 1.5-2× over Flash Attention 1.
 
@@ -277,10 +247,7 @@ For kernel $k(q, k) = \phi(q)^T\phi(k)$.
 
 ### Theorem 6 (Associativity Trick)
 
-```math
-\phi(Q)(\phi(K)^T V) = \phi(Q) \cdot \underbrace{\left(\sum_i \phi(k_i)v_i^T\right)}_{d \times d \text{ matrix}}
-
-```
+$$\phi(Q)(\phi(K)^T V) = \phi(Q) \cdot \underbrace{\left(\sum_i \phi(k_i)v_i^T\right)}_{d \times d \text{ matrix}}$$
 
 **Complexity:** $O(Nd^2)$ instead of $O(N^2d)$.
 
@@ -292,10 +259,7 @@ For kernel $k(q, k) = \phi(q)^T\phi(k)$.
 
 For RBF kernel $k(x, y) = e^{-\|x-y\|^2/2}$:
 
-```math
-k(x, y) \approx \phi(x)^T\phi(y)
-
-```
+$$k(x, y) \approx \phi(x)^T\phi(y)$$
 
 Where $\phi(x) = \sqrt{\frac{2}{D}}[\cos(\omega_1^T x), \sin(\omega_1^T x), \ldots]$
 
@@ -311,33 +275,21 @@ And $\omega_i \sim \mathcal{N}(0, I)$.
 
 **MHA:** Each head has own $K, V$
 
-```math
-\text{head}_i = \text{Attn}(QW_i^Q, KW_i^K, VW_i^V)
-
-```
+$$\text{head}_i = \text{Attn}(QW_i^Q, KW_i^K, VW_i^V)$$
 
 **MQA:** All heads share $K, V$
 
-```math
-\text{head}_i = \text{Attn}(QW_i^Q, KW^K, VW^V)
-
-```
+$$\text{head}_i = \text{Attn}(QW_i^Q, KW^K, VW^V)$$
 
 **GQA:** Groups share $K, V$
 
-```math
-\text{head}_i = \text{Attn}(QW_i^Q, KW_{g(i)}^K, VW_{g(i)}^V)
-
-```
+$$\text{head}_i = \text{Attn}(QW_i^Q, KW_{g(i)}^K, VW_{g(i)}^V)$$
 
 ### Theorem 8 (GQA Approximation Error)
 
 For GQA with $g$ groups vs MHA with $h$ heads:
 
-```math
-\mathbb{E}[\|O_{MHA} - O_{GQA}\|^2] \leq \frac{h - g}{h} \cdot \text{Var}(KV)
-
-```
+$$\mathbb{E}[\|O_{MHA} - O_{GQA}\|^2] \leq \frac{h - g}{h} \cdot \text{Var}(KV)$$
 
 **Proof sketch:** Averaging KV heads within group introduces error proportional to within-group variance.
 
