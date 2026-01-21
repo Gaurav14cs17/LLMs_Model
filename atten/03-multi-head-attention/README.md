@@ -54,7 +54,7 @@ Instead of one large attention with dimension d_model, use **h smaller attention
 
 ### Step 1: Input
 
-We start with input embeddings of shape **(seq_len × d_model)**.
+We start with input embeddings of shape **(`seq_len` × d_model)**.
 
 **Example:** For d_model = 512, a sequence of 10 tokens has shape (10 × 512).
 
@@ -68,9 +68,9 @@ Each head gets its own **Q, K, V** through learned weight matrices:
 
 | Projection | Formula | Shape |
 |------------|---------|-------|
-| Query | Q_i = X × W_i^Q | (seq_len × d_k) |
-| Key | K_i = X × W_i^K | (seq_len × d_k) |
-| Value | V_i = X × W_i^V | (seq_len × d_v) |
+| Query | Q_i = X × W_i^Q | (`seq_len` × d_k) |
+| Key | K_i = X × W_i^K | (`seq_len` × d_k) |
+| Value | V_i = X × W_i^V | (`seq_len` × d_v) |
 
 **Weight matrices:**
 - W_i^Q ∈ ℝ^(d_model × d_k)
@@ -107,7 +107,7 @@ $$\text{weights}_i = \text{softmax}(\text{scores}_i)$$
 
 $$\text{head}_i = \text{weights}_i \times V_i$$
 
-**Output shape per head:** (seq_len × d_k)
+**Output shape per head:** (`seq_len` × d_k)
 
 #### Why This Works in Parallel
 
@@ -128,9 +128,9 @@ After all heads complete their attention:
 $$\text{Concat} = [\text{head}_1; \text{head}_2; ...; \text{head}_h]$$
 
 **Shape transformation:**
-- Each head: (seq_len × d_k)
+- Each head: (`seq_len` × d_k)
 
-- After concat: (seq_len × h × d_k) = (seq_len × d_model)
+- After concat: (`seq_len` × h × d_k) = (`seq_len` × d_model)
 
 **Example:**
 - 8 heads × 64 dimensions = 512 dimensions (restored to d_model!)
@@ -152,7 +152,7 @@ Where W^O ∈ ℝ^(d_model × d_model)
 
 - Final transformation back to d_model space
 
-**Final output shape:** (seq_len × d_model)
+**Final output shape:** (`seq_len` × d_model)
 
 ---
 
